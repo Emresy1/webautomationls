@@ -15,6 +15,9 @@ public class MainPage extends MainPage_Constants{
 	}
 
 
+	public  void fdfs(){
+
+	}
 
   }
 	
