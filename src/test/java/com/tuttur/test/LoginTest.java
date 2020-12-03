@@ -10,11 +10,19 @@ import org.openqa.selenium.By;
 public class LoginTest extends BaseTest{
 	PropertiesFile prop = new PropertiesFile(driver);
 
+	/**
+	 * Case 1.0
+	 * Üye numarasıyla başarılı login
+	 * @throws IOException
+	 */
 
 	@Test
-	public void firstTest(){
+	public void successfullyLoginWithAccountNo() throws IOException {
 
+		new MainPage(driver).getLoginPage().successfullyLogin().checkAccountNo();
 
 	}
+
+
 
  }
