@@ -30,7 +30,7 @@ public class MainPage extends MainPage_Constants{
 	public MainPage checkAccountNo() throws IOException {
 
 		Assert.assertTrue("Account numarası doğru değil", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject("account_no")));
-		System.out.println("Account numarası başarılı şekilde geçti");
+		System.out.println("Account numarası ile login, başarılı şekilde geçti");
 		return this;
 	}
 
