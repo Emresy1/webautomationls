@@ -122,7 +122,7 @@
       <workItem from="1606981712524" duration="630000" />
       <workItem from="1606993588121" duration="5315000" />
       <workItem from="1607073163758" duration="2433000" />
-      <workItem from="1607083510224" duration="570000" />
+      <workItem from="1607083510224" duration="809000" />
     </task>
     <servers />
   </component>
@@ -146,6 +146,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="495" y="299" key="AbstractVcsHelper.FilterDialog.org.jetbrains.idea.svn.history.SvnVersionFilterComponent/0.0.1440.900@0.0.1440.900" timestamp="1607082298682" />
+    <state x="306" y="25" key="CommitChangelistDialog2" timestamp="1607087665854">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="306" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1607087665854" />
     <state width="1398" height="238" key="GridCell.Tab.0.bottom" timestamp="1607083504960">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

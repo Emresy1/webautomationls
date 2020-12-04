@@ -24,10 +24,11 @@ public class LoginPage extends LoginPage_Constants {
     }
 
     public MainPage successfullyLogin() throws IOException {
-        int a = 0;
+        int a = 1;
         setUsername(prop.getObject("account_no"));
         setPassword(prop.getObject("password"));
         clickObjectBy(SUBMIT);
+
 
         return new MainPage(driver);
     }
