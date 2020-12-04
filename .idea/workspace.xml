@@ -22,8 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="">
+    <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="test3">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,9 +61,23 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginTest.firstTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tuttur.web.test" />
       <extension name="coverage">
@@ -122,8 +138,17 @@
       <workItem from="1606981712524" duration="630000" />
       <workItem from="1606993588121" duration="5315000" />
       <workItem from="1607073163758" duration="2433000" />
-      <workItem from="1607083510224" duration="809000" />
+      <workItem from="1607083510224" duration="1160000" />
+      <workItem from="1607088886473" duration="476000" />
     </task>
+    <task id="LOCAL-00001" summary="test3">
+      <created>1607087918397</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607087918397</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,15 +166,19 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test3" />
+    <option name="LAST_COMMIT_MESSAGE" value="test3" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="495" y="299" key="AbstractVcsHelper.FilterDialog.org.jetbrains.idea.svn.history.SvnVersionFilterComponent" timestamp="1607082298682">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="495" y="299" key="AbstractVcsHelper.FilterDialog.org.jetbrains.idea.svn.history.SvnVersionFilterComponent/0.0.1440.900@0.0.1440.900" timestamp="1607082298682" />
-    <state x="306" y="25" key="CommitChangelistDialog2" timestamp="1607087665854">
+    <state x="306" y="25" key="CommitChangelistDialog2" timestamp="1607087679409">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="306" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1607087665854" />
+    <state x="306" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1607087679409" />
     <state width="1398" height="238" key="GridCell.Tab.0.bottom" timestamp="1607083504960">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -194,10 +223,14 @@
     </state>
     <state width="1398" height="238" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1607083504961" />
     <state width="1398" height="304" key="GridCell.Tab.1.right/0.23.1440.832@0.23.1440.832" timestamp="1607073487948" />
-    <state x="221" y="89" key="SettingsEditor" timestamp="1607082882704">
+    <state x="221" y="23" width="1024" height="833" key="SettingsEditor" timestamp="1607088973795">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1607082882704" />
+    <state x="221" y="23" width="1024" height="833" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1607088973795" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1607087921876">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1607087921876" />
     <state x="537" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607082357679">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

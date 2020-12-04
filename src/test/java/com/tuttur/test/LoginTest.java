@@ -20,6 +20,7 @@ public class LoginTest extends BaseTest{
 	public void successfullyLoginWithAccountNo() throws IOException {
 
 		new MainPage(driver).getLoginPage().successfullyLogin().checkAccountNo();
+        System.out.println("emre");
 
 	}
 
