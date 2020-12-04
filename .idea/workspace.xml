@@ -24,6 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,15 +63,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,7 +126,8 @@
       <workItem from="1606917217589" duration="25000" />
       <workItem from="1606917249746" duration="3000" />
       <workItem from="1606981712524" duration="630000" />
-      <workItem from="1606993588121" duration="5003000" />
+      <workItem from="1606993588121" duration="5315000" />
+      <workItem from="1607073163758" duration="190000" />
     </task>
     <servers />
   </component>
@@ -145,29 +147,44 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="215" key="GridCell.Tab.0.bottom" timestamp="1607004160510">
-      <screen x="0" y="23" width="1440" height="832" />
+    <state width="1398" height="215" key="GridCell.Tab.0.bottom" timestamp="1607071829140">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607071829140" />
     <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1607004160510" />
     <state width="1878" height="305" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431045" />
-    <state width="1398" height="215" key="GridCell.Tab.0.center" timestamp="1607004160509">
-      <screen x="0" y="23" width="1440" height="832" />
+    <state width="1398" height="215" key="GridCell.Tab.0.center" timestamp="1607071829139">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607071829139" />
     <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1607004160509" />
     <state width="1878" height="305" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431044" />
-    <state width="1398" height="215" key="GridCell.Tab.0.left" timestamp="1607004160508">
-      <screen x="0" y="23" width="1440" height="832" />
+    <state width="1398" height="215" key="GridCell.Tab.0.left" timestamp="1607071829136">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607071829135" />
     <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1607004160508" />
     <state width="1878" height="305" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431044" />
-    <state width="1398" height="215" key="GridCell.Tab.0.right" timestamp="1607004160510">
-      <screen x="0" y="23" width="1440" height="832" />
+    <state width="1398" height="215" key="GridCell.Tab.0.right" timestamp="1607071829139">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="215" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607071829139" />
     <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1607004160510" />
     <state width="1878" height="305" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431045" />
     <state x="385" y="179" width="670" height="676" key="search.everywhere.popup" timestamp="1607001124078">
       <screen x="0" y="23" width="1440" height="832" />
     </state>
     <state x="385" y="179" width="670" height="676" key="search.everywhere.popup/0.23.1440.832@0.23.1440.832" timestamp="1607001124078" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
