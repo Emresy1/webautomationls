@@ -27,6 +27,7 @@ public class LoginPage extends LoginPage_Constants {
         setUsername(prop.getObject("account_no"));
         setPassword(prop.getObject("password"));
         clickObjectBy(SUBMIT);
+
         return new MainPage(driver);
     }
 
