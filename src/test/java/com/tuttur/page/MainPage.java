@@ -23,7 +23,7 @@ public class MainPage extends MainPage_Constants{
 
 	public LoginPage getLoginPage(){
 
-		clickObjectBy(By.cssSelector(".dasgd"));
+		clickObjectBy(By.cssSelector(".dasgvgfgfd"));
 		return new LoginPage(driver);
 
 	}

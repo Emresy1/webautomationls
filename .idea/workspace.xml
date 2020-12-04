@@ -24,9 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +48,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1kjqoCUb91BNXaWIDatcmBdsqqh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -61,19 +59,9 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
   </component>
   <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LoginTest.firstTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tuttur.web.test" />
       <extension name="coverage">
@@ -114,6 +102,12 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+    <option name="runUnderTerminal" value="true" />
+    <option name="FORCE_UPDATE" value="true" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="" />
@@ -127,7 +121,7 @@
       <workItem from="1606917249746" duration="3000" />
       <workItem from="1606981712524" duration="630000" />
       <workItem from="1606993588121" duration="5315000" />
-      <workItem from="1607073163758" duration="190000" />
+      <workItem from="1607073163758" duration="2433000" />
     </task>
     <servers />
   </component>
@@ -147,30 +141,62 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="215" key="GridCell.Tab.0.bottom" timestamp="1607071829140">
+    <state x="495" y="299" key="AbstractVcsHelper.FilterDialog.org.jetbrains.idea.svn.history.SvnVersionFilterComponent" timestamp="1607082298682">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607071829140" />
+    <state x="495" y="299" key="AbstractVcsHelper.FilterDialog.org.jetbrains.idea.svn.history.SvnVersionFilterComponent/0.0.1440.900@0.0.1440.900" timestamp="1607082298682" />
+    <state width="1398" height="238" key="GridCell.Tab.0.bottom" timestamp="1607083504960">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="238" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607083504960" />
     <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1607004160510" />
     <state width="1878" height="305" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431045" />
-    <state width="1398" height="215" key="GridCell.Tab.0.center" timestamp="1607071829139">
+    <state width="1398" height="238" key="GridCell.Tab.0.center" timestamp="1607083504959">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="215" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607071829139" />
+    <state width="1398" height="238" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607083504959" />
     <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1607004160509" />
     <state width="1878" height="305" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431044" />
-    <state width="1398" height="215" key="GridCell.Tab.0.left" timestamp="1607071829136">
+    <state width="1398" height="238" key="GridCell.Tab.0.left" timestamp="1607083504958">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="215" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607071829135" />
+    <state width="1398" height="238" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607083504958" />
     <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1607004160508" />
     <state width="1878" height="305" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431044" />
-    <state width="1398" height="215" key="GridCell.Tab.0.right" timestamp="1607071829139">
+    <state width="1398" height="238" key="GridCell.Tab.0.right" timestamp="1607083504959">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="215" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607071829139" />
+    <state width="1398" height="238" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607083504959" />
     <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1607004160510" />
     <state width="1878" height="305" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431045" />
+    <state width="1398" height="238" key="GridCell.Tab.1.bottom" timestamp="1607083504962">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="238" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607083504962" />
+    <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.23.1440.832@0.23.1440.832" timestamp="1607073487949" />
+    <state width="1398" height="238" key="GridCell.Tab.1.center" timestamp="1607083504961">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="238" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1607083504961" />
+    <state width="1398" height="304" key="GridCell.Tab.1.center/0.23.1440.832@0.23.1440.832" timestamp="1607073487948" />
+    <state width="1398" height="238" key="GridCell.Tab.1.left" timestamp="1607083504960">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="238" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1607083504960" />
+    <state width="1398" height="304" key="GridCell.Tab.1.left/0.23.1440.832@0.23.1440.832" timestamp="1607073487947" />
+    <state width="1398" height="238" key="GridCell.Tab.1.right" timestamp="1607083504961">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="238" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1607083504961" />
+    <state width="1398" height="304" key="GridCell.Tab.1.right/0.23.1440.832@0.23.1440.832" timestamp="1607073487948" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1607082882704">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1607082882704" />
+    <state x="537" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607082357679">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="537" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1607082357679" />
     <state x="385" y="179" width="670" height="676" key="search.everywhere.popup" timestamp="1607001124078">
       <screen x="0" y="23" width="1440" height="832" />
     </state>
