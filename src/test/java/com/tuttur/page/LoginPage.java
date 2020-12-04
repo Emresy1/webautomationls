@@ -24,6 +24,7 @@ public class LoginPage extends LoginPage_Constants {
     }
 
     public MainPage successfullyLogin() throws IOException {
+        int a = 0;
         setUsername(prop.getObject("account_no"));
         setPassword(prop.getObject("password"));
         clickObjectBy(SUBMIT);
