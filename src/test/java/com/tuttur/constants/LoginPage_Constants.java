@@ -9,7 +9,8 @@ public class LoginPage_Constants extends BasePageUtil {
         super(driver);
     }
 
-    public By USERNAME = By.id("username");
-    public By PASSWORD = By.id("password");
-    public By SUBMIT = By.id("submit");
+    public By USERNAME = By.name("username");
+    public By PASSWORD = By.name("password");
+    public By BUTTON_LOGIN_ON_POPUP = By.cssSelector(".medium.primary.loginForm-button");
+    public By LOGIN_ERROR_FIELD = By.className("formPage-error");
 }
