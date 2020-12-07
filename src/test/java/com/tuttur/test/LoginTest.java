@@ -47,6 +47,7 @@ public class LoginTest extends BaseTest {
     public void failLogin() throws IOException {
         new MainPage(driver).getLoginPage().login(prop.getObject("login_ssn"));
         new LoginPage(driver).checkFailLogin();
+
     }
 }
 
