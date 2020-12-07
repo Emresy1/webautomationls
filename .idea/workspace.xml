@@ -22,10 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="test3">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="testConflict2">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,13 +43,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="1kjqoCUb91BNXaWIDatcmBdsqqh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -57,27 +51,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LoginTest.firstTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tuttur.web.test" />
       <extension name="coverage">
@@ -138,17 +122,33 @@
       <workItem from="1606981712524" duration="630000" />
       <workItem from="1606993588121" duration="5315000" />
       <workItem from="1607073163758" duration="2433000" />
-      <workItem from="1607083510224" duration="1160000" />
-      <workItem from="1607088886473" duration="476000" />
+      <workItem from="1607083510224" duration="809000" />
+      <workItem from="1607088544131" duration="486000" />
+      <workItem from="1607089041080" duration="571000" />
+      <workItem from="1607329763157" duration="259000" />
     </task>
-    <task id="LOCAL-00001" summary="test3">
-      <created>1607087918397</created>
+    <task id="LOCAL-00001" summary="update2">
+      <created>1607089324497</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1607087918397</updated>
+      <updated>1607089324497</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update2">
+      <created>1607089366634</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607089366634</updated>
+    </task>
+    <task id="LOCAL-00003" summary="con">
+      <created>1607090233898</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607090233898</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,78 +167,27 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test3" />
-    <option name="LAST_COMMIT_MESSAGE" value="test3" />
+    <MESSAGE value="update2" />
+    <MESSAGE value="con" />
+    <option name="LAST_COMMIT_MESSAGE" value="con" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="495" y="299" key="AbstractVcsHelper.FilterDialog.org.jetbrains.idea.svn.history.SvnVersionFilterComponent" timestamp="1607082298682">
+    <state x="144" y="79" key="MergeDialog" timestamp="1607090222105">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="495" y="299" key="AbstractVcsHelper.FilterDialog.org.jetbrains.idea.svn.history.SvnVersionFilterComponent/0.0.1440.900@0.0.1440.900" timestamp="1607082298682" />
-    <state x="306" y="25" key="CommitChangelistDialog2" timestamp="1607087679409">
+    <state x="144" y="79" key="MergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1607090222105" />
+    <state x="358" y="218" key="MultipleFileMergeDialog" timestamp="1607090222158">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="306" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1607087679409" />
-    <state width="1398" height="238" key="GridCell.Tab.0.bottom" timestamp="1607083504960">
+    <state x="358" y="218" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1607090222158" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1607090237576">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607083504960" />
-    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1607004160510" />
-    <state width="1878" height="305" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431045" />
-    <state width="1398" height="238" key="GridCell.Tab.0.center" timestamp="1607083504959">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1607090237576" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607329780008">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607083504959" />
-    <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1607004160509" />
-    <state width="1878" height="305" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431044" />
-    <state width="1398" height="238" key="GridCell.Tab.0.left" timestamp="1607083504958">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607083504958" />
-    <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1607004160508" />
-    <state width="1878" height="305" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431044" />
-    <state width="1398" height="238" key="GridCell.Tab.0.right" timestamp="1607083504959">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="238" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607083504959" />
-    <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1607004160510" />
-    <state width="1878" height="305" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431045" />
-    <state width="1398" height="238" key="GridCell.Tab.1.bottom" timestamp="1607083504962">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="238" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607083504962" />
-    <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.23.1440.832@0.23.1440.832" timestamp="1607073487949" />
-    <state width="1398" height="238" key="GridCell.Tab.1.center" timestamp="1607083504961">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="238" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1607083504961" />
-    <state width="1398" height="304" key="GridCell.Tab.1.center/0.23.1440.832@0.23.1440.832" timestamp="1607073487948" />
-    <state width="1398" height="238" key="GridCell.Tab.1.left" timestamp="1607083504960">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="238" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1607083504960" />
-    <state width="1398" height="304" key="GridCell.Tab.1.left/0.23.1440.832@0.23.1440.832" timestamp="1607073487947" />
-    <state width="1398" height="238" key="GridCell.Tab.1.right" timestamp="1607083504961">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="238" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1607083504961" />
-    <state width="1398" height="304" key="GridCell.Tab.1.right/0.23.1440.832@0.23.1440.832" timestamp="1607073487948" />
-    <state x="221" y="23" width="1024" height="833" key="SettingsEditor" timestamp="1607088973795">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="221" y="23" width="1024" height="833" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1607088973795" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1607087921876">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1607087921876" />
-    <state x="537" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607082357679">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="537" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1607082357679" />
-    <state x="385" y="179" width="670" height="676" key="search.everywhere.popup" timestamp="1607001124078">
-      <screen x="0" y="23" width="1440" height="832" />
-    </state>
-    <state x="385" y="179" width="670" height="676" key="search.everywhere.popup/0.23.1440.832@0.23.1440.832" timestamp="1607001124078" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1607329780008" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

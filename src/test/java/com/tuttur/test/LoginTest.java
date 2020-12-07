@@ -21,6 +21,7 @@ public class LoginTest extends BaseTest{
 
 		new MainPage(driver).getLoginPage().successfullyLogin().checkAccountNo();
         System.out.println("emre");
+        System.out.println("test");
 
 	}
 
