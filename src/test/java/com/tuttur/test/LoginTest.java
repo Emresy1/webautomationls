@@ -80,7 +80,7 @@ public class LoginTest extends BaseTest {
     public void failLoginWithEmail() throws IOException {
 
         new MainPage(driver).getLoginPage().login(prop.getObject("loginEmail"));
-        new LoginPage(driver).checkFailLogin();
+        new LoginPage(driver).checkFailLoginWithEmail();
     }
 
     /**
@@ -91,7 +91,7 @@ public class LoginTest extends BaseTest {
     public void failLoginWithPhoneNumber() throws IOException {
 
         new MainPage(driver).getLoginPage().login(prop.getObject("invalidPhone"));
-        new LoginPage(driver).checkFailLogin();
+        new LoginPage(driver).checkFailLoginWithGsm();
     }
 
 

@@ -34,7 +34,12 @@ public class LoginPage extends LoginPage_Constants {
     public void checkFailLogin () throws IOException {
         Assert.assertTrue("Başarısız login hatalı",getElementBy(LOGIN_ERROR_FIELD).getText().equals(prop.getObject("fail_login_message")));
     }
-
+    public void checkFailLoginWithGsm () throws IOException {
+        Assert.assertTrue("Başarısız login hatalı",getElementBy(LOGIN_ERROR_FIELD).getText().equals(prop.getObject("fail_login_message_gsm")));
+    }
+    public void checkFailLoginWithEmail () throws IOException {
+        Assert.assertTrue("Başarısız login hatalı",getElementBy(LOGIN_ERROR_FIELD).getText().equals(prop.getObject("fail_login_message_email")));
+    }
 
 
 }
