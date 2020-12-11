@@ -13,4 +13,6 @@ public class LoginPage_Constants extends BasePageUtil {
     public By PASSWORD = By.name("password");
     public By BUTTON_LOGIN_ON_POPUP = By.cssSelector(".medium.primary.loginForm-button");
     public By LOGIN_ERROR_FIELD = By.className("formPage-error");
+    public By INPUT_ERROR_TEXT = By.className("formElementError-text");
+    public By REMEMBER_ME = By.className("formCheckbox-checkbox");
 }
