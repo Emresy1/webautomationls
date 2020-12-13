@@ -16,6 +16,7 @@ public class MainPage_Constants extends BasePageUtil{
 	public By USERNAMETEXT = By.className("headerTop-userMenu-userNameText");
 	public By AVATAR = By.className("headerTop-userMenu-avatar");
 	public By DROPDOWN_MENU = By.cssSelector(".userDropMenu.visible li");
+	public By REGISTER_BUTTON = By.cssSelector(".headerTop-content-registerLink.px-35");
 		
 	
 

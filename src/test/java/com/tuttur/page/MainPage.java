@@ -42,6 +42,10 @@ public class MainPage extends MainPage_Constants {
         dropdownMenu("Çıkış");
         return this;
     }
+    public RegisterPage getRegisterPage() {
+        clickObjectBy(REGISTER_BUTTON);
+        return new RegisterPage(driver);
+    }
 
     public MainPage checkAccountNo() throws IOException {
 
