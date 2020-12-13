@@ -15,5 +15,6 @@ public class RegisterTest extends BaseTest {
     public void register (){
         new MainPage(driver).getRegisterPage();
         new RegisterPage(driver).setName();
+
     }
 }
