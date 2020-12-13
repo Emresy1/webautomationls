@@ -47,6 +47,8 @@ public class LoginPage extends LoginPage_Constants {
     public void checkMissingInfoText () throws IOException {
         assertTrue("Error mesajı hatalı",getElementBy(LOGIN_ERROR_FIELD).getText().equals(prop.getObject("empty_login_message")));
     }
-
+    public void checkRememberMe () throws IOException {
+        assertTrue("Beni hatırla başarısız",getElementBy(USERNAME).getText().equals(prop.getObject("username")));
+    }
 
 }

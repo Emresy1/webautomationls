@@ -24,7 +24,7 @@ public class MainPage extends MainPage_Constants {
         List<WebElement> dropdown = driver.findElements(DROPDOWN_MENU);
 
         for (WebElement element : dropdown) {
-            String menuItem = element.findElement(By.tagName("a")).getAttribute("href");
+            String menuItem = element.findElement(By.tagName("a")).getText();
 
             if (menuItem.contains(menu)) {
                 element.click();
@@ -39,7 +39,7 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage logout() {
         clickObjectBy(AVATAR);
-        dropdownMenu("/para-yatirma");
+        dropdownMenu("Çıkış");
         return this;
     }
 

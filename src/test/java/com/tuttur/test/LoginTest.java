@@ -116,16 +116,28 @@ public class LoginTest extends BaseTest {
         new LoginPage(driver).checkFailLogin();
     }
 
+    /**
+     * Case 2.0
+     * Boş input ile login kontrolü
+     * @throws IOException
+     */
+
     @Test
     public void loginWithMissingInfo () throws IOException {
         new MainPage(driver).getLoginPage().login("","");
         new LoginPage(driver).checkMissingInfoText();
     }
 
+    /**
+     * Case 2.1
+     * Beni hatırla özelliği ile login
+     * @throws IOException
+     */
     @Test
     public void loginWithRememberMe () throws IOException {
-        new MainPage(driver).getLoginPage().login(prop.getObject("username"),prop.getObject("password")).logout();
-
+        new MainPage(driver).getLoginPage().login(prop.getObject("username"),prop.getObject("password")).
+                logout().getLoginPage();
+        new LoginPage(driver).checkRememberMe();
 
     }
 
