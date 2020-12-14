@@ -21,7 +21,7 @@ public class DbQueriesPage extends BasePageUtil{
 	String username = "tutturapplication";		
 	String password = "";
 		
-	public void getQuery(String dbQuery) {
+	public void executeQuery(String dbQuery) {
 			
 		try {
 			

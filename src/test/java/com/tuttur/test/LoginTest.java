@@ -30,7 +30,7 @@ public class LoginTest extends BaseTest {
      */
     @Test
     public void successfullyLoginWithUserName() throws IOException {
-        new MainPage(driver).getLoginPage().login(prop.getObject("username"),(prop.getObject("password"))).checkUsernameText();
+        new MainPage(driver).getLoginPage().login(prop.getObject("username"),(prop.getObject("password"))).checkUsernameText(prop.getObject("username"));
     }
 
     /**
@@ -39,7 +39,7 @@ public class LoginTest extends BaseTest {
      */
     @Test
     public void successfulllyLoginWithIdentityNo() throws IOException {
-        new MainPage(driver).getLoginPage().login(prop.getObject("login_ssn"),(prop.getObject("password"))).checkUsernameText();
+        new MainPage(driver).getLoginPage().login(prop.getObject("login_ssn"),(prop.getObject("password"))).checkUsernameText(prop.getObject("username"));
     }
 
     /**

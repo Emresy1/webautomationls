@@ -70,11 +70,9 @@ public class BasePageUtil {
 
 	}
 
-	public WebElement setObjectsBy(By by,By by2, String value, String value2) {
-		WebElement element = getElementBy(by);
-		WebElement element2 = getElementBy(by2);
+	public WebElement setObjectsBy(By by, int index ,String value ) {
+		WebElement element = getElemenstBy(by,index);
 		element.sendKeys(value);
-		element2.sendKeys(value2);
 		return element;
 	}
 	public void assertElementsIsEmpty(By element1, By element2, By element3){
@@ -140,6 +138,12 @@ public class BasePageUtil {
 		element.click();
 		return element;
 	}
+
+	public List <WebElement> findElements (By by) {
+		List <WebElement> elements = driver.findElements(by);
+		return elements;
+	}
+
 	public void javaScriptClicker(WebDriver driver, WebElement element) {
 
 		JavascriptExecutor jse = ((JavascriptExecutor) driver);

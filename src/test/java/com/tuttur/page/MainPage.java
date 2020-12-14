@@ -19,6 +19,7 @@ public class MainPage extends MainPage_Constants {
     }
 
     PropertiesFile prop = new PropertiesFile(driver);
+    DbQueriesPage db = new DbQueriesPage(driver);
 
     public void dropdownMenu(String menu) {
         List<WebElement> dropdown = driver.findElements(DROPDOWN_MENU);
@@ -42,7 +43,8 @@ public class MainPage extends MainPage_Constants {
         dropdownMenu("Çıkış");
         return this;
     }
-    public RegisterPage getRegisterPage() {
+    public RegisterPage getRegisterPage() throws IOException {
+        db.executeQuery(prop.getObject("accountUpdate"));
         clickObjectBy(REGISTER_BUTTON);
         return new RegisterPage(driver);
     }
@@ -54,10 +56,11 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
-    public MainPage checkUsernameText() throws IOException {
-        Assert.assertTrue("Kullanıcı adı doğru değil", getElementBy(USERNAMETEXT).getText().equals(prop.getObject("username")));
+    public MainPage checkUsernameText(String username ) throws IOException {
+        Assert.assertTrue("Kullanıcı adı doğru değil", getElementBy(USERNAMETEXT).getText().equals(username));
         return this;
     }
+
 
 
 }
