@@ -9,15 +9,18 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
 public class RegisterPage extends RegisterPage_Constants {
 
-    public RegisterPage(WebDriver driver) {
+    public RegisterPage(WebDriver driver) throws IOException {
         super(driver);
     }
 
     PropertiesFile prop = new PropertiesFile(driver);
     DbQueriesPage db = new DbQueriesPage(driver);
+    GeneralPage general = new GeneralPage(driver);
+
 
     private void setName() throws IOException {
         setObjectBy(NAME, prop.getObject("name"));
@@ -55,14 +58,10 @@ public class RegisterPage extends RegisterPage_Constants {
 
 
 
-    private String setUsername() throws IOException {
-        String username = prop.getObject("registerUser")+generateRandomInt(9999);
-        setObjectBy(REGISTER_USERNAME,username);
-        return username;
-    }
+    private void setUsername() throws IOException {
+               waitForElement(driver,OPT_WAIT_4_ELEMENT,REGISTER_USERNAME);
+                setObjectBy(REGISTER_USERNAME, general.username);
 
-    public String usernameText () throws IOException {
-        String username =
     }
 
     private void setPassword() throws IOException {

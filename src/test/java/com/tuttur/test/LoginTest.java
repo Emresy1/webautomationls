@@ -28,19 +28,19 @@ public class LoginTest extends BaseTest {
      * Kullanıcı adı ile başarılı login
      * @throws IOException
      */
-    @Test
-    public void successfullyLoginWithUserName() throws IOException {
-        new MainPage(driver).getLoginPage().login(prop.getObject("username"),(prop.getObject("password"))).checkUsernameText(prop.getObject("username"));
-    }
+    //@Test
+   // public void successfullyLoginWithUserName() throws IOException {
+   //     new MainPage(driver).getLoginPage().login(prop.getObject("username"),(prop.getObject("password"))).checkUsernameText(prop.getObject("username"));
+   // }
 
     /**
      * Case 1.2
      * TCKN  ile başarılı login
      */
-    @Test
-    public void successfulllyLoginWithIdentityNo() throws IOException {
-        new MainPage(driver).getLoginPage().login(prop.getObject("login_ssn"),(prop.getObject("password"))).checkUsernameText(prop.getObject("username"));
-    }
+    //@Test
+   // public void successfulllyLoginWithIdentityNo() throws IOException {
+   //     new MainPage(driver).getLoginPage().login(prop.getObject("login_ssn"),(prop.getObject("password"))).checkUsernameText(prop.getObject("username"));
+   // }
 
     /**
      * Case 1.3
