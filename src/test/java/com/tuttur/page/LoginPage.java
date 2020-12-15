@@ -32,21 +32,26 @@ public class LoginPage extends LoginPage_Constants {
     }
 
     public void checkFailLogin () throws IOException {
-        assertTrue("Başarısız login hatalı",getElementBy(LOGIN_ERROR_FIELD).getText().equals(prop.getObject("fail_login_message")));
+        assertTrue("Başarısız login hatalı",getElementBy(FIELD_ERROR_TEXT).getText().equals(prop.getObject("fail_login_message")));
     }
+
     public void checkFailLoginWithGsm () throws IOException {
-        assertTrue("Başarısız login hatalı",getElementBy(LOGIN_ERROR_FIELD).getText().equals(prop.getObject("fail_login_message_gsm")));
+        assertTrue("Başarısız login hatalı",getElementBy(FIELD_ERROR_TEXT).getText().equals(prop.getObject("fail_login_message_gsm")));
     }
+
     public void checkFailLoginWithEmail () throws IOException {
-        assertTrue("Başarısız login hatalı",getElementBy(LOGIN_ERROR_FIELD).getText().equals(prop.getObject("fail_login_message_email")));
+        assertTrue("Başarısız login hatalı",getElementBy(FIELD_ERROR_TEXT).getText().equals(prop.getObject("fail_login_message_email")));
     }
+
     public void checkInputErrorValidations () throws IOException {
         assertTrue("Error mesajı hatalı",getElemenstBy(INPUT_ERROR_TEXT,0).getText().equals(prop.getObject("user_maxLenght_message")));
         assertTrue("Error mesajı hatalı",getElemenstBy(INPUT_ERROR_TEXT,1).getText().equals(prop.getObject("password_maxLenght_message")));
     }
+
     public void checkMissingInfoText () throws IOException {
-        assertTrue("Error mesajı hatalı",getElementBy(LOGIN_ERROR_FIELD).getText().equals(prop.getObject("empty_login_message")));
+        assertTrue("Error mesajı hatalı",getElementBy(FIELD_ERROR_TEXT).getText().equals(prop.getObject("empty_login_message")));
     }
+
     public void checkRememberMe () throws IOException {
         assertTrue("Beni hatırla başarısız",getElementBy(USERNAME).getText().equals(prop.getObject("username")));
     }

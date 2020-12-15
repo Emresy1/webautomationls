@@ -14,12 +14,13 @@ import java.util.List;
 
 public class MainPage extends MainPage_Constants {
 
-    public MainPage(WebDriver driver) {
+    public MainPage(WebDriver driver) throws IOException {
         super(driver);
     }
 
     PropertiesFile prop = new PropertiesFile(driver);
     DbQueriesPage db = new DbQueriesPage(driver);
+    GeneralPage general = new GeneralPage(driver);
 
     public void dropdownMenu(String menu) {
         List<WebElement> dropdown = driver.findElements(DROPDOWN_MENU);
@@ -56,12 +57,13 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
-    public MainPage checkUsernameText(String username ) throws IOException {
-        Assert.assertTrue("Kullanıcı adı doğru değil", getElementBy(USERNAMETEXT).getText().equals(username));
+    public MainPage checkUsernameText() throws IOException {
+
+        String headerUser = general.username;
+        System.out.println(headerUser);
+        Assert.assertTrue("Kullanıcı adı doğru değil", getElementBy(USERNAMETEXT).getText().equals(headerUser));
         return this;
     }
-
-
 
 }
 	
