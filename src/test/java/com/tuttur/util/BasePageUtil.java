@@ -138,6 +138,12 @@ public class BasePageUtil {
 		element.click();
 		return element;
 	}
+    public WebElement clickObjectsBy ( By by,int i) {
+		WebElement element = driver.findElements(by).get(i);
+		waitForElement(element,OPT_WAIT_4_ELEMENT);
+		element.click();
+		return element;
+	}
 
 	public List <WebElement> findElements (By by) {
 		List <WebElement> elements = driver.findElements(by);

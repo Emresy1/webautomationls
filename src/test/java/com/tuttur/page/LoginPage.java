@@ -31,6 +31,11 @@ public class LoginPage extends LoginPage_Constants {
         return new MainPage(driver);
     }
 
+    public ForgotPassPage getForgotPass () {
+        clickObjectBy(FORGOTPASSWORD);
+        return new ForgotPassPage(driver);
+    }
+
     public void checkFailLogin () throws IOException {
         assertTrue("Başarısız login hatalı",getElementBy(FIELD_ERROR_TEXT).getText().equals(prop.getObject("fail_login_message")));
     }
