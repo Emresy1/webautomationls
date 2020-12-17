@@ -54,16 +54,22 @@ public class ForgotPassPage extends ForgotPass_Constants {
     }
 
 
-    public ForgotPassPage forgotPassAction () {
+    public LoginPage forgotPassAction () {
         setSSN();
         setBirthdate();
         waitForElement(driver,MIN_WAIT_4_ELEMENT,RESET_PASS);
         clickObjectBy(RESET_PASS);
-        waitForElement(driver,DEFAULT_WAIT_4_ELEMENT,SEND_SMS_CHECKBOX);
+        sleep(2);
         checkbox(1).click();
-        return this;
+        clickObjectBy(By.cssSelector(".medium.primary.w-100"));
+        buttonClose().click();
+        return new LoginPage(driver);
 
     }
+    public WebElement buttonClose(){
 
+        waitForElement(driver,OPT_WAIT_4_ELEMENT,By.cssSelector(".medium.primary"));
+        return getElemenstBy(By.cssSelector(".medium.primary"),1);
+    }
 
 }
