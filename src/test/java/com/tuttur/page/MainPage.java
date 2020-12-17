@@ -57,13 +57,14 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
-    public MainPage checkUsernameText() throws IOException {
+    public MainPage checkUsernameText(String username) throws IOException {
 
-        String headerUser = general.username;
-        System.out.println(headerUser);
+        String headerUser = username;
         Assert.assertTrue("Kullanıcı adı doğru değil", getElementBy(USERNAMETEXT).getText().equals(headerUser));
+
         return this;
     }
+
 
 }
 	

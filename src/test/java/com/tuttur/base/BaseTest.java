@@ -20,7 +20,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 public class BaseTest {
 
 	public static String path = "C:\\Users\\Deniz Caliskan\\eclipse-workspace\\TutturWeb\\configs\\Configurations.properties";
-	public static String baseUrl = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com";
+	public static String baseUrl = "https://ttest:q26RwfyLotHm@alpha3.tuttur.com";
 
 	//https://ttest:q26RwfyLotHm@alpha.tuttur.com
 	   public static final String USERNAME = "tech";
