@@ -6,12 +6,14 @@ import com.tuttur.page.GeneralPage;
 import com.tuttur.page.MainPage;
 import com.tuttur.page.RegisterPage;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
 public class RegisterTest extends BaseTest {
     PropertiesFile prop = new PropertiesFile(driver);
     GeneralPage general = new GeneralPage(driver);
+    RegisterPage register = new RegisterPage(driver);
 
     public RegisterTest() throws IOException {
     }
@@ -27,7 +29,22 @@ public class RegisterTest extends BaseTest {
     @Test
     public void successFullyRegisterTest () throws InterruptedException, IOException {
         new MainPage(driver).getRegisterPage()
-                .setRegisterForm().clickSubmit().smsActivation();
-                new MainPage(driver).checkUsernameText();
+                .setRegisterForm(0)
+                .clickSubmit()
+                .smsActivation();
+                new MainPage(driver).checkUsernameText(general.username);
+
+    }
+    /**
+     * Case 1.1
+     * Başarılı üye ol (username kullan fonksiyonu ile)
+     */
+
+    @Test
+    public void registerWithUseFunctionality() throws IOException, InterruptedException {
+        new MainPage(driver).getRegisterPage()
+                .setRegisterForm(1).clickSubmit().smsActivation();
+        new MainPage(driver).checkUsernameText(general.generateUsernameText.toString());
+
     }
 }

@@ -23,12 +23,15 @@ public class PropertiesFile extends BasePageUtil{
 	static String path = System.getProperty("user.dir");
 	
 	public static void main(String[] args) {
+
 		getProperties();
 		setProperties();
 		getProperties();
+
 	}
 	
 	public static void getProperties() {
+
 		try {
 			InputStream input = new FileInputStream(path+"/src/test/java/com/tuttur/configs/config.properties");
 			properties.load(input);	
