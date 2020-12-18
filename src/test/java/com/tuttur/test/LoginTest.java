@@ -20,7 +20,8 @@ public class LoginTest extends BaseTest {
     @Test
     public void successfullyLoginWithAccountNo() throws IOException {
 
-        new MainPage(driver).getLoginPage().login(prop.getObject("account_no"),(prop.getObject("password"))).checkAccountNo();
+        new MainPage(driver).getLoginPage()
+                .login(prop.getObject("account_no"),(prop.getObject("usernamePass"))).checkAccountNo();
     }
 
     /**
@@ -28,19 +29,22 @@ public class LoginTest extends BaseTest {
      * Kullanıcı adı ile başarılı login
      * @throws IOException
      */
-    //@Test
-   // public void successfullyLoginWithUserName() throws IOException {
-   //     new MainPage(driver).getLoginPage().login(prop.getObject("username"),(prop.getObject("password"))).checkUsernameText(prop.getObject("username"));
-   // }
+    @Test
+    public void successfullyLoginWithUserName() throws IOException {
+        new MainPage(driver).getLoginPage()
+                .login(prop.getObject("username"),(prop.getObject("usernamePass")))
+                .checkUsernameText(prop.getObject("username"));
+    }
 
     /**
      * Case 1.2
      * TCKN  ile başarılı login
      */
-    //@Test
-   // public void successfulllyLoginWithIdentityNo() throws IOException {
-   //     new MainPage(driver).getLoginPage().login(prop.getObject("login_ssn"),(prop.getObject("password"))).checkUsernameText(prop.getObject("username"));
-   // }
+    @Test
+    public void successfulllyLoginWithIdentityNo() throws IOException {
+        new MainPage(driver).getLoginPage().login(prop.getObject("login_ssn"),(prop.getObject("password")))
+                .checkUsernameText(prop.getObject("ssnUser"));
+    }
 
     /**
      * Case 1.3
@@ -79,7 +83,8 @@ public class LoginTest extends BaseTest {
     @Test
     public void failLoginWithEmail() throws IOException {
 
-        new MainPage(driver).getLoginPage().login(prop.getObject("loginEmail"),(prop.getObject("password")));
+        new MainPage(driver).getLoginPage()
+                .login(prop.getObject("loginEmail"),(prop.getObject("password")));
         new LoginPage(driver).checkFailLoginWithEmail();
     }
 
@@ -90,8 +95,10 @@ public class LoginTest extends BaseTest {
     @Test
     public void failLoginWithPhoneNumber() throws IOException {
 
-        new MainPage(driver).getLoginPage().login(prop.getObject("invalidPhone"),(prop.getObject("password")));
-        new LoginPage(driver).checkFailLoginWithGsm();
+        new MainPage(driver).getLoginPage()
+                .login(prop.getObject("invalidPhone"),(prop.getObject("password")));
+        new LoginPage(driver)
+                .checkFailLoginWithGsm();
     }
 
     /**
@@ -101,7 +108,8 @@ public class LoginTest extends BaseTest {
      */
     @Test
     public void loginInputMaxValueControl() throws IOException {
-        new MainPage(driver).getLoginPage().login(prop.getObject("user_max_value"),(prop.getObject("password_max_value")));
+        new MainPage(driver).getLoginPage()
+                .login(prop.getObject("user_max_value"),(prop.getObject("password_max_value")));
         new LoginPage(driver).checkInputErrorValidations();
     }
 
@@ -112,7 +120,8 @@ public class LoginTest extends BaseTest {
      */
     @Test
     public void failLoginWithPassword() throws IOException {
-        new MainPage(driver).getLoginPage().login(prop.getObject("username"),(prop.getObject("invalidPassword")));
+        new MainPage(driver).getLoginPage()
+                .login(prop.getObject("username"),(prop.getObject("invalidPassword")));
         new LoginPage(driver).checkFailLogin();
     }
 
@@ -127,23 +136,6 @@ public class LoginTest extends BaseTest {
         new MainPage(driver).getLoginPage().login("","");
         new LoginPage(driver).checkMissingInfoText();
     }
-
-    /**
-     * Case 2.1
-     * Beni hatırla özelliği ile login
-     * @throws IOException
-     */
-    @Test
-    public void loginWithRememberMe () throws IOException {
-        new MainPage(driver).getLoginPage().login(prop.getObject("username"),prop.getObject("password")).
-                logout().getLoginPage();
-        new LoginPage(driver).checkRememberMe();
-
-    }
-
-
-
-
 
 
 }
