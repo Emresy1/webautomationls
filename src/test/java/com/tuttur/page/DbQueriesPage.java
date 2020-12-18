@@ -64,6 +64,31 @@ public class DbQueriesPage extends BasePageUtil{
 		
 		return Integer.toString(code);	
 	  }
+
+	public int getValidationCodeInt (String dbQuery, int colomnIndex) {
+
+		int code = 0;
+
+		try {
+			Connection dbConnect = DriverManager.getConnection(dbUrl,username,password);
+			Class.forName("org.postgresql.Driver");
+			Statement statement = dbConnect.createStatement();
+			Thread.sleep(4000);
+			ResultSet result = statement.executeQuery(dbQuery);
+			Thread.sleep(3000);
+
+			while (result.next()) {
+				code = result.getInt(colomnIndex);
+			}
+		}
+
+		catch (Exception e) {
+
+			e.printStackTrace();
+		}
+
+		return code;
+	}
     }
 	
 	

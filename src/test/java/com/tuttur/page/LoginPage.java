@@ -13,6 +13,7 @@ public class LoginPage extends LoginPage_Constants {
         super(driver);
     }
     PropertiesFile prop = new PropertiesFile(driver);
+    DbQueriesPage db = new DbQueriesPage(driver);
 
     private void setUsername(String username) throws IOException {
         setObjectBy(USERNAME,username);
@@ -31,10 +32,20 @@ public class LoginPage extends LoginPage_Constants {
         return new MainPage(driver);
     }
 
-    public ForgotPassPage getForgotPass () {
+    public ForgotPassPage getForgotPassModal () throws IOException {
         clickObjectBy(FORGOTPASSWORD);
         return new ForgotPassPage(driver);
     }
+    public ForgotPassPage getForgotPassPage () throws IOException {
+
+            int smsLink = db.getValidationCodeInt(prop.getObject("smsLink"),6);
+            String url = "https://ttest:q26RwfyLotHm@alpha.tuttur.com/account/reset-password/code/"+ smsLink +"/type/smsLink";
+            driver.get(url);
+
+            return new ForgotPassPage(driver);
+    }
+
+
 
     public void checkFailLogin () throws IOException {
         assertTrue("Başarısız login hatalı",getElementBy(FIELD_ERROR_TEXT).getText().equals(prop.getObject("fail_login_message")));
