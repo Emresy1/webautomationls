@@ -28,6 +28,7 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void successFullyRegisterTest () throws InterruptedException, IOException {
+
         new MainPage(driver).getRegisterPage()
                 .setRegisterForm(0)
                 .clickSubmit()
