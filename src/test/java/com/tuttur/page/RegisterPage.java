@@ -21,13 +21,13 @@ public class RegisterPage extends RegisterPage_Constants {
     DbQueriesPage db = new DbQueriesPage(driver);
     GeneralPage general = new GeneralPage(driver);
 
-    private void setName() throws IOException {
-        setObjectBy(NAME, prop.getObject("name"));
+    private void setName(String name) throws IOException {
+        setObjectBy(NAME, name);
 
     }
 
-    private void setLastName() throws IOException {
-        setObjectBy(LASTNAME, prop.getObject("surname"));
+    private void setLastName(String surname) throws IOException {
+        setObjectBy(LASTNAME, surname);
 
     }
 
@@ -85,7 +85,6 @@ public class RegisterPage extends RegisterPage_Constants {
 
             use.click();
             getUsernameText();
-
 
         }
 
@@ -149,8 +148,8 @@ public class RegisterPage extends RegisterPage_Constants {
     public RegisterPage setRegisterForm(int usernameIndex) throws IOException, InterruptedException {
 
 
-        setName();
-        setLastName();
+        setName(prop.getObject("name"));
+        setLastName(prop.getObject("surname"));
         setBirthDate();
         setSsn();
         setGsm();

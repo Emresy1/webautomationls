@@ -35,6 +35,7 @@ public class RegisterTest extends BaseTest {
                 new MainPage(driver).checkUsernameText(general.username);
 
     }
+
     /**
      * Case 1.1
      * Başarılı üye ol (username kullan fonksiyonu ile)
@@ -46,5 +47,17 @@ public class RegisterTest extends BaseTest {
                 .setRegisterForm(1).clickSubmit().smsActivation();
         new MainPage(driver).checkUsernameText(general.generateUsernameText.toString());
 
+    }
+
+    /**
+     * Case 2.0
+     * Başarısız üye ol (invalid datalar ile)
+     *
+     */
+
+    @Test
+    public void registerWithInvalidData() throws IOException {
+
+        new MainPage(driver).getRegisterPage();
     }
 }
