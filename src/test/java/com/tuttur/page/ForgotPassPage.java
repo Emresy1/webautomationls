@@ -14,6 +14,7 @@ import static org.junit.Assert.assertTrue;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 public class ForgotPassPage extends ForgotPass_Constants {
@@ -31,29 +32,18 @@ public class ForgotPassPage extends ForgotPass_Constants {
         setObjectBy(SSN, "17376674056");
     }
 
-    private void selectDay() {
-        WebElement days = findElements(BIRTHDATE).get(0);
-        Select select = new Select(days);
-        select.selectByVisibleText("20");
-    }
+    private void setBirthDate () {
 
-    private void selectMonth() {
-        WebElement months = findElements(BIRTHDATE).get(1);
-        Select select = new Select(months);
-        select.selectByVisibleText("Nisan");
-    }
+        List <WebElement> selectColomun = findElements(BIRTHDATE);
+        String[] date = {"20","Nisan","1991"};
+        List <String> dateList = Arrays.asList(date);
+        int count = 0;
 
-    private void selectYear() {
-        WebElement years = findElements(BIRTHDATE).get(2);
-        Select select = new Select(years);
-        select.selectByVisibleText("1991");
-    }
+        for (int i = count; i < selectColomun.size();i++) {
+            Select select = new Select(selectColomun.get(i));
+            select.selectByVisibleText(dateList.get(i));
+        }
 
-    private void setBirthdate() {
-        waitForElement(driver, MIN_WAIT_4_ELEMENT, BIRTHDATE);
-        selectDay();
-        selectMonth();
-        selectYear();
     }
 
     /**
@@ -72,7 +62,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     public LoginPage forgotPassAction() {
         setSSN();
-        setBirthdate();
+        setBirthDate();
         waitForElement(driver, MIN_WAIT_4_ELEMENT, RESET_PASS);
         clickObjectBy(RESET_PASS);
         sleep(2);

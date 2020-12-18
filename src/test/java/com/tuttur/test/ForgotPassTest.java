@@ -14,6 +14,7 @@ public class ForgotPassTest extends BaseTest {
 
     @Test
     public void forgotPassword () throws IOException {
+
         new MainPage(driver).getLoginPage().getForgotPassModal().forgotPassAction().getForgotPassPage()
                 .setPasswordChange();
 
