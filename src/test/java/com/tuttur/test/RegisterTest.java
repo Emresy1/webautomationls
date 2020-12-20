@@ -61,4 +61,18 @@ public class RegisterTest extends BaseTest {
 
         new MainPage(driver).getRegisterPage();
     }
+
+    /**
+     * Case 2.1
+     * Numerik ve alfanumerik satırların kural kontrolü
+     * @throws IOException
+     */
+
+    @Test
+    public void fieldRuleCheck () throws IOException {
+
+        new MainPage(driver).getRegisterPageNotUpdate().setInvalidValue();
+
+
+    }
 }

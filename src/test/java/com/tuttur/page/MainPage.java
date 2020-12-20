@@ -50,6 +50,13 @@ public class MainPage extends MainPage_Constants {
         return new RegisterPage(driver);
     }
 
+    public RegisterPage getRegisterPageNotUpdate () throws IOException {
+
+        clickObjectBy(REGISTER_BUTTON);
+        return new RegisterPage(driver);
+
+    }
+
     public MainPage checkAccountNo() throws IOException {
 
         Assert.assertTrue("Account numarası doğru değil", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject("account_no")));

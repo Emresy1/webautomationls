@@ -18,5 +18,6 @@ public class ForgotPass_Constants extends BasePageUtil {
     public By PASSWORD_INPUT = By.name("passwordInput");
     public By CHANGE_BUTTON = By.id("changePasswordButton");
     public By SUCCESS_MESSAGE = By.className("emailProcessComplete");
+    public By LOGIN_BUTTON = By.id("loginButton");
 
 }

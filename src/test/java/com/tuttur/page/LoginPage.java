@@ -24,13 +24,16 @@ public class LoginPage extends LoginPage_Constants {
 
     }
 
-    public MainPage login(String user, String password) throws IOException {
+    public MainPage login (String user, String password) throws IOException {
+
         setUsername(user);
         setPassword(password);
         clickObjectBy(REMEMBER_ME);
         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
         return new MainPage(driver);
+
     }
+
 
     public ForgotPassPage getForgotPassModal () throws IOException {
         clickObjectBy(FORGOTPASSWORD);

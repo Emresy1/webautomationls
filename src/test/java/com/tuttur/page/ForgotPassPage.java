@@ -1,8 +1,8 @@
 package com.tuttur.page;
 
+import com.tuttur.base.BaseTest;
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.ForgotPass_Constants;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.Select;
 import static org.junit.Assert.assertTrue;
 
 
-import javax.swing.*;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -86,9 +85,14 @@ public class ForgotPassPage extends ForgotPass_Constants {
         clickObjectBy(CHANGE_BUTTON);
         switchToWindows();
         checkPasswordChange();
+        clickObjectBy(LOGIN_BUTTON);
+
         return this;
 
     }
+
+
+
 
     private void checkPasswordChange() throws IOException {
 

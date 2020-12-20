@@ -2,6 +2,7 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.RegisterPage_Constants;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -159,6 +160,26 @@ public class RegisterPage extends RegisterPage_Constants {
         clickMembershipApprove();
 
         return this;
+    }
+
+    private void checkFieldRule (By by) {
+
+        Assert.assertTrue("Alan değer kuralı hatalı",getElementBy(by).getText().equals(""));
+
+    }
+
+    public RegisterPage setInvalidValue () throws IOException {
+
+        setName("123");
+        checkFieldRule(NAME);
+        setLastName("123");
+        checkFieldRule(LASTNAME);
+        setObjectBy(SSN,"ASDFGH");
+        checkFieldRule(SSN);
+        setObjectBy(GSM,"ASDFGH");
+        checkFieldRule(GSM);
+        return this;
+
     }
 
 }
