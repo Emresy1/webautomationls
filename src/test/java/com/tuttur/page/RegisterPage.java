@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -22,63 +24,70 @@ public class RegisterPage extends RegisterPage_Constants {
     DbQueriesPage db = new DbQueriesPage(driver);
     GeneralPage general = new GeneralPage(driver);
 
-    private void setName(String name) throws IOException {
+    public RegisterPage setName(String name) throws IOException {
         setObjectBy(NAME, name);
+        return this;
 
     }
 
-    private void setLastName(String surname) throws IOException {
+    public RegisterPage setLastName(String surname) throws IOException {
+
         setObjectBy(LASTNAME, surname);
+        return this;
 
     }
 
-    private void setDay() {
-        setObjectsBy(DATE, 2, "20");
+    private void setDay(String day) {
+        setObjectsBy(DATE, 2,day);
 
     }
 
-    private void selectMonth() {
+    private void selectMonth(String month) {
 
         WebElement months = getElementBy(MONTHS);
         Select select = new Select(months);
-        select.selectByVisibleText("Nisan");
+        select.selectByVisibleText(month);
 
     }
 
-    private void setYear() {
+    private void setYear(String year) {
 
-        setObjectsBy(DATE, 3, "1991");
-
-    }
-
-    private void setSsn() throws IOException {
-
-        setObjectBy(SSN, prop.getObject("tckn"));
+        setObjectsBy(DATE, 3, year);
 
     }
 
-    private void setGsm() throws IOException {
+    public RegisterPage setSsn( String tckn) throws IOException {
 
-        setObjectBy(GSM, prop.getObject("phoneNo"));
+        setObjectBy(SSN, tckn);
+        return this;
 
     }
 
-    private void setEmail() throws IOException {
+    public RegisterPage setGsm(String gsm) throws IOException {
 
-        setObjectBy(EMAIL, prop.getObject("currentlyEmail"));
+        setObjectBy(GSM,gsm);
+        return this;
+
+    }
+
+    public RegisterPage setEmail(String email) throws IOException {
+
+        setObjectBy(EMAIL, email);
+        return this;
 
     }
 
     /**
      * Methoda 0 indexi verilirse username fieldına keywordu setleyecek. index 1 olduğunda username fieldı içerisinde
      * yer alan "kullan" fonksiyonu ile kullanıcı kendi username üretmiş olacaktır.
+     *
      * @param usernameIndex
      * @throws IOException
      */
 
-    private void setUsername(int usernameIndex) throws IOException {
+    public RegisterPage setUsername(int usernameIndex) throws IOException {
 
-        boolean click = 0<usernameIndex;
+        boolean click = 0 < usernameIndex;
         sleep(2);
         WebElement use = findElements(By.className("medium")).get(3);
 
@@ -87,46 +96,48 @@ public class RegisterPage extends RegisterPage_Constants {
             use.click();
             getUsernameText();
 
-        }
-
-        else {
+        } else {
 
             waitForElement(driver, OPT_WAIT_4_ELEMENT, REGISTER_USERNAME);
             setObjectBy(REGISTER_USERNAME, general.username);
         }
+        return this;
     }
 
-    public String getUsernameText(){
+    public String getUsernameText() {
 
         general.generateUsernameText = getElementBy(By.name("username")).getAttribute("value");
 
         return general.generateUsernameText;
     }
 
-    private void setPassword() throws IOException {
+    public RegisterPage setPassword(String password) throws IOException {
 
-        setObjectBy(REGISTER_PASSWORD, prop.getObject("newPassword"));
+        setObjectBy(REGISTER_PASSWORD, password);
+        return this;
 
     }
 
-    private void clickMembershipApprove() throws InterruptedException {
+    public RegisterPage clickMembershipApprove() throws InterruptedException {
 
         List<WebElement> checkbox = findElements(CHECKBOX);
         scrollToElement(CHECKBOX);
         int count = 0;
 
         for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {
-            waitForElement(driver,OPT_WAIT_4_ELEMENT,CHECKBOX);
+            waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
             checkbox.get(loopCount).click();
 
         }
+        return this;
     }
 
-    private void setBirthDate() {
+    public RegisterPage setBirthDate(String day, String month,String year) {
 
-        setDay();
-        selectMonth();
-        setYear();
+        setDay(day);
+        selectMonth(month);
+        setYear(year);
+        return this;
 
     }
 
@@ -140,46 +151,45 @@ public class RegisterPage extends RegisterPage_Constants {
     public MainPage smsActivation() throws IOException {
 
         String smsCode = db.getValidationCode(prop.getObject("verifyCode"));
-        setObjectBy(ACTIVATION_FIELD,smsCode);
+        setObjectBy(ACTIVATION_FIELD, smsCode);
         clickObjectBy(ACTIVATION_BUTTON);
         return new MainPage(driver);
 
     }
 
-    public RegisterPage setRegisterForm(int usernameIndex) throws IOException, InterruptedException {
 
-
-        setName(prop.getObject("name"));
-        setLastName(prop.getObject("surname"));
-        setBirthDate();
-        setSsn();
-        setGsm();
-        setEmail();
-        setUsername(usernameIndex);
-        setPassword();
-        clickMembershipApprove();
-
-        return this;
-    }
-
-    private void checkFieldRule (By by) {
-
-        Assert.assertTrue("Alan değer kuralı hatalı",getElementBy(by).getText().equals(""));
+    private void checkFieldRule(By by, int index) {
+        WebElement field = findElements(by).get(index);
+        Assert.assertTrue("Alan değer kuralı hatalı", field.getText().isEmpty());
 
     }
 
-    public RegisterPage setInvalidValue () throws IOException {
+    private List<WebElement> formInput() {
+        List<WebElement> inputsArray = new ArrayList<>();
+        List<WebElement> inputs = findElements(FORM_INPUT);
+        inputsArray.add(inputs.get(0));
+        inputsArray.add(inputs.get(1));
+        inputsArray.add(inputs.get(4));
+        inputsArray.add(inputs.get(5));
+        return inputsArray;
+    }
 
-        setName("123");
-        checkFieldRule(NAME);
-        setLastName("123");
-        checkFieldRule(LASTNAME);
-        setObjectBy(SSN,"ASDFGH");
-        checkFieldRule(SSN);
-        setObjectBy(GSM,"ASDFGH");
-        checkFieldRule(GSM);
+
+    public RegisterPage setInvalidValue() {
+
+
+        String[] invalidValues = {"123", "123", "ASDFGH", "ASDFGH",};
+        List<String> invalidValueList = Arrays.asList(invalidValues);
+        int count = 0;
+
+        for (int i = count; i < formInput().size(); i++) {
+            formInput().get(i).sendKeys(invalidValueList.get(i));
+            checkFieldRule(FORM_INPUT,i);
+
+        }
         return this;
 
     }
+
 
 }

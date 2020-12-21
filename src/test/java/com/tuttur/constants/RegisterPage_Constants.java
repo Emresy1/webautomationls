@@ -22,6 +22,7 @@ public class RegisterPage_Constants extends BasePageUtil {
     public By SUBMIT = By.cssSelector(".medium.primary.registerForm-button");
     public By ACTIVATION_FIELD = By.name("activationCode");
     public By ACTIVATION_BUTTON = By.cssSelector(".medium.primary.phoneActivationForm-button");
+    public By FORM_INPUT = By.className("formInput-input");
 
 
 

@@ -42,7 +42,7 @@ public class LoginPage extends LoginPage_Constants {
     public ForgotPassPage getForgotPassPage () throws IOException {
 
             int smsLink = db.getValidationCodeInt(prop.getObject("smsLink"),6);
-            String url = "https://ttest:q26RwfyLotHm@alpha.tuttur.com/account/reset-password/code/"+ smsLink +"/type/smsLink";
+            String url = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com/account/reset-password/code/"+ smsLink +"/type/smsLink";
             driver.get(url);
 
             return new ForgotPassPage(driver);

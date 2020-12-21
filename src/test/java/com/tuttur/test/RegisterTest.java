@@ -27,13 +27,21 @@ public class RegisterTest extends BaseTest {
      */
 
     @Test
-    public void successFullyRegisterTest () throws InterruptedException, IOException {
+    public void successFullyRegisterTest() throws InterruptedException, IOException {
 
         new MainPage(driver).getRegisterPage()
-                .setRegisterForm(0)
+                .setName(prop.getObject("name"))
+                .setLastName(prop.getObject("surname"))
+                .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
+                .setSsn(prop.getObject("tckn"))
+                .setGsm(prop.getObject("phoneNo"))
+                .setEmail(prop.getObject("currentlyEmail"))
+                .setUsername(0)
+                .setPassword(prop.getObject("newPassword"))
+                .clickMembershipApprove()
                 .clickSubmit()
-                .smsActivation();
-                new MainPage(driver).checkUsernameText(general.username);
+                .smsActivation()
+                .checkUsernameText(general.username);
 
     }
 
@@ -45,7 +53,16 @@ public class RegisterTest extends BaseTest {
     @Test
     public void registerWithUseFunctionality() throws IOException, InterruptedException {
         new MainPage(driver).getRegisterPage()
-                .setRegisterForm(1).clickSubmit().smsActivation();
+                .setName(prop.getObject("name"))
+                .setLastName(prop.getObject("surname"))
+                .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
+                .setSsn(prop.getObject("tckn"))
+                .setGsm(prop.getObject("phoneNo"))
+                .setEmail(prop.getObject("currentlyEmail"))
+                .setUsername(1)
+                .setPassword(prop.getObject("newPassword"))
+                .clickMembershipApprove()
+                .clickSubmit().smsActivation();
         new MainPage(driver).checkUsernameText(general.generateUsernameText.toString());
 
     }
@@ -53,7 +70,6 @@ public class RegisterTest extends BaseTest {
     /**
      * Case 2.0
      * Başarısız üye ol (invalid datalar ile)
-     *
      */
 
     @Test
@@ -65,11 +81,12 @@ public class RegisterTest extends BaseTest {
     /**
      * Case 2.1
      * Numerik ve alfanumerik satırların kural kontrolü
+     *
      * @throws IOException
      */
 
     @Test
-    public void fieldRuleCheck () throws IOException {
+    public void fieldRuleCheck() throws IOException {
 
         new MainPage(driver).getRegisterPageNotUpdate().setInvalidValue();
 
