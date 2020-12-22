@@ -92,4 +92,23 @@ public class RegisterTest extends BaseTest {
 
 
     }
+
+    @Test
+    public void currentUserRegisterToLogin () throws IOException, InterruptedException {
+
+        new MainPage(driver).getRegisterPageNotUpdate()
+                .setName(prop.getObject("name"))
+                .setLastName(prop.getObject("surname"))
+                .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
+                .setSsn(prop.getObject("currentTckn"))
+                .setGsm(prop.getObject("phoneNo"))
+                .setEmail(prop.getObject("currentlyEmail"))
+                .setUsername(1)
+                .setPassword(prop.getObject("newPassword"))
+                .clickMembershipApprove()
+                .clickSubmit();
+        new MainPage(driver).checkRegisterLogin();
+    }
+
+
 }

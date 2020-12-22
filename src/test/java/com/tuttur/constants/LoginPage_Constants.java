@@ -18,4 +18,5 @@ public class LoginPage_Constants extends BasePageUtil {
     public By INPUT_ERROR_TEXT = By.className("formElementError-text");
     public By REMEMBER_ME = By.className("formCheckbox-checkbox");
     public By FORGOTPASSWORD = By.className("formInput-subComponent");
+    
 }
