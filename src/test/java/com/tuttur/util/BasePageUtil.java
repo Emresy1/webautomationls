@@ -45,7 +45,16 @@ public class BasePageUtil {
 		wait.until(ExpectedConditions.invisibilityOf(element));
 	}
 
-	
+	public String getData (int rowNumber , int cellNumber) {
+
+		return ExcelUtil.getCellData(rowNumber, cellNumber);
+
+	}
+
+	public void getSheet ( String sheetName) {
+		ExcelUtil.setExcelFileSheet(sheetName);
+	}
+
 	public WebElement setObjectBy(By by, String value) {
 		WebElement element = getElementBy(by);
 		element.clear();

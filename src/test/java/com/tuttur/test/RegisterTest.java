@@ -42,8 +42,9 @@ public class RegisterTest extends BaseTest {
                 .setPassword(prop.getObject("newPassword"))
                 .clickMembershipApprove()
                 .clickSubmit()
-                .smsActivation()
-                .checkUsernameText(general.username);
+                .smsActivation();
+        //- checkUsernameText methodu register için ayrı yazılacak
+                //.checkUsernameText(general.username);
 
     }
 
@@ -65,7 +66,8 @@ public class RegisterTest extends BaseTest {
                 .setPassword(prop.getObject("newPassword"))
                 .clickMembershipApprove()
                 .clickSubmit().smsActivation();
-        new MainPage(driver).checkUsernameText(general.generateUsernameText.toString());
+        //- checkUsernameText methodu register için ayrı yazılacak
+   //     new MainPage(driver).checkUsernameText(general.generateUsernameText.toString());
 
     }
 

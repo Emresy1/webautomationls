@@ -5,7 +5,7 @@ import com.tuttur.configs.PropertiesFile;
 
 import com.tuttur.util.ExcelUtil;
 import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.junit.Assert;
+import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
@@ -61,24 +61,24 @@ public class MainPage extends MainPage_Constants {
 
     }
 
-    public MainPage checkAccountNo(XSSFRow row) throws IOException {
+    public MainPage checkAccountNo( int rowNumber) throws IOException {
 
-        Assert.assertTrue("Account numarası doğru değil", getElementBy(ACCOUNT_NO).getText()
-                .equals(row.getCell(3).toString()));
-        System.out.println("Account numarası ile login, başarılı şekilde geçti");
+        assertTrue(getData(rowNumber,7),getElementBy(ACCOUNT_NO).getText()
+                .equals(getData(rowNumber,3)));
         return this;
     }
 
-    public MainPage checkUsernameText(String username) throws IOException {
+    public MainPage checkUsernameText( int rowNumber) throws IOException {
 
-        String headerUser = username;
-        Assert.assertTrue("Kullanıcı adı doğru değil", getElementBy(USERNAMETEXT).getText().equals(headerUser));
+
+        assertTrue(getData(rowNumber,7), getElementBy(USERNAMETEXT).getText()
+                .equals(getData(rowNumber,1)));
 
         return this;
     }
 
     public MainPage checkRegisterLogin () throws InterruptedException, IOException {
-        Assert.assertTrue("register sonrası login başarısız", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject("currentMemberNo")));
+        assertTrue("register sonrası login başarısız", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject("currentMemberNo")));
         return this;
     }
 

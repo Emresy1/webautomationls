@@ -7,43 +7,52 @@ import com.tuttur.configs.PropertiesFile;
 import com.tuttur.page.MainPage;
 
 
+import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.junit.Test;
 
 
 public class LoginTest extends BaseTest {
 
     PropertiesFile prop = new PropertiesFile(driver);
-
+    BasePageUtil base = new BasePageUtil(driver);
 
 
     /**
      * Case 1.0
      * Üye numarasıyla başarılı login
+     *
      * @throws IOException
      */
 
     @Test
     public void successfullyLoginWithAccountNo() throws IOException {
-        ExcelUtil.setExcelFileSheet("LoginData");
+
+        base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
-                .login(ExcelUtil.getRowData(1),1)
-                .checkAccountNo(ExcelUtil.getRowData(1));
+                .login(1)
+                .checkAccountNo(1);
     }
 
     /**
      * Case 1.1
      * Kullanıcı adı ile başarılı login
+     *
      * @throws IOException
      */
 
-    //@Test
-    //public void successfullyLoginWithUserName() throws IOException {
-    //  new MainPage(driver).getLoginPage()
-    //          .login(prop.getObject("username"),(prop.getObject("usernamePass")))
-    //          .checkUsernameText(prop.getObject("username"));
-    //}
+    @Test
+    public void successfullyLoginWithUserName() throws IOException {
+
+        base.getSheet("LoginData");
+
+        new MainPage(driver).getLoginPage()
+                .login(2)
+                .checkUsernameText(2);
+
+    }
 
 
     /**

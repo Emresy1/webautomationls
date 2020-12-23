@@ -31,11 +31,11 @@ public class LoginPage extends LoginPage_Constants {
 
     }
 
-    public MainPage login (XSSFRow row, int rowNumber) throws IOException {
+    public MainPage login ( int rowNumber) throws IOException {
 
+        setUsername(getData(rowNumber,1));
+        setPassword(getData(rowNumber,2));
 
-        setUsername(ExcelUtil.getCellData(rowNumber,1));
-        setPassword(ExcelUtil.getCellData(rowNumber,2));
         clickObjectBy(REMEMBER_ME);
         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
         return new MainPage(driver);
