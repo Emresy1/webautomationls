@@ -1,0 +1,254 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"efb77886-d974-429e-b98e-d5ffde5a71a7\" name=\"Default Changelist\" comment=\"forgotPasswordFix\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1kjqoCUb91BNXaWIDatcmBdsqqh\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"project.structure.last.edited\" value=\"Problems\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"project.propVCSSupport.Mappings\" />\n  </component>\n  <component name=\"RunManager\" selected=\"JUnit.RegisterTest\">\n    <configuration default=\"true\" type=\"ArquillianTestNG\" factoryName=\"\" nameIsGenerated=\"true\">\n      <option name=\"arquillianRunConfiguration\">\n        <value>\n          <option name=\"containerStateName\" value=\"\" />\n        </value>\n      </option>\n      <option name=\"TEST_OBJECT\" value=\"CLASS\" />\n      <properties />\n      <listeners />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.loginWithRememberMe\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"loginWithRememberMe\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.successfulllyLoginWithIdentityNo\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"successfulllyLoginWithIdentityNo\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.successfullyLoginWithUserName\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"successfullyLoginWithUserName\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"RegisterTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.RegisterTest\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"JUnit.RegisterTest\" />\n        <item itemvalue=\"JUnit.LoginTest\" />\n        <item itemvalue=\"JUnit.LoginTest.successfulllyLoginWithIdentityNo\" />\n        <item itemvalue=\"JUnit.LoginTest.successfullyLoginWithUserName\" />\n        <item itemvalue=\"JUnit.LoginTest.loginWithRememberMe\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"SvnConfiguration\" cleanupOnStartRun=\"true\">\n    <configuration useDefault=\"false\">$USER_HOME$/.subversion</configuration>\n    <supportedVersion>125</supportedVersion>\n    <option name=\"runUnderTerminal\" value=\"true\" />\n    <option name=\"FORCE_UPDATE\" value=\"true\" />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"efb77886-d974-429e-b98e-d5ffde5a71a7\" name=\"Default Changelist\" comment=\"\" />\n      <created>1606224521931</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1606224521931</updated>\n      <workItem from=\"1606224523015\" duration=\"603000\" />\n      <workItem from=\"1606828700131\" duration=\"5000\" />\n      <workItem from=\"1606917217589\" duration=\"25000\" />\n      <workItem from=\"1606917249746\" duration=\"3000\" />\n      <workItem from=\"1606981712524\" duration=\"630000\" />\n      <workItem from=\"1606993588121\" duration=\"5315000\" />\n      <workItem from=\"1607073163758\" duration=\"2433000\" />\n      <workItem from=\"1607083510224\" duration=\"809000\" />\n      <workItem from=\"1607088544131\" duration=\"486000\" />\n      <workItem from=\"1607089041080\" duration=\"571000\" />\n      <workItem from=\"1607329763157\" duration=\"259000\" />\n      <workItem from=\"1607342650301\" duration=\"19275000\" />\n      <workItem from=\"1607712713909\" duration=\"77000\" />\n      <workItem from=\"1607934559276\" duration=\"325000\" />\n      <workItem from=\"1607954880462\" duration=\"11897000\" />\n      <workItem from=\"1608041562904\" duration=\"17630000\" />\n      <workItem from=\"1608207892469\" duration=\"7986000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"update2\">\n      <created>1607089324497</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607089324497</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"update2\">\n      <created>1607089366634</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607089366634</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"con\">\n      <created>1607090233898</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607090233898</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"login case\">\n      <created>1607331326606</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607331326606</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"login case fix\">\n      <created>1607611469206</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607611469206</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"forgotPasswordFix\">\n      <created>1608208577274</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1608208577274</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"7\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"update2\" />\n    <MESSAGE value=\"con\" />\n    <MESSAGE value=\"login case\" />\n    <MESSAGE value=\"login case fix\" />\n    <MESSAGE value=\"forgotPasswordFix\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"forgotPasswordFix\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1608295754056\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900\" timestamp=\"1608295754056\" />\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.center\" timestamp=\"1608295754055\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900\" timestamp=\"1608295754055\" />\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.left\" timestamp=\"1608295754055\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900\" timestamp=\"1608295754055\" />\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.right\" timestamp=\"1608295754056\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900\" timestamp=\"1608295754056\" />\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1608294921670\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900\" timestamp=\"1608294921670\" />\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.center\" timestamp=\"1608294921669\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900\" timestamp=\"1608294921669\" />\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.left\" timestamp=\"1608294921668\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900\" timestamp=\"1608294921668\" />\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.right\" timestamp=\"1608294921670\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900\" timestamp=\"1608294921670\" />\n    <state x=\"320\" y=\"190\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1608208579052\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"320\" y=\"190\" key=\"Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900\" timestamp=\"1608208579052\" />\n    <state x=\"518\" y=\"371\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1608201514166\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"518\" y=\"371\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900\" timestamp=\"1608201514166\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java</url>\n          <line>64</line>\n          <option name=\"timeStamp\" value=\"10\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0d4db3ab599cb34d269b67a8eb3ebf4a07dd0a6e)
++++ b/.idea/workspace.xml	(date 1608628307294)
+@@ -22,16 +22,8 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="forgotPasswordFix">
++    <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="RegsiterPage refactoring">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -73,7 +65,7 @@
+     <property name="project.structure.side.proportion" value="0.2" />
+     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+   </component>
+-  <component name="RunManager" selected="JUnit.RegisterTest">
++  <component name="RunManager" selected="JUnit.RegisterTest.currentUserRegisterToLogin">
+     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+       <option name="arquillianRunConfiguration">
+         <value>
+@@ -87,7 +79,7 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="ForgotPassTest.forgotPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="tuttur.web.test" />
+       <extension name="coverage">
+         <pattern>
+@@ -96,13 +88,14 @@
+         </pattern>
+       </extension>
+       <option name="PACKAGE_NAME" value="com.tuttur.test" />
+-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+-      <option name="TEST_OBJECT" value="class" />
++      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.ForgotPassTest" />
++      <option name="METHOD_NAME" value="forgotPassword" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="LoginTest.loginWithRememberMe" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="RegisterTest.currentUserRegisterToLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="tuttur.web.test" />
+       <extension name="coverage">
+         <pattern>
+@@ -111,14 +104,14 @@
+         </pattern>
+       </extension>
+       <option name="PACKAGE_NAME" value="com.tuttur.test" />
+-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+-      <option name="METHOD_NAME" value="loginWithRememberMe" />
++      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
++      <option name="METHOD_NAME" value="currentUserRegisterToLogin" />
+       <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="LoginTest.successfulllyLoginWithIdentityNo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="RegisterTest.currentUserRegisterWithForgotPasword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="tuttur.web.test" />
+       <extension name="coverage">
+         <pattern>
+@@ -127,14 +120,14 @@
+         </pattern>
+       </extension>
+       <option name="PACKAGE_NAME" value="com.tuttur.test" />
+-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+-      <option name="METHOD_NAME" value="successfulllyLoginWithIdentityNo" />
++      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
++      <option name="METHOD_NAME" value="currentUserRegisterWithForgotPasword" />
+       <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="LoginTest.successfullyLoginWithUserName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="RegisterTest.fieldRuleCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="tuttur.web.test" />
+       <extension name="coverage">
+         <pattern>
+@@ -143,14 +136,14 @@
+         </pattern>
+       </extension>
+       <option name="PACKAGE_NAME" value="com.tuttur.test" />
+-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+-      <option name="METHOD_NAME" value="successfullyLoginWithUserName" />
++      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
++      <option name="METHOD_NAME" value="fieldRuleCheck" />
+       <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++    <configuration name="RegisterTest.successFullyRegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+       <module name="tuttur.web.test" />
+       <extension name="coverage">
+         <pattern>
+@@ -160,18 +153,19 @@
+       </extension>
+       <option name="PACKAGE_NAME" value="com.tuttur.test" />
+       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
+-      <option name="TEST_OBJECT" value="class" />
++      <option name="METHOD_NAME" value="successFullyRegisterTest" />
++      <option name="TEST_OBJECT" value="method" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="JUnit.RegisterTest" />
+-        <item itemvalue="JUnit.LoginTest" />
+-        <item itemvalue="JUnit.LoginTest.successfulllyLoginWithIdentityNo" />
+-        <item itemvalue="JUnit.LoginTest.successfullyLoginWithUserName" />
+-        <item itemvalue="JUnit.LoginTest.loginWithRememberMe" />
++        <item itemvalue="JUnit.RegisterTest.currentUserRegisterToLogin" />
++        <item itemvalue="JUnit.RegisterTest.currentUserRegisterWithForgotPasword" />
++        <item itemvalue="JUnit.ForgotPassTest.forgotPassword" />
++        <item itemvalue="JUnit.RegisterTest.fieldRuleCheck" />
++        <item itemvalue="JUnit.RegisterTest.successFullyRegisterTest" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -249,7 +243,42 @@
+       <option name="project" value="LOCAL" />
+       <updated>1608208577274</updated>
+     </task>
+-    <option name="localTasksCounter" value="7" />
++    <task id="LOCAL-00007" summary="forgot password change">
++      <created>1608297089500</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1608297089500</updated>
++    </task>
++    <task id="LOCAL-00008" summary="forgotPassword/birthdate for method">
++      <created>1608302523760</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1608302523760</updated>
++    </task>
++    <task id="LOCAL-00009" summary="RegsiterPage checkFieldRule">
++      <created>1608485643922</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1608485643922</updated>
++    </task>
++    <task id="LOCAL-00010" summary="RegsiterPage refactoring">
++      <created>1608553726289</created>
++      <option name="number" value="00010" />
++      <option name="presentableId" value="LOCAL-00010" />
++      <option name="project" value="LOCAL" />
++      <updated>1608553726289</updated>
++    </task>
++    <task id="LOCAL-00011" summary="RegsiterPage refactoring">
++      <created>1608624894922</created>
++      <option name="number" value="00011" />
++      <option name="presentableId" value="LOCAL-00011" />
++      <option name="project" value="LOCAL" />
++      <updated>1608624894922</updated>
++    </task>
++    <option name="localTasksCounter" value="12" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -273,59 +302,10 @@
+     <MESSAGE value="login case" />
+     <MESSAGE value="login case fix" />
+     <MESSAGE value="forgotPasswordFix" />
+-    <option name="LAST_COMMIT_MESSAGE" value="forgotPasswordFix" />
+-  </component>
+-  <component name="WindowStateProjectService">
+-    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1608295754056">
+-      <screen x="0" y="0" width="1440" height="900" />
+-    </state>
+-    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608295754056" />
+-    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1608295754055">
+-      <screen x="0" y="0" width="1440" height="900" />
+-    </state>
+-    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608295754055" />
+-    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1608295754055">
+-      <screen x="0" y="0" width="1440" height="900" />
+-    </state>
+-    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608295754055" />
+-    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1608295754056">
+-      <screen x="0" y="0" width="1440" height="900" />
+-    </state>
+-    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608295754056" />
+-    <state width="1398" height="238" key="GridCell.Tab.1.bottom" timestamp="1608294921670">
+-      <screen x="0" y="0" width="1440" height="900" />
+-    </state>
+-    <state width="1398" height="238" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608294921670" />
+-    <state width="1398" height="238" key="GridCell.Tab.1.center" timestamp="1608294921669">
+-      <screen x="0" y="0" width="1440" height="900" />
+-    </state>
+-    <state width="1398" height="238" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1608294921669" />
+-    <state width="1398" height="238" key="GridCell.Tab.1.left" timestamp="1608294921668">
+-      <screen x="0" y="0" width="1440" height="900" />
+-    </state>
+-    <state width="1398" height="238" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1608294921668" />
+-    <state width="1398" height="238" key="GridCell.Tab.1.right" timestamp="1608294921670">
+-      <screen x="0" y="0" width="1440" height="900" />
+-    </state>
+-    <state width="1398" height="238" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1608294921670" />
+-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1608208579052">
+-      <screen x="0" y="0" width="1440" height="900" />
+-    </state>
+-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1608208579052" />
+-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608201514166">
+-      <screen x="0" y="0" width="1440" height="900" />
+-    </state>
+-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1608201514166" />
+-  </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java</url>
+-          <line>64</line>
+-          <option name="timeStamp" value="10" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
++    <MESSAGE value="forgot password change" />
++    <MESSAGE value="forgotPassword/birthdate for method" />
++    <MESSAGE value="RegsiterPage checkFieldRule" />
++    <MESSAGE value="RegsiterPage refactoring" />
++    <option name="LAST_COMMIT_MESSAGE" value="RegsiterPage refactoring" />
+   </component>
+ </project>
+\ No newline at end of file
