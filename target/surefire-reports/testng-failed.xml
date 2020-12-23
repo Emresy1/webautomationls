@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Command line suite]" verbose="0">
+  <test thread-count="5" name="Command line test(failed)" verbose="0">
+    <classes>
+      <class name="com.tuttur.test.RegisterTest">
+        <methods>
+          <include name="registerWithUseFunctionality"/>
+          <include name="tearDown"/>
+          <include name="registerWithInvalidData"/>
+          <include name="fieldRuleCheck"/>
+          <include name="successFullyRegisterTest"/>
+        </methods>
+      </class> <!-- com.tuttur.test.RegisterTest -->
+      <class name="com.tuttur.test.LoginTest">
+        <methods>
+          <include name="successfullyLoginWithAccountNo"/>
+          <include name="tearDown"/>
+          <include name="failLoginWithPassword"/>
+          <include name="failLoginWithPhoneNumber"/>
+          <include name="failLoginWithSsn"/>
+          <include name="failLoginWithUsername"/>
+          <include name="failLoginWithAccountNo"/>
+          <include name="successfullyLoginWithUserName"/>
+          <include name="loginInputMaxValueControl"/>
+          <include name="successfulllyLoginWithIdentityNo"/>
+          <include name="failLoginWithEmail"/>
+          <include name="loginWithMissingInfo"/>
+        </methods>
+      </class> <!-- com.tuttur.test.LoginTest -->
+      <class name="com.tuttur.test.ForgotPassTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="forgotPassword"/>
+        </methods>
+      </class> <!-- com.tuttur.test.ForgotPassTest -->
+    </classes>
+  </test> <!-- Command line test(failed) -->
+</suite> <!-- Failed suite [Command line suite] -->

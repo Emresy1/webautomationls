@@ -1,0 +1,2128 @@
+Index: src/test/java/com/tuttur/util/BasePageUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.util;\n\n\nimport java.util.ArrayList;\nimport java.util.List;\nimport java.util.Random;\nimport java.util.Set;\n\nimport org.junit.Assert;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.JavascriptExecutor;\nimport org.openqa.selenium.WebDriver;\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.support.ui.ExpectedConditions;\nimport org.openqa.selenium.support.ui.Select;\nimport org.openqa.selenium.support.ui.WebDriverWait;\n\npublic class BasePageUtil {\n\tprotected WebDriver driver;\n\n\t\n\tpublic BasePageUtil(WebDriver driver) {\n\n\t\tthis.driver = driver;\n\t}\n\tRandom random = new Random();\n\t\n\t\n    public static final int DEFAULT_WAIT_4_ELEMENT = 10;\n    public static final int OPT_WAIT_4_ELEMENT = 5;\n    public static final int MIN_WAIT_4_ELEMENT = 2;\n    public static final int RESEND_CODE_WAIT = 181;\n\t\n\tpublic WebElement getElementBy(By by) {\n\t\treturn driver.findElement(by);\n\t}\n\t\n\tpublic WebElement getElemenstBy(By by, int i) {\n\t\treturn driver.findElements(by).get(i);\n\t}\n\n\tpublic void waitForElementDisappear(WebElement element){\n\t\tWebDriverWait wait = new WebDriverWait(driver,DEFAULT_WAIT_4_ELEMENT);\n\t\twait.until(ExpectedConditions.invisibilityOf(element));\n\t}\n\n\t\n\tpublic WebElement setObjectBy(By by, String value) {\n\t\tWebElement element = getElementBy(by);\n\t\telement.clear();\n\t\telement.sendKeys(value);\n\t\treturn element;\n\t}\n\n\tpublic void assertDisplayed(By element1, By element2, By element3){\n\n\t\tWebElement elm1 = getElementBy(element1);\n\t\tWebElement elm2 = getElementBy(element2);\n\t\tWebElement elm3 = getElementBy(element3);\n\t\tArrayList<WebElement> elements = new ArrayList<WebElement>();\n\t\telements.add(elm1);\n\t\telements.add(elm2);\n\t\telements.add(elm3);\n\n\t\tint loopCount = 3;\n\t\tfor (int i=0; i<loopCount; i++){\n\n\t\t\tAssert.assertTrue(\"Element görülmedi.\", elements.get(i).isDisplayed());\n\t\t}\n\n\t}\n\n\tpublic WebElement setObjectsBy(By by, int index ,String value ) {\n\t\tWebElement element = getElemenstBy(by,index);\n\t\telement.sendKeys(value);\n\t\treturn element;\n\t}\n\tpublic void assertElementsIsEmpty(By element1, By element2, By element3){\n\n\t\tArrayList<WebElement> elements = new ArrayList<WebElement>();\n\t\tint size = 4;\n\n\t\tfor (int i=0; i < size; i++){\n\n\t\t\tList<WebElement> elm1 = driver.findElements(element1);\n\t\t\tList<WebElement> elm2 = driver.findElements(element2);\n\t\t\tList<WebElement> elm3 = driver.findElements(element3);\n\t\t\telements.add(elm1.get(i));\n\t\t\telements.add(elm2.get(i));\n\t\t\telements.add(elm3.get(i));\n\t\t}\n\n\t\tint loopCount = 3;\n\t\tfor (int i=0; i<elements.size(); i++){\n\t\t\tSystem.out.println(\"elements : \"+ elements.get(i).getText());\n\n\t\t\tAssert.assertTrue(\"Element görülmedi.\", !elements.get(i).getText().isEmpty());\n\t\t}\n\t}\n\tpublic void assertElementIsEmpty(By element1, By element2, By element3){\n\n\t\tArrayList<WebElement> elements = new ArrayList<WebElement>();\n\t\tint size = 4;\n\t\tfor (int i=0; i < size; i++){\n\t\t\tWebElement elm1 = getElementBy(element1);\n\t\t\tWebElement elm2 = getElementBy(element2);\n\t\t\tWebElement elm3 = getElementBy(element3);\n\t\t\telements.add(elm1);\n\t\t\telements.add(elm2);\n\t\t\telements.add(elm3);\n\t\t}\n\n\n\t\tint loopCount = 3;\n\t\tfor (int i=0; i<elements.size(); i++){\n\n\t\t\tAssert.assertTrue(\"Element görülmedi.\", !elements.get(i).getText().isEmpty());\n\t\t}\n\t}\n\n\t\n\tpublic boolean isElementOnScreen(By by) {\n\t\t\n\t\tWebElement elm = getElementBy(by);\n\t\tif (elm.isDisplayed()) {\n\t\t\treturn true;\n\t\t}\n\t\telse {\n\t\t\treturn false;\n\t\t}\n\t}\n\n\n\n\tpublic WebElement clickObjectBy(By by) {\n\t\tWebElement element = driver.findElement(by);\n\t\twaitForElement(element,OPT_WAIT_4_ELEMENT);\n\t\telement.click();\n\t\treturn element;\n\t}\n    public WebElement clickObjectsBy ( By by,int i) {\n\t\tWebElement element = driver.findElements(by).get(i);\n\t\twaitForElement(element,OPT_WAIT_4_ELEMENT);\n\t\telement.click();\n\t\treturn element;\n\t}\n\n\tpublic List <WebElement> findElements (By by) {\n\t\tList <WebElement> elements = driver.findElements(by);\n\t\treturn elements;\n\t}\n\n\tpublic void javaScriptClicker(WebDriver driver, WebElement element) {\n\n\t\tJavascriptExecutor jse = ((JavascriptExecutor) driver);\n\t\tjse.executeScript(\"var evt = document.createEvent('MouseEvents');\"\n\t\t\t\t+ \"evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);\"\n\t\t\t\t+ \"arguments[0].dispatchEvent(evt);\", element);\n\t}\n\t\n\tpublic void scrollToElement(By by) throws InterruptedException {\n\t\tWebElement element = driver.findElement(by);\n\t\t((JavascriptExecutor) driver).executeScript(\"arguments[0].scrollIntoView(true);\", element);\n\t\tThread.sleep(500);\n\t}\n\t\n\tpublic void waitForElement(WebDriver driver, int seconds, By elementBy) {\n\t\tWebDriverWait wait = new WebDriverWait(driver, seconds, 1000);\n\t\twait.until(ExpectedConditions.elementToBeClickable(elementBy));\n\t}\n\tpublic void waitForString(WebDriver driver, int seconds, By by, String st) {\n\t\tWebDriverWait wait = new WebDriverWait(driver, seconds, 1000);\n\t\tWebElement element = getElementBy(by);\n\t\twait.until(ExpectedConditions.textToBePresentInElement(element,st));\n\t}\n\tpublic void waitForElement(WebElement elm , int seconds) {\n\t\t\n\t\tWebDriverWait wait = new WebDriverWait(driver, seconds, 1000);\n\t\twait.until(ExpectedConditions.elementToBeClickable(elm));\n\t}\n\t\n\tpublic void waitForText(WebDriver driver, int seconds, By by, String value) {\n\t\t\n\t\tWebElement element = getElementBy(by);\n\t\tWebDriverWait wait = new WebDriverWait(driver, seconds, 1000);\n\t\twait.until(ExpectedConditions.textToBePresentInElement(element, value));\n\t}\n\t\n\tpublic void switchToWindows() {\n\t\t\n\t\tSet<String> allWindows = driver.getWindowHandles();\n\t\tfor(String currentWindow : allWindows){\n\t\t    driver.switchTo().window(currentWindow);\n\t\t}\n\t}\n\t\n\tpublic void selectRandomBirthdayElements(By by, int i) {\n\t\t\n\t\tWebElement dropdownDates = getElemenstBy(by, i);\n\t\tSelect dates = new Select(dropdownDates);\n\t\tList<WebElement> dateList = dates.getOptions();\n\t\tint dateObj = dateList.size();\n\t\tint dateSelect = random.nextInt(dateObj);\n\t\tdates.selectByIndex(dateSelect);\n\t\tSystem.out.println(dropdownDates.getAttribute(\"value\"));\n\t\t\n\t}\n\t\n\tpublic void selectRandomBirthdayElement(By by) {\n\t\t\n\t\tWebElement dropdownDates = getElementBy(by);\n\t\tSelect dates = new Select(dropdownDates);\n\t\tList<WebElement> dateList = dates.getOptions();\n\t\tint dateObj = dateList.size();\n\t\tint dateSelect = random.nextInt(dateObj);\n\t\tdates.selectByIndex(dateSelect);\n\t\tSystem.out.println(dropdownDates.getAttribute(\"value\"));\n\t}\n\n\tpublic void selectDropdownElementIndex(WebElement elm, int i) {\n\n\t\tSelect select = new Select(elm);\n\t\tselect.selectByIndex(i);\n\t}\n\n\n\n     public void selectDropdownElementValue(WebElement elm) {\n\n\t\tSelect select = new Select(elm);\n\t\tString value = select.getOptions().get(1).getText();\n\t\tselect.selectByValue(value);\n\n\t}\n\t\n\tpublic boolean isExist(int seconds, By by) {\n\t\ttry {\n\t\t\twaitForElement(driver, seconds, by);\n\t\t\treturn true;\n\t\t} catch (Exception e) {\n\t\t\tSystem.out.println(e.toString());\n\t\t\treturn false;\n\t\t}\n      }\n\t\n\tpublic boolean isExistElement (int seconds, WebElement elm) {\n\t\t\n\t\ttry {\n\t\t\twaitForElement(elm, seconds);\n\t\t\treturn true;\n\t\t} catch (Exception e) {\n\t\t\tSystem.out.println(e.toString());\n\t\t\treturn false;\n\t\t}\t\n\t}\n\n\t\n\tpublic void sleep(int seconds) {\n\t\ttry {\n\t\t\tThread.sleep(seconds * 1000);\n\t\t} catch (InterruptedException e) {\n\t\t\te.printStackTrace();\n\t\t}\n\t}\n\n\n    public static int generateRandomInt(int upperRange){\n    \t\n      Random random = new Random();\n    return random.nextInt(upperRange);\n      }\n\t\n    }
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/util/BasePageUtil.java	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ src/test/java/com/tuttur/util/BasePageUtil.java	(date 1608579565590)
+@@ -1,12 +1,6 @@
+ package com.tuttur.util;
+ 
+ 
+-import java.util.ArrayList;
+-import java.util.List;
+-import java.util.Random;
+-import java.util.Set;
+-
+-import org.junit.Assert;
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.JavascriptExecutor;
+ import org.openqa.selenium.WebDriver;
+@@ -14,8 +8,15 @@
+ import org.openqa.selenium.support.ui.ExpectedConditions;
+ import org.openqa.selenium.support.ui.Select;
+ import org.openqa.selenium.support.ui.WebDriverWait;
++import org.testng.Assert;
++
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Random;
++import java.util.Set;
+ 
+ public class BasePageUtil {
++
+ 	protected WebDriver driver;
+ 
+ 	
+@@ -65,7 +66,7 @@
+ 		int loopCount = 3;
+ 		for (int i=0; i<loopCount; i++){
+ 
+-			Assert.assertTrue("Element görülmedi.", elements.get(i).isDisplayed());
++			Assert.assertTrue(elements.get(i).isDisplayed(), "Element görülmedi.");
+ 		}
+ 
+ 	}
+@@ -94,7 +95,7 @@
+ 		for (int i=0; i<elements.size(); i++){
+ 			System.out.println("elements : "+ elements.get(i).getText());
+ 
+-			Assert.assertTrue("Element görülmedi.", !elements.get(i).getText().isEmpty());
++			Assert.assertTrue(!elements.get(i).getText().isEmpty(), "Element görülmedi.");
+ 		}
+ 	}
+ 	public void assertElementIsEmpty(By element1, By element2, By element3){
+@@ -114,7 +115,7 @@
+ 		int loopCount = 3;
+ 		for (int i=0; i<elements.size(); i++){
+ 
+-			Assert.assertTrue("Element görülmedi.", !elements.get(i).getText().isEmpty());
++			Assert.assertTrue(!elements.get(i).getText().isEmpty(), "Element görülmedi.");
+ 		}
+ 	}
+ 
+Index: src/test/java/com/tuttur/base/BaseTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.base;\n\n\n\n\nimport java.net.URL;\nimport java.util.concurrent.TimeUnit;\nimport org.apache.commons.lang3.StringUtils;\nimport org.junit.After;\nimport org.junit.Before;\nimport org.openqa.selenium.WebDriver;\nimport org.openqa.selenium.chrome.ChromeDriver;\nimport org.openqa.selenium.chrome.ChromeOptions;\nimport org.openqa.selenium.firefox.FirefoxDriver;\nimport com.tuttur.configs.PropertiesFile;\nimport org.openqa.selenium.firefox.FirefoxOptions;\nimport org.openqa.selenium.remote.DesiredCapabilities;\nimport org.openqa.selenium.remote.RemoteWebDriver;\n\npublic class BaseTest {\n\n\tpublic static String path = \"C:\\\\Users\\\\Deniz Caliskan\\\\eclipse-workspace\\\\TutturWeb\\\\configs\\\\Configurations.properties\";\n\tpublic static String baseUrl = \"https://ttest:q26RwfyLotHm@alpha3.tuttur.com\";\n\n\t//https://ttest:q26RwfyLotHm@alpha.tuttur.com\n\t   public static final String USERNAME = \"tech\";\n\t   public static final String ACCESS_KEY = \"d037c678533d3de4bc8fc89693fd6ccf\";\n\t   public static final String KEY = USERNAME + \":\" + ACCESS_KEY;\n\t   public static final String URL = \"http://hub.testinium.io/wd/hub\";\n\n\tpublic WebDriver driver;\n\n\tpublic static String browserName = null;\n\n\n\t@Before\n\tpublic void setUp() throws Exception {\n\t\t String path = System.getProperty(\"user.dir\");\n\t\t PropertiesFile.getProperties();\n\n\t\t// Proxy proxy = new Proxy();\n\t\t// proxy.setProxyAutoconfigUrl(\"http://10.49.4.200\");\n\n\t\tDesiredCapabilities capabilities = new DesiredCapabilities();\n\n\n\t\tif (StringUtils.isEmpty(System.getProperty(\"key\"))) {\n\n\t\t\tif (browserName.equalsIgnoreCase(\"chrome\")) {\n\n\t\t\t\t//capabilities.setCapability(CapabilityType.PROXY, proxy);\n\t\t\t\tSystem.setProperty(\"webdriver.chrome.driver\", \"properties/driver/chromedriver\");\n\t\t\t\tChromeOptions options = new ChromeOptions();\n\t\t\t\toptions.merge(capabilities);\n\t\t\t\tdriver = new ChromeDriver(options);\n\t\t\t}\n\n\t\t\telse if (browserName.equalsIgnoreCase(\"firefox\")) {\n\t\t\t//\tcapabilities.setCapability(CapabilityType.PROXY, proxy);\n\t\t\t\tSystem.setProperty(\"webdriver.gecko.driver\", \"properties/driver/geckodriver\");\n\t\t\t\tFirefoxOptions options = new FirefoxOptions();\n\t\t\t\toptions.merge(capabilities);\n\t\t\t\tdriver = new FirefoxDriver();\n\t\t\t}\n\n\t\t} else {\n\n\n\t\t\t//\tcapabilities.setCapability(\"key\", System.getProperty(\"key\"));\n\n\n\t\t\tcapabilities.setCapability(\"key\", System.getProperty(\"key\"));\n\n\t\t\tdriver = new RemoteWebDriver(new URL(URL), capabilities);\n\n\t\t}\n\t\tdriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);\n\t\tdriver.manage().window().maximize();\n\n\t\tdriver.get(baseUrl);\n\t}\n\n\t//@After\n\t//public void tearDown() {\n\t//\tdriver.quit();\n\t//\n\t//}\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/base/BaseTest.java	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ src/test/java/com/tuttur/base/BaseTest.java	(date 1608624492417)
+@@ -1,46 +1,42 @@
+ package com.tuttur.base;
+ 
+ 
+-
+-
+-import java.net.URL;
+-import java.util.concurrent.TimeUnit;
++import com.tuttur.configs.PropertiesFile;
+ import org.apache.commons.lang3.StringUtils;
+-import org.junit.After;
+-import org.junit.Before;
+ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.chrome.ChromeDriver;
+ import org.openqa.selenium.chrome.ChromeOptions;
+ import org.openqa.selenium.firefox.FirefoxDriver;
+-import com.tuttur.configs.PropertiesFile;
+ import org.openqa.selenium.firefox.FirefoxOptions;
+ import org.openqa.selenium.remote.DesiredCapabilities;
+ import org.openqa.selenium.remote.RemoteWebDriver;
++import org.testng.annotations.*;
++import java.net.URL;
++import java.util.concurrent.TimeUnit;
+ 
+ public class BaseTest {
+ 
+-	public static String path = "C:\\Users\\Deniz Caliskan\\eclipse-workspace\\TutturWeb\\configs\\Configurations.properties";
+-	public static String baseUrl = "https://ttest:q26RwfyLotHm@alpha3.tuttur.com";
++
++	public String path = "C:\\Users\\Deniz Caliskan\\eclipse-workspace\\TutturWeb\\configs\\Configurations.properties";
++	public String baseUrl = "https://ttest:q26RwfyLotHm@alpha3.tuttur.com";
+ 
+ 	//https://ttest:q26RwfyLotHm@alpha.tuttur.com
+-	   public static final String USERNAME = "tech";
+-	   public static final String ACCESS_KEY = "d037c678533d3de4bc8fc89693fd6ccf";
+-	   public static final String KEY = USERNAME + ":" + ACCESS_KEY;
+-	   public static final String URL = "http://hub.testinium.io/wd/hub";
++	   public String USERNAME = "tech";
++	   public String ACCESS_KEY = "d037c678533d3de4bc8fc89693fd6ccf";
++	   public String KEY = USERNAME + ":" + ACCESS_KEY;
++	   public String URL = "http://hub.testinium.io/wd/hub";
++
+ 
+ 	public WebDriver driver;
+ 
+ 	public static String browserName = null;
+ 
+ 
+-	@Before
+-	public void setUp() throws Exception {
++	@BeforeTest
++	 void setUp(String browser) throws Exception {
+ 		 String path = System.getProperty("user.dir");
+ 		 PropertiesFile.getProperties();
+ 
+-		// Proxy proxy = new Proxy();
+-		// proxy.setProxyAutoconfigUrl("http://10.49.4.200");
+-
+ 		DesiredCapabilities capabilities = new DesiredCapabilities();
+ 
+ 
+@@ -48,42 +44,43 @@
+ 
+ 			if (browserName.equalsIgnoreCase("chrome")) {
+ 
+-				//capabilities.setCapability(CapabilityType.PROXY, proxy);
++
+ 				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
+ 				ChromeOptions options = new ChromeOptions();
+ 				options.merge(capabilities);
++
+ 				driver = new ChromeDriver(options);
+ 			}
+ 
+ 			else if (browserName.equalsIgnoreCase("firefox")) {
+-			//	capabilities.setCapability(CapabilityType.PROXY, proxy);
++
+ 				System.setProperty("webdriver.gecko.driver", "properties/driver/geckodriver");
+ 				FirefoxOptions options = new FirefoxOptions();
+ 				options.merge(capabilities);
+-				driver = new FirefoxDriver();
++
++				driver = new FirefoxDriver(options);
+ 			}
+ 
+ 		} else {
+ 
+-
+-			//	capabilities.setCapability("key", System.getProperty("key"));
+-
+-
+ 			capabilities.setCapability("key", System.getProperty("key"));
+ 
+ 			driver = new RemoteWebDriver(new URL(URL), capabilities);
+ 
+ 		}
++
+ 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+ 		driver.manage().window().maximize();
+ 
+ 		driver.get(baseUrl);
+ 	}
+ 
+-	//@After
+-	//public void tearDown() {
+-	//	driver.quit();
+-	//
+-	//}
++	@AfterTest
++	public void tearDown() {
++		driver.quit();
++
++	}
++
++
+ 
+ }
+Index: src/test/java/com/tuttur/test/LoginTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.test;\n\nimport java.io.IOException;\n\nimport com.tuttur.page.LoginPage;\nimport org.junit.Test;\nimport com.tuttur.base.BaseTest;\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.page.MainPage;\nimport org.openqa.selenium.By;\n\npublic class LoginTest extends BaseTest {\n    PropertiesFile prop = new PropertiesFile(driver);\n\n    /**\n     * Case 1.0\n     * Üye numarasıyla başarılı login\n     * @throws IOException\n     */\n    @Test\n    public void successfullyLoginWithAccountNo() throws IOException {\n\n        new MainPage(driver).getLoginPage()\n                .login(prop.getObject(\"account_no\"),(prop.getObject(\"usernamePass\"))).checkAccountNo();\n    }\n\n    /**\n     * Case 1.1\n     * Kullanıcı adı ile başarılı login\n     * @throws IOException\n     */\n    @Test\n    public void successfullyLoginWithUserName() throws IOException {\n        new MainPage(driver).getLoginPage()\n                .login(prop.getObject(\"username\"),(prop.getObject(\"usernamePass\")))\n                .checkUsernameText(prop.getObject(\"username\"));\n    }\n\n    /**\n     * Case 1.2\n     * TCKN  ile başarılı login\n     */\n    @Test\n    public void successfulllyLoginWithIdentityNo() throws IOException {\n        new MainPage(driver).getLoginPage().login(prop.getObject(\"login_ssn\"),(prop.getObject(\"password\")))\n                .checkUsernameText(prop.getObject(\"ssnUser\"));\n    }\n\n    /**\n     * Case 1.3\n     * TCKN ile başarısız login kontrolü\n     */\n    @Test\n    public void failLoginWithSsn() throws IOException {\n        new MainPage(driver).getLoginPage().login(prop.getObject(\"invalidSsn\"),(prop.getObject(\"password\")));\n        new LoginPage(driver).checkFailLogin();\n    }\n\n    /**\n     * Case 1.4\n     * Username ile başarısız login kontrolü\n     */\n    @Test\n    public void failLoginWithUsername() throws IOException {\n        new MainPage(driver).getLoginPage().login(prop.getObject(\"invalidUsername\"),(prop.getObject(\"password\")));\n        new LoginPage(driver).checkFailLogin();\n    }\n\n    /**\n     * Case 1.5\n     * Account no ile başarısız login kontrolü\n     */\n    @Test\n    public void failLoginWithAccountNo() throws IOException {\n        new MainPage(driver).getLoginPage().login(prop.getObject(\"invalidAccountNo\"),(prop.getObject(\"password\")));\n        new LoginPage(driver).checkFailLogin();\n    }\n\n    /**\n     * Case 1.6\n     * Email ile başarısız login kontrolü\n     */\n    @Test\n    public void failLoginWithEmail() throws IOException {\n\n        new MainPage(driver).getLoginPage()\n                .login(prop.getObject(\"loginEmail\"),(prop.getObject(\"password\")));\n        new LoginPage(driver).checkFailLoginWithEmail();\n    }\n\n    /**\n     * Case 1.7\n     * Telefon numarası ile başarısız login kontrolü\n     */\n    @Test\n    public void failLoginWithPhoneNumber() throws IOException {\n\n        new MainPage(driver).getLoginPage()\n                .login(prop.getObject(\"invalidPhone\"),(prop.getObject(\"password\")));\n        new LoginPage(driver)\n                .checkFailLoginWithGsm();\n    }\n\n    /**\n     * Case 1.8\n     * Login inputlarının maksimum değer kontrolü\n     * @throws IOException\n     */\n    @Test\n    public void loginInputMaxValueControl() throws IOException {\n        new MainPage(driver).getLoginPage()\n                .login(prop.getObject(\"user_max_value\"),(prop.getObject(\"password_max_value\")));\n        new LoginPage(driver).checkInputErrorValidations();\n    }\n\n    /**\n     * Case 1.9\n     * Hatalı şifre ile login kontrolü\n     * @throws IOException\n     */\n    @Test\n    public void failLoginWithPassword() throws IOException {\n        new MainPage(driver).getLoginPage()\n                .login(prop.getObject(\"username\"),(prop.getObject(\"invalidPassword\")));\n        new LoginPage(driver).checkFailLogin();\n    }\n\n    /**\n     * Case 2.0\n     * Boş input ile login kontrolü\n     * @throws IOException\n     */\n\n    @Test\n    public void loginWithMissingInfo () throws IOException {\n        new MainPage(driver).getLoginPage().login(\"\",\"\");\n        new LoginPage(driver).checkMissingInfoText();\n    }\n\n\n}\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/test/LoginTest.java	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ src/test/java/com/tuttur/test/LoginTest.java	(date 1608622204986)
+@@ -3,13 +3,13 @@
+ import java.io.IOException;
+ 
+ import com.tuttur.page.LoginPage;
+-import org.junit.Test;
+ import com.tuttur.base.BaseTest;
+ import com.tuttur.configs.PropertiesFile;
+ import com.tuttur.page.MainPage;
+-import org.openqa.selenium.By;
++import org.testng.annotations.Test;
+ 
+ public class LoginTest extends BaseTest {
++
+     PropertiesFile prop = new PropertiesFile(driver);
+ 
+     /**
+@@ -17,6 +17,7 @@
+      * Üye numarasıyla başarılı login
+      * @throws IOException
+      */
++
+     @Test
+     public void successfullyLoginWithAccountNo() throws IOException {
+ 
+@@ -36,6 +37,7 @@
+                 .checkUsernameText(prop.getObject("username"));
+     }
+ 
++
+     /**
+      * Case 1.2
+      * TCKN  ile başarılı login
+Index: .idea/libraries/Maven__io_rest_assured_rest_assured_common_4_1_2.xml
+===================================================================
+--- .idea/libraries/Maven__io_rest_assured_rest_assured_common_4_1_2.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__io_rest_assured_rest_assured_common_4_1_2.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.rest-assured:rest-assured-common:4.1.2">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/rest-assured-common/4.1.2/rest-assured-common-4.1.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/rest-assured-common/4.1.2/rest-assured-common-4.1.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/rest-assured-common/4.1.2/rest-assured-common-4.1.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__junit_junit_4_11.xml
+===================================================================
+--- .idea/libraries/Maven__junit_junit_4_11.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__junit_junit_4_11.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: junit:junit:4.11">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_checkerframework_checker_compat_qual_2_0_0.xml
+===================================================================
+--- .idea/libraries/Maven__org_checkerframework_checker_compat_qual_2_0_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_checkerframework_checker_compat_qual_2_0_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.checkerframework:checker-compat-qual:2.0.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml
+===================================================================
+--- .idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: javax.activation:javax.activation-api:1.2.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
+===================================================================
+--- .idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.hamcrest:hamcrest-core:1.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_11_0.xml
+===================================================================
+--- .idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_11_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_11_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.squareup.okhttp3:okhttp:3.11.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_3.xml
+===================================================================
+--- .idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_3.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_3.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.httpcomponents:httpmime:4.5.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__commons_codec_commons_codec_1_9.xml
+===================================================================
+--- .idea/libraries/Maven__commons_codec_commons_codec_1_9.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__commons_codec_commons_codec_1_9.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: commons-codec:commons-codec:1.9">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.9/commons-codec-1.9.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.9/commons-codec-1.9-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.9/commons-codec-1.9-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_3_141_59.xml
+===================================================================
+--- .idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.seleniumhq.selenium:selenium-firefox-driver:3.141.59">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-firefox-driver/3.141.59/selenium-firefox-driver-3.141.59.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-firefox-driver/3.141.59/selenium-firefox-driver-3.141.59-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-firefox-driver/3.141.59/selenium-firefox-driver-3.141.59-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+--- .idea/.gitignore	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/.gitignore	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,8 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+Index: .idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml
+===================================================================
+--- .idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml
+===================================================================
+--- .idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: javax.xml.bind:jaxb-api:2.3.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_codehaus_groovy_groovy_2_5_8.xml
+===================================================================
+--- .idea/libraries/Maven__org_codehaus_groovy_groovy_2_5_8.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_codehaus_groovy_groovy_2_5_8.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.codehaus.groovy:groovy:2.5.8">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy/2.5.8/groovy-2.5.8.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy/2.5.8/groovy-2.5.8-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy/2.5.8/groovy-2.5.8-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_seleniumhq_selenium_selenium_edge_driver_3_141_59.xml
+===================================================================
+--- .idea/libraries/Maven__org_seleniumhq_selenium_selenium_edge_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_seleniumhq_selenium_selenium_edge_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.seleniumhq.selenium:selenium-edge-driver:3.141.59">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-edge-driver/3.141.59/selenium-edge-driver-3.141.59.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-edge-driver/3.141.59/selenium-edge-driver-3.141.59-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-edge-driver/3.141.59/selenium-edge-driver-3.141.59-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_hamcrest_hamcrest_2_1.xml
+===================================================================
+--- .idea/libraries/Maven__org_hamcrest_hamcrest_2_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_hamcrest_hamcrest_2_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.hamcrest:hamcrest:2.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest/2.1/hamcrest-2.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest/2.1/hamcrest-2.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest/2.1/hamcrest-2.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml
+===================================================================
+--- .idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.google.code.findbugs:jsr305:1.3.9">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_3_141_59.xml
+===================================================================
+--- .idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.seleniumhq.selenium:selenium-api:3.141.59">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.141.59/selenium-api-3.141.59.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.141.59/selenium-api-3.141.59-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.141.59/selenium-api-3.141.59-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_3_141_59.xml
+===================================================================
+--- .idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.seleniumhq.selenium:selenium-support:3.141.59">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/3.141.59/selenium-support-3.141.59.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/3.141.59/selenium-support-3.141.59-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-support/3.141.59/selenium-support-3.141.59-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_6.xml
+===================================================================
+--- .idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_6.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_6.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.httpcomponents:httpcore:4.4.6">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_google_guava_guava_25_0_jre.xml
+===================================================================
+--- .idea/libraries/Maven__com_google_guava_guava_25_0_jre.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__com_google_guava_guava_25_0_jre.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.google.guava:guava:25.0-jre">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/25.0-jre/guava-25.0-jre.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/25.0-jre/guava-25.0-jre-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/25.0-jre/guava-25.0-jre-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/modules.xml
+===================================================================
+--- .idea/modules.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/modules.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/tuttur.web.test.iml" filepath="$PROJECT_DIR$/tuttur.web.test.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_github_dblock_waffle_waffle_jna_1_7.xml
+===================================================================
+--- .idea/libraries/Maven__com_github_dblock_waffle_waffle_jna_1_7.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__com_github_dblock_waffle_waffle_jna_1_7.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.github.dblock.waffle:waffle-jna:1.7">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/dblock/waffle/waffle-jna/1.7/waffle-jna-1.7.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/dblock/waffle/waffle-jna/1.7/waffle-jna-1.7-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/github/dblock/waffle/waffle-jna/1.7/waffle-jna-1.7-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_1_3.xml
+===================================================================
+--- .idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_1_3.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_1_3.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.google.errorprone:error_prone_annotations:2.1.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_rest_assured_rest_assured_4_1_2.xml
+===================================================================
+--- .idea/libraries/Maven__io_rest_assured_rest_assured_4_1_2.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__io_rest_assured_rest_assured_4_1_2.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.rest-assured:rest-assured:4.1.2">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/rest-assured/4.1.2/rest-assured-4.1.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/rest-assured/4.1.2/rest-assured-4.1.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/rest-assured/4.1.2/rest-assured-4.1.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__commons_logging_commons_logging_1_2.xml
+===================================================================
+--- .idea/libraries/Maven__commons_logging_commons_logging_1_2.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__commons_logging_commons_logging_1_2.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: commons-logging:commons-logging:1.2">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.2/commons-logging-1.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.2/commons-logging-1.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.2/commons-logging-1.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_postgresql_postgresql_9_4_1200_jdbc41.xml
+===================================================================
+--- .idea/libraries/Maven__org_postgresql_postgresql_9_4_1200_jdbc41.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_postgresql_postgresql_9_4_1200_jdbc41.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.postgresql:postgresql:9.4-1200-jdbc41">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/postgresql/postgresql/9.4-1200-jdbc41/postgresql-9.4-1200-jdbc41.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/postgresql/postgresql/9.4-1200-jdbc41/postgresql-9.4-1200-jdbc41-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/postgresql/postgresql/9.4-1200-jdbc41/postgresql-9.4-1200-jdbc41-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml
+===================================================================
+--- .idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.commons:commons-lang3:3.4">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.4/commons-lang3-3.4-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_rest_assured_json_path_4_1_2.xml
+===================================================================
+--- .idea/libraries/Maven__io_rest_assured_json_path_4_1_2.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__io_rest_assured_json_path_4_1_2.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.rest-assured:json-path:4.1.2">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/json-path/4.1.2/json-path-4.1.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/json-path/4.1.2/json-path-4.1.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/json-path/4.1.2/json-path-4.1.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__net_java_dev_jna_jna_4_1_0.xml
+===================================================================
+--- .idea/libraries/Maven__net_java_dev_jna_jna_4_1_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__net_java_dev_jna_jna_4_1_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: net.java.dev.jna:jna:4.1.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jna/jna/4.1.0/jna-4.1.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jna/jna/4.1.0/jna-4.1.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jna/jna/4.1.0/jna-4.1.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_codehaus_groovy_groovy_json_2_5_8.xml
+===================================================================
+--- .idea/libraries/Maven__org_codehaus_groovy_groovy_json_2_5_8.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_codehaus_groovy_groovy_json_2_5_8.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.codehaus.groovy:groovy-json:2.5.8">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-json/2.5.8/groovy-json-2.5.8.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-json/2.5.8/groovy-json-2.5.8-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-json/2.5.8/groovy-json-2.5.8-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__net_bytebuddy_byte_buddy_1_8_15.xml
+===================================================================
+--- .idea/libraries/Maven__net_bytebuddy_byte_buddy_1_8_15.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__net_bytebuddy_byte_buddy_1_8_15.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: net.bytebuddy:byte-buddy:1.8.15">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.8.15/byte-buddy-1.8.15.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.8.15/byte-buddy-1.8.15-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.8.15/byte-buddy-1.8.15-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml
+===================================================================
+--- .idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.slf4j:slf4j-api:1.7.7">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_7.xml
+===================================================================
+--- .idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_7.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_7.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.slf4j:slf4j-simple:1.7.7">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.7.7/slf4j-simple-1.7.7.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.7.7/slf4j-simple-1.7.7-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.7.7/slf4j-simple-1.7.7-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_3_141_59.xml
+===================================================================
+--- .idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.seleniumhq.selenium:selenium-remote-driver:3.141.59">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-remote-driver/3.141.59/selenium-remote-driver-3.141.59.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-remote-driver/3.141.59/selenium-remote-driver-3.141.59-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-remote-driver/3.141.59/selenium-remote-driver-3.141.59-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_sun_xml_bind_jaxb_osgi_2_3_0_1.xml
+===================================================================
+--- .idea/libraries/Maven__com_sun_xml_bind_jaxb_osgi_2_3_0_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__com_sun_xml_bind_jaxb_osgi_2_3_0_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.sun.xml.bind:jaxb-osgi:2.3.0.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-osgi/2.3.0.1/jaxb-osgi-2.3.0.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-osgi/2.3.0.1/jaxb-osgi-2.3.0.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/bind/jaxb-osgi/2.3.0.1/jaxb-osgi-2.3.0.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml
+===================================================================
+--- .idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.google.j2objc:j2objc-annotations:1.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_ccil_cowan_tagsoup_tagsoup_1_2_1.xml
+===================================================================
+--- .idea/libraries/Maven__org_ccil_cowan_tagsoup_tagsoup_1_2_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_ccil_cowan_tagsoup_tagsoup_1_2_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.ccil.cowan.tagsoup:tagsoup:1.2.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_seleniumhq_selenium_selenium_safari_driver_3_141_59.xml
+===================================================================
+--- .idea/libraries/Maven__org_seleniumhq_selenium_selenium_safari_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_seleniumhq_selenium_selenium_safari_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.seleniumhq.selenium:selenium-safari-driver:3.141.59">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-safari-driver/3.141.59/selenium-safari-driver-3.141.59.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-safari-driver/3.141.59/selenium-safari-driver-3.141.59-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-safari-driver/3.141.59/selenium-safari-driver-3.141.59-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_squareup_okio_okio_1_14_0.xml
+===================================================================
+--- .idea/libraries/Maven__com_squareup_okio_okio_1_14_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__com_squareup_okio_okio_1_14_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: com.squareup.okio:okio:1.14.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okio/okio/1.14.0/okio-1.14.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okio/okio/1.14.0/okio-1.14.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/com/squareup/okio/okio/1.14.0/okio-1.14.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__io_rest_assured_xml_path_4_1_2.xml
+===================================================================
+--- .idea/libraries/Maven__io_rest_assured_xml_path_4_1_2.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__io_rest_assured_xml_path_4_1_2.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: io.rest-assured:xml-path:4.1.2">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/xml-path/4.1.2/xml-path-4.1.2.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/xml-path/4.1.2/xml-path-4.1.2-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/io/rest-assured/xml-path/4.1.2/xml-path-4.1.2-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_seleniumhq_selenium_selenium_opera_driver_3_141_59.xml
+===================================================================
+--- .idea/libraries/Maven__org_seleniumhq_selenium_selenium_opera_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_seleniumhq_selenium_selenium_opera_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.seleniumhq.selenium:selenium-opera-driver:3.141.59">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-opera-driver/3.141.59/selenium-opera-driver-3.141.59.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-opera-driver/3.141.59/selenium-opera-driver-3.141.59-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-opera-driver/3.141.59/selenium-opera-driver-3.141.59-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_3.xml
+===================================================================
+--- .idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_3.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_3.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.httpcomponents:httpclient:4.5.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_codehaus_groovy_groovy_xml_2_5_8.xml
+===================================================================
+--- .idea/libraries/Maven__org_codehaus_groovy_groovy_xml_2_5_8.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_codehaus_groovy_groovy_xml_2_5_8.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.codehaus.groovy:groovy-xml:2.5.8">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-xml/2.5.8/groovy-xml-2.5.8.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-xml/2.5.8/groovy-xml-2.5.8-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/groovy/groovy-xml/2.5.8/groovy-xml-2.5.8-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__net_java_dev_jna_jna_platform_4_1_0.xml
+===================================================================
+--- .idea/libraries/Maven__net_java_dev_jna_jna_platform_4_1_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__net_java_dev_jna_jna_platform_4_1_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: net.java.dev.jna:jna-platform:4.1.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/net/java/dev/jna/jna-platform/4.1.0/jna-platform-4.1.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_3_141_59.xml
+===================================================================
+--- .idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.seleniumhq.selenium:selenium-java:3.141.59">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-java/3.141.59/selenium-java-3.141.59.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-java/3.141.59/selenium-java-3.141.59-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-java/3.141.59/selenium-java-3.141.59-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_json_json_20190722.xml
+===================================================================
+--- .idea/libraries/Maven__org_json_json_20190722.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_json_json_20190722.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.json:json:20190722">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20190722/json-20190722.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20190722/json-20190722-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20190722/json-20190722-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apache_sling_org_apache_sling_javax_activation_0_1_0.xml
+===================================================================
+--- .idea/libraries/Maven__org_apache_sling_org_apache_sling_javax_activation_0_1_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_apache_sling_org_apache_sling_javax_activation_0_1_0.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.sling:org.apache.sling.javax.activation:0.1.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/sling/org.apache.sling.javax.activation/0.1.0/org.apache.sling.javax.activation-0.1.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/sling/org.apache.sling.javax.activation/0.1.0/org.apache.sling.javax.activation-0.1.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/sling/org.apache.sling.javax.activation/0.1.0/org.apache.sling.javax.activation-0.1.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_3_141_59.xml
+===================================================================
+--- .idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:3.141.59">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-chrome-driver/3.141.59/selenium-chrome-driver-3.141.59.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-chrome-driver/3.141.59/selenium-chrome-driver-3.141.59-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-chrome-driver/3.141.59/selenium-chrome-driver-3.141.59-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__javax_activation_activation_1_1_1.xml
+===================================================================
+--- .idea/libraries/Maven__javax_activation_activation_1_1_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__javax_activation_activation_1_1_1.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: javax.activation:activation:1.1.1">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1.1/activation-1.1.1.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1.1/activation-1.1.1-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1.1/activation-1.1.1-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_3_141_59.xml
+===================================================================
+--- .idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_3_141_59.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.seleniumhq.selenium:selenium-ie-driver:3.141.59">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-ie-driver/3.141.59/selenium-ie-driver-3.141.59.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-ie-driver/3.141.59/selenium-ie-driver-3.141.59-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-ie-driver/3.141.59/selenium-ie-driver-3.141.59-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_apache_commons_commons_exec_1_3.xml
+===================================================================
+--- .idea/libraries/Maven__org_apache_commons_commons_exec_1_3.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/libraries/Maven__org_apache_commons_commons_exec_1_3.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.commons:commons-exec:1.3">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-exec/1.3/commons-exec-1.3-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-exec/1.3/commons-exec-1.3-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: src/test/java/com/tuttur/page/ForgotPassPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.page;\n\nimport com.tuttur.base.BaseTest;\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.constants.ForgotPass_Constants;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebDriver;\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.interactions.Actions;\nimport org.openqa.selenium.support.ui.Select;\n\nimport static org.junit.Assert.assertTrue;\n\n\nimport java.io.IOException;\nimport java.util.Arrays;\nimport java.util.List;\n\npublic class ForgotPassPage extends ForgotPass_Constants {\n    public ForgotPassPage(WebDriver driver) throws IOException {\n        super(driver);\n    }\n\n\n    Actions actions = new Actions(driver);\n    DbQueriesPage db = new DbQueriesPage(driver);\n    PropertiesFile prop = new PropertiesFile(driver);\n    GeneralPage general = new GeneralPage(driver);\n\n    private void setSSN() {\n        setObjectBy(SSN, \"17376674056\");\n    }\n\n    private void setBirthDate () {\n\n        List <WebElement> selectColomun = findElements(BIRTHDATE);\n        String[] date = {\"20\",\"Nisan\",\"1991\"};\n        List <String> dateList = Arrays.asList(date);\n        int count = 0;\n\n        for (int i = count; i < selectColomun.size();i++) {\n            Select select = new Select(selectColomun.get(i));\n            select.selectByVisibleText(dateList.get(i));\n        }\n\n    }\n\n    /**\n     * Şifremi unuttum ekranındaki checkboxlar için\n     * İndex = 1 sms checkbox\n     * index = 2 mail checkbox\n     *\n     * @param index\n     * @return\n     */\n    private WebElement checkbox(int index) {\n\n        return findElements(SEND_SMS_CHECKBOX).get(index);\n    }\n\n\n    public LoginPage forgotPassAction() {\n        setSSN();\n        setBirthDate();\n        waitForElement(driver, MIN_WAIT_4_ELEMENT, RESET_PASS);\n        clickObjectBy(RESET_PASS);\n        sleep(2);\n        checkbox(1).click();\n        clickObjectBy(By.cssSelector(\".medium.primary.w-100\"));\n        sleep(1);\n        buttonClose().click();\n        return new LoginPage(driver);\n\n    }\n\n    public WebElement buttonClose() {\n\n        waitForElement(driver, OPT_WAIT_4_ELEMENT, By.cssSelector(\".medium.primary\"));\n        return getElemenstBy(By.cssSelector(\".medium.primary\"), 1);\n    }\n\n    public ForgotPassPage setPasswordChange() throws IOException {\n\n        setObjectBy(PASSWORD_INPUT, general.newPasswordChange);\n        clickObjectBy(CHANGE_BUTTON);\n        switchToWindows();\n        checkPasswordChange();\n        clickObjectBy(LOGIN_BUTTON);\n\n        return this;\n\n    }\n\n\n\n\n    private void checkPasswordChange() throws IOException {\n\n        assertTrue(\"şifre değişikliği başarısız\", getElementBy(SUCCESS_MESSAGE)\n                .getText().substring(0, 26).equals(prop.getObject(\"success_pass_change_message\")));\n\n    }\n\n}\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/page/ForgotPassPage.java	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ src/test/java/com/tuttur/page/ForgotPassPage.java	(date 1608577107304)
+@@ -8,8 +8,7 @@
+ import org.openqa.selenium.WebElement;
+ import org.openqa.selenium.interactions.Actions;
+ import org.openqa.selenium.support.ui.Select;
+-
+-import static org.junit.Assert.assertTrue;
++import static org.testng.Assert.assertTrue;
+ 
+ 
+ import java.io.IOException;
+@@ -87,6 +86,7 @@
+         checkPasswordChange();
+         clickObjectBy(LOGIN_BUTTON);
+ 
++
+         return this;
+ 
+     }
+@@ -96,8 +96,8 @@
+ 
+     private void checkPasswordChange() throws IOException {
+ 
+-        assertTrue("şifre değişikliği başarısız", getElementBy(SUCCESS_MESSAGE)
+-                .getText().substring(0, 26).equals(prop.getObject("success_pass_change_message")));
++        assertTrue(getElementBy(SUCCESS_MESSAGE)
++                        .getText().substring(0, 26).equals(prop.getObject("success_pass_change_message")), "şifre değişikliği başarısız");
+ 
+     }
+ 
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"CompilerConfiguration\">\n    <annotationProcessing>\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\n        <outputRelativeToContentRoot value=\"true\" />\n        <module name=\"tuttur.web.test\" />\n      </profile>\n    </annotationProcessing>\n    <bytecodeTargetLevel>\n      <module name=\"tuttur.web.test\" target=\"1.8\" />\n    </bytecodeTargetLevel>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/compiler.xml	(date 1608619369167)
+@@ -6,11 +6,8 @@
+         <sourceOutputDir name="target/generated-sources/annotations" />
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
+-        <module name="tuttur.web.test" />
++        <module name="webautomation" />
+       </profile>
+     </annotationProcessing>
+-    <bytecodeTargetLevel>
+-      <module name="tuttur.web.test" target="1.8" />
+-    </bytecodeTargetLevel>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"efb77886-d974-429e-b98e-d5ffde5a71a7\" name=\"Default Changelist\" comment=\"forgotPasswordFix\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1kjqoCUb91BNXaWIDatcmBdsqqh\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"project.structure.last.edited\" value=\"Problems\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"project.propVCSSupport.Mappings\" />\n  </component>\n  <component name=\"RunManager\" selected=\"JUnit.RegisterTest\">\n    <configuration default=\"true\" type=\"ArquillianTestNG\" factoryName=\"\" nameIsGenerated=\"true\">\n      <option name=\"arquillianRunConfiguration\">\n        <value>\n          <option name=\"containerStateName\" value=\"\" />\n        </value>\n      </option>\n      <option name=\"TEST_OBJECT\" value=\"CLASS\" />\n      <properties />\n      <listeners />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.loginWithRememberMe\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"loginWithRememberMe\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.successfulllyLoginWithIdentityNo\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"successfulllyLoginWithIdentityNo\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.successfullyLoginWithUserName\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"successfullyLoginWithUserName\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"RegisterTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.RegisterTest\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"JUnit.RegisterTest\" />\n        <item itemvalue=\"JUnit.LoginTest\" />\n        <item itemvalue=\"JUnit.LoginTest.successfulllyLoginWithIdentityNo\" />\n        <item itemvalue=\"JUnit.LoginTest.successfullyLoginWithUserName\" />\n        <item itemvalue=\"JUnit.LoginTest.loginWithRememberMe\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"SvnConfiguration\" cleanupOnStartRun=\"true\">\n    <configuration useDefault=\"false\">$USER_HOME$/.subversion</configuration>\n    <supportedVersion>125</supportedVersion>\n    <option name=\"runUnderTerminal\" value=\"true\" />\n    <option name=\"FORCE_UPDATE\" value=\"true\" />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"efb77886-d974-429e-b98e-d5ffde5a71a7\" name=\"Default Changelist\" comment=\"\" />\n      <created>1606224521931</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1606224521931</updated>\n      <workItem from=\"1606224523015\" duration=\"603000\" />\n      <workItem from=\"1606828700131\" duration=\"5000\" />\n      <workItem from=\"1606917217589\" duration=\"25000\" />\n      <workItem from=\"1606917249746\" duration=\"3000\" />\n      <workItem from=\"1606981712524\" duration=\"630000\" />\n      <workItem from=\"1606993588121\" duration=\"5315000\" />\n      <workItem from=\"1607073163758\" duration=\"2433000\" />\n      <workItem from=\"1607083510224\" duration=\"809000\" />\n      <workItem from=\"1607088544131\" duration=\"486000\" />\n      <workItem from=\"1607089041080\" duration=\"571000\" />\n      <workItem from=\"1607329763157\" duration=\"259000\" />\n      <workItem from=\"1607342650301\" duration=\"19275000\" />\n      <workItem from=\"1607712713909\" duration=\"77000\" />\n      <workItem from=\"1607934559276\" duration=\"325000\" />\n      <workItem from=\"1607954880462\" duration=\"11897000\" />\n      <workItem from=\"1608041562904\" duration=\"17630000\" />\n      <workItem from=\"1608207892469\" duration=\"7986000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"update2\">\n      <created>1607089324497</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607089324497</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"update2\">\n      <created>1607089366634</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607089366634</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"con\">\n      <created>1607090233898</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607090233898</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"login case\">\n      <created>1607331326606</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607331326606</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"login case fix\">\n      <created>1607611469206</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607611469206</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"forgotPasswordFix\">\n      <created>1608208577274</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1608208577274</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"7\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"update2\" />\n    <MESSAGE value=\"con\" />\n    <MESSAGE value=\"login case\" />\n    <MESSAGE value=\"login case fix\" />\n    <MESSAGE value=\"forgotPasswordFix\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"forgotPasswordFix\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1608295754056\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900\" timestamp=\"1608295754056\" />\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.center\" timestamp=\"1608295754055\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900\" timestamp=\"1608295754055\" />\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.left\" timestamp=\"1608295754055\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900\" timestamp=\"1608295754055\" />\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.right\" timestamp=\"1608295754056\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"244\" key=\"GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900\" timestamp=\"1608295754056\" />\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1608294921670\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900\" timestamp=\"1608294921670\" />\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.center\" timestamp=\"1608294921669\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900\" timestamp=\"1608294921669\" />\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.left\" timestamp=\"1608294921668\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900\" timestamp=\"1608294921668\" />\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.right\" timestamp=\"1608294921670\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"238\" key=\"GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900\" timestamp=\"1608294921670\" />\n    <state x=\"320\" y=\"190\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1608208579052\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"320\" y=\"190\" key=\"Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900\" timestamp=\"1608208579052\" />\n    <state x=\"518\" y=\"371\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1608201514166\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"518\" y=\"371\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900\" timestamp=\"1608201514166\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java</url>\n          <line>64</line>\n          <option name=\"timeStamp\" value=\"10\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/workspace.xml	(date 1608624494440)
+@@ -22,104 +22,134 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="forgotPasswordFix">
++    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_dblock_waffle_waffle_jna_1_7.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_1_3.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_25_0_jre.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_11_0.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_14_0.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_bind_jaxb_osgi_2_3_0_1.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_rest_assured_json_path_4_1_2.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_rest_assured_rest_assured_4_1_2.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_rest_assured_rest_assured_common_4_1_2.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_rest_assured_xml_path_4_1_2.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1_1.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_8_15.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_4_1_0.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_platform_4_1_0.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_exec_1_3.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_3.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_6.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_3.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_sling_org_apache_sling_javax_activation_0_1_0.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ccil_cowan_tagsoup_tagsoup_1_2_1.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_compat_qual_2_0_0.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_2_5_8.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_json_2_5_8.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_xml_2_5_8.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_1.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20190722.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_9_4_1200_jdbc41.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_3_141_59.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_3_141_59.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_edge_driver_3_141_59.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_3_141_59.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_3_141_59.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_3_141_59.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_opera_driver_3_141_59.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_3_141_59.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_safari_driver_3_141_59.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_3_141_59.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_7.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BasePage.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/configs/PropertiesFile.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/LoginPage_Constants.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/RegisterPage_Constants.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/DbQueriesPage.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/tuttur.web.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tuttur.web.test.iml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="Interface" />
+-        <option value="Class" />
+-      </list>
+-    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="ProjectId" id="1kjqoCUb91BNXaWIDatcmBdsqqh" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="MavenImportPreferences">
++    <option name="generalSettings">
++      <MavenGeneralSettings>
++        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
++      </MavenGeneralSettings>
++    </option>
++  </component>
++  <component name="ProjectId" id="1lynpqooF1jM0KR6sAmgmjheiYL" />
+   <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent">
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="aspect.path.notification.shown" value="true" />
+-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+-    <property name="node.js.detected.package.eslint" value="true" />
+-    <property name="node.js.detected.package.tslint" value="true" />
+-    <property name="node.js.path.for.package.eslint" value="project" />
+-    <property name="node.js.path.for.package.tslint" value="project" />
+-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+-    <property name="nodejs_package_manager_path" value="npm" />
+-    <property name="project.structure.last.edited" value="Problems" />
+-    <property name="project.structure.proportion" value="0.15" />
+-    <property name="project.structure.side.proportion" value="0.2" />
+-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
++    <property name="project.structure.last.edited" value="Project" />
++    <property name="project.structure.proportion" value="0.0" />
++    <property name="project.structure.side.proportion" value="0.49195403" />
++    <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.capture" />
+   </component>
+-  <component name="RunManager" selected="JUnit.RegisterTest">
+-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
++  <component name="RunManager" selected="TestNG.LoginTest.successfullyLoginWithAccountNo">
++    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+       <option name="arquillianRunConfiguration">
+         <value>
+           <option name="containerStateName" value="" />
+         </value>
+       </option>
+-      <option name="TEST_OBJECT" value="CLASS" />
+-      <properties />
+-      <listeners />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="tuttur.web.test" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="com.tuttur.test.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+       <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="LoginTest.loginWithRememberMe" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="tuttur.web.test" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="com.tuttur.test.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+-      <option name="METHOD_NAME" value="loginWithRememberMe" />
+-      <option name="TEST_OBJECT" value="method" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="LoginTest.successfulllyLoginWithIdentityNo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="tuttur.web.test" />
++    <configuration name="LoginTest.loginWithMissingInfo" type="TestNG" temporary="true" nameIsGenerated="true">
++      <module name="webautomation" />
+       <extension name="coverage">
+         <pattern>
+           <option name="PATTERN" value="com.tuttur.test.*" />
+@@ -128,14 +158,16 @@
+       </extension>
+       <option name="PACKAGE_NAME" value="com.tuttur.test" />
+       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+-      <option name="METHOD_NAME" value="successfulllyLoginWithIdentityNo" />
+-      <option name="TEST_OBJECT" value="method" />
++      <option name="METHOD_NAME" value="loginWithMissingInfo" />
++      <option name="TEST_OBJECT" value="METHOD" />
++      <properties />
++      <listeners />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="LoginTest.successfullyLoginWithUserName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="tuttur.web.test" />
++    <configuration name="LoginTest.successfullyLoginWithAccountNo" type="TestNG" temporary="true" nameIsGenerated="true">
++      <module name="webautomation" />
+       <extension name="coverage">
+         <pattern>
+           <option name="PATTERN" value="com.tuttur.test.*" />
+@@ -144,112 +176,34 @@
+       </extension>
+       <option name="PACKAGE_NAME" value="com.tuttur.test" />
+       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+-      <option name="METHOD_NAME" value="successfullyLoginWithUserName" />
+-      <option name="TEST_OBJECT" value="method" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="tuttur.web.test" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="com.tuttur.test.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
+-      <option name="TEST_OBJECT" value="class" />
++      <option name="METHOD_NAME" value="successfullyLoginWithAccountNo" />
++      <option name="TEST_OBJECT" value="METHOD" />
++      <properties />
++      <listeners />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="JUnit.RegisterTest" />
+-        <item itemvalue="JUnit.LoginTest" />
+-        <item itemvalue="JUnit.LoginTest.successfulllyLoginWithIdentityNo" />
+-        <item itemvalue="JUnit.LoginTest.successfullyLoginWithUserName" />
+-        <item itemvalue="JUnit.LoginTest.loginWithRememberMe" />
++        <item itemvalue="TestNG.LoginTest.successfullyLoginWithAccountNo" />
++        <item itemvalue="TestNG.LoginTest.loginWithMissingInfo" />
+       </list>
+     </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+-  <component name="SvnConfiguration" cleanupOnStartRun="true">
+-    <configuration useDefault="false">$USER_HOME$/.subversion</configuration>
+-    <supportedVersion>125</supportedVersion>
+-    <option name="runUnderTerminal" value="true" />
+-    <option name="FORCE_UPDATE" value="true" />
+-  </component>
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+-      <changelist id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="" />
+-      <created>1606224521931</created>
++      <changelist id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="" />
++      <created>1608578383330</created>
+       <option name="number" value="Default" />
+       <option name="presentableId" value="Default" />
+-      <updated>1606224521931</updated>
+-      <workItem from="1606224523015" duration="603000" />
+-      <workItem from="1606828700131" duration="5000" />
+-      <workItem from="1606917217589" duration="25000" />
+-      <workItem from="1606917249746" duration="3000" />
+-      <workItem from="1606981712524" duration="630000" />
+-      <workItem from="1606993588121" duration="5315000" />
+-      <workItem from="1607073163758" duration="2433000" />
+-      <workItem from="1607083510224" duration="809000" />
+-      <workItem from="1607088544131" duration="486000" />
+-      <workItem from="1607089041080" duration="571000" />
+-      <workItem from="1607329763157" duration="259000" />
+-      <workItem from="1607342650301" duration="19275000" />
+-      <workItem from="1607712713909" duration="77000" />
+-      <workItem from="1607934559276" duration="325000" />
+-      <workItem from="1607954880462" duration="11897000" />
+-      <workItem from="1608041562904" duration="17630000" />
+-      <workItem from="1608207892469" duration="7986000" />
+-    </task>
+-    <task id="LOCAL-00001" summary="update2">
+-      <created>1607089324497</created>
+-      <option name="number" value="00001" />
+-      <option name="presentableId" value="LOCAL-00001" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1607089324497</updated>
+-    </task>
+-    <task id="LOCAL-00002" summary="update2">
+-      <created>1607089366634</created>
+-      <option name="number" value="00002" />
+-      <option name="presentableId" value="LOCAL-00002" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1607089366634</updated>
+-    </task>
+-    <task id="LOCAL-00003" summary="con">
+-      <created>1607090233898</created>
+-      <option name="number" value="00003" />
+-      <option name="presentableId" value="LOCAL-00003" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1607090233898</updated>
++      <updated>1608578383330</updated>
++      <workItem from="1608578384480" duration="19000" />
++      <workItem from="1608578522215" duration="1040000" />
++      <workItem from="1608579633369" duration="2422000" />
++      <workItem from="1608619350312" duration="4305000" />
+     </task>
+-    <task id="LOCAL-00004" summary="login case">
+-      <created>1607331326606</created>
+-      <option name="number" value="00004" />
+-      <option name="presentableId" value="LOCAL-00004" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1607331326606</updated>
+-    </task>
+-    <task id="LOCAL-00005" summary="login case fix">
+-      <created>1607611469206</created>
+-      <option name="number" value="00005" />
+-      <option name="presentableId" value="LOCAL-00005" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1607611469206</updated>
+-    </task>
+-    <task id="LOCAL-00006" summary="forgotPasswordFix">
+-      <created>1608208577274</created>
+-      <option name="number" value="00006" />
+-      <option name="presentableId" value="LOCAL-00006" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1608208577274</updated>
+-    </task>
+-    <option name="localTasksCounter" value="7" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -267,63 +221,56 @@
+     </option>
+     <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+-  <component name="VcsManagerConfiguration">
+-    <MESSAGE value="update2" />
+-    <MESSAGE value="con" />
+-    <MESSAGE value="login case" />
+-    <MESSAGE value="login case fix" />
+-    <MESSAGE value="forgotPasswordFix" />
+-    <option name="LAST_COMMIT_MESSAGE" value="forgotPasswordFix" />
+-  </component>
+   <component name="WindowStateProjectService">
+-    <state width="1398" height="244" key="GridCell.Tab.0.bottom" timestamp="1608295754056">
++    <state x="432" y="174" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1608621580123">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="244" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608295754056" />
+-    <state width="1398" height="244" key="GridCell.Tab.0.center" timestamp="1608295754055">
++    <state x="432" y="174" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608621580123" />
++    <state width="1398" height="189" key="GridCell.Tab.0.bottom" timestamp="1608623596705">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="244" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608295754055" />
+-    <state width="1398" height="244" key="GridCell.Tab.0.left" timestamp="1608295754055">
++    <state width="1398" height="189" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608623596705" />
++    <state width="1398" height="189" key="GridCell.Tab.0.center" timestamp="1608623596704">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="244" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608295754055" />
+-    <state width="1398" height="244" key="GridCell.Tab.0.right" timestamp="1608295754056">
++    <state width="1398" height="189" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608623596704" />
++    <state width="1398" height="189" key="GridCell.Tab.0.left" timestamp="1608623596703">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="244" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608295754056" />
+-    <state width="1398" height="238" key="GridCell.Tab.1.bottom" timestamp="1608294921670">
++    <state width="1398" height="189" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608623596703" />
++    <state width="1398" height="189" key="GridCell.Tab.0.right" timestamp="1608623596704">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="238" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608294921670" />
+-    <state width="1398" height="238" key="GridCell.Tab.1.center" timestamp="1608294921669">
++    <state width="1398" height="189" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608623596704" />
++    <state width="1398" height="189" key="GridCell.Tab.1.bottom" timestamp="1608623596707">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="238" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1608294921669" />
+-    <state width="1398" height="238" key="GridCell.Tab.1.left" timestamp="1608294921668">
++    <state width="1398" height="189" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608623596707" />
++    <state width="1398" height="189" key="GridCell.Tab.1.center" timestamp="1608623596706">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="238" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1608294921668" />
+-    <state width="1398" height="238" key="GridCell.Tab.1.right" timestamp="1608294921670">
++    <state width="1398" height="189" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1608623596706" />
++    <state width="1398" height="189" key="GridCell.Tab.1.left" timestamp="1608623596705">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="238" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1608294921670" />
+-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1608208579052">
++    <state width="1398" height="189" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1608623596705" />
++    <state width="1398" height="189" key="GridCell.Tab.1.right" timestamp="1608623596706">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1608208579052" />
+-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608201514166">
++    <state width="1398" height="189" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1608623596706" />
++    <state x="208" y="31" key="SettingsEditor" timestamp="1608623262891">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1608201514166" />
++    <state x="208" y="31" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608623262891" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+       <breakpoints>
+-        <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java</url>
+-          <line>64</line>
+-          <option name="timeStamp" value="10" />
++        <line-breakpoint enabled="true" type="java-field">
++          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java</url>
++          <line>24</line>
++          <properties field="ACCESS_KEY" class="com.tuttur.base.BaseTest" />
++          <option name="timeStamp" value="8" />
+         </line-breakpoint>
+       </breakpoints>
+     </breakpoint-manager>
+Index: src/test/java/com/tuttur/page/LoginPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.page;\n\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.constants.LoginPage_Constants;\nimport static org.junit.Assert.assertTrue;\nimport org.openqa.selenium.WebDriver;\n\nimport java.io.IOException;\n\npublic class LoginPage extends LoginPage_Constants {\n\n    public LoginPage(WebDriver driver) {\n        super(driver);\n    }\n    PropertiesFile prop = new PropertiesFile(driver);\n    DbQueriesPage db = new DbQueriesPage(driver);\n\n    private void setUsername(String username) throws IOException {\n        setObjectBy(USERNAME,username);\n\n    }\n    private void setPassword(String password) throws IOException {\n        setObjectBy(PASSWORD, password);\n\n    }\n\n    public MainPage login (String user, String password) throws IOException {\n\n        setUsername(user);\n        setPassword(password);\n        clickObjectBy(REMEMBER_ME);\n        clickObjectBy(BUTTON_LOGIN_ON_POPUP);\n        return new MainPage(driver);\n\n    }\n\n\n    public ForgotPassPage getForgotPassModal () throws IOException {\n        clickObjectBy(FORGOTPASSWORD);\n        return new ForgotPassPage(driver);\n    }\n    public ForgotPassPage getForgotPassPage () throws IOException {\n\n            int smsLink = db.getValidationCodeInt(prop.getObject(\"smsLink\"),6);\n            String url = \"https://ttest:q26RwfyLotHm@alpha.tuttur.com/account/reset-password/code/\"+ smsLink +\"/type/smsLink\";\n            driver.get(url);\n\n            return new ForgotPassPage(driver);\n    }\n\n\n\n    public void checkFailLogin () throws IOException {\n        assertTrue(\"Başarısız login hatalı\",getElementBy(MODAL_ERROR_TEXT).getText()\n                .equals(prop.getObject(\"fail_login_message\")));\n    }\n\n    public void checkFailLoginWithGsm () throws IOException {\n        assertTrue(\"Başarısız login hatalı\",getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject(\"fail_login_message_gsm\")));\n    }\n\n    public void checkFailLoginWithEmail () throws IOException {\n        assertTrue(\"Başarısız login hatalı\",getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject(\"fail_login_message_email\")));\n    }\n\n    public void checkInputErrorValidations () throws IOException {\n        assertTrue(\"Error mesajı hatalı\",getElemenstBy(INPUT_ERROR_TEXT,0).getText().equals(prop.getObject(\"user_maxLenght_message\")));\n        assertTrue(\"Error mesajı hatalı\",getElemenstBy(INPUT_ERROR_TEXT,1).getText().equals(prop.getObject(\"password_maxLenght_message\")));\n    }\n\n    public void checkMissingInfoText () throws IOException {\n        assertTrue(\"Error mesajı hatalı\",getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject(\"empty_login_message\")));\n    }\n\n    public void checkRememberMe () throws IOException {\n        assertTrue(\"Beni hatırla başarısız\",getElementBy(USERNAME).getText().equals(prop.getObject(\"rememberMeUser\")));\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/page/LoginPage.java	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ src/test/java/com/tuttur/page/LoginPage.java	(date 1608561779847)
+@@ -2,8 +2,9 @@
+ 
+ import com.tuttur.configs.PropertiesFile;
+ import com.tuttur.constants.LoginPage_Constants;
+-import static org.junit.Assert.assertTrue;
++
+ import org.openqa.selenium.WebDriver;
++import static org.testng.Assert.assertTrue;
+ 
+ import java.io.IOException;
+ 
+@@ -51,29 +52,29 @@
+ 
+ 
+     public void checkFailLogin () throws IOException {
+-        assertTrue("Başarısız login hatalı",getElementBy(MODAL_ERROR_TEXT).getText()
+-                .equals(prop.getObject("fail_login_message")));
++        assertTrue(getElementBy(MODAL_ERROR_TEXT).getText()
++                        .equals(prop.getObject("fail_login_message")), "Başarısız login hatalı");
+     }
+ 
+     public void checkFailLoginWithGsm () throws IOException {
+-        assertTrue("Başarısız login hatalı",getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject("fail_login_message_gsm")));
++        assertTrue(getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject("fail_login_message_gsm")), "Başarısız login hatalı");
+     }
+ 
+     public void checkFailLoginWithEmail () throws IOException {
+-        assertTrue("Başarısız login hatalı",getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject("fail_login_message_email")));
++        assertTrue(getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject("fail_login_message_email")), "Başarısız login hatalı");
+     }
+ 
+     public void checkInputErrorValidations () throws IOException {
+-        assertTrue("Error mesajı hatalı",getElemenstBy(INPUT_ERROR_TEXT,0).getText().equals(prop.getObject("user_maxLenght_message")));
+-        assertTrue("Error mesajı hatalı",getElemenstBy(INPUT_ERROR_TEXT,1).getText().equals(prop.getObject("password_maxLenght_message")));
++        assertTrue(getElemenstBy(INPUT_ERROR_TEXT,0).getText().equals(prop.getObject("user_maxLenght_message")), "Error mesajı hatalı");
++        assertTrue(getElemenstBy(INPUT_ERROR_TEXT,1).getText().equals(prop.getObject("password_maxLenght_message")), "Error mesajı hatalı");
+     }
+ 
+     public void checkMissingInfoText () throws IOException {
+-        assertTrue("Error mesajı hatalı",getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject("empty_login_message")));
++        assertTrue(getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject("empty_login_message")), "Error mesajı hatalı");
+     }
+ 
+     public void checkRememberMe () throws IOException {
+-        assertTrue("Beni hatırla başarısız",getElementBy(USERNAME).getText().equals(prop.getObject("rememberMeUser")));
++        assertTrue(getElementBy(USERNAME).getText().equals(prop.getObject("rememberMeUser")), "Beni hatırla başarısız");
+     }
+ 
+ }
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"VcsDirectoryMappings\">\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/vcs.xml	(date 1608578384684)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++    <mapping directory="" vcs="Git" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: tuttur.web.test.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule=\"true\" type=\"JAVA_MODULE\" version=\"4\">\n  <component name=\"NewModuleRootManager\" LANGUAGE_LEVEL=\"JDK_1_8\">\n    <output url=\"file://$MODULE_DIR$/target/classes\" />\n    <output-test url=\"file://$MODULE_DIR$/target/test-classes\" />\n    <content url=\"file://$MODULE_DIR$\">\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test/java\" isTestSource=\"true\" />\n      <excludeFolder url=\"file://$MODULE_DIR$/target\" />\n    </content>\n    <orderEntry type=\"inheritedJdk\" />\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: junit:junit:4.11\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.hamcrest:hamcrest-core:1.3\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.seleniumhq.selenium:selenium-java:3.141.59\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.seleniumhq.selenium:selenium-api:3.141.59\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.seleniumhq.selenium:selenium-chrome-driver:3.141.59\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.seleniumhq.selenium:selenium-edge-driver:3.141.59\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.seleniumhq.selenium:selenium-firefox-driver:3.141.59\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.seleniumhq.selenium:selenium-ie-driver:3.141.59\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.seleniumhq.selenium:selenium-opera-driver:3.141.59\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.seleniumhq.selenium:selenium-remote-driver:3.141.59\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.seleniumhq.selenium:selenium-safari-driver:3.141.59\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.seleniumhq.selenium:selenium-support:3.141.59\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: net.bytebuddy:byte-buddy:1.8.15\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.apache.commons:commons-exec:1.3\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: com.google.guava:guava:25.0-jre\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: com.google.code.findbugs:jsr305:1.3.9\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.checkerframework:checker-compat-qual:2.0.0\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: com.google.errorprone:error_prone_annotations:2.1.3\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: com.google.j2objc:j2objc-annotations:1.1\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: com.squareup.okhttp3:okhttp:3.11.0\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: com.squareup.okio:okio:1.14.0\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.postgresql:postgresql:9.4-1200-jdbc41\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"RUNTIME\" name=\"Maven: com.github.dblock.waffle:waffle-jna:1.7\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"RUNTIME\" name=\"Maven: net.java.dev.jna:jna:4.1.0\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"RUNTIME\" name=\"Maven: net.java.dev.jna:jna-platform:4.1.0\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"RUNTIME\" name=\"Maven: org.slf4j:slf4j-api:1.7.7\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"RUNTIME\" name=\"Maven: org.slf4j:slf4j-simple:1.7.7\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: io.rest-assured:rest-assured:4.1.2\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.codehaus.groovy:groovy:2.5.8\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.codehaus.groovy:groovy-xml:2.5.8\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.apache.httpcomponents:httpclient:4.5.3\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.apache.httpcomponents:httpcore:4.4.6\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: commons-logging:commons-logging:1.2\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: commons-codec:commons-codec:1.9\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.apache.httpcomponents:httpmime:4.5.3\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.hamcrest:hamcrest:2.1\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.ccil.cowan.tagsoup:tagsoup:1.2.1\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: io.rest-assured:json-path:4.1.2\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.codehaus.groovy:groovy-json:2.5.8\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: io.rest-assured:rest-assured-common:4.1.2\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: io.rest-assured:xml-path:4.1.2\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.apache.commons:commons-lang3:3.4\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: javax.xml.bind:jaxb-api:2.3.1\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: javax.activation:javax.activation-api:1.2.0\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: com.sun.xml.bind:jaxb-osgi:2.3.0.1\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.apache.sling:org.apache.sling.javax.activation:0.1.0\" level=\"project\" />\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: javax.activation:activation:1.1.1\" level=\"project\" />\n    <orderEntry type=\"library\" name=\"Maven: org.json:json:20190722\" level=\"project\" />\n  </component>\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- tuttur.web.test.iml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ tuttur.web.test.iml	(date 1608577819381)
+@@ -7,10 +7,26 @@
+       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+       <excludeFolder url="file://$MODULE_DIR$/target" />
+     </content>
+-    <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
++    <orderEntry type="jdk" jdkName="15" jdkType="JavaSDK" />
++    <orderEntry type="module-library" exported="">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/lib/opencsv-5.2.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++    <orderEntry type="module-library" exported="">
++      <library>
++        <CLASSES>
++          <root url="jar://$MODULE_DIR$/lib/testng-7.3.0.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
+     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-java:3.141.59" level="project" />
+     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-api:3.141.59" level="project" />
+     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:3.141.59" level="project" />
+@@ -31,6 +47,16 @@
+     <orderEntry type="library" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14" level="project" />
+     <orderEntry type="library" name="Maven: com.squareup.okhttp3:okhttp:3.11.0" level="project" />
+     <orderEntry type="library" name="Maven: com.squareup.okio:okio:1.14.0" level="project" />
++    <orderEntry type="library" scope="TEST" name="Maven: org.testng:testng:6.11" level="project" />
++    <orderEntry type="library" scope="TEST" name="Maven: com.beust:jcommander:1.64" level="project" />
++    <orderEntry type="library" scope="TEST" name="Maven: org.yaml:snakeyaml:1.17" level="project" />
++    <orderEntry type="library" name="Maven: com.opencsv:opencsv:5.2" level="project" />
++    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.10" level="project" />
++    <orderEntry type="library" name="Maven: org.apache.commons:commons-text:1.8" level="project" />
++    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.4" level="project" />
++    <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
++    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
++    <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.4" level="project" />
+     <orderEntry type="library" name="Maven: org.postgresql:postgresql:9.4-1200-jdbc41" level="project" />
+     <orderEntry type="library" scope="RUNTIME" name="Maven: com.github.dblock.waffle:waffle-jna:1.7" level="project" />
+     <orderEntry type="library" scope="RUNTIME" name="Maven: net.java.dev.jna:jna:4.1.0" level="project" />
+@@ -42,7 +68,6 @@
+     <orderEntry type="library" scope="TEST" name="Maven: org.codehaus.groovy:groovy-xml:2.5.8" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Maven: commons-logging:commons-logging:1.2" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: commons-codec:commons-codec:1.9" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: org.apache.httpcomponents:httpmime:4.5.3" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest:2.1" level="project" />
+@@ -51,7 +76,6 @@
+     <orderEntry type="library" scope="TEST" name="Maven: org.codehaus.groovy:groovy-json:2.5.8" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: io.rest-assured:rest-assured-common:4.1.2" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: io.rest-assured:xml-path:4.1.2" level="project" />
+-    <orderEntry type="library" scope="TEST" name="Maven: org.apache.commons:commons-lang3:3.4" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: javax.xml.bind:jaxb-api:2.3.1" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: javax.activation:javax.activation-api:1.2.0" level="project" />
+     <orderEntry type="library" scope="TEST" name="Maven: com.sun.xml.bind:jaxb-osgi:2.3.0.1" level="project" />
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"MavenProjectsManager\">\n    <option name=\"originalFiles\">\n      <list>\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_13\" default=\"false\" project-jdk-name=\"15\" project-jdk-type=\"JavaSDK\" />\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ .idea/misc.xml	(date 1608578402950)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="MavenProjectsManager">
+     <option name="originalFiles">
+       <list>
+@@ -7,5 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="false" project-jdk-name="15" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" default="false" project-jdk-name="15" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.tuttur.web.test</groupId>\n  <artifactId>tuttur.web.test</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n\n    <dependencies>\n    <dependency>\n      <groupId>junit</groupId>\n      <artifactId>junit</artifactId>\n      <version>4.11</version>\n      <scope>test</scope>\n    </dependency>\n     <dependency>\n      <groupId>org.seleniumhq.selenium</groupId>\n\t   <artifactId>selenium-java</artifactId>\n\t    <version>3.141.59</version>\n\t\t </dependency>\n          <dependency>\n           <groupId>org.postgresql</groupId>\n            <artifactId>postgresql</artifactId>\n             <version>9.4-1200-jdbc41</version>\n              </dependency>\n              <dependency>\n      <groupId>io.rest-assured</groupId>\n      <artifactId>rest-assured</artifactId>\n      <version>4.1.2</version>\n      <scope>test</scope>\n</dependency>\n<dependency>\n    <groupId>org.json</groupId>\n    <artifactId>json</artifactId>\n    <version>20190722</version>\n</dependency>\n\n  </dependencies>\n  <build>\n\t\t<plugins>\n\t\t\t<plugin>\n\t\t\t\t<artifactId>maven-compiler-plugin</artifactId>\n\t\t\t\t<version>2.3.2</version>\n\t\t\t\t<configuration>\n\t\t\t\t\t<source>1.8</source>\n\t\t\t\t\t<target>1.8</target>\n\t\t\t\t</configuration>\n\t\t\t</plugin>\n\t\t</plugins>\n\t</build>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ pom.xml	(date 1608579976161)
+@@ -1,49 +1,59 @@
+-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+-  <modelVersion>4.0.0</modelVersion>
+-  <groupId>com.tuttur.web.test</groupId>
+-  <artifactId>tuttur.web.test</artifactId>
+-    <version>0.0.1-SNAPSHOT</version>
++<?xml version="1.0" encoding="UTF-8"?>
++<project xmlns="http://maven.apache.org/POM/4.0.0"
++         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
++    <modelVersion>4.0.0</modelVersion>
+ 
+-    <dependencies>
+-    <dependency>
+-      <groupId>junit</groupId>
+-      <artifactId>junit</artifactId>
+-      <version>4.11</version>
+-      <scope>test</scope>
+-    </dependency>
+-     <dependency>
+-      <groupId>org.seleniumhq.selenium</groupId>
+-	   <artifactId>selenium-java</artifactId>
+-	    <version>3.141.59</version>
+-		 </dependency>
+-          <dependency>
++    <groupId>org.tuttur.web.test</groupId>
++    <artifactId>webautomation</artifactId>
++    <version>1.0-SNAPSHOT</version>
++   <dependencies>
++       <dependency>
++           <groupId>org.testng</groupId>
++           <artifactId>testng</artifactId>
++           <version>6.14.3</version>
++           <scope>test</scope>
++       </dependency>
++       <dependency>
++           <groupId>org.seleniumhq.selenium</groupId>
++           <artifactId>selenium-java</artifactId>
++           <version>3.141.59</version>
++       </dependency>
++       <dependency>
+            <groupId>org.postgresql</groupId>
+-            <artifactId>postgresql</artifactId>
+-             <version>9.4-1200-jdbc41</version>
+-              </dependency>
+-              <dependency>
+-      <groupId>io.rest-assured</groupId>
+-      <artifactId>rest-assured</artifactId>
+-      <version>4.1.2</version>
+-      <scope>test</scope>
+-</dependency>
+-<dependency>
+-    <groupId>org.json</groupId>
+-    <artifactId>json</artifactId>
+-    <version>20190722</version>
+-</dependency>
++           <artifactId>postgresql</artifactId>
++           <version>9.4-1200-jdbc41</version>
++       </dependency>
++       <dependency>
++           <groupId>io.rest-assured</groupId>
++           <artifactId>rest-assured</artifactId>
++           <version>4.1.2</version>
++           <scope>test</scope>
++       </dependency>
++       <dependency>
++           <groupId>org.json</groupId>
++           <artifactId>json</artifactId>
++           <version>20190722</version>
++       </dependency>
++       <dependency>
++           <groupId>org.apache.maven.plugins</groupId>
++           <artifactId>maven-surefire-plugin</artifactId>
++           <version>2.22.2</version>
++       </dependency>
+ 
+-  </dependencies>
+-  <build>
+-		<plugins>
+-			<plugin>
+-				<artifactId>maven-compiler-plugin</artifactId>
+-				<version>2.3.2</version>
+-				<configuration>
+-					<source>1.8</source>
+-					<target>1.8</target>
+-				</configuration>
+-			</plugin>
+-		</plugins>
+-	</build>
++   </dependencies>
++    <build>
++        <plugins>
++            <plugin>
++                <artifactId>maven-compiler-plugin</artifactId>
++                <version>2.3.2</version>
++                <configuration>
++                    <source>1.8</source>
++                    <target>1.8</target>
++                </configuration>
++            </plugin>
++
++        </plugins>
++    </build>
++
+ </project>
+\ No newline at end of file
+Index: src/test/java/com/tuttur/test/ForgotPassTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.test;\n\nimport com.tuttur.base.BaseTest;\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.page.*;\nimport org.junit.Test;\n\nimport java.io.IOException;\n\npublic class ForgotPassTest extends BaseTest {\n\n    PropertiesFile prop = new PropertiesFile(driver);\n    GeneralPage general = new GeneralPage(driver);\n\n    public ForgotPassTest() throws IOException {\n    }\n\n    @Test\n    public void forgotPassword () throws IOException {\n\n        new MainPage(driver).getLoginPage().getForgotPassModal().forgotPassAction().getForgotPassPage()\n                .setPasswordChange();\n\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/test/ForgotPassTest.java	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ src/test/java/com/tuttur/test/ForgotPassTest.java	(date 1608622204978)
+@@ -3,7 +3,8 @@
+ import com.tuttur.base.BaseTest;
+ import com.tuttur.configs.PropertiesFile;
+ import com.tuttur.page.*;
+-import org.junit.Test;
++import org.testng.annotations.Test;
++
+ 
+ import java.io.IOException;
+ 
+Index: src/test/java/com/tuttur/page/RegisterPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.page;\n\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.constants.RegisterPage_Constants;\nimport org.junit.Assert;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebDriver;\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.support.ui.Select;\n\nimport java.io.IOException;\nimport java.util.List;\nimport java.util.Random;\n\npublic class RegisterPage extends RegisterPage_Constants {\n\n    public RegisterPage(WebDriver driver) throws IOException {\n        super(driver);\n    }\n\n    PropertiesFile prop = new PropertiesFile(driver);\n    DbQueriesPage db = new DbQueriesPage(driver);\n    GeneralPage general = new GeneralPage(driver);\n\n    private void setName(String name) throws IOException {\n        setObjectBy(NAME, name);\n\n    }\n\n    private void setLastName(String surname) throws IOException {\n        setObjectBy(LASTNAME, surname);\n\n    }\n\n    private void setDay() {\n        setObjectsBy(DATE, 2, \"20\");\n\n    }\n\n    private void selectMonth() {\n\n        WebElement months = getElementBy(MONTHS);\n        Select select = new Select(months);\n        select.selectByVisibleText(\"Nisan\");\n\n    }\n\n    private void setYear() {\n\n        setObjectsBy(DATE, 3, \"1991\");\n\n    }\n\n    private void setSsn() throws IOException {\n\n        setObjectBy(SSN, prop.getObject(\"tckn\"));\n\n    }\n\n    private void setGsm() throws IOException {\n\n        setObjectBy(GSM, prop.getObject(\"phoneNo\"));\n\n    }\n\n    private void setEmail() throws IOException {\n\n        setObjectBy(EMAIL, prop.getObject(\"currentlyEmail\"));\n\n    }\n\n    /**\n     * Methoda 0 indexi verilirse username fieldına keywordu setleyecek. index 1 olduğunda username fieldı içerisinde\n     * yer alan \"kullan\" fonksiyonu ile kullanıcı kendi username üretmiş olacaktır.\n     * @param usernameIndex\n     * @throws IOException\n     */\n\n    private void setUsername(int usernameIndex) throws IOException {\n\n        boolean click = 0<usernameIndex;\n        sleep(2);\n        WebElement use = findElements(By.className(\"medium\")).get(3);\n\n        if (click == true) {\n\n            use.click();\n            getUsernameText();\n\n        }\n\n        else {\n\n            waitForElement(driver, OPT_WAIT_4_ELEMENT, REGISTER_USERNAME);\n            setObjectBy(REGISTER_USERNAME, general.username);\n        }\n    }\n\n    public String getUsernameText(){\n\n        general.generateUsernameText = getElementBy(By.name(\"username\")).getAttribute(\"value\");\n\n        return general.generateUsernameText;\n    }\n\n    private void setPassword() throws IOException {\n\n        setObjectBy(REGISTER_PASSWORD, prop.getObject(\"newPassword\"));\n\n    }\n\n    private void clickMembershipApprove() throws InterruptedException {\n\n        List<WebElement> checkbox = findElements(CHECKBOX);\n        scrollToElement(CHECKBOX);\n        int count = 0;\n\n        for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {\n            waitForElement(driver,OPT_WAIT_4_ELEMENT,CHECKBOX);\n            checkbox.get(loopCount).click();\n\n        }\n    }\n\n    private void setBirthDate() {\n\n        setDay();\n        selectMonth();\n        setYear();\n\n    }\n\n    public RegisterPage clickSubmit() {\n\n        clickObjectBy(SUBMIT);\n        return this;\n\n    }\n\n    public MainPage smsActivation() throws IOException {\n\n        String smsCode = db.getValidationCode(prop.getObject(\"verifyCode\"));\n        setObjectBy(ACTIVATION_FIELD,smsCode);\n        clickObjectBy(ACTIVATION_BUTTON);\n        return new MainPage(driver);\n\n    }\n\n    public RegisterPage setRegisterForm(int usernameIndex) throws IOException, InterruptedException {\n\n\n        setName(prop.getObject(\"name\"));\n        setLastName(prop.getObject(\"surname\"));\n        setBirthDate();\n        setSsn();\n        setGsm();\n        setEmail();\n        setUsername(usernameIndex);\n        setPassword();\n        clickMembershipApprove();\n\n        return this;\n    }\n\n    private void checkFieldRule (By by) {\n\n        Assert.assertTrue(\"Alan değer kuralı hatalı\",getElementBy(by).getText().equals(\"\"));\n\n    }\n\n    public RegisterPage setInvalidValue () throws IOException {\n\n        setName(\"123\");\n        checkFieldRule(NAME);\n        setLastName(\"123\");\n        checkFieldRule(LASTNAME);\n        setObjectBy(SSN,\"ASDFGH\");\n        checkFieldRule(SSN);\n        setObjectBy(GSM,\"ASDFGH\");\n        checkFieldRule(GSM);\n        return this;\n\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/page/RegisterPage.java	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ src/test/java/com/tuttur/page/RegisterPage.java	(date 1608561682899)
+@@ -2,13 +2,14 @@
+ 
+ import com.tuttur.configs.PropertiesFile;
+ import com.tuttur.constants.RegisterPage_Constants;
+-import org.junit.Assert;
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.WebElement;
+ import org.openqa.selenium.support.ui.Select;
++import org.testng.Assert;
+ 
+ import java.io.IOException;
++import java.util.Arrays;
+ import java.util.List;
+ import java.util.Random;
+ 
+@@ -124,9 +125,17 @@
+ 
+     private void setBirthDate() {
+ 
+-        setDay();
+-        selectMonth();
+-        setYear();
++        String[] date = {"20","Nisan","1991"};
++        List<String> birthDate = Arrays.asList(date);
++        List<WebElement> inputs = findElements(By.className("formInput-input"));
++
++        int count =0;
++
++        for (int loopIndex=count; loopIndex<birthDate.size(); loopIndex++){
++            Select select = new Select(inputs.get(loopIndex));
++            select.selectByVisibleText(birthDate.get(loopIndex));
++
++        }
+ 
+     }
+ 
+@@ -164,7 +173,7 @@
+ 
+     private void checkFieldRule (By by) {
+ 
+-        Assert.assertTrue("Alan değer kuralı hatalı",getElementBy(by).getText().equals(""));
++        Assert.assertTrue(getElementBy(by).getText().equals(""), "Alan değer kuralı hatalı");
+ 
+     }
+ 
+Index: src/test/java/com/tuttur/test/RegisterTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.test;\n\nimport com.tuttur.base.BaseTest;\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.page.GeneralPage;\nimport com.tuttur.page.MainPage;\nimport com.tuttur.page.RegisterPage;\nimport org.junit.Test;\nimport org.openqa.selenium.WebDriver;\n\nimport java.io.IOException;\n\npublic class RegisterTest extends BaseTest {\n    PropertiesFile prop = new PropertiesFile(driver);\n    GeneralPage general = new GeneralPage(driver);\n    RegisterPage register = new RegisterPage(driver);\n\n    public RegisterTest() throws IOException {\n    }\n\n    /**\n     * Case 1.0\n     * Başarılı üye ol\n     *\n     * @throws InterruptedException\n     * @throws IOException\n     */\n\n    @Test\n    public void successFullyRegisterTest () throws InterruptedException, IOException {\n\n        new MainPage(driver).getRegisterPage()\n                .setRegisterForm(0)\n                .clickSubmit()\n                .smsActivation();\n                new MainPage(driver).checkUsernameText(general.username);\n\n    }\n\n    /**\n     * Case 1.1\n     * Başarılı üye ol (username kullan fonksiyonu ile)\n     */\n\n    @Test\n    public void registerWithUseFunctionality() throws IOException, InterruptedException {\n        new MainPage(driver).getRegisterPage()\n                .setRegisterForm(1).clickSubmit().smsActivation();\n        new MainPage(driver).checkUsernameText(general.generateUsernameText.toString());\n\n    }\n\n    /**\n     * Case 2.0\n     * Başarısız üye ol (invalid datalar ile)\n     *\n     */\n\n    @Test\n    public void registerWithInvalidData() throws IOException {\n\n        new MainPage(driver).getRegisterPage();\n    }\n\n    /**\n     * Case 2.1\n     * Numerik ve alfanumerik satırların kural kontrolü\n     * @throws IOException\n     */\n\n    @Test\n    public void fieldRuleCheck () throws IOException {\n\n        new MainPage(driver).getRegisterPageNotUpdate().setInvalidValue();\n\n\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/test/RegisterTest.java	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ src/test/java/com/tuttur/test/RegisterTest.java	(date 1608622204973)
+@@ -1,12 +1,15 @@
+ package com.tuttur.test;
+ 
++
+ import com.tuttur.base.BaseTest;
++
+ import com.tuttur.configs.PropertiesFile;
+ import com.tuttur.page.GeneralPage;
+ import com.tuttur.page.MainPage;
+ import com.tuttur.page.RegisterPage;
+-import org.junit.Test;
+-import org.openqa.selenium.WebDriver;
++import org.testng.annotations.Test;
++
++
+ 
+ import java.io.IOException;
+ 
+Index: src/test/java/com/tuttur/page/MainPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.page;\n\n\nimport com.tuttur.configs.PropertiesFile;\nimport org.junit.Assert;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebDriver;\nimport com.tuttur.constants.MainPage_Constants;\nimport org.openqa.selenium.WebElement;\n\nimport java.io.IOException;\nimport java.util.List;\n\n\npublic class MainPage extends MainPage_Constants {\n\n    public MainPage(WebDriver driver) throws IOException {\n        super(driver);\n    }\n\n    PropertiesFile prop = new PropertiesFile(driver);\n    DbQueriesPage db = new DbQueriesPage(driver);\n    GeneralPage general = new GeneralPage(driver);\n\n    public void dropdownMenu(String menu) {\n        List<WebElement> dropdown = driver.findElements(DROPDOWN_MENU);\n\n        for (WebElement element : dropdown) {\n            String menuItem = element.findElement(By.tagName(\"a\")).getText();\n\n            if (menuItem.contains(menu)) {\n                element.click();\n            }\n        }\n    }\n\n    public LoginPage getLoginPage() {\n        clickObjectBy(BUTTON_LOGIN);\n        return new LoginPage(driver);\n    }\n\n    public MainPage logout() {\n        clickObjectBy(AVATAR);\n        dropdownMenu(\"Çıkış\");\n        return this;\n    }\n    public RegisterPage getRegisterPage() throws IOException {\n        db.executeQuery(prop.getObject(\"accountUpdate\"));\n        clickObjectBy(REGISTER_BUTTON);\n        return new RegisterPage(driver);\n    }\n\n    public RegisterPage getRegisterPageNotUpdate () throws IOException {\n\n        clickObjectBy(REGISTER_BUTTON);\n        return new RegisterPage(driver);\n\n    }\n\n    public MainPage checkAccountNo() throws IOException {\n\n        Assert.assertTrue(\"Account numarası doğru değil\", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject(\"account_no\")));\n        System.out.println(\"Account numarası ile login, başarılı şekilde geçti\");\n        return this;\n    }\n\n    public MainPage checkUsernameText(String username) throws IOException {\n\n        String headerUser = username;\n        Assert.assertTrue(\"Kullanıcı adı doğru değil\", getElementBy(USERNAMETEXT).getText().equals(headerUser));\n\n        return this;\n    }\n\n\n}\n\t\n\t\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/page/MainPage.java	(revision a979fedc44cdea5b9001857c2c2ae46760d91bc1)
++++ src/test/java/com/tuttur/page/MainPage.java	(date 1608561956220)
+@@ -2,11 +2,12 @@
+ 
+ 
+ import com.tuttur.configs.PropertiesFile;
+-import org.junit.Assert;
++
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+ import com.tuttur.constants.MainPage_Constants;
+ import org.openqa.selenium.WebElement;
++import org.testng.Assert;
+ 
+ import java.io.IOException;
+ import java.util.List;
+@@ -59,7 +60,7 @@
+ 
+     public MainPage checkAccountNo() throws IOException {
+ 
+-        Assert.assertTrue("Account numarası doğru değil", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject("account_no")));
++        Assert.assertTrue(getElementBy(ACCOUNT_NO).getText().equals(prop.getObject("account_no")), "Account numarası doğru değil");
+         System.out.println("Account numarası ile login, başarılı şekilde geçti");
+         return this;
+     }
+@@ -67,7 +68,7 @@
+     public MainPage checkUsernameText(String username) throws IOException {
+ 
+         String headerUser = username;
+-        Assert.assertTrue("Kullanıcı adı doğru değil", getElementBy(USERNAMETEXT).getText().equals(headerUser));
++        Assert.assertTrue(getElementBy(USERNAMETEXT).getText().equals(headerUser), "Kullanıcı adı doğru değil");
+ 
+         return this;
+     }
