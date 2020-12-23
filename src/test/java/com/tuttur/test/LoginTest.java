@@ -28,7 +28,8 @@ public class LoginTest extends BaseTest {
         ExcelUtil.setExcelFileSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
-                .login(ExcelUtil.getRowData(1)).checkAccountNo();
+                .login(ExcelUtil.getRowData(1),1)
+                .checkAccountNo(ExcelUtil.getRowData(1));
     }
 
     /**

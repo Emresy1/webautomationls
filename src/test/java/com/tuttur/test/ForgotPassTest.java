@@ -3,8 +3,7 @@ package com.tuttur.test;
 import com.tuttur.base.BaseTest;
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.page.*;
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
 
 
 import java.io.IOException;

@@ -2,6 +2,8 @@ package com.tuttur.util;
 
 import com.tuttur.base.BasePage;
 import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -12,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
 
 
 import static com.tuttur.base.BaseTest.testDataExcelFileName;
@@ -62,6 +65,11 @@ public class ExcelUtil extends BasePage {
                 FileInputStream ExcelFile = new FileInputStream(testDataExcelPath + testDataExcelFileName);
                 excelWBook = new XSSFWorkbook(ExcelFile);
                 excelWSheet = excelWBook.getSheet(sheetName);
+
+                Iterator<Row> rowIterator = excelWSheet.iterator();
+
+
+
             } catch (Exception e) {
                 try {
                     throw (e);

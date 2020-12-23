@@ -3,6 +3,8 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 
+import com.tuttur.util.ExcelUtil;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -59,9 +61,10 @@ public class MainPage extends MainPage_Constants {
 
     }
 
-    public MainPage checkAccountNo() throws IOException {
+    public MainPage checkAccountNo(XSSFRow row) throws IOException {
 
-        Assert.assertTrue("Account numarası doğru değil", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject("account_no")));
+        Assert.assertTrue("Account numarası doğru değil", getElementBy(ACCOUNT_NO).getText()
+                .equals(row.getCell(3).toString()));
         System.out.println("Account numarası ile login, başarılı şekilde geçti");
         return this;
     }
