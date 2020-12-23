@@ -1,0 +1,256 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"efb77886-d974-429e-b98e-d5ffde5a71a7\" name=\"Default Changelist\" comment=\"update2\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/constants/LoginPage_Constants.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/constants/LoginPage_Constants.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1kjqoCUb91BNXaWIDatcmBdsqqh\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"project.structure.last.edited\" value=\"Problems\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.2\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"project.propVCSSupport.Mappings\" />\n  </component>\n  <component name=\"RunManager\" selected=\"JUnit.LoginTest.failLogin\">\n    <configuration default=\"true\" type=\"ArquillianTestNG\" factoryName=\"\" nameIsGenerated=\"true\">\n      <option name=\"arquillianRunConfiguration\">\n        <value>\n          <option name=\"containerStateName\" value=\"\" />\n        </value>\n      </option>\n      <option name=\"TEST_OBJECT\" value=\"CLASS\" />\n      <properties />\n      <listeners />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.failLogin\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"failLogin\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.firstTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"firstTest\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.successfulllyLoginWithIdentityNo\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"successfulllyLoginWithIdentityNo\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.successfullyLoginWithAccountNo\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"successfullyLoginWithAccountNo\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.successfullyLoginWithUserName\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"successfullyLoginWithUserName\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"JUnit.LoginTest.failLogin\" />\n        <item itemvalue=\"JUnit.LoginTest.successfullyLoginWithAccountNo\" />\n        <item itemvalue=\"JUnit.LoginTest.successfulllyLoginWithIdentityNo\" />\n        <item itemvalue=\"JUnit.LoginTest.successfullyLoginWithUserName\" />\n        <item itemvalue=\"JUnit.LoginTest.firstTest\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"SvnConfiguration\" cleanupOnStartRun=\"true\">\n    <configuration useDefault=\"false\">$USER_HOME$/.subversion</configuration>\n    <supportedVersion>125</supportedVersion>\n    <option name=\"runUnderTerminal\" value=\"true\" />\n    <option name=\"FORCE_UPDATE\" value=\"true\" />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"efb77886-d974-429e-b98e-d5ffde5a71a7\" name=\"Default Changelist\" comment=\"\" />\n      <created>1606224521931</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1606224521931</updated>\n      <workItem from=\"1606224523015\" duration=\"603000\" />\n      <workItem from=\"1606828700131\" duration=\"5000\" />\n      <workItem from=\"1606917217589\" duration=\"25000\" />\n      <workItem from=\"1606917249746\" duration=\"3000\" />\n      <workItem from=\"1606981712524\" duration=\"630000\" />\n      <workItem from=\"1606993588121\" duration=\"5315000\" />\n      <workItem from=\"1607073163758\" duration=\"2433000\" />\n      <workItem from=\"1607083510224\" duration=\"809000\" />\n      <workItem from=\"1607088544131\" duration=\"486000\" />\n      <workItem from=\"1607089041080\" duration=\"7354000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"update2\">\n      <created>1607089324497</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607089324497</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"update2\">\n      <created>1607089366634</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607089366634</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"update2\">\n      <created>1607089836960</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607089836960</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"update2\">\n      <created>1607089906651</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1607089906651</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"5\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"update2\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"update2\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 86d7cf52caecda83dbb250223e4e45827d6a93f8)
++++ b/.idea/workspace.xml	(date 1607329935832)
+@@ -22,6 +22,7 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
++<<<<<<< HEAD
+     <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="update2">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
+@@ -29,6 +30,11 @@
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
++=======
++    <list default="true" id="efb77886-d974-429e-b98e-d5ffde5a71a7" name="Default Changelist" comment="test3">
++      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++>>>>>>> origin/master
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
+@@ -47,6 +53,13 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="MavenImportPreferences">
++    <option name="generalSettings">
++      <MavenGeneralSettings>
++        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
++      </MavenGeneralSettings>
++    </option>
+   </component>
+   <component name="ProjectId" id="1kjqoCUb91BNXaWIDatcmBdsqqh" />
+   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+@@ -56,7 +69,6 @@
+   </component>
+   <component name="PropertiesComponent">
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="aspect.path.notification.shown" value="true" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+@@ -68,20 +80,23 @@
+     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+     <property name="nodejs_package_manager_path" value="npm" />
+     <property name="project.structure.last.edited" value="Problems" />
+-    <property name="project.structure.proportion" value="0.15" />
++    <property name="project.structure.proportion" value="0.0" />
+     <property name="project.structure.side.proportion" value="0.2" />
+     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+   </component>
++<<<<<<< HEAD
+   <component name="RunManager" selected="JUnit.LoginTest.failLogin">
+     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
++=======
++  <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
++    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
++>>>>>>> origin/master
+       <option name="arquillianRunConfiguration">
+         <value>
+           <option name="containerStateName" value="" />
+         </value>
+       </option>
+-      <option name="TEST_OBJECT" value="CLASS" />
+-      <properties />
+-      <listeners />
++      <option name="TEST_OBJECT" value="class" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -197,17 +212,23 @@
+       <workItem from="1606981712524" duration="630000" />
+       <workItem from="1606993588121" duration="5315000" />
+       <workItem from="1607073163758" duration="2433000" />
++<<<<<<< HEAD
+       <workItem from="1607083510224" duration="809000" />
+       <workItem from="1607088544131" duration="486000" />
+       <workItem from="1607089041080" duration="7354000" />
++=======
++      <workItem from="1607083510224" duration="1160000" />
++      <workItem from="1607088886473" duration="476000" />
++>>>>>>> origin/master
+     </task>
+-    <task id="LOCAL-00001" summary="update2">
+-      <created>1607089324497</created>
++    <task id="LOCAL-00001" summary="test3">
++      <created>1607087918397</created>
+       <option name="number" value="00001" />
+       <option name="presentableId" value="LOCAL-00001" />
+       <option name="project" value="LOCAL" />
+-      <updated>1607089324497</updated>
++      <updated>1607087918397</updated>
+     </task>
++<<<<<<< HEAD
+     <task id="LOCAL-00002" summary="update2">
+       <created>1607089366634</created>
+       <option name="number" value="00002" />
+@@ -230,6 +251,9 @@
+       <updated>1607089906651</updated>
+     </task>
+     <option name="localTasksCounter" value="5" />
++=======
++    <option name="localTasksCounter" value="2" />
++>>>>>>> origin/master
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -248,7 +272,77 @@
+     <option name="oldMeFiltersMigrated" value="true" />
+   </component>
+   <component name="VcsManagerConfiguration">
+-    <MESSAGE value="update2" />
+-    <option name="LAST_COMMIT_MESSAGE" value="update2" />
++    <MESSAGE value="test3" />
++    <option name="LAST_COMMIT_MESSAGE" value="test3" />
++  </component>
++  <component name="WindowStateProjectService">
++    <state x="495" y="299" key="AbstractVcsHelper.FilterDialog.org.jetbrains.idea.svn.history.SvnVersionFilterComponent" timestamp="1607082298682">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state x="495" y="299" key="AbstractVcsHelper.FilterDialog.org.jetbrains.idea.svn.history.SvnVersionFilterComponent/0.0.1440.900@0.0.1440.900" timestamp="1607082298682" />
++    <state x="306" y="25" key="CommitChangelistDialog2" timestamp="1607087679409">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state x="306" y="25" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1607087679409" />
++    <state width="1398" height="238" key="GridCell.Tab.0.bottom" timestamp="1607083504960">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="238" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607083504960" />
++    <state width="1398" height="215" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1607004160510" />
++    <state width="1878" height="305" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431045" />
++    <state width="1398" height="238" key="GridCell.Tab.0.center" timestamp="1607083504959">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="238" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1607083504959" />
++    <state width="1398" height="215" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1607004160509" />
++    <state width="1878" height="305" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431044" />
++    <state width="1398" height="238" key="GridCell.Tab.0.left" timestamp="1607083504958">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="238" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1607083504958" />
++    <state width="1398" height="215" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1607004160508" />
++    <state width="1878" height="305" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431044" />
++    <state width="1398" height="238" key="GridCell.Tab.0.right" timestamp="1607083504959">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="238" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1607083504959" />
++    <state width="1398" height="215" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1607004160510" />
++    <state width="1878" height="305" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-291.1920.1080@-1920.-291.1920.1080" timestamp="1606993431045" />
++    <state width="1398" height="238" key="GridCell.Tab.1.bottom" timestamp="1607083504962">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="238" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1607083504962" />
++    <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.23.1440.832@0.23.1440.832" timestamp="1607073487949" />
++    <state width="1398" height="238" key="GridCell.Tab.1.center" timestamp="1607083504961">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="238" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1607083504961" />
++    <state width="1398" height="304" key="GridCell.Tab.1.center/0.23.1440.832@0.23.1440.832" timestamp="1607073487948" />
++    <state width="1398" height="238" key="GridCell.Tab.1.left" timestamp="1607083504960">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="238" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1607083504960" />
++    <state width="1398" height="304" key="GridCell.Tab.1.left/0.23.1440.832@0.23.1440.832" timestamp="1607073487947" />
++    <state width="1398" height="238" key="GridCell.Tab.1.right" timestamp="1607083504961">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="238" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1607083504961" />
++    <state width="1398" height="304" key="GridCell.Tab.1.right/0.23.1440.832@0.23.1440.832" timestamp="1607073487948" />
++    <state x="221" y="23" width="1024" height="833" key="SettingsEditor" timestamp="1607088973795">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state x="221" y="23" width="1024" height="833" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1607088973795" />
++    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1607087921876">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1607087921876" />
++    <state x="537" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607082357679">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state x="537" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1607082357679" />
++    <state x="385" y="179" width="670" height="676" key="search.everywhere.popup" timestamp="1607001124078">
++      <screen x="0" y="23" width="1440" height="832" />
++    </state>
++    <state x="385" y="179" width="670" height="676" key="search.everywhere.popup/0.23.1440.832@0.23.1440.832" timestamp="1607001124078" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/test/java/com/tuttur/test/LoginTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.test;\n\nimport java.io.IOException;\n\nimport com.tuttur.page.LoginPage;\nimport org.junit.Test;\nimport com.tuttur.base.BaseTest;\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.page.MainPage;\nimport org.openqa.selenium.By;\n\npublic class LoginTest extends BaseTest {\n    PropertiesFile prop = new PropertiesFile(driver);\n\n    /**\n     * Case 1.0\n     * Üye numarasıyla başarılı login\n     * @throws IOException\n     */\n    @Test\n    public void successfullyLoginWithAccountNo() throws IOException {\n\n        new MainPage(driver).getLoginPage().login(prop.getObject(\"account_no\")).checkAccountNo();\n    }\n    /**\n     * Case 1.1\n     * Kullanıcı adı ile başarılı login\n     * @throws IOException\n     */\n    @Test\n    public void successfullyLoginWithUserName() throws IOException {\n        new MainPage(driver).getLoginPage().login(prop.getObject(\"username\")).checkUsernameText();\n    }\n    /**\n     * Case 1.2\n     * TCKN  ile başarılı login\n     */\n    @Test\n    public void successfulllyLoginWithIdentityNo() throws IOException {\n        new MainPage(driver).getLoginPage().login(prop.getObject(\"login_ssn\")).checkUsernameText();\n    }\n    /**\n     * Case 1.3\n     * Başarısız login kontrolü\n     */\n    @Test\n    public void failLogin() throws IOException {\n        new MainPage(driver).getLoginPage().login(prop.getObject(\"login_ssn\"));\n        new LoginPage(driver).checkFailLogin();\n    }\n}\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/com/tuttur/test/LoginTest.java b/src/test/java/com/tuttur/test/LoginTest.java
+--- a/src/test/java/com/tuttur/test/LoginTest.java	(revision 86d7cf52caecda83dbb250223e4e45827d6a93f8)
++++ b/src/test/java/com/tuttur/test/LoginTest.java	(date 1607329935830)
+@@ -9,6 +9,7 @@
+ import com.tuttur.page.MainPage;
+ import org.openqa.selenium.By;
+ 
++<<<<<<< HEAD
+ public class LoginTest extends BaseTest {
+     PropertiesFile prop = new PropertiesFile(driver);
+ 
+@@ -50,5 +51,21 @@
+     }
+ }
+ 
++=======
++public class LoginTest extends BaseTest{
++	PropertiesFile prop = new PropertiesFile(driver);
++
++	/**
++	 * Case 1.0
++	 * Üye numarasıyla başarılı login
++	 * @throws IOException
++	 */
++
++	@Test
++	public void successfullyLoginWithAccountNo() throws IOException {
++
++		new MainPage(driver).getLoginPage().successfullyLogin().checkAccountNo();
++        System.out.println("emre");
++>>>>>>> origin/master
+ 
+ 
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"MavenProjectsManager\">\n    <option name=\"originalFiles\">\n      <list>\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_13\" default=\"false\" project-jdk-name=\"15\" project-jdk-type=\"JavaSDK\" />\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 86d7cf52caecda83dbb250223e4e45827d6a93f8)
++++ b/.idea/misc.xml	(date 1607329935822)
+@@ -7,5 +7,5 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="false" project-jdk-name="15" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="13" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
