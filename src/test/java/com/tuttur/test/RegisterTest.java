@@ -1,12 +1,14 @@
 package com.tuttur.test;
 
+
 import com.tuttur.base.BaseTest;
+
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.page.GeneralPage;
 import com.tuttur.page.MainPage;
 import com.tuttur.page.RegisterPage;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
+
 
 import java.io.IOException;
 

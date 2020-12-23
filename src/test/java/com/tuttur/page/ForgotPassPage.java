@@ -3,13 +3,13 @@ package com.tuttur.page;
 import com.tuttur.base.BaseTest;
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.ForgotPass_Constants;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import static org.junit.Assert.assertTrue;
 
 
 import java.io.IOException;
@@ -87,6 +87,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
         checkPasswordChange();
         clickObjectBy(LOGIN_BUTTON);
 
+
         return this;
 
     }
@@ -96,8 +97,8 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     private void checkPasswordChange() throws IOException {
 
-        assertTrue("şifre değişikliği başarısız", getElementBy(SUCCESS_MESSAGE)
-                .getText().substring(0, 26).equals(prop.getObject("success_pass_change_message")));
+        Assert.assertTrue("şifre değişikliği başarısız", getElementBy(SUCCESS_MESSAGE)
+                                .getText().substring(0, 26).equals(prop.getObject("success_pass_change_message")));
 
     }
 

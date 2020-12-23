@@ -5,6 +5,8 @@ package com.tuttur.base;
 
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
+import com.tuttur.util.ExcelUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -30,16 +32,18 @@ public class BaseTest {
 
 	public WebDriver driver;
 
+	public static final String testDataExcelFileName = "TestData.xlsx";
+
 	public static String browserName = null;
 
 
 	@Before
 	public void setUp() throws Exception {
+
+
 		 String path = System.getProperty("user.dir");
 		 PropertiesFile.getProperties();
 
-		// Proxy proxy = new Proxy();
-		// proxy.setProxyAutoconfigUrl("http://10.49.4.200");
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -48,7 +52,6 @@ public class BaseTest {
 
 			if (browserName.equalsIgnoreCase("chrome")) {
 
-				//capabilities.setCapability(CapabilityType.PROXY, proxy);
 				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
 				ChromeOptions options = new ChromeOptions();
 				options.merge(capabilities);
@@ -56,7 +59,7 @@ public class BaseTest {
 			}
 
 			else if (browserName.equalsIgnoreCase("firefox")) {
-			//	capabilities.setCapability(CapabilityType.PROXY, proxy);
+
 				System.setProperty("webdriver.gecko.driver", "properties/driver/geckodriver");
 				FirefoxOptions options = new FirefoxOptions();
 				options.merge(capabilities);
@@ -65,25 +68,23 @@ public class BaseTest {
 
 		} else {
 
-
-			//	capabilities.setCapability("key", System.getProperty("key"));
-
-
 			capabilities.setCapability("key", System.getProperty("key"));
 
 			driver = new RemoteWebDriver(new URL(URL), capabilities);
 
 		}
+
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 
 		driver.get(baseUrl);
 	}
 
-	//@After
-	//public void tearDown() {
-	//	driver.quit();
-	//
-	//}
+	@After
+	public void tearDown() {
+
+		driver.quit();
+
+	}
 
 }

@@ -2,11 +2,13 @@ package com.tuttur.page;
 
 
 import com.tuttur.configs.PropertiesFile;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
+
 
 import java.io.IOException;
 import java.util.List;
@@ -73,10 +75,9 @@ public class MainPage extends MainPage_Constants {
     }
 
     public MainPage checkRegisterLogin () throws InterruptedException, IOException {
-        Assert.assertTrue("register sonrası login başarısız",getElementBy(ACCOUNT_NO).getText().equals(prop.getObject("currentMemberNo")));
+        Assert.assertTrue("register sonrası login başarısız", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject("currentMemberNo")));
         return this;
     }
-
 
 }
 	
