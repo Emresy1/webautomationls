@@ -22,92 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/util/ExcelUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_dblock_waffle_waffle_jna_1_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_25_0_jre.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_11_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_14_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_bind_jaxb_osgi_2_3_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_rest_assured_json_path_4_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_rest_assured_rest_assured_4_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_rest_assured_rest_assured_common_4_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_rest_assured_xml_path_4_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_8_15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_4_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_java_dev_jna_jna_platform_4_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_exec_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_sling_org_apache_sling_javax_activation_0_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ccil_cowan_tagsoup_tagsoup_1_2_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_compat_qual_2_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_2_5_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_json_2_5_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_groovy_groovy_xml_2_5_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_14.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20190722.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_9_4_1200_jdbc41.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_3_141_59.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_3_141_59.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_edge_driver_3_141_59.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_3_141_59.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_3_141_59.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_3_141_59.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_opera_driver_3_141_59.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_3_141_59.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_safari_driver_3_141_59.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_3_141_59.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_simple_1_7_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="readcsvdataFix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BasePage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/configs/PropertiesFile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/LoginPage_Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/RegisterPage_Constants.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/DbQueriesPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tuttur.web.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tuttur.web.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/d.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +61,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.49195403" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.capture" />
@@ -155,6 +73,17 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CsvDataRead.readData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
@@ -202,49 +131,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.loginWithMissingInfo" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="loginWithMissingInfo" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.successfullyLoginWithAccountNo" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="successfullyLoginWithAccountNo" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <list>
+      <item itemvalue="JUnit.CsvDataRead.readData" />
+      <item itemvalue="JUnit.LoginTest" />
+      <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
         <item itemvalue="JUnit.CsvDataRead.readData" />
         <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="TestNG.LoginTest.successfullyLoginWithAccountNo" />
-        <item itemvalue="TestNG.LoginTest.loginWithMissingInfo" />
       </list>
     </recent_temporary>
   </component>
@@ -260,8 +156,23 @@
       <workItem from="1608578522215" duration="1040000" />
       <workItem from="1608579633369" duration="2422000" />
       <workItem from="1608619350312" duration="16520000" />
-      <workItem from="1608650749746" duration="2107000" />
+      <workItem from="1608650749746" duration="2745000" />
     </task>
+    <task id="LOCAL-00001" summary="readcsvdata">
+      <created>1608708002801</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608708002802</updated>
+    </task>
+    <task id="LOCAL-00002" summary="readcsvdataFix">
+      <created>1608710060611</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608710060611</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,8 +192,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="readcsvdata" />
+    <MESSAGE value="readcsvdataFix" />
+    <option name="LAST_COMMIT_MESSAGE" value="readcsvdataFix" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="184" y="112" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608710210347">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608710210347" />
     <state x="432" y="174" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1608621580123">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -327,10 +245,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="144" y="79" key="MergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1608624933207" />
-    <state x="208" y="31" key="SettingsEditor" timestamp="1608644206899">
+    <state x="208" y="31" key="SettingsEditor" timestamp="1608707955587">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="208" y="31" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608644206899" />
+    <state x="208" y="31" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608707955587" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1608710065172">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1608710065172" />
     <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608624919200">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
