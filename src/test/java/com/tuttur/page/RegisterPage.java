@@ -24,8 +24,8 @@ public class RegisterPage extends RegisterPage_Constants {
     DbQueriesPage db = new DbQueriesPage(driver);
     GeneralPage general = new GeneralPage(driver);
 
-    public RegisterPage setName(String name) throws IOException {
-        setObjectBy(NAME, name);
+    public RegisterPage setName(int rowNumber) throws IOException {
+        setObjectBy(NAME, getData(rowNumber,1));
         return this;
 
     }

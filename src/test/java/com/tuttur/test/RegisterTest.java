@@ -2,11 +2,10 @@ package com.tuttur.test;
 
 
 import com.tuttur.base.BaseTest;
-
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.page.GeneralPage;
 import com.tuttur.page.MainPage;
-import com.tuttur.page.RegisterPage;
+import com.tuttur.util.BasePageUtil;
 import org.junit.Test;
 
 
@@ -15,7 +14,7 @@ import java.io.IOException;
 public class RegisterTest extends BaseTest {
     PropertiesFile prop = new PropertiesFile(driver);
     GeneralPage general = new GeneralPage(driver);
-    RegisterPage register = new RegisterPage(driver);
+    BasePageUtil util = new BasePageUtil(driver);
 
     public RegisterTest() throws IOException {
     }
@@ -31,8 +30,10 @@ public class RegisterTest extends BaseTest {
     @Test
     public void successFullyRegisterTest() throws InterruptedException, IOException {
 
+        util.getSheet("RegisterData");
+
         new MainPage(driver).getRegisterPage()
-                .setName(prop.getObject("name"))
+                .setName(1)
                 .setLastName(prop.getObject("surname"))
                 .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
                 .setSsn(prop.getObject("tckn"))
@@ -42,9 +43,8 @@ public class RegisterTest extends BaseTest {
                 .setPassword(prop.getObject("newPassword"))
                 .clickMembershipApprove()
                 .clickSubmit()
-                .smsActivation();
-        //- checkUsernameText methodu register için ayrı yazılacak
-                //.checkUsernameText(general.username);
+                .smsActivation()
+                .checkUserText(general.username);
 
     }
 
@@ -56,7 +56,7 @@ public class RegisterTest extends BaseTest {
     @Test
     public void registerWithUseFunctionality() throws IOException, InterruptedException {
         new MainPage(driver).getRegisterPage()
-                .setName(prop.getObject("name"))
+             //   .setName(prop.getObject("name"))
                 .setLastName(prop.getObject("surname"))
                 .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
                 .setSsn(prop.getObject("tckn"))
@@ -65,9 +65,8 @@ public class RegisterTest extends BaseTest {
                 .setUsername(1)
                 .setPassword(prop.getObject("newPassword"))
                 .clickMembershipApprove()
-                .clickSubmit().smsActivation();
-        //- checkUsernameText methodu register için ayrı yazılacak
-   //     new MainPage(driver).checkUsernameText(general.generateUsernameText.toString());
+                .clickSubmit().smsActivation()
+                .checkUserText(general.generateUsernameText.toString());
 
     }
 
@@ -101,7 +100,7 @@ public class RegisterTest extends BaseTest {
     public void currentUserRegisterToLogin () throws IOException, InterruptedException {
 
         new MainPage(driver).getRegisterPageNotUpdate()
-                .setName(prop.getObject("name"))
+              //  .setName(prop.getObject("name"))
                 .setLastName(prop.getObject("surname"))
                 .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
                 .setSsn(prop.getObject("currentTckn"))

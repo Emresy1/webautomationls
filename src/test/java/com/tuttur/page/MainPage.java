@@ -6,6 +6,8 @@ import com.tuttur.configs.PropertiesFile;
 import com.tuttur.util.ExcelUtil;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import static org.junit.Assert.assertTrue;
+
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
@@ -49,8 +51,10 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
     public RegisterPage getRegisterPage() throws IOException {
+
         db.executeQuery(prop.getObject("accountUpdate"));
         clickObjectBy(REGISTER_BUTTON);
+
         return new RegisterPage(driver);
     }
 
@@ -73,6 +77,14 @@ public class MainPage extends MainPage_Constants {
 
         assertTrue(getData(rowNumber,7), getElementBy(USERNAMETEXT).getText()
                 .equals(getData(rowNumber,3)));
+
+        return this;
+    }
+    public MainPage checkUserText(String username){
+
+        String headerUser = username;
+        Assert.assertTrue("Kullanıcı adı görülmedi", getElementBy(USERNAMETEXT).getText()
+        .equals(headerUser));
 
         return this;
     }
