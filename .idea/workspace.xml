@@ -22,9 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="update csv">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" afterDir="false" />
-    </list>
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="update csv" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,7 +183,7 @@
       <workItem from="1608619350312" duration="16520000" />
       <workItem from="1608650749746" duration="7703000" />
       <workItem from="1608719151914" duration="177000" />
-      <workItem from="1608719339262" duration="19189000" />
+      <workItem from="1608719339262" duration="19653000" />
     </task>
     <task id="LOCAL-00001" summary="readcsvdata">
       <created>1608708002801</created>
@@ -243,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608816216060</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update csv">
+      <created>1608816812567</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608816812567</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
