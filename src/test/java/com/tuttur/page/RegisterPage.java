@@ -165,6 +165,7 @@ public class RegisterPage extends RegisterPage_Constants {
     }
 
     private List<WebElement> formInput() {
+
         List<WebElement> inputsArray = new ArrayList<>();
         List<WebElement> inputs = findElements(FORM_INPUT);
         inputsArray.add(inputs.get(0));
