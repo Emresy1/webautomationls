@@ -24,55 +24,57 @@ public class RegisterPage extends RegisterPage_Constants {
     DbQueriesPage db = new DbQueriesPage(driver);
     GeneralPage general = new GeneralPage(driver);
 
-    public RegisterPage setName(int rowNumber) throws IOException {
+
+
+    private RegisterPage setName(int rowNumber) throws IOException {
         setObjectBy(NAME, getData(rowNumber,1));
         return this;
 
     }
 
-    public RegisterPage setLastName(String surname) throws IOException {
+    private RegisterPage setLastName(int rowNumber) throws IOException {
 
-        setObjectBy(LASTNAME, surname);
+        setObjectBy(LASTNAME, getData(rowNumber,2));
         return this;
 
     }
 
-    private void setDay(String day) {
-        setObjectsBy(DATE, 2,day);
+    private void setDay(int rowNumber) {
+        setObjectsBy(DATE, 2,getData(rowNumber,3));
 
     }
 
-    private void selectMonth(String month) {
+    private void selectMonth(int rowNumber) {
 
         WebElement months = getElementBy(MONTHS);
         Select select = new Select(months);
-        select.selectByVisibleText(month);
+        select.selectByVisibleText(getData(rowNumber,4));
 
     }
 
-    private void setYear(String year) {
+    private void setYear(int rowNumber) {
 
-        setObjectsBy(DATE, 3, year);
+        setObjectsBy(DATE, 3, getData(rowNumber,5));
 
     }
 
-    public RegisterPage setSsn( String tckn) throws IOException {
+    private RegisterPage setSsn(int rowNumber) throws IOException {
 
-        setObjectBy(SSN, tckn);
+        setObjectBy(SSN, getData(rowNumber,6));
         return this;
 
     }
 
-    public RegisterPage setGsm(String gsm) throws IOException {
+    private RegisterPage setGsm(int rowNumber) throws IOException {
 
-        setObjectBy(GSM,gsm);
+        setObjectBy(GSM,getData(rowNumber,7));
         return this;
 
     }
 
-    public RegisterPage setEmail(String email) throws IOException {
+    private RegisterPage setEmail(int rowNumber) throws IOException {
 
-        setObjectBy(EMAIL, email);
+        setObjectBy(EMAIL, getData(rowNumber,8));
         return this;
 
     }
@@ -85,7 +87,7 @@ public class RegisterPage extends RegisterPage_Constants {
      * @throws IOException
      */
 
-    public RegisterPage setUsername(int usernameIndex) throws IOException {
+    private RegisterPage setUsername(int usernameIndex) throws IOException {
 
         boolean click = 0 < usernameIndex;
         sleep(2);
@@ -111,14 +113,14 @@ public class RegisterPage extends RegisterPage_Constants {
         return general.generateUsernameText;
     }
 
-    public RegisterPage setPassword(String password) throws IOException {
+    private RegisterPage setPassword(int rowNumber) throws IOException {
 
-        setObjectBy(REGISTER_PASSWORD, password);
+        setObjectBy(REGISTER_PASSWORD, getData(rowNumber,9));
         return this;
 
     }
 
-    public RegisterPage clickMembershipApprove() throws InterruptedException {
+    private RegisterPage clickMembershipApprove() throws InterruptedException {
 
         List<WebElement> checkbox = findElements(CHECKBOX);
         scrollToElement(CHECKBOX);
@@ -132,29 +134,44 @@ public class RegisterPage extends RegisterPage_Constants {
         return this;
     }
 
-    public RegisterPage setBirthDate(String day, String month,String year) {
+    private RegisterPage setBirthDate(int rowNumber) {
 
-        setDay(day);
-        selectMonth(month);
-        setYear(year);
+        setDay(rowNumber);
+        selectMonth(rowNumber);
+        setYear(rowNumber);
         return this;
 
     }
 
-    public RegisterPage clickSubmit() {
+    private RegisterPage clickSubmit() {
 
         clickObjectBy(SUBMIT);
         return this;
 
     }
 
-    public MainPage smsActivation() throws IOException {
+    private MainPage smsActivation() throws IOException {
 
         String smsCode = db.getValidationCode(prop.getObject("verifyCode"));
         setObjectBy(ACTIVATION_FIELD, smsCode);
         clickObjectBy(ACTIVATION_BUTTON);
         return new MainPage(driver);
 
+    }
+    public MainPage setRegisterForm(int rowNumber, int usernameIndex) throws IOException, InterruptedException {
+        setName(rowNumber);
+        setLastName(rowNumber);
+        setBirthDate(rowNumber);
+        setSsn(rowNumber);
+        setGsm(rowNumber);
+        setEmail(rowNumber);
+        setUsername(usernameIndex);
+        setPassword(rowNumber);
+        clickMembershipApprove();
+        clickSubmit();
+        smsActivation();
+
+        return new MainPage(driver);
     }
 
 

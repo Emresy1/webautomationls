@@ -33,17 +33,7 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-                .setName(1)
-                .setLastName(prop.getObject("surname"))
-                .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
-                .setSsn(prop.getObject("tckn"))
-                .setGsm(prop.getObject("phoneNo"))
-                .setEmail(prop.getObject("currentlyEmail"))
-                .setUsername(0)
-                .setPassword(prop.getObject("newPassword"))
-                .clickMembershipApprove()
-                .clickSubmit()
-                .smsActivation()
+                .setRegisterForm(1,0)
                 .checkUserText(general.username);
 
     }
@@ -56,16 +46,7 @@ public class RegisterTest extends BaseTest {
     @Test
     public void registerWithUseFunctionality() throws IOException, InterruptedException {
         new MainPage(driver).getRegisterPage()
-             //   .setName(prop.getObject("name"))
-                .setLastName(prop.getObject("surname"))
-                .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
-                .setSsn(prop.getObject("tckn"))
-                .setGsm(prop.getObject("phoneNo"))
-                .setEmail(prop.getObject("currentlyEmail"))
-                .setUsername(1)
-                .setPassword(prop.getObject("newPassword"))
-                .clickMembershipApprove()
-                .clickSubmit().smsActivation()
+             .setRegisterForm(1,1)
                 .checkUserText(general.generateUsernameText.toString());
 
     }
@@ -96,7 +77,7 @@ public class RegisterTest extends BaseTest {
 
     }
 
-    @Test
+   /* @Test
     public void currentUserRegisterToLogin () throws IOException, InterruptedException {
 
         new MainPage(driver).getRegisterPageNotUpdate()
@@ -111,7 +92,7 @@ public class RegisterTest extends BaseTest {
                 .clickMembershipApprove()
                 .clickSubmit();
         new MainPage(driver).checkRegisterLogin();
-    }
+    }*/
 
 
 }
