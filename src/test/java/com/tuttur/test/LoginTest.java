@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.tuttur.base.BaseTest;
 import com.tuttur.configs.PropertiesFile;
+import com.tuttur.page.LoginPage;
 import com.tuttur.page.MainPage;
 
 
@@ -59,78 +60,101 @@ public class LoginTest extends BaseTest {
      * Case 1.2
      * TCKN  ile başarılı login
      */
-    //@Test
-    //public void successfulllyLoginWithIdentityNo() throws IOException {
-    //  new MainPage(driver).getLoginPage().login(prop.getObject("login_ssn"),(prop.getObject("password")))
-    //          .checkUsernameText(prop.getObject("ssnUser"));
-    //}
+    @Test
+    public void successfulllyLoginWithIdentityNo() throws IOException {
+
+        base.getSheet("loginData");
+
+        new MainPage(driver).getLoginPage().login(3)
+                .checkUsernameText(3);
+    }
 
     /**
      * Case 1.3
      * TCKN ile başarısız login kontrolü
      */
-    //@Test
-    //public void failLoginWithSsn() throws IOException {
-    //  new MainPage(driver).getLoginPage().login(prop.getObject("invalidSsn"),(prop.getObject("password")));
-    //  new LoginPage(driver).checkFailLogin();
-    //}
+    @Test
+    public void failLoginWithSsn() throws IOException {
+
+        base.getSheet("loginData");
+
+        new MainPage(driver).getLoginPage().login(4);
+        new LoginPage(driver).checkFailLogin(4);
+
+    }
 
     /**
      * Case 1.4
      * Username ile başarısız login kontrolü
      */
-    //@Test
-    //public void failLoginWithUsername() throws IOException {
-    //  new MainPage(driver).getLoginPage().login(prop.getObject("invalidUsername"),(prop.getObject("password")));
-    //  new LoginPage(driver).checkFailLogin();
-    //}
+    @Test
+    public void failLoginWithUsername() throws IOException {
+
+        base.getSheet("loginData");
+
+        new MainPage(driver).getLoginPage().login(5);
+        new LoginPage(driver).checkFailLogin(5);
+    }
 
     /**
      * Case 1.5
      * Account no ile başarısız login kontrolü
      */
-    //@Test
-    //public void failLoginWithAccountNo() throws IOException {
-    //   new MainPage(driver).getLoginPage().login(prop.getObject("invalidAccountNo"),(prop.getObject("password")));
-    //   new LoginPage(driver).checkFailLogin();
-    //}
+    @Test
+    public void failLoginWithAccountNo() throws IOException {
+
+        base.getSheet("loginData");
+
+        new MainPage(driver).getLoginPage().login(6);
+        new LoginPage(driver).checkFailLogin(6);
+
+    }
 
     /**
      * Case 1.6
      * Email ile başarısız login kontrolü
      */
-    // @Test
-    //public void failLoginWithEmail() throws IOException {
+    @Test
+    public void failLoginWithEmail() throws IOException {
 
-    //   new MainPage(driver).getLoginPage()
-    //          .login(prop.getObject("loginEmail"),(prop.getObject("password")));
-    //  new LoginPage(driver).checkFailLoginWithEmail();
-    //}
+        base.getSheet("loginData");
+
+        new MainPage(driver).getLoginPage()
+                .login(7);
+        new LoginPage(driver).checkFailLoginWithEmail(7);
+    }
 
     /**
      * Case 1.7
      * Telefon numarası ile başarısız login kontrolü
      */
-    //@Test
-    //public void failLoginWithPhoneNumber() throws IOException {
+    @Test
+    public void failLoginWithPhoneNumber() throws IOException {
 
-    //   new MainPage(driver).getLoginPage()
-    //          .login(prop.getObject("invalidPhone"),(prop.getObject("password")));
-    //  new LoginPage(driver)
-    //          .checkFailLoginWithGsm();
-    //}
+        base.getSheet("loginData");
+
+        new MainPage(driver).getLoginPage()
+                .login(8);
+        new LoginPage(driver)
+                .checkFailLoginWithGsm(8);
+    }
 
     /**
      * Case 1.8
      * Login inputlarının maksimum değer kontrolü
+     *
      * @throws IOException
      */
-    //@Test
-    //public void loginInputMaxValueControl() throws IOException {
-    //  new MainPage(driver).getLoginPage()
-    //          .login(prop.getObject("user_max_value"),(prop.getObject("password_max_value")));
-    //  new LoginPage(driver).checkInputErrorValidations();
-    //}
+    @Test
+    public void loginInputMaxValueControl() throws IOException {
+
+        base.getSheet("loginData");
+
+        new MainPage(driver).getLoginPage()
+                .login(9);
+        new LoginPage(driver).checkInputErrorValidations(9);
+    }
+
 
     /**
      * Case 1.9

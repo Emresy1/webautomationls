@@ -72,7 +72,7 @@ public class MainPage extends MainPage_Constants {
 
 
         assertTrue(getData(rowNumber,7), getElementBy(USERNAMETEXT).getText()
-                .equals(getData(rowNumber,1)));
+                .equals(getData(rowNumber,3)));
 
         return this;
     }
