@@ -1,0 +1,10 @@
+Index: src/test/resources/.~lock.TestData.xlsx#
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/resources/.~lock.TestData.xlsx#	(date 1608902994531)
++++ src/test/resources/.~lock.TestData.xlsx#	(date 1608902994531)
+@@ -0,0 +1,1 @@
++,emresarikaya,Emre-MacBook-Pro.local,25.12.2020 16:29,file:///Users/emresarikaya/Library/Application%20Support/LibreOffice/4;
+\ No newline at end of file
