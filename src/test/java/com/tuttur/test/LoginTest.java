@@ -173,6 +173,7 @@ public class LoginTest extends BaseTest {
         new LoginPage(driver).checkFailLogin(10);
     }
 
+
     /**
      * Case 2.0
      * Boş input ile login kontrolü
