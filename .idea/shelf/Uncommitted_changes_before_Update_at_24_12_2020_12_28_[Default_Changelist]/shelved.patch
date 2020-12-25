@@ -1,0 +1,243 @@
+Index: src/test/java/com/tuttur/page/LoginPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.page;\n\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.constants.LoginPage_Constants;\n\nimport static org.junit.Assert.assertTrue;\n\nimport com.tuttur.util.ExcelUtil;\nimport org.apache.poi.xssf.usermodel.XSSFRow;\nimport org.openqa.selenium.WebDriver;\n\n\nimport java.io.IOException;\n\npublic class LoginPage extends LoginPage_Constants {\n\n    public LoginPage(WebDriver driver) {\n        super(driver);\n    }\n    PropertiesFile prop = new PropertiesFile(driver);\n    DbQueriesPage db = new DbQueriesPage(driver);\n\n\n\n    private void setUsername(String username) throws IOException {\n        setObjectBy(USERNAME,username);\n\n    }\n    private void setPassword(String password) throws IOException {\n        setObjectBy(PASSWORD, password);\n\n    }\n\n    public MainPage login (XSSFRow row, int rowNumber) throws IOException {\n\n\n        setUsername(ExcelUtil.getCellData(rowNumber,1));\n        setPassword(ExcelUtil.getCellData(rowNumber,2));\n        clickObjectBy(REMEMBER_ME);\n        clickObjectBy(BUTTON_LOGIN_ON_POPUP);\n        return new MainPage(driver);\n\n    }\n\n\n    public ForgotPassPage getForgotPassModal () throws IOException {\n\n        clickObjectBy(FORGOTPASSWORD);\n        return new ForgotPassPage(driver);\n    }\n    public ForgotPassPage getForgotPassPage () throws IOException {\n\n            int smsLink = db.getValidationCodeInt(prop.getObject(\"smsLink\"),6);\n            String url = \"https://ttest:q26RwfyLotHm@alpha.tuttur.com/account/reset-password/code/\"+ smsLink +\"/type/smsLink\";\n            driver.get(url);\n\n            return new ForgotPassPage(driver);\n    }\n\n\n\n    public void checkFailLogin () throws IOException {\n        assertTrue(\"Başarısız login hatalı\", getElementBy(MODAL_ERROR_TEXT).getText()\n                                .equals(prop.getObject(\"fail_login_message\")));\n    }\n\n    public void checkFailLoginWithGsm () throws IOException {\n        assertTrue(\"Başarısız login hatalı\", getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject(\"fail_login_message_gsm\")));\n    }\n\n    public void checkFailLoginWithEmail () throws IOException {\n        assertTrue(\"Başarısız login hatalı\", getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject(\"fail_login_message_email\")));\n    }\n\n    public void checkInputErrorValidations () throws IOException {\n        assertTrue(\"Error mesajı hatalı\", getElemenstBy(INPUT_ERROR_TEXT,0).getText().equals(prop.getObject(\"user_maxLenght_message\")));\n        assertTrue(\"Error mesajı hatalı\", getElemenstBy(INPUT_ERROR_TEXT,1).getText().equals(prop.getObject(\"password_maxLenght_message\")));\n    }\n\n    public void checkMissingInfoText () throws IOException {\n        assertTrue(\"Error mesajı hatalı\", getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject(\"empty_login_message\")));\n    }\n\n    public void checkRememberMe () throws IOException {\n        assertTrue(\"Beni hatırla başarısız\", getElementBy(USERNAME).getText().equals(prop.getObject(\"rememberMeUser\")));\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/page/LoginPage.java	(revision b0c630ef667e270aef4e829aba5c937672694149)
++++ src/test/java/com/tuttur/page/LoginPage.java	(date 1608753353383)
+@@ -31,11 +31,11 @@
+ 
+     }
+ 
+-    public MainPage login (XSSFRow row, int rowNumber) throws IOException {
++    public MainPage login (int rowData) throws IOException {
+ 
++        setUsername(ExcelUtil.getCellData(rowData,1));
++        setPassword(ExcelUtil.getCellData(rowData,2));
+ 
+-        setUsername(ExcelUtil.getCellData(rowNumber,1));
+-        setPassword(ExcelUtil.getCellData(rowNumber,2));
+         clickObjectBy(REMEMBER_ME);
+         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
+         return new MainPage(driver);
+@@ -85,4 +85,5 @@
+         assertTrue("Beni hatırla başarısız", getElementBy(USERNAME).getText().equals(prop.getObject("rememberMeUser")));
+     }
+ 
++
+ }
+Index: src/test/java/com/tuttur/test/LoginTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.test;\n\nimport java.io.IOException;\n\nimport com.tuttur.base.BaseTest;\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.page.MainPage;\n\n\nimport com.tuttur.util.ExcelUtil;\nimport org.junit.Test;\n\n\npublic class LoginTest extends BaseTest {\n\n    PropertiesFile prop = new PropertiesFile(driver);\n\n\n\n    /**\n     * Case 1.0\n     * Üye numarasıyla başarılı login\n     * @throws IOException\n     */\n\n    @Test\n    public void successfullyLoginWithAccountNo() throws IOException {\n        ExcelUtil.setExcelFileSheet(\"LoginData\");\n\n        new MainPage(driver).getLoginPage()\n                .login(ExcelUtil.getRowData(1),1)\n                .checkAccountNo(ExcelUtil.getRowData(1));\n    }\n\n    /**\n     * Case 1.1\n     * Kullanıcı adı ile başarılı login\n     * @throws IOException\n     */\n\n    //@Test\n    //public void successfullyLoginWithUserName() throws IOException {\n    //  new MainPage(driver).getLoginPage()\n    //          .login(prop.getObject(\"username\"),(prop.getObject(\"usernamePass\")))\n    //          .checkUsernameText(prop.getObject(\"username\"));\n    //}\n\n\n    /**\n     * Case 1.2\n     * TCKN  ile başarılı login\n     */\n    //@Test\n    //public void successfulllyLoginWithIdentityNo() throws IOException {\n    //  new MainPage(driver).getLoginPage().login(prop.getObject(\"login_ssn\"),(prop.getObject(\"password\")))\n    //          .checkUsernameText(prop.getObject(\"ssnUser\"));\n    //}\n\n    /**\n     * Case 1.3\n     * TCKN ile başarısız login kontrolü\n     */\n    //@Test\n    //public void failLoginWithSsn() throws IOException {\n    //  new MainPage(driver).getLoginPage().login(prop.getObject(\"invalidSsn\"),(prop.getObject(\"password\")));\n    //  new LoginPage(driver).checkFailLogin();\n    //}\n\n    /**\n     * Case 1.4\n     * Username ile başarısız login kontrolü\n     */\n    //@Test\n    //public void failLoginWithUsername() throws IOException {\n    //  new MainPage(driver).getLoginPage().login(prop.getObject(\"invalidUsername\"),(prop.getObject(\"password\")));\n    //  new LoginPage(driver).checkFailLogin();\n    //}\n\n    /**\n     * Case 1.5\n     * Account no ile başarısız login kontrolü\n     */\n    //@Test\n    //public void failLoginWithAccountNo() throws IOException {\n    //   new MainPage(driver).getLoginPage().login(prop.getObject(\"invalidAccountNo\"),(prop.getObject(\"password\")));\n    //   new LoginPage(driver).checkFailLogin();\n    //}\n\n    /**\n     * Case 1.6\n     * Email ile başarısız login kontrolü\n     */\n    // @Test\n    //public void failLoginWithEmail() throws IOException {\n\n    //   new MainPage(driver).getLoginPage()\n    //          .login(prop.getObject(\"loginEmail\"),(prop.getObject(\"password\")));\n    //  new LoginPage(driver).checkFailLoginWithEmail();\n    //}\n\n    /**\n     * Case 1.7\n     * Telefon numarası ile başarısız login kontrolü\n     */\n    //@Test\n    //public void failLoginWithPhoneNumber() throws IOException {\n\n    //   new MainPage(driver).getLoginPage()\n    //          .login(prop.getObject(\"invalidPhone\"),(prop.getObject(\"password\")));\n    //  new LoginPage(driver)\n    //          .checkFailLoginWithGsm();\n    //}\n\n    /**\n     * Case 1.8\n     * Login inputlarının maksimum değer kontrolü\n     * @throws IOException\n     */\n    //@Test\n    //public void loginInputMaxValueControl() throws IOException {\n    //  new MainPage(driver).getLoginPage()\n    //          .login(prop.getObject(\"user_max_value\"),(prop.getObject(\"password_max_value\")));\n    //  new LoginPage(driver).checkInputErrorValidations();\n    //}\n\n    /**\n     * Case 1.9\n     * Hatalı şifre ile login kontrolü\n     * @throws IOException\n     */\n    //@Test\n    //public void failLoginWithPassword() throws IOException {\n    //  new MainPage(driver).getLoginPage()\n    //          .login(prop.getObject(\"username\"),(prop.getObject(\"invalidPassword\")));\n    //  new LoginPage(driver).checkFailLogin();\n    //}\n\n    /**\n     * Case 2.0\n     * Boş input ile login kontrolü\n     * @throws IOException\n     */\n\n    //@Test\n    //public void loginWithMissingInfo () throws IOException {\n    //  new MainPage(driver).getLoginPage().login(\"\",\"\");\n    //  new LoginPage(driver).checkMissingInfoText();\n    //}\n\n\n}\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/test/LoginTest.java	(revision b0c630ef667e270aef4e829aba5c937672694149)
++++ src/test/java/com/tuttur/test/LoginTest.java	(date 1608753353387)
+@@ -28,7 +28,7 @@
+         ExcelUtil.setExcelFileSheet("LoginData");
+ 
+         new MainPage(driver).getLoginPage()
+-                .login(ExcelUtil.getRowData(1),1)
++                .login(1)
+                 .checkAccountNo(ExcelUtil.getRowData(1));
+     }
+ 
+Index: src/test/java/com/tuttur/page/GeneralPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.page;\n\nimport com.tuttur.base.BasePage;\nimport com.tuttur.configs.PropertiesFile;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebDriver;\n\nimport java.io.IOException;\n\npublic class GeneralPage extends BasePage {\n\n\n\n    public GeneralPage(WebDriver driver) throws IOException {\n        super(driver);\n    }\n\n    PropertiesFile prop = new PropertiesFile(driver);\n\n\n    public static String usernameText = \"automation\" + generateRandomInt(9999);\n\n    public static String username =  usernameText;\n\n    public static String generateUsernameText;\n\n    public static String newPasswordChange = \"Test\" + generateRandomInt(9999);\n\n\n\n    }\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/page/GeneralPage.java	(revision b0c630ef667e270aef4e829aba5c937672694149)
++++ src/test/java/com/tuttur/page/GeneralPage.java	(date 1608801864451)
+@@ -27,7 +27,4 @@
+     public static String newPasswordChange = "Test" + generateRandomInt(9999);
+ 
+ 
+-
+     }
+-
+-
+Index: src/test/java/com/tuttur/page/MainPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.page;\n\n\nimport com.tuttur.configs.PropertiesFile;\n\nimport com.tuttur.util.ExcelUtil;\nimport org.apache.poi.xssf.usermodel.XSSFRow;\nimport org.junit.Assert;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebDriver;\nimport com.tuttur.constants.MainPage_Constants;\nimport org.openqa.selenium.WebElement;\n\n\nimport java.io.IOException;\nimport java.util.List;\n\n\npublic class MainPage extends MainPage_Constants {\n\n    public MainPage(WebDriver driver) throws IOException {\n        super(driver);\n    }\n\n    PropertiesFile prop = new PropertiesFile(driver);\n    DbQueriesPage db = new DbQueriesPage(driver);\n    GeneralPage general = new GeneralPage(driver);\n\n    public void dropdownMenu(String menu) {\n        List<WebElement> dropdown = driver.findElements(DROPDOWN_MENU);\n\n        for (WebElement element : dropdown) {\n            String menuItem = element.findElement(By.tagName(\"a\")).getText();\n\n            if (menuItem.contains(menu)) {\n                element.click();\n            }\n        }\n    }\n\n    public LoginPage getLoginPage() {\n        clickObjectBy(BUTTON_LOGIN);\n        return new LoginPage(driver);\n    }\n\n    public MainPage logout() {\n        clickObjectBy(AVATAR);\n        dropdownMenu(\"Çıkış\");\n        return this;\n    }\n    public RegisterPage getRegisterPage() throws IOException {\n        db.executeQuery(prop.getObject(\"accountUpdate\"));\n        clickObjectBy(REGISTER_BUTTON);\n        return new RegisterPage(driver);\n    }\n\n    public RegisterPage getRegisterPageNotUpdate () throws IOException {\n\n        clickObjectBy(REGISTER_BUTTON);\n        return new RegisterPage(driver);\n\n    }\n\n    public MainPage checkAccountNo(XSSFRow row) throws IOException {\n\n        Assert.assertTrue(\"Account numarası doğru değil\", getElementBy(ACCOUNT_NO).getText()\n                .equals(row.getCell(3).toString()));\n        System.out.println(\"Account numarası ile login, başarılı şekilde geçti\");\n        return this;\n    }\n\n    public MainPage checkUsernameText(String username) throws IOException {\n\n        String headerUser = username;\n        Assert.assertTrue(\"Kullanıcı adı doğru değil\", getElementBy(USERNAMETEXT).getText().equals(headerUser));\n\n        return this;\n    }\n\n    public MainPage checkRegisterLogin () throws InterruptedException, IOException {\n        Assert.assertTrue(\"register sonrası login başarısız\", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject(\"currentMemberNo\")));\n        return this;\n    }\n\n}\n\t\n\t\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/page/MainPage.java	(revision b0c630ef667e270aef4e829aba5c937672694149)
++++ src/test/java/com/tuttur/page/MainPage.java	(date 1608756787826)
+@@ -65,6 +65,7 @@
+ 
+         Assert.assertTrue("Account numarası doğru değil", getElementBy(ACCOUNT_NO).getText()
+                 .equals(row.getCell(3).toString()));
++
+         System.out.println("Account numarası ile login, başarılı şekilde geçti");
+         return this;
+     }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b9f01898-7a91-401d-8e95-2f7e34d132fa\" name=\"Default Changelist\" comment=\"readcsvdataFix2\">\n      <change afterPath=\"$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/util/ExcelUtil.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/util/ExcelUtil.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/TestData.xlsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/TestData.xlsx\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/TestData.xlsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/TestData.xlsx\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/util/ExcelUtil.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/util/ExcelUtil.class\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"generalSettings\">\n      <MavenGeneralSettings>\n        <option name=\"mavenHome\" value=\"$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3\" />\n      </MavenGeneralSettings>\n    </option>\n  </component>\n  <component name=\"ProjectId\" id=\"1lynpqooF1jM0KR6sAmgmjheiYL\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.49195403\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.idesettings.debugger.capture\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/test\" />\n      <recent name=\"$PROJECT_DIR$/src/main/resources\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"JUnit.LoginTest.successfullyLoginWithAccountNo\">\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\n      <option name=\"arquillianRunConfiguration\">\n        <value>\n          <option name=\"containerStateName\" value=\"\" />\n        </value>\n      </option>\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"CsvDataRead.readData\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"webautomation\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.page.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.page\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.page.CsvDataRead\" />\n      <option name=\"METHOD_NAME\" value=\"readData\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"ForgotPassTest.forgotPassword\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"webautomation\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.ForgotPassTest\" />\n      <option name=\"METHOD_NAME\" value=\"forgotPassword\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"webautomation\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.successfullyLoginWithAccountNo\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"webautomation\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"successfullyLoginWithAccountNo\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <list>\n      <item itemvalue=\"JUnit.CsvDataRead.readData\" />\n      <item itemvalue=\"JUnit.LoginTest\" />\n      <item itemvalue=\"JUnit.LoginTest.successfullyLoginWithAccountNo\" />\n      <item itemvalue=\"JUnit.ForgotPassTest.forgotPassword\" />\n    </list>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"JUnit.LoginTest.successfullyLoginWithAccountNo\" />\n        <item itemvalue=\"JUnit.ForgotPassTest.forgotPassword\" />\n        <item itemvalue=\"JUnit.CsvDataRead.readData\" />\n        <item itemvalue=\"JUnit.LoginTest\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"b9f01898-7a91-401d-8e95-2f7e34d132fa\" name=\"Default Changelist\" comment=\"\" />\n      <created>1608578383330</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1608578383330</updated>\n      <workItem from=\"1608578384480\" duration=\"19000\" />\n      <workItem from=\"1608578522215\" duration=\"1040000\" />\n      <workItem from=\"1608579633369\" duration=\"2422000\" />\n      <workItem from=\"1608619350312\" duration=\"16520000\" />\n      <workItem from=\"1608650749746\" duration=\"7703000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"readcsvdata\">\n      <created>1608708002801</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1608708002802</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"readcsvdataFix\">\n      <created>1608710060611</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1608710060611</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"readcsvdataFix2\">\n      <created>1608710872962</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1608710872962</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"4\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"readcsvdata\" />\n    <MESSAGE value=\"readcsvdataFix\" />\n    <MESSAGE value=\"readcsvdataFix2\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"readcsvdataFix2\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"184\" y=\"112\" width=\"1071\" height=\"724\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1608711617611\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"184\" y=\"112\" width=\"1071\" height=\"724\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900\" timestamp=\"1608711617611\" />\n    <state x=\"432\" y=\"174\" key=\"#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog\" timestamp=\"1608621580123\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"432\" y=\"174\" key=\"#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1440.900@0.0.1440.900\" timestamp=\"1608621580123\" />\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1608715810655\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900\" timestamp=\"1608715810655\" />\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.0.center\" timestamp=\"1608715810655\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900\" timestamp=\"1608715810655\" />\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.0.left\" timestamp=\"1608715810654\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900\" timestamp=\"1608715810654\" />\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.0.right\" timestamp=\"1608715810655\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900\" timestamp=\"1608715810655\" />\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1608715818451\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900\" timestamp=\"1608715818451\" />\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.1.center\" timestamp=\"1608715818447\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900\" timestamp=\"1608715818447\" />\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.1.left\" timestamp=\"1608715818445\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900\" timestamp=\"1608715818445\" />\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.1.right\" timestamp=\"1608715818447\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state width=\"1398\" height=\"246\" key=\"GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900\" timestamp=\"1608715818447\" />\n    <state x=\"258\" y=\"112\" key=\"Maven.ArtifactSearchDialog\" timestamp=\"1608635886243\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"258\" y=\"112\" key=\"Maven.ArtifactSearchDialog/0.0.1440.900@0.0.1440.900\" timestamp=\"1608635886243\" />\n    <state x=\"144\" y=\"79\" key=\"MergeDialog\" timestamp=\"1608624933207\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"144\" y=\"79\" key=\"MergeDialog/0.0.1440.900@0.0.1440.900\" timestamp=\"1608624933207\" />\n    <state x=\"208\" y=\"23\" width=\"1024\" height=\"836\" key=\"SettingsEditor\" timestamp=\"1608712223569\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"208\" y=\"23\" width=\"1024\" height=\"836\" key=\"SettingsEditor/0.0.1440.900@0.0.1440.900\" timestamp=\"1608712223569\" />\n    <state x=\"320\" y=\"190\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1608710875625\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"320\" y=\"190\" key=\"Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900\" timestamp=\"1608710875625\" />\n    <state x=\"518\" y=\"371\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1608624919200\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"518\" y=\"371\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900\" timestamp=\"1608624919200\" />\n    <state x=\"418\" y=\"205\" width=\"604\" height=\"490\" key=\"find.popup\" timestamp=\"1608633910882\">\n      <screen x=\"0\" y=\"0\" width=\"1440\" height=\"900\" />\n    </state>\n    <state x=\"418\" y=\"205\" width=\"604\" height=\"490\" key=\"find.popup/0.0.1440.900@0.0.1440.900\" timestamp=\"1608633910882\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java</url>\n          <line>30</line>\n          <option name=\"timeStamp\" value=\"13\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision b0c630ef667e270aef4e829aba5c937672694149)
++++ .idea/workspace.xml	(date 1608801864992)
+@@ -22,22 +22,14 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="readcsvdataFix2">
+-      <change afterPath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" afterDir="false" />
++    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="csvFormatFix2">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/GeneralPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/GeneralPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/util/ExcelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/util/ExcelUtil.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/test-classes/.~lock.TestData.xlsx#" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/ExcelUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/ExcelUtil.class" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -73,7 +65,7 @@
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="aspect.path.notification.shown" value="true" />
+-    <property name="project.structure.last.edited" value="Modules" />
++    <property name="project.structure.last.edited" value="Libraries" />
+     <property name="project.structure.proportion" value="0.15" />
+     <property name="project.structure.side.proportion" value="0.49195403" />
+     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.capture" />
+@@ -186,7 +178,7 @@
+       <workItem from="1608578522215" duration="1040000" />
+       <workItem from="1608579633369" duration="2422000" />
+       <workItem from="1608619350312" duration="16520000" />
+-      <workItem from="1608650749746" duration="7703000" />
++      <workItem from="1608650749746" duration="11948000" />
+     </task>
+     <task id="LOCAL-00001" summary="readcsvdata">
+       <created>1608708002801</created>
+@@ -209,7 +201,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1608710872962</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="csvFormatFix">
++      <created>1608718040254</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1608718040254</updated>
++    </task>
++    <task id="LOCAL-00005" summary="csvFormatFix2">
++      <created>1608718073337</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1608718073337</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -232,7 +238,9 @@
+     <MESSAGE value="readcsvdata" />
+     <MESSAGE value="readcsvdataFix" />
+     <MESSAGE value="readcsvdataFix2" />
+-    <option name="LAST_COMMIT_MESSAGE" value="readcsvdataFix2" />
++    <MESSAGE value="csvFormatFix" />
++    <MESSAGE value="csvFormatFix2" />
++    <option name="LAST_COMMIT_MESSAGE" value="csvFormatFix2" />
+   </component>
+   <component name="WindowStateProjectService">
+     <state x="184" y="112" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608711617611">
+@@ -243,38 +251,38 @@
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+     <state x="432" y="174" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608621580123" />
+-    <state width="1398" height="246" key="GridCell.Tab.0.bottom" timestamp="1608715810655">
++    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1608753069028">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="246" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608715810655" />
+-    <state width="1398" height="246" key="GridCell.Tab.0.center" timestamp="1608715810655">
++    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608753069028" />
++    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1608753069026">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="246" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608715810655" />
+-    <state width="1398" height="246" key="GridCell.Tab.0.left" timestamp="1608715810654">
++    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608753069026" />
++    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1608753069025">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="246" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608715810654" />
+-    <state width="1398" height="246" key="GridCell.Tab.0.right" timestamp="1608715810655">
++    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608753069025" />
++    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1608753069027">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="246" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608715810655" />
+-    <state width="1398" height="246" key="GridCell.Tab.1.bottom" timestamp="1608715818451">
++    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608753069027" />
++    <state width="1398" height="246" key="GridCell.Tab.1.bottom" timestamp="1608719317728">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="246" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608715818451" />
+-    <state width="1398" height="246" key="GridCell.Tab.1.center" timestamp="1608715818447">
++    <state width="1398" height="246" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608719317728" />
++    <state width="1398" height="246" key="GridCell.Tab.1.center" timestamp="1608719317727">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="246" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1608715818447" />
+-    <state width="1398" height="246" key="GridCell.Tab.1.left" timestamp="1608715818445">
++    <state width="1398" height="246" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1608719317727" />
++    <state width="1398" height="246" key="GridCell.Tab.1.left" timestamp="1608719317727">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="246" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1608715818445" />
+-    <state width="1398" height="246" key="GridCell.Tab.1.right" timestamp="1608715818447">
++    <state width="1398" height="246" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1608719317727" />
++    <state width="1398" height="246" key="GridCell.Tab.1.right" timestamp="1608719317728">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state width="1398" height="246" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1608715818447" />
++    <state width="1398" height="246" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1608719317728" />
+     <state x="258" y="112" key="Maven.ArtifactSearchDialog" timestamp="1608635886243">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+@@ -283,14 +291,14 @@
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+     <state x="144" y="79" key="MergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1608624933207" />
+-    <state x="208" y="23" width="1024" height="836" key="SettingsEditor" timestamp="1608712223569">
++    <state x="208" y="23" width="1024" height="835" key="SettingsEditor" timestamp="1608718795706">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state x="208" y="23" width="1024" height="836" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608712223569" />
+-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1608710875625">
++    <state x="208" y="23" width="1024" height="835" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1608718795706" />
++    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1608718074844">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>
+-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1608710875625" />
++    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1608718074844" />
+     <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608624919200">
+       <screen x="0" y="0" width="1440" height="900" />
+     </state>

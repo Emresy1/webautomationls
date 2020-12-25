@@ -1,0 +1,401 @@
+Index: src/test/java/com/tuttur/page/RegisterPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.page;\n\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.constants.RegisterPage_Constants;\nimport org.junit.Assert;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebDriver;\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.support.ui.Select;\n\nimport java.io.IOException;\nimport java.util.ArrayList;\nimport java.util.Arrays;\nimport java.util.List;\nimport java.util.Random;\n\npublic class RegisterPage extends RegisterPage_Constants {\n\n    public RegisterPage(WebDriver driver) throws IOException {\n        super(driver);\n    }\n\n    PropertiesFile prop = new PropertiesFile(driver);\n    DbQueriesPage db = new DbQueriesPage(driver);\n    GeneralPage general = new GeneralPage(driver);\n\n    public RegisterPage setName(String name) throws IOException {\n        setObjectBy(NAME, name);\n        return this;\n\n    }\n\n    public RegisterPage setLastName(String surname) throws IOException {\n\n        setObjectBy(LASTNAME, surname);\n        return this;\n\n    }\n\n    private void setDay(String day) {\n        setObjectsBy(DATE, 2,day);\n\n    }\n\n    private void selectMonth(String month) {\n\n        WebElement months = getElementBy(MONTHS);\n        Select select = new Select(months);\n        select.selectByVisibleText(month);\n\n    }\n\n    private void setYear(String year) {\n\n        setObjectsBy(DATE, 3, year);\n\n    }\n\n    public RegisterPage setSsn( String tckn) throws IOException {\n\n        setObjectBy(SSN, tckn);\n        return this;\n\n    }\n\n    public RegisterPage setGsm(String gsm) throws IOException {\n\n        setObjectBy(GSM,gsm);\n        return this;\n\n    }\n\n    public RegisterPage setEmail(String email) throws IOException {\n\n        setObjectBy(EMAIL, email);\n        return this;\n\n    }\n\n    /**\n     * Methoda 0 indexi verilirse username fieldına keywordu setleyecek. index 1 olduğunda username fieldı içerisinde\n     * yer alan \"kullan\" fonksiyonu ile kullanıcı kendi username üretmiş olacaktır.\n     *\n     * @param usernameIndex\n     * @throws IOException\n     */\n\n    public RegisterPage setUsername(int usernameIndex) throws IOException {\n\n        boolean click = 0 < usernameIndex;\n        sleep(2);\n        WebElement use = findElements(By.className(\"medium\")).get(3);\n\n        if (click == true) {\n\n            use.click();\n            getUsernameText();\n\n        } else {\n\n            waitForElement(driver, OPT_WAIT_4_ELEMENT, REGISTER_USERNAME);\n            setObjectBy(REGISTER_USERNAME, general.username);\n        }\n        return this;\n    }\n\n    public String getUsernameText() {\n\n        general.generateUsernameText = getElementBy(By.name(\"username\")).getAttribute(\"value\");\n\n        return general.generateUsernameText;\n    }\n\n    public RegisterPage setPassword(String password) throws IOException {\n\n        setObjectBy(REGISTER_PASSWORD, password);\n        return this;\n\n    }\n\n    public RegisterPage clickMembershipApprove() throws InterruptedException {\n\n        List<WebElement> checkbox = findElements(CHECKBOX);\n        scrollToElement(CHECKBOX);\n        int count = 0;\n\n        for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {\n            waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);\n            checkbox.get(loopCount).click();\n\n        }\n        return this;\n    }\n\n    public RegisterPage setBirthDate(String day, String month,String year) {\n\n        setDay(day);\n        selectMonth(month);\n        setYear(year);\n        return this;\n\n    }\n\n    public RegisterPage clickSubmit() {\n\n        clickObjectBy(SUBMIT);\n        return this;\n\n    }\n\n    public MainPage smsActivation() throws IOException {\n\n        String smsCode = db.getValidationCode(prop.getObject(\"verifyCode\"));\n        setObjectBy(ACTIVATION_FIELD, smsCode);\n        clickObjectBy(ACTIVATION_BUTTON);\n        return new MainPage(driver);\n\n    }\n\n\n    private void checkFieldRule(By by, int index) {\n        WebElement field = findElements(by).get(index);\n        Assert.assertTrue(\"Alan değer kuralı hatalı\", field.getText().isEmpty());\n\n    }\n\n    private List<WebElement> formInput() {\n        List<WebElement> inputsArray = new ArrayList<>();\n        List<WebElement> inputs = findElements(FORM_INPUT);\n        inputsArray.add(inputs.get(0));\n        inputsArray.add(inputs.get(1));\n        inputsArray.add(inputs.get(4));\n        inputsArray.add(inputs.get(5));\n        return inputsArray;\n    }\n\n\n    public RegisterPage setInvalidValue() {\n\n\n        String[] invalidValues = {\"123\", \"123\", \"ASDFGH\", \"ASDFGH\",};\n        List<String> invalidValueList = Arrays.asList(invalidValues);\n        int count = 0;\n\n        for (int i = count; i < formInput().size(); i++) {\n            formInput().get(i).sendKeys(invalidValueList.get(i));\n            checkFieldRule(FORM_INPUT,i);\n\n        }\n        return this;\n\n    }\n\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/page/RegisterPage.java	(revision 5542f0ad2a43cc7c743b23b9b5da42fb6bdb92c8)
++++ src/test/java/com/tuttur/page/RegisterPage.java	(date 1608812172450)
+@@ -24,8 +24,8 @@
+     DbQueriesPage db = new DbQueriesPage(driver);
+     GeneralPage general = new GeneralPage(driver);
+ 
+-    public RegisterPage setName(String name) throws IOException {
+-        setObjectBy(NAME, name);
++    public RegisterPage setName(int rowNumber) throws IOException {
++        setObjectBy(NAME, getData(rowNumber,1));
+         return this;
+ 
+     }
+Index: src/test/java/com/tuttur/test/RegisterTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.test;\n\n\nimport com.tuttur.base.BaseTest;\n\nimport com.tuttur.configs.PropertiesFile;\nimport com.tuttur.page.GeneralPage;\nimport com.tuttur.page.MainPage;\nimport com.tuttur.page.RegisterPage;\nimport org.junit.Test;\n\n\nimport java.io.IOException;\n\npublic class RegisterTest extends BaseTest {\n    PropertiesFile prop = new PropertiesFile(driver);\n    GeneralPage general = new GeneralPage(driver);\n    RegisterPage register = new RegisterPage(driver);\n\n    public RegisterTest() throws IOException {\n    }\n\n    /**\n     * Case 1.0\n     * Başarılı üye ol\n     *\n     * @throws InterruptedException\n     * @throws IOException\n     */\n\n    @Test\n    public void successFullyRegisterTest() throws InterruptedException, IOException {\n\n        new MainPage(driver).getRegisterPage()\n                .setName(prop.getObject(\"name\"))\n                .setLastName(prop.getObject(\"surname\"))\n                .setBirthDate(prop.getObject(\"day\"), prop.getObject(\"month\"), prop.getObject(\"year\"))\n                .setSsn(prop.getObject(\"tckn\"))\n                .setGsm(prop.getObject(\"phoneNo\"))\n                .setEmail(prop.getObject(\"currentlyEmail\"))\n                .setUsername(0)\n                .setPassword(prop.getObject(\"newPassword\"))\n                .clickMembershipApprove()\n                .clickSubmit()\n                .smsActivation();\n        //- checkUsernameText methodu register için ayrı yazılacak\n                //.checkUsernameText(general.username);\n\n    }\n\n    /**\n     * Case 1.1\n     * Başarılı üye ol (username kullan fonksiyonu ile)\n     */\n\n    @Test\n    public void registerWithUseFunctionality() throws IOException, InterruptedException {\n        new MainPage(driver).getRegisterPage()\n                .setName(prop.getObject(\"name\"))\n                .setLastName(prop.getObject(\"surname\"))\n                .setBirthDate(prop.getObject(\"day\"), prop.getObject(\"month\"), prop.getObject(\"year\"))\n                .setSsn(prop.getObject(\"tckn\"))\n                .setGsm(prop.getObject(\"phoneNo\"))\n                .setEmail(prop.getObject(\"currentlyEmail\"))\n                .setUsername(1)\n                .setPassword(prop.getObject(\"newPassword\"))\n                .clickMembershipApprove()\n                .clickSubmit().smsActivation();\n        //- checkUsernameText methodu register için ayrı yazılacak\n   //     new MainPage(driver).checkUsernameText(general.generateUsernameText.toString());\n\n    }\n\n    /**\n     * Case 2.0\n     * Başarısız üye ol (invalid datalar ile)\n     */\n\n    @Test\n    public void registerWithInvalidData() throws IOException {\n\n        new MainPage(driver).getRegisterPage();\n    }\n\n    /**\n     * Case 2.1\n     * Numerik ve alfanumerik satırların kural kontrolü\n     *\n     * @throws IOException\n     */\n\n    @Test\n    public void fieldRuleCheck() throws IOException {\n\n        new MainPage(driver).getRegisterPageNotUpdate().setInvalidValue();\n\n\n    }\n\n    @Test\n    public void currentUserRegisterToLogin () throws IOException, InterruptedException {\n\n        new MainPage(driver).getRegisterPageNotUpdate()\n                .setName(prop.getObject(\"name\"))\n                .setLastName(prop.getObject(\"surname\"))\n                .setBirthDate(prop.getObject(\"day\"), prop.getObject(\"month\"), prop.getObject(\"year\"))\n                .setSsn(prop.getObject(\"currentTckn\"))\n                .setGsm(prop.getObject(\"phoneNo\"))\n                .setEmail(prop.getObject(\"currentlyEmail\"))\n                .setUsername(1)\n                .setPassword(prop.getObject(\"newPassword\"))\n                .clickMembershipApprove()\n                .clickSubmit();\n        new MainPage(driver).checkRegisterLogin();\n    }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/test/RegisterTest.java	(revision 5542f0ad2a43cc7c743b23b9b5da42fb6bdb92c8)
++++ src/test/java/com/tuttur/test/RegisterTest.java	(date 1608812197441)
+@@ -2,11 +2,10 @@
+ 
+ 
+ import com.tuttur.base.BaseTest;
+-
+ import com.tuttur.configs.PropertiesFile;
+ import com.tuttur.page.GeneralPage;
+ import com.tuttur.page.MainPage;
+-import com.tuttur.page.RegisterPage;
++import com.tuttur.util.BasePageUtil;
+ import org.junit.Test;
+ 
+ 
+@@ -15,7 +14,7 @@
+ public class RegisterTest extends BaseTest {
+     PropertiesFile prop = new PropertiesFile(driver);
+     GeneralPage general = new GeneralPage(driver);
+-    RegisterPage register = new RegisterPage(driver);
++    BasePageUtil util = new BasePageUtil(driver);
+ 
+     public RegisterTest() throws IOException {
+     }
+@@ -31,8 +30,10 @@
+     @Test
+     public void successFullyRegisterTest() throws InterruptedException, IOException {
+ 
++        util.getSheet("RegisterData");
++
+         new MainPage(driver).getRegisterPage()
+-                .setName(prop.getObject("name"))
++                .setName(1)
+                 .setLastName(prop.getObject("surname"))
+                 .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
+                 .setSsn(prop.getObject("tckn"))
+@@ -42,9 +43,8 @@
+                 .setPassword(prop.getObject("newPassword"))
+                 .clickMembershipApprove()
+                 .clickSubmit()
+-                .smsActivation();
+-        //- checkUsernameText methodu register için ayrı yazılacak
+-                //.checkUsernameText(general.username);
++                .smsActivation()
++                .checkUserText(general.username);
+ 
+     }
+ 
+@@ -56,7 +56,7 @@
+     @Test
+     public void registerWithUseFunctionality() throws IOException, InterruptedException {
+         new MainPage(driver).getRegisterPage()
+-                .setName(prop.getObject("name"))
++             //   .setName(prop.getObject("name"))
+                 .setLastName(prop.getObject("surname"))
+                 .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
+                 .setSsn(prop.getObject("tckn"))
+@@ -65,9 +65,8 @@
+                 .setUsername(1)
+                 .setPassword(prop.getObject("newPassword"))
+                 .clickMembershipApprove()
+-                .clickSubmit().smsActivation();
+-        //- checkUsernameText methodu register için ayrı yazılacak
+-   //     new MainPage(driver).checkUsernameText(general.generateUsernameText.toString());
++                .clickSubmit().smsActivation()
++                .checkUserText(general.generateUsernameText.toString());
+ 
+     }
+ 
+@@ -101,7 +100,7 @@
+     public void currentUserRegisterToLogin () throws IOException, InterruptedException {
+ 
+         new MainPage(driver).getRegisterPageNotUpdate()
+-                .setName(prop.getObject("name"))
++              //  .setName(prop.getObject("name"))
+                 .setLastName(prop.getObject("surname"))
+                 .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
+                 .setSsn(prop.getObject("currentTckn"))
+Index: src/test/java/com/tuttur/page/MainPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.page;\n\n\nimport com.tuttur.configs.PropertiesFile;\n\nimport com.tuttur.util.ExcelUtil;\nimport org.apache.poi.xssf.usermodel.XSSFRow;\nimport static org.junit.Assert.assertTrue;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebDriver;\nimport com.tuttur.constants.MainPage_Constants;\nimport org.openqa.selenium.WebElement;\n\n\nimport java.io.IOException;\nimport java.util.List;\n\n\npublic class MainPage extends MainPage_Constants {\n\n    public MainPage(WebDriver driver) throws IOException {\n        super(driver);\n    }\n\n    PropertiesFile prop = new PropertiesFile(driver);\n    DbQueriesPage db = new DbQueriesPage(driver);\n    GeneralPage general = new GeneralPage(driver);\n\n    public void dropdownMenu(String menu) {\n        List<WebElement> dropdown = driver.findElements(DROPDOWN_MENU);\n\n        for (WebElement element : dropdown) {\n            String menuItem = element.findElement(By.tagName(\"a\")).getText();\n\n            if (menuItem.contains(menu)) {\n                element.click();\n            }\n        }\n    }\n\n    public LoginPage getLoginPage() {\n        clickObjectBy(BUTTON_LOGIN);\n        return new LoginPage(driver);\n    }\n\n    public MainPage logout() {\n        clickObjectBy(AVATAR);\n        dropdownMenu(\"Çıkış\");\n        return this;\n    }\n    public RegisterPage getRegisterPage() throws IOException {\n        db.executeQuery(prop.getObject(\"accountUpdate\"));\n        clickObjectBy(REGISTER_BUTTON);\n        return new RegisterPage(driver);\n    }\n\n    public RegisterPage getRegisterPageNotUpdate () throws IOException {\n\n        clickObjectBy(REGISTER_BUTTON);\n        return new RegisterPage(driver);\n\n    }\n\n    public MainPage checkAccountNo( int rowNumber) throws IOException {\n\n        assertTrue(getData(rowNumber,7),getElementBy(ACCOUNT_NO).getText()\n                .equals(getData(rowNumber,3)));\n        return this;\n    }\n\n    public MainPage checkUsernameText( int rowNumber) throws IOException {\n\n\n        assertTrue(getData(rowNumber,7), getElementBy(USERNAMETEXT).getText()\n                .equals(getData(rowNumber,1)));\n\n        return this;\n    }\n\n    public MainPage checkRegisterLogin () throws InterruptedException, IOException {\n        assertTrue(\"register sonrası login başarısız\", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject(\"currentMemberNo\")));\n        return this;\n    }\n\n}\n\t\n\t\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/page/MainPage.java	(revision 5542f0ad2a43cc7c743b23b9b5da42fb6bdb92c8)
++++ src/test/java/com/tuttur/page/MainPage.java	(date 1608802882367)
+@@ -6,6 +6,8 @@
+ import com.tuttur.util.ExcelUtil;
+ import org.apache.poi.xssf.usermodel.XSSFRow;
+ import static org.junit.Assert.assertTrue;
++
++import org.junit.Assert;
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+ import com.tuttur.constants.MainPage_Constants;
+@@ -49,8 +51,10 @@
+         return this;
+     }
+     public RegisterPage getRegisterPage() throws IOException {
++
+         db.executeQuery(prop.getObject("accountUpdate"));
+         clickObjectBy(REGISTER_BUTTON);
++
+         return new RegisterPage(driver);
+     }
+ 
+@@ -74,6 +78,14 @@
+         assertTrue(getData(rowNumber,7), getElementBy(USERNAMETEXT).getText()
+                 .equals(getData(rowNumber,1)));
+ 
++        return this;
++    }
++    public MainPage checkUserText(String username){
++
++        String headerUser = username;
++        Assert.assertTrue("Kullanıcı adı görülmedi", getElementBy(USERNAMETEXT).getText()
++        .equals(headerUser));
++
+         return this;
+     }
+ 
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/dataSources.xml	(date 1608804109237)
++++ .idea/dataSources.xml	(date 1608804109237)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
++    <data-source source="LOCAL" name="tuttur" uuid="1ab187e5-5019-4252-841b-0d205420c80c">
++      <driver-ref>postgresql</driver-ref>
++      <synchronize>true</synchronize>
++      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
++      <jdbc-url>jdbc:postgresql://10.49.4.153:5432/postgres</jdbc-url>
++    </data-source>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b9f01898-7a91-401d-8e95-2f7e34d132fa\" name=\"Default Changelist\" comment=\"readcsvdataFix2\">\n      <change afterPath=\"$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/compiler.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/compiler.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/test/resources/TestData.xlsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/test/resources/TestData.xlsx\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/.~lock.TestData.xlsx#\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/.~lock.TestData.xlsx#\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/TestData.xlsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/TestData.xlsx\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/base/BasePage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/base/BasePage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/configs/PropertiesFile.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/configs/PropertiesFile.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/constants/LoginPage_Constants.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/constants/LoginPage_Constants.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/constants/RegisterPage_Constants.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/constants/RegisterPage_Constants.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/DbQueriesPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/DbQueriesPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/util/ExcelUtil.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/test-classes/com/tuttur/util/ExcelUtil.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/tuttur.web.test.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/tuttur.web.test.iml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1lynpqooF1jM0KR6sAmgmjheiYL\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\n    <property name=\"project.structure.side.proportion\" value=\"0.49195403\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.idesettings.debugger.capture\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/test\" />\n      <recent name=\"$PROJECT_DIR$/src/main/resources\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"JUnit.LoginTest.successfullyLoginWithUserName\">\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\n      <option name=\"arquillianRunConfiguration\">\n        <value>\n          <option name=\"containerStateName\" value=\"\" />\n        </value>\n      </option>\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.successfullyLoginWithAccountNo\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"successfullyLoginWithAccountNo\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"LoginTest.successfullyLoginWithUserName\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"tuttur.web.test\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"com.tuttur.test.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"com.tuttur.test\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.tuttur.test.LoginTest\" />\n      <option name=\"METHOD_NAME\" value=\"successfullyLoginWithUserName\" />\n      <option name=\"TEST_OBJECT\" value=\"method\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"JUnit.LoginTest.successfullyLoginWithUserName\" />\n        <item itemvalue=\"JUnit.LoginTest.successfullyLoginWithAccountNo\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"b9f01898-7a91-401d-8e95-2f7e34d132fa\" name=\"Default Changelist\" comment=\"\" />\n      <created>1608578383330</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1608578383330</updated>\n      <workItem from=\"1608578384480\" duration=\"19000\" />\n      <workItem from=\"1608578522215\" duration=\"1040000\" />\n      <workItem from=\"1608579633369\" duration=\"2422000\" />\n      <workItem from=\"1608619350312\" duration=\"16520000\" />\n      <workItem from=\"1608650749746\" duration=\"7703000\" />\n      <workItem from=\"1608719151914\" duration=\"177000\" />\n      <workItem from=\"1608719339262\" duration=\"8711000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"readcsvdata\">\n      <created>1608708002801</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1608708002802</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"readcsvdataFix\">\n      <created>1608710060611</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1608710060611</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"readcsvdataFix2\">\n      <created>1608710872962</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1608710872962</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"4\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n    <MESSAGE value=\"readcsvdata\" />\n    <MESSAGE value=\"readcsvdataFix\" />\n    <MESSAGE value=\"readcsvdataFix2\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"readcsvdataFix2\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java</url>\n          <line>73</line>\n          <option name=\"timeStamp\" value=\"3\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 5542f0ad2a43cc7c743b23b9b5da42fb6bdb92c8)
++++ .idea/workspace.xml	(date 1608814699714)
+@@ -22,37 +22,24 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="readcsvdataFix2">
+-      <change afterPath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
++    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="csvFormatFix2">
++      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/GeneralPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/GeneralPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/.~lock.TestData.xlsx#" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/.~lock.TestData.xlsx#" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BasePage.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/configs/PropertiesFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/configs/PropertiesFile.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/LoginPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/LoginPage_Constants.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/RegisterPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/RegisterPage_Constants.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/DbQueriesPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/DbQueriesPage.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/ExcelUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/ExcelUtil.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/tuttur.web.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/tuttur.web.test.iml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -68,6 +55,13 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="MavenImportPreferences">
++    <option name="generalSettings">
++      <MavenGeneralSettings>
++        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
++      </MavenGeneralSettings>
++    </option>
+   </component>
+   <component name="ProjectId" id="1lynpqooF1jM0KR6sAmgmjheiYL" />
+   <component name="ProjectLevelVcsManager">
+@@ -78,7 +72,9 @@
+   </component>
+   <component name="PropertiesComponent">
+     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
++    <property name="DatabaseDriversLRU" value="postgresql" />
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
++    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="aspect.path.notification.shown" value="true" />
+     <property name="node.js.detected.package.eslint" value="true" />
+@@ -98,14 +94,16 @@
+       <recent name="$PROJECT_DIR$/src/main/resources" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithUserName">
+-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
++  <component name="RunManager" selected="JUnit.RegisterTest.successFullyRegisterTest">
++    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+       <option name="arquillianRunConfiguration">
+         <value>
+           <option name="containerStateName" value="" />
+         </value>
+       </option>
+-      <option name="TEST_OBJECT" value="class" />
++      <option name="TEST_OBJECT" value="CLASS" />
++      <properties />
++      <listeners />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -142,8 +140,47 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="webautomation" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.tuttur.test.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="com.tuttur.test" />
++      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
++      <option name="TEST_OBJECT" value="class" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="RegisterTest.successFullyRegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="webautomation" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="com.tuttur.test.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="com.tuttur.test" />
++      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
++      <option name="METHOD_NAME" value="successFullyRegisterTest" />
++      <option name="TEST_OBJECT" value="method" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <list>
++      <item itemvalue="JUnit.LoginTest.successfullyLoginWithUserName" />
++      <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
++      <item itemvalue="JUnit.RegisterTest" />
++      <item itemvalue="JUnit.RegisterTest.successFullyRegisterTest" />
++    </list>
+     <recent_temporary>
+       <list>
++        <item itemvalue="JUnit.RegisterTest.successFullyRegisterTest" />
++        <item itemvalue="JUnit.RegisterTest" />
+         <item itemvalue="JUnit.LoginTest.successfullyLoginWithUserName" />
+         <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
+       </list>
+@@ -164,6 +201,7 @@
+       <workItem from="1608650749746" duration="7703000" />
+       <workItem from="1608719151914" duration="177000" />
+       <workItem from="1608719339262" duration="8711000" />
++      <workItem from="1608802966750" duration="4293000" />
+     </task>
+     <task id="LOCAL-00001" summary="readcsvdata">
+       <created>1608708002801</created>
+@@ -210,13 +248,60 @@
+     <MESSAGE value="readcsvdataFix" />
+     <MESSAGE value="readcsvdataFix2" />
+     <option name="LAST_COMMIT_MESSAGE" value="readcsvdataFix2" />
++  </component>
++  <component name="WindowStateProjectService">
++    <state x="263" y="221" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608804108316">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state x="263" y="221" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1608804108316" />
++    <state width="1398" height="246" key="GridCell.Tab.0.bottom" timestamp="1608812353353">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="246" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608812353353" />
++    <state width="1398" height="246" key="GridCell.Tab.0.center" timestamp="1608812353352">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="246" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608812353352" />
++    <state width="1398" height="246" key="GridCell.Tab.0.left" timestamp="1608812353351">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="246" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608812353351" />
++    <state width="1398" height="246" key="GridCell.Tab.0.right" timestamp="1608812353352">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="246" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608812353352" />
++    <state width="1398" height="246" key="GridCell.Tab.1.bottom" timestamp="1608812366236">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="246" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608812366236" />
++    <state width="1398" height="246" key="GridCell.Tab.1.center" timestamp="1608812366235">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="246" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1608812366235" />
++    <state width="1398" height="246" key="GridCell.Tab.1.left" timestamp="1608812366235">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="246" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1608812366235" />
++    <state width="1398" height="246" key="GridCell.Tab.1.right" timestamp="1608812366236">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state width="1398" height="246" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1608812366236" />
++    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608814699656">
++      <screen x="0" y="0" width="1440" height="900" />
++    </state>
++    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1608814699656" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+       <breakpoints>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java</url>
+-          <line>73</line>
++          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/DbQueriesPage.java</url>
++          <line>27</line>
++          <option name="timeStamp" value="1" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="java-line">
++          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java</url>
++          <line>32</line>
+           <option name="timeStamp" value="3" />
+         </line-breakpoint>
+       </breakpoints>
+Index: src/test/java/com/tuttur/page/GeneralPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tuttur.page;\n\nimport com.tuttur.base.BasePage;\nimport com.tuttur.configs.PropertiesFile;\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebDriver;\n\nimport java.io.IOException;\n\npublic class GeneralPage extends BasePage {\n\n\n\n    public GeneralPage(WebDriver driver) throws IOException {\n        super(driver);\n    }\n\n    PropertiesFile prop = new PropertiesFile(driver);\n\n\n    public static String usernameText = \"automation\" + generateRandomInt(9999);\n\n    public static String username =  usernameText;\n\n    public static String generateUsernameText;\n\n    public static String newPasswordChange = \"Test\" + generateRandomInt(9999);\n\n\n\n    }\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/tuttur/page/GeneralPage.java	(revision 5542f0ad2a43cc7c743b23b9b5da42fb6bdb92c8)
++++ src/test/java/com/tuttur/page/GeneralPage.java	(date 1608802162044)
+@@ -27,7 +27,4 @@
+     public static String newPasswordChange = "Test" + generateRandomInt(9999);
+ 
+ 
+-
+     }
+-
+-
