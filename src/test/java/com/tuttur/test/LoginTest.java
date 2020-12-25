@@ -63,7 +63,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void successfulllyLoginWithIdentityNo() throws IOException {
 
-        base.getSheet("loginData");
+        base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage().login(3)
                 .checkUsernameText(3);
@@ -76,7 +76,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void failLoginWithSsn() throws IOException {
 
-        base.getSheet("loginData");
+        base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage().login(4);
         new LoginPage(driver).checkFailLogin(4);
@@ -90,7 +90,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void failLoginWithUsername() throws IOException {
 
-        base.getSheet("loginData");
+        base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage().login(5);
         new LoginPage(driver).checkFailLogin(5);
@@ -103,7 +103,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void failLoginWithAccountNo() throws IOException {
 
-        base.getSheet("loginData");
+        base.getSheet("LoginData");
 
         //committesttt
         new MainPage(driver).getLoginPage().login(6);
@@ -118,7 +118,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void failLoginWithEmail() throws IOException {
 
-        base.getSheet("loginData");
+        base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
                 .login(7);
@@ -132,7 +132,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void failLoginWithPhoneNumber() throws IOException {
 
-        base.getSheet("loginData");
+        base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
                 .login(8);
@@ -149,7 +149,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginInputMaxValueControl() throws IOException {
 
-        base.getSheet("loginData");
+        base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
                 .login(9);
@@ -160,26 +160,35 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.9
      * Hatalı şifre ile login kontrolü
+     *
      * @throws IOException
      */
-    //@Test
-    //public void failLoginWithPassword() throws IOException {
-    //  new MainPage(driver).getLoginPage()
-    //          .login(prop.getObject("username"),(prop.getObject("invalidPassword")));
-    //  new LoginPage(driver).checkFailLogin();
-    //}
+    @Test
+    public void failLoginWithPassword() throws IOException {
+
+        base.getSheet("LoginData");
+
+        new MainPage(driver).getLoginPage()
+                .login(10);
+        new LoginPage(driver).checkFailLogin(10);
+    }
 
     /**
      * Case 2.0
      * Boş input ile login kontrolü
+     *
      * @throws IOException
      */
 
-    //@Test
-    //public void loginWithMissingInfo () throws IOException {
-    //  new MainPage(driver).getLoginPage().login("","");
-    //  new LoginPage(driver).checkMissingInfoText();
-    //}
+    @Test
+    public void loginWithMissingInfo() throws IOException {
+
+        base.getSheet("LoginData");
+
+        new MainPage(driver).getLoginPage().login(11);
+        new LoginPage(driver).checkMissingInfoText(11);
+
+    }
 
 
 }

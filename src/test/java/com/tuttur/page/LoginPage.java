@@ -61,32 +61,39 @@ public class LoginPage extends LoginPage_Constants {
 
 
     public void checkFailLogin(int rowNumber) throws IOException {
+
         assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).getText()
                 .equals(getData(rowNumber, 6)));
     }
 
     public void checkFailLoginWithGsm(int rowNumber) throws IOException {
+
         assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).getText()
                 .equals(getData(rowNumber, 6)));
     }
 
     public void checkFailLoginWithEmail(int rowNumber) throws IOException {
+
         assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).getText()
                 .equals(getData(rowNumber, 6)));
     }
 
     public void checkInputErrorValidations(int rowNumber) throws IOException {
+
         assertTrue(getData(rowNumber, 7), getElemenstBy(INPUT_ERROR_TEXT, 0).getText()
                 .equals(getData(rowNumber, 4)));
         assertTrue(getData(rowNumber, 7), getElemenstBy(INPUT_ERROR_TEXT, 1).getText()
                 .equals(getData(rowNumber, 5)));
     }
 
-    public void checkMissingInfoText() throws IOException {
-        assertTrue("Error mesajı hatalı", getElementBy(MODAL_ERROR_TEXT).getText().equals(prop.getObject("empty_login_message")));
+    public void checkMissingInfoText(int rowNumber) throws IOException {
+
+        assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).getText()
+                .equals(getData(rowNumber, 6)));
     }
 
     public void checkRememberMe() throws IOException {
+
         assertTrue("Beni hatırla başarısız", getElementBy(USERNAME).getText().equals(prop.getObject("rememberMeUser")));
     }
 
