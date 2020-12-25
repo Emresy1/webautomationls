@@ -2,6 +2,7 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.RegisterPage_Constants;
+import com.tuttur.util.BasePageUtil;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,55 +27,57 @@ public class RegisterPage extends RegisterPage_Constants {
 
 
 
-    private RegisterPage setName(int rowNumber) throws IOException {
-        setObjectBy(NAME, getData(rowNumber,1));
+
+    private RegisterPage setName(String name) throws IOException {
+
+        setObjectBy(NAME, name);
         return this;
 
     }
 
-    private RegisterPage setLastName(int rowNumber) throws IOException {
+    private RegisterPage setLastName(String surname) throws IOException {
 
-        setObjectBy(LASTNAME, getData(rowNumber,2));
+        setObjectBy(LASTNAME, surname);
         return this;
 
     }
 
-    private void setDay(int rowNumber) {
-        setObjectsBy(DATE, 2,getData(rowNumber,3));
+    private void setDay(String day) {
+        setObjectsBy(DATE, 2, day);
 
     }
 
-    private void selectMonth(int rowNumber) {
+    private void selectMonth(String month) {
 
         WebElement months = getElementBy(MONTHS);
         Select select = new Select(months);
-        select.selectByVisibleText(getData(rowNumber,4));
+        select.selectByVisibleText(month);
 
     }
 
-    private void setYear(int rowNumber) {
+    private void setYear(String year) {
 
-        setObjectsBy(DATE, 3, getData(rowNumber,5));
+        setObjectsBy(DATE, 3, year);
 
     }
 
-    private RegisterPage setSsn(int rowNumber) throws IOException {
+    private RegisterPage setSsn(String ssn) throws IOException {
 
-        setObjectBy(SSN, getData(rowNumber,6));
+        setObjectBy(SSN, ssn);
         return this;
 
     }
 
-    private RegisterPage setGsm(int rowNumber) throws IOException {
+    private RegisterPage setGsm(String gsm) throws IOException {
 
-        setObjectBy(GSM,getData(rowNumber,7));
+        setObjectBy(GSM,gsm);
         return this;
 
     }
 
-    private RegisterPage setEmail(int rowNumber) throws IOException {
+    private RegisterPage setEmail(String email) throws IOException {
 
-        setObjectBy(EMAIL, getData(rowNumber,8));
+        setObjectBy(EMAIL,email);
         return this;
 
     }
@@ -113,9 +116,9 @@ public class RegisterPage extends RegisterPage_Constants {
         return general.generateUsernameText;
     }
 
-    private RegisterPage setPassword(int rowNumber) throws IOException {
+    private RegisterPage setPassword(String password) throws IOException {
 
-        setObjectBy(REGISTER_PASSWORD, getData(rowNumber,9));
+        setObjectBy(REGISTER_PASSWORD, password);
         return this;
 
     }
@@ -136,9 +139,9 @@ public class RegisterPage extends RegisterPage_Constants {
 
     private RegisterPage setBirthDate(int rowNumber) {
 
-        setDay(rowNumber);
-        selectMonth(rowNumber);
-        setYear(rowNumber);
+        setDay(getData(rowNumber,3));
+        selectMonth(getData(rowNumber,4));
+        setYear(getData(rowNumber,5));
         return this;
 
     }
@@ -150,7 +153,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    private MainPage smsActivation() throws IOException {
+    public MainPage smsActivation() throws IOException {
 
         String smsCode = db.getValidationCode(prop.getObject("verifyCode"));
         setObjectBy(ACTIVATION_FIELD, smsCode);
@@ -158,22 +161,34 @@ public class RegisterPage extends RegisterPage_Constants {
         return new MainPage(driver);
 
     }
-    public MainPage setRegisterForm(int rowNumber, int usernameIndex) throws IOException, InterruptedException {
-        setName(rowNumber);
-        setLastName(rowNumber);
+    public RegisterPage isExistBanner(){
+
+        isElementOnScreen(BANNER);
+        return this;
+    }
+    public RegisterPage setRegisterForm(int rowNumber, int usernameIndex) throws IOException, InterruptedException {
+
+        setName(getData(rowNumber,1));
+        setLastName(getData(rowNumber,2));
         setBirthDate(rowNumber);
-        setSsn(rowNumber);
-        setGsm(rowNumber);
-        setEmail(rowNumber);
+        setSsn(getData(rowNumber,6));
+        setGsm(getData(rowNumber,7));
+        setEmail(getData(rowNumber,8));
         setUsername(usernameIndex);
-        setPassword(rowNumber);
+        setPassword(getData(rowNumber,9));
         clickMembershipApprove();
         clickSubmit();
-        smsActivation();
 
-        return new MainPage(driver);
+        return this;
     }
 
+    public RegisterPage checkWarningTextOnModal(int rowNumber, int assertCell ,int warningTextCell){
+
+        Assert.assertTrue(getData(rowNumber,assertCell), getElementBy(WARNING_TEXT_ON_MODAL).getText()
+        .equals(getData(rowNumber,warningTextCell)));
+
+        return this;
+    }
 
     private void checkFieldRule(By by, int index) {
         WebElement field = findElements(by).get(index);
@@ -185,22 +200,28 @@ public class RegisterPage extends RegisterPage_Constants {
 
         List<WebElement> inputsArray = new ArrayList<>();
         List<WebElement> inputs = findElements(FORM_INPUT);
-        inputsArray.add(inputs.get(0));
-        inputsArray.add(inputs.get(1));
-        inputsArray.add(inputs.get(4));
-        inputsArray.add(inputs.get(5));
+
+        int [] index = {0,1,4,5};
+        for (int elementIndex: index) {
+
+            inputsArray.add(inputs.get(elementIndex));
+        }
+
         return inputsArray;
     }
 
 
-    public RegisterPage setInvalidValue() {
+    public RegisterPage checkInvalidValues() {
 
 
-        String[] invalidValues = {"123", "123", "ASDFGH", "ASDFGH",};
+        String[] invalidValues = {getData(4,1), getData(4,2),
+                getData(4,6), getData(4,7),};
+
         List<String> invalidValueList = Arrays.asList(invalidValues);
         int count = 0;
 
         for (int i = count; i < formInput().size(); i++) {
+
             formInput().get(i).sendKeys(invalidValueList.get(i));
             checkFieldRule(FORM_INPUT,i);
 

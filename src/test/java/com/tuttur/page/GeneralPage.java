@@ -2,7 +2,6 @@ package com.tuttur.page;
 
 import com.tuttur.base.BasePage;
 import com.tuttur.configs.PropertiesFile;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;

@@ -8,10 +8,10 @@ import com.tuttur.page.MainPage;
 import com.tuttur.util.BasePageUtil;
 import org.junit.Test;
 
-
 import java.io.IOException;
 
 public class RegisterTest extends BaseTest {
+
     PropertiesFile prop = new PropertiesFile(driver);
     GeneralPage general = new GeneralPage(driver);
     BasePageUtil util = new BasePageUtil(driver);
@@ -32,8 +32,11 @@ public class RegisterTest extends BaseTest {
 
         util.getSheet("RegisterData");
 
-        new MainPage(driver).getRegisterPage()
+        new MainPage(driver).accountUpdate()
+                .getRegisterPage()
+                .isExistBanner()
                 .setRegisterForm(1,0)
+                .smsActivation()
                 .checkUserText(general.username);
 
     }
@@ -44,22 +47,52 @@ public class RegisterTest extends BaseTest {
      */
 
     @Test
-    public void registerWithUseFunctionality() throws IOException, InterruptedException {
-        new MainPage(driver).getRegisterPage()
-             .setRegisterForm(1,1)
+    public void registerWithUseFunctional() throws IOException, InterruptedException {
+
+        util.getSheet("RegisterData");
+
+        new MainPage(driver).accountUpdate()
+                .getRegisterPage()
+                .isExistBanner()
+                .setRegisterForm(2,1)
+                .smsActivation()
                 .checkUserText(general.generateUsernameText.toString());
 
     }
 
     /**
-     * Case 2.0
-     * Başarısız üye ol (invalid datalar ile)
+     * Case 1.2
+     * Mevcut kullanıcı ile register
+     *
+     * @throws IOException
+     * @throws InterruptedException
      */
 
     @Test
-    public void registerWithInvalidData() throws IOException {
+    public void currentUserRegisterToLogin () throws IOException, InterruptedException {
 
-        new MainPage(driver).getRegisterPage();
+        new MainPage(driver).getRegisterPage()
+                .setRegisterForm(5,0);
+
+        new MainPage(driver).checkRegisterLogin();
+    }
+
+    /**
+     * Case 2.0
+     * Başarısız üye ol (invalid datalar ile)
+     * Yanlış isim
+     * Yanlış doğum tarihi
+     */
+
+    @Test
+    public void registerWithInvalidData() throws IOException, InterruptedException {
+
+          util.getSheet("RegisterData");
+
+        new MainPage(driver).getRegisterPage()
+                .isExistBanner()
+                .setRegisterForm(3,0)
+                .checkWarningTextOnModal(3,10,11);
     }
 
     /**
@@ -70,29 +103,15 @@ public class RegisterTest extends BaseTest {
      */
 
     @Test
-    public void fieldRuleCheck() throws IOException {
+    public void fieldsRuleCheck() throws IOException {
 
-        new MainPage(driver).getRegisterPageNotUpdate().setInvalidValue();
+        util.getSheet("RegisterData");
 
-
+        new MainPage(driver).getRegisterPage()
+                .checkInvalidValues();
+        
     }
 
-   /* @Test
-    public void currentUserRegisterToLogin () throws IOException, InterruptedException {
-
-        new MainPage(driver).getRegisterPageNotUpdate()
-              //  .setName(prop.getObject("name"))
-                .setLastName(prop.getObject("surname"))
-                .setBirthDate(prop.getObject("day"), prop.getObject("month"), prop.getObject("year"))
-                .setSsn(prop.getObject("currentTckn"))
-                .setGsm(prop.getObject("phoneNo"))
-                .setEmail(prop.getObject("currentlyEmail"))
-                .setUsername(1)
-                .setPassword(prop.getObject("newPassword"))
-                .clickMembershipApprove()
-                .clickSubmit();
-        new MainPage(driver).checkRegisterLogin();
-    }*/
 
 
 }

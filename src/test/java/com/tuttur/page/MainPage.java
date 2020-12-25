@@ -50,9 +50,16 @@ public class MainPage extends MainPage_Constants {
         dropdownMenu("Çıkış");
         return this;
     }
-    public RegisterPage getRegisterPage() throws IOException {
+
+    public MainPage accountUpdate() throws IOException {
 
         db.executeQuery(prop.getObject("accountUpdate"));
+
+        return this;
+    }
+
+    public RegisterPage getRegisterPage() throws IOException {
+
         clickObjectBy(REGISTER_BUTTON);
 
         return new RegisterPage(driver);
