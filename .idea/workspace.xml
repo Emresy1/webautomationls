@@ -28,7 +28,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="registerPage transition to csv" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="login csv update">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,13 +77,46 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest.loginInputMaxValueControl">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ForgotPassTest.forgotPassword">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ForgotPassTest.forgotPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tuttur.web.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.ForgotPassTest" />
+      <option name="METHOD_NAME" value="forgotPassword" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tuttur.web.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,7 +138,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.failLoginWithEmail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.failLoginWithPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tuttur.web.test" />
       <extension name="coverage">
         <pattern>
@@ -112,13 +148,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="failLoginWithEmail" />
+      <option name="METHOD_NAME" value="failLoginWithPassword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.failLoginWithPhoneNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.loginWithMissingInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tuttur.web.test" />
       <extension name="coverage">
         <pattern>
@@ -128,39 +164,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="failLoginWithPhoneNumber" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.failLoginWithUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tuttur.web.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="failLoginWithUsername" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.loginInputMaxValueControl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tuttur.web.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="loginInputMaxValueControl" />
+      <option name="METHOD_NAME" value="loginWithMissingInfo" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,18 +172,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.LoginTest.failLoginWithAccountNo" />
-      <item itemvalue="JUnit.LoginTest.failLoginWithEmail" />
-      <item itemvalue="JUnit.LoginTest.failLoginWithPhoneNumber" />
-      <item itemvalue="JUnit.LoginTest.failLoginWithUsername" />
-      <item itemvalue="JUnit.LoginTest.loginInputMaxValueControl" />
+      <item itemvalue="JUnit.LoginTest.failLoginWithPassword" />
+      <item itemvalue="JUnit.LoginTest.loginWithMissingInfo" />
+      <item itemvalue="JUnit.LoginTest" />
+      <item itemvalue="JUnit.ForgotPassTest.forgotPassword" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginTest.loginInputMaxValueControl" />
-        <item itemvalue="JUnit.LoginTest.failLoginWithPhoneNumber" />
-        <item itemvalue="JUnit.LoginTest.failLoginWithEmail" />
+        <item itemvalue="JUnit.ForgotPassTest.forgotPassword" />
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.LoginTest.loginWithMissingInfo" />
+        <item itemvalue="JUnit.LoginTest.failLoginWithPassword" />
         <item itemvalue="JUnit.LoginTest.failLoginWithAccountNo" />
-        <item itemvalue="JUnit.LoginTest.failLoginWithUsername" />
       </list>
     </recent_temporary>
   </component>
@@ -198,6 +202,7 @@
       <workItem from="1608650749746" duration="7703000" />
       <workItem from="1608719151914" duration="177000" />
       <workItem from="1608719339262" duration="19653000" />
+      <workItem from="1608820505737" duration="5066000" />
     </task>
     <task id="LOCAL-00001" summary="readcsvdata">
       <created>1608708002801</created>
@@ -276,7 +281,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608820246627</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="login csv update">
+      <created>1608903850777</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1608903850777</updated>
+    </task>
+    <task id="LOCAL-00013" summary="login csv update">
+      <created>1608904011280</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608904011280</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,33 +336,17 @@
     <MESSAGE value="commit" />
     <MESSAGE value="update csv" />
     <MESSAGE value="registerPage transition to csv" />
-    <option name="LAST_COMMIT_MESSAGE" value="registerPage transition to csv" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="144" y="79" key="MergeDialog" timestamp="1608817229514">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="144" y="79" key="MergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1608817229514" />
-    <state x="571" y="370" key="VCS.ChangelistChooser" timestamp="1608820235876">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="571" y="370" key="VCS.ChangelistChooser/0.0.1440.900@0.0.1440.900" timestamp="1608820235876" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1608820248615">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1608820248615" />
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608817214758">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1608817214758" />
+    <MESSAGE value="login csv update" />
+    <option name="LAST_COMMIT_MESSAGE" value="login csv update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="6" />
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java</url>
+          <line>34</line>
+          <properties field="testDataExcelFileName" class="com.tuttur.base.BaseTest" />
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
