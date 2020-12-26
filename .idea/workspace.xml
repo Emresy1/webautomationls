@@ -28,12 +28,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="login on registerPage with current user">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/ForgotPass_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/ForgotPass_Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="forgotPassword code review">
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -330,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608982605017</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="forgotPassword code review">
+      <created>1608987465611</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1608987465611</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +379,8 @@
     <MESSAGE value="Unversioned commit" />
     <MESSAGE value="csvFix" />
     <MESSAGE value="login on registerPage with current user" />
-    <option name="LAST_COMMIT_MESSAGE" value="login on registerPage with current user" />
+    <MESSAGE value="forgotPassword code review" />
+    <option name="LAST_COMMIT_MESSAGE" value="forgotPassword code review" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1398" height="246" key="GridCell.Tab.0.bottom" timestamp="1608982277403">
@@ -411,10 +415,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="1398" height="246" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1608982277405" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1608982607251">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1608987472362">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1608982607251" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1608987472362" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
