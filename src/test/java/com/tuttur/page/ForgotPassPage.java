@@ -31,19 +31,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
         setObjectBy(SSN, "17376674056");
     }
 
-    private void setBirthDate () {
 
-        List <WebElement> selectColomun = findElements(BIRTHDATE);
-        String[] date = {"20","Nisan","1991"};
-        List <String> dateList = Arrays.asList(date);
-        int count = 0;
-
-        for (int i = count; i < selectColomun.size();i++) {
-            Select select = new Select(selectColomun.get(i));
-            select.selectByVisibleText(dateList.get(i));
-        }
-
-    }
 
     /**
      * Şifremi unuttum ekranındaki checkboxlar için
@@ -54,20 +42,22 @@ public class ForgotPassPage extends ForgotPass_Constants {
      * @return
      */
     private WebElement checkbox(int index) {
-
+        sleep(2);
         return findElements(SEND_SMS_CHECKBOX).get(index);
     }
 
-
-    public LoginPage forgotPassAction() {
-        setSSN();
-        setBirthDate();
+    private void clickResetPassword(){
         waitForElement(driver, MIN_WAIT_4_ELEMENT, RESET_PASS);
         clickObjectBy(RESET_PASS);
-        sleep(2);
+    }
+
+
+    public LoginPage forgotPassAction() throws IOException {
+        setSSN();
+        new RegisterPage(driver).setBirthDate(1,3,4);
+        clickResetPassword();
         checkbox(1).click();
-        clickObjectBy(By.cssSelector(".medium.primary.w-100"));
-        sleep(1);
+        clickObjectBy(BUTTON_SEND);
         buttonClose().click();
         return new LoginPage(driver);
 
@@ -75,8 +65,8 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     public WebElement buttonClose() {
 
-        waitForElement(driver, OPT_WAIT_4_ELEMENT, By.cssSelector(".medium.primary"));
-        return getElemenstBy(By.cssSelector(".medium.primary"), 1);
+        waitForElement(driver, OPT_WAIT_4_ELEMENT, BUTTON_CLOSE);
+        return getElemenstBy(BUTTON_CLOSE, 1);
     }
 
     public ForgotPassPage setPasswordChange() throws IOException {
@@ -91,9 +81,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
 
     }
-
-
-
 
     private void checkPasswordChange() throws IOException {
 

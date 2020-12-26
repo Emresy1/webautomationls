@@ -42,8 +42,8 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    private void setDay(String day) {
-        setObjectsBy(DATE, 2, day);
+    private void setDay(String day, int elementIndex) {
+        setObjectsBy(DATE, elementIndex, day);
 
     }
 
@@ -55,9 +55,9 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    private void setYear(String year) {
+    private void setYear(String year, int elementIndex) {
 
-        setObjectsBy(DATE, 3, year);
+        setObjectsBy(DATE, elementIndex, year);
 
     }
 
@@ -137,11 +137,11 @@ public class RegisterPage extends RegisterPage_Constants {
         return this;
     }
 
-    private RegisterPage setBirthDate(int rowNumber) {
+    public RegisterPage setBirthDate(int rowNumber, int dayIndex, int yearIndex) {
 
-        setDay(getData(rowNumber,3));
+        setDay(getData(rowNumber,3),dayIndex);
         selectMonth(getData(rowNumber,4));
-        setYear(getData(rowNumber,5));
+        setYear(getData(rowNumber,5),yearIndex);
         return this;
 
     }
@@ -170,7 +170,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
         setName(getData(rowNumber,1));
         setLastName(getData(rowNumber,2));
-        setBirthDate(rowNumber);
+        setBirthDate(rowNumber,2,3);
         setSsn(getData(rowNumber,6));
         setGsm(getData(rowNumber,7));
         setEmail(getData(rowNumber,8));

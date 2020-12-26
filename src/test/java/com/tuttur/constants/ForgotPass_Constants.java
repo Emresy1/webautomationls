@@ -19,5 +19,7 @@ public class ForgotPass_Constants extends BasePageUtil {
     public By CHANGE_BUTTON = By.id("changePasswordButton");
     public By SUCCESS_MESSAGE = By.className("emailProcessComplete");
     public By LOGIN_BUTTON = By.id("loginButton");
+    public By BUTTON_SEND = By.cssSelector(".medium.primary.w-100");
+    public By BUTTON_CLOSE = By.cssSelector(".medium.primary");
 
 }
