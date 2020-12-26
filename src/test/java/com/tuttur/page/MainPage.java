@@ -97,7 +97,7 @@ public class MainPage extends MainPage_Constants {
     }
 
     public MainPage checkRegisterLogin () throws InterruptedException, IOException {
-        assertTrue("register sonrası login başarısız", getElementBy(ACCOUNT_NO).getText().equals(prop.getObject("currentMemberNo")));
+        assertTrue(getData(5,10), getElementBy(ACCOUNT_NO).getText().equals(getData(5,12)));
         return this;
     }
 

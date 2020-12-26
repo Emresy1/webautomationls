@@ -71,9 +71,10 @@ public class RegisterTest extends BaseTest {
     @Test
     public void currentUserRegisterToLogin () throws IOException, InterruptedException {
 
+        util.getSheet("RegisterData");
+
         new MainPage(driver).getRegisterPage()
                 .setRegisterForm(5,0);
-
         new MainPage(driver).checkRegisterLogin();
     }
 

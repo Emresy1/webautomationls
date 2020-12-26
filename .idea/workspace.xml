@@ -28,10 +28,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="register csv update and code review">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="csvFix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/.~lock.TestData.xlsx#" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +89,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterTest.registerWithInvalidData">
+  <component name="RunManager" selected="JUnit.RegisterTest.currentUserRegisterToLogin">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -127,8 +132,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.failLoginWithPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tuttur.web.test" />
+    <configuration name="RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.tuttur.test.*" />
@@ -136,15 +141,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="failLoginWithPassword" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.loginWithMissingInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tuttur.web.test" />
+    <configuration name="RegisterTest.currentUserRegisterToLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.tuttur.test.*" />
@@ -152,8 +156,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="loginWithMissingInfo" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
+      <option name="METHOD_NAME" value="currentUserRegisterToLogin" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -176,19 +180,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.LoginTest.failLoginWithPassword" />
-      <item itemvalue="JUnit.LoginTest.loginWithMissingInfo" />
       <item itemvalue="JUnit.LoginTest" />
       <item itemvalue="JUnit.ForgotPassTest.forgotPassword" />
       <item itemvalue="JUnit.RegisterTest.registerWithInvalidData" />
+      <item itemvalue="JUnit.RegisterTest" />
+      <item itemvalue="JUnit.RegisterTest.currentUserRegisterToLogin" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterTest.currentUserRegisterToLogin" />
+        <item itemvalue="JUnit.RegisterTest" />
         <item itemvalue="JUnit.RegisterTest.registerWithInvalidData" />
         <item itemvalue="JUnit.ForgotPassTest.forgotPassword" />
         <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.LoginTest.loginWithMissingInfo" />
-        <item itemvalue="JUnit.LoginTest.failLoginWithPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -315,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608906013157</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="csvFix">
+      <created>1608978707840</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1608978707840</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +370,46 @@
     <MESSAGE value="login csv update" />
     <MESSAGE value="register csv update and code review" />
     <MESSAGE value="Unversioned commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Unversioned commit" />
+    <MESSAGE value="csvFix" />
+    <option name="LAST_COMMIT_MESSAGE" value="csvFix" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1398" height="246" key="GridCell.Tab.0.bottom" timestamp="1608982277403">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="246" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608982277403" />
+    <state width="1398" height="246" key="GridCell.Tab.0.center" timestamp="1608982277402">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="246" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1608982277402" />
+    <state width="1398" height="246" key="GridCell.Tab.0.left" timestamp="1608982277401">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="246" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1608982277401" />
+    <state width="1398" height="246" key="GridCell.Tab.0.right" timestamp="1608982277403">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="246" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1608982277403" />
+    <state width="1398" height="246" key="GridCell.Tab.1.bottom" timestamp="1608982277406">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="246" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1608982277406" />
+    <state width="1398" height="246" key="GridCell.Tab.1.center" timestamp="1608982277404">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="246" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1608982277404" />
+    <state width="1398" height="246" key="GridCell.Tab.1.left" timestamp="1608982277404">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="246" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1608982277404" />
+    <state width="1398" height="246" key="GridCell.Tab.1.right" timestamp="1608982277405">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="246" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1608982277405" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1608978719513">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1608978719513" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
