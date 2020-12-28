@@ -23,7 +23,10 @@ public class ForgotPassTest extends BaseTest {
 
         base.getSheet("ForgotPassData");
 
-        new MainPage(driver).getLoginPage().getForgotPassModal().forgotPassAction().getForgotPassPage()
+        new MainPage(driver).getLoginPage()
+                .getForgotPassModal()
+                .forgotPassActions()
+                .getForgotPassPage()
                 .setPasswordChange();
                 /// şifre değiştirme sayfası geliştirmesi tamamlandığında , url güncellenicek. Şuan eski url'e gidiyor
 

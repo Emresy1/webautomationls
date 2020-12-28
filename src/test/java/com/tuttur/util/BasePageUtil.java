@@ -176,7 +176,7 @@ public class BasePageUtil {
 	
 	public void waitForElement(WebDriver driver, int seconds, By elementBy) {
 		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
-		wait.until(ExpectedConditions.elementToBeClickable(elementBy));
+		wait.until(ExpectedConditions.presenceOfElementLocated(elementBy));
 	}
 	public void waitForString(WebDriver driver, int seconds, By by, String st) {
 		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);

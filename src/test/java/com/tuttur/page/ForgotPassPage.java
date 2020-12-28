@@ -23,10 +23,9 @@ public class ForgotPassPage extends ForgotPass_Constants {
     }
 
     WebDriverWait wait = new WebDriverWait(driver,2000);
-    Actions actions = new Actions(driver);
-    DbQueriesPage db = new DbQueriesPage(driver);
     PropertiesFile prop = new PropertiesFile(driver);
     GeneralPage general = new GeneralPage(driver);
+    RegisterPage register = new RegisterPage(driver);
 
     private void setSSN(int rowNumber) {
         setObjectBy(SSN,getData(rowNumber,1) );
@@ -53,15 +52,16 @@ public class ForgotPassPage extends ForgotPass_Constants {
     }
 
 
-    public LoginPage forgotPassAction() throws IOException {
+    public LoginPage forgotPassActions() throws IOException {
+
         setSSN(1);
-        new RegisterPage(driver).setBirthDate(1,3,4);
+        register.setBirthDate(1,3,4);
         clickResetPassword();
         checkbox(1).click();
         clickObjectBy(BUTTON_SEND);
-        wait.until(ExpectedConditions.elementToBeClickable(BUTTON_CLOSE));
+        waitForElement(driver,MIN_WAIT_4_ELEMENT,BUTTON_CLOSE);
         findElements(BUTTON_CLOSE).get(1).click();
-       // buttonClose().click();
+
         return new LoginPage(driver);
 
     }

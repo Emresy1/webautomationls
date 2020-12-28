@@ -63,6 +63,7 @@ public class RegisterTest extends BaseTest {
     /**
      * Case 1.2
      * Mevcut kullanıcı ile register
+     * Aynı datalar ile register olunduğunda kullanıcı login olur
      *
      * @throws IOException
      * @throws InterruptedException
@@ -76,6 +77,21 @@ public class RegisterTest extends BaseTest {
         new MainPage(driver).getRegisterPage()
                 .setRegisterForm(5,0);
         new MainPage(driver).checkRegisterLogin();
+    }
+
+    /**
+     * Case 1.3
+     * Mevcut kullanıcı ile register
+     * Aynı datalar ile register olup şifre farklı girildiğinde şifremi unuttuma yönlenir.
+     */
+
+    @Test
+    public void currentUserRegisterToForgotPassword() throws IOException, InterruptedException {
+
+        util.getSheet("RegisterData");
+
+        new MainPage(driver).getRegisterPage()
+                .setRegisterForm(6,0);
     }
 
     /**
