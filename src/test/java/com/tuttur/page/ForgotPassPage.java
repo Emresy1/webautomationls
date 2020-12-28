@@ -52,16 +52,21 @@ public class ForgotPassPage extends ForgotPass_Constants {
     }
 
 
-    public LoginPage forgotPassActions() throws IOException {
+    public ForgotPassPage forgotPassActions(int rowNumber) throws IOException {
 
-        setSSN(1);
-        register.setBirthDate(1,3,4);
+        setSSN(rowNumber);
+        register.setBirthDate(rowNumber,3,4);
         clickResetPassword();
+
+        return this;
+
+    }
+
+    public LoginPage sendResetLink() {
+
         checkbox(1).click();
         clickObjectBy(BUTTON_SEND);
-        waitForElement(driver,MIN_WAIT_4_ELEMENT,BUTTON_CLOSE);
-        findElements(BUTTON_CLOSE).get(1).click();
-
+        buttonClose().click();  //cliklemiyor
         return new LoginPage(driver);
 
     }
@@ -91,6 +96,22 @@ public class ForgotPassPage extends ForgotPass_Constants {
                                 .getText().substring(0, 26).equals(prop.getObject("success_pass_change_message")));
 
     }
+
+    public ForgotPassPage checkFailMessage (int rowNumber) {
+
+        Assert.assertTrue(getData(rowNumber,7),getElementBy(ERROR_FIELD)
+                                 .getText().equals(getData(rowNumber,11)));
+        return this;
+    }
+
+    public ForgotPassPage checkFailMessageForSsn (int rowNumber) {
+
+        Assert.assertTrue(getData(rowNumber,7),getElementBy(SSN_ERROR_MESSAGE)
+                .getText().equals(getData(rowNumber,12)));
+        return this;
+
+    }
+
 
 }
 

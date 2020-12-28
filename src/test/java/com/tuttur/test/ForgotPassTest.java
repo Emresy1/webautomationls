@@ -18,17 +18,56 @@ public class ForgotPassTest extends BaseTest {
     public ForgotPassTest() throws IOException {
     }
 
+
+    /**
+     * Case 1.0
+     * Başarılı şifremi unuttum akışı
+     *
+     * @throws IOException
+     */
     @Test
-    public void forgotPassword () throws IOException {
+    public void successForgotPassword() throws IOException {
 
         base.getSheet("ForgotPassData");
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .forgotPassActions()
+                .forgotPassActions(1)
+                .sendResetLink()
                 .getForgotPassPage()
                 .setPasswordChange();
-                /// şifre değiştirme sayfası geliştirmesi tamamlandığında , url güncellenicek. Şuan eski url'e gidiyor
+        /// şifre değiştirme sayfası geliştirmesi tamamlandığında , url güncellenicek. Şuan eski url'e gidiyor
+
+    }
+
+    /**
+     * Case 1.1
+     * Hatalı kullanıcı bilgileri ile kontrol
+     */
+    @Test
+    public void failControl() throws IOException {
+
+        base.getSheet("ForgotPassData");
+
+        new MainPage(driver).getLoginPage()
+                .getForgotPassModal()
+                .forgotPassActions(2)
+                .checkFailMessage(2);
+    }
+
+    /**
+     * Case 1.2
+     * Geçersiz TCKN kontrolü
+     */
+    @Test
+    public void failControlWithInvalidSsn() throws IOException {
+
+        base.getSheet("ForgotPassData");
+
+        new MainPage(driver).getLoginPage()
+                .getForgotPassModal()
+                .forgotPassActions(3)
+                .checkFailMessageForSsn(3);
 
     }
 
