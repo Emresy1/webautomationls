@@ -8,8 +8,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import java.io.IOException;
@@ -21,14 +22,14 @@ public class ForgotPassPage extends ForgotPass_Constants {
         super(driver);
     }
 
-
+    WebDriverWait wait = new WebDriverWait(driver,2000);
     Actions actions = new Actions(driver);
     DbQueriesPage db = new DbQueriesPage(driver);
     PropertiesFile prop = new PropertiesFile(driver);
     GeneralPage general = new GeneralPage(driver);
 
-    private void setSSN() {
-        setObjectBy(SSN, "17376674056");
+    private void setSSN(int rowNumber) {
+        setObjectBy(SSN,getData(rowNumber,1) );
     }
 
 
@@ -53,12 +54,14 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
 
     public LoginPage forgotPassAction() throws IOException {
-        setSSN();
+        setSSN(1);
         new RegisterPage(driver).setBirthDate(1,3,4);
         clickResetPassword();
         checkbox(1).click();
         clickObjectBy(BUTTON_SEND);
-        buttonClose().click();
+        wait.until(ExpectedConditions.elementToBeClickable(BUTTON_CLOSE));
+        findElements(BUTTON_CLOSE).get(1).click();
+       // buttonClose().click();
         return new LoginPage(driver);
 
     }
