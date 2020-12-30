@@ -126,11 +126,10 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-               // .checkInvalidValues()
-               // .checkBirthdateMaxLenght()
+                .checkInvalidValues()
+                .checkBirthdateMaxLenght()
                 .check18YearsRule();
 
-        
     }
 
 }

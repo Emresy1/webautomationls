@@ -20,7 +20,7 @@ public class ForgotPass_Constants extends BasePageUtil {
     public By SUCCESS_MESSAGE = By.className("emailProcessComplete");
     public By LOGIN_BUTTON = By.id("loginButton");
     public By BUTTON_SEND = By.cssSelector(".medium.primary.w-100");
-    public By BUTTON_CLOSE = By.cssSelector(".medium.primary");
+    public By BUTTON_CLOSE = By.xpath("//*[@id=\"modal\"]/div[2]/div[2]/div[2]/div/div/div[2]/button");
     public By ERROR_FIELD = By.className("formPage-error");
     public By SSN_ERROR_MESSAGE = By.className("formElementError-text");
 

@@ -32,7 +32,7 @@ public class ForgotPassTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .forgotPassActions(1)
+                .forgotPassSteps(1)
                 .sendResetLink()
                 .getForgotPassPage()
                 .setPasswordChange();
@@ -51,7 +51,7 @@ public class ForgotPassTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .forgotPassActions(2)
+                .forgotPassSteps(2)
                 .checkFailMessage(2);
     }
 
@@ -66,7 +66,7 @@ public class ForgotPassTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .forgotPassActions(3)
+                .forgotPassSteps(3)
                 .checkFailMessageForSsn(3);
 
     }

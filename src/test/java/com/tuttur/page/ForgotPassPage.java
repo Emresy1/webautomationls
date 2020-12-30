@@ -1,28 +1,21 @@
 package com.tuttur.page;
 
-import com.tuttur.base.BaseTest;
+
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.ForgotPass_Constants;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class ForgotPassPage extends ForgotPass_Constants {
     public ForgotPassPage(WebDriver driver) throws IOException {
         super(driver);
     }
 
-    WebDriverWait wait = new WebDriverWait(driver,2000);
+
     PropertiesFile prop = new PropertiesFile(driver);
     GeneralPage general = new GeneralPage(driver);
     RegisterPage register = new RegisterPage(driver);
@@ -52,7 +45,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
     }
 
 
-    public ForgotPassPage forgotPassActions(int rowNumber) throws IOException {
+    public ForgotPassPage forgotPassSteps(int rowNumber) throws IOException {
 
         setSSN(rowNumber);
         register.setBirthDate(rowNumber,3,4);
@@ -66,7 +59,8 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
         checkbox(0).click();
         clickObjectBy(BUTTON_SEND);
-        buttonClose().click();  //cliklemiyor
+        buttonClose().click();  //xpath eklendi, id için iş açıldı
+
         return new LoginPage(driver);
 
     }
@@ -74,7 +68,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
     public WebElement buttonClose() {
 
         waitForElement(driver, OPT_WAIT_4_ELEMENT, BUTTON_CLOSE);
-        return getElemenstBy(BUTTON_CLOSE, 1);
+        return getElementBy(BUTTON_CLOSE);
     }
 
     public ForgotPassPage setPasswordChange() throws IOException {
@@ -85,9 +79,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
         checkPasswordChange();
         clickObjectBy(LOGIN_BUTTON);
 
-
         return this;
-
     }
 
     private void checkPasswordChange() throws IOException {
@@ -111,7 +103,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
 
     }
-
 
 }
 
