@@ -28,15 +28,23 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="forgotPassword ivalidSsn and failControl">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="buttonClose fix">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_12_2020_11_15_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_12_2020_11_15__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2020_10_20_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2020_10_20__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2020_10_54_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2020_10_54__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/ForgotPass_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/ForgotPass_Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/RegisterPage_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/RegisterPage_Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/RegisterPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/RegisterPage_Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +98,18 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ForgotPassTest.failControlWithInvalidSsn">
+  <component name="RunManager" selected="JUnit.RegisterTest.fieldsRuleCheck">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ForgotPassTest.failControl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tuttur.web.test" />
       <extension name="coverage">
@@ -139,22 +158,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ForgotPassTest.forgotPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tuttur.web.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.ForgotPassTest" />
-      <option name="METHOD_NAME" value="forgotPassword" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ForgotPassTest.successForgotPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tuttur.web.test" />
       <extension name="coverage">
@@ -171,20 +174,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegisterTest.fieldsRuleCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
+      <option name="METHOD_NAME" value="fieldsRuleCheck" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.ForgotPassTest.forgotPassword" />
       <item itemvalue="JUnit.ForgotPassTest.successForgotPassword" />
       <item itemvalue="JUnit.ForgotPassTest.failControlWithSsn" />
       <item itemvalue="JUnit.ForgotPassTest.failControlWithInvalidSsn" />
       <item itemvalue="JUnit.ForgotPassTest.failControl" />
+      <item itemvalue="JUnit.RegisterTest.fieldsRuleCheck" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterTest.fieldsRuleCheck" />
+        <item itemvalue="JUnit.ForgotPassTest.successForgotPassword" />
         <item itemvalue="JUnit.ForgotPassTest.failControlWithInvalidSsn" />
         <item itemvalue="JUnit.ForgotPassTest.failControl" />
-        <item itemvalue="JUnit.ForgotPassTest.successForgotPassword" />
         <item itemvalue="JUnit.ForgotPassTest.failControlWithSsn" />
-        <item itemvalue="JUnit.ForgotPassTest.forgotPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -209,6 +228,7 @@
       <workItem from="1608820505737" duration="5066000" />
       <workItem from="1608905879657" duration="296000" />
       <workItem from="1608988335893" duration="7388000" />
+      <workItem from="1609352499880" duration="7412000" />
     </task>
     <task id="LOCAL-00001" summary="readcsvdata">
       <created>1608708002801</created>
@@ -343,7 +363,28 @@
       <option name="project" value="LOCAL" />
       <updated>1609164094146</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="register cases">
+      <created>1609327631340</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1609327631340</updated>
+    </task>
+    <task id="LOCAL-00021" summary="forgotPassword csv fix">
+      <created>1609328884145</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1609328884145</updated>
+    </task>
+    <task id="LOCAL-00022" summary="buttonClose fix">
+      <created>1609337747638</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1609337747638</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,7 +432,52 @@
     <MESSAGE value="login on registerPage with current user" />
     <MESSAGE value="forgotPassword code review" />
     <MESSAGE value="forgotPassword ivalidSsn and failControl" />
-    <option name="LAST_COMMIT_MESSAGE" value="forgotPassword ivalidSsn and failControl" />
+    <MESSAGE value="register cases" />
+    <MESSAGE value="forgotPassword csv fix" />
+    <MESSAGE value="buttonClose fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="buttonClose fix" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="100" y="100" width="1240" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1609355242486">
+      <screen x="0" y="23" width="1440" height="834" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.1440.834@0.23.1440.834" timestamp="1609355242486" />
+    <state width="1398" height="209" key="GridCell.Tab.0.bottom" timestamp="1609366965732">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1609366965732" />
+    <state width="1398" height="209" key="GridCell.Tab.0.center" timestamp="1609366965731">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1609366965731" />
+    <state width="1398" height="209" key="GridCell.Tab.0.left" timestamp="1609366965730">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1609366965730" />
+    <state width="1398" height="209" key="GridCell.Tab.0.right" timestamp="1609366965731">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1609366965731" />
+    <state width="1398" height="209" key="GridCell.Tab.1.bottom" timestamp="1609366965734">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1609366965734" />
+    <state width="1398" height="209" key="GridCell.Tab.1.center" timestamp="1609366965733">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1609366965733" />
+    <state width="1398" height="209" key="GridCell.Tab.1.left" timestamp="1609366965733">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1609366965732" />
+    <state width="1398" height="209" key="GridCell.Tab.1.right" timestamp="1609366965733">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="209" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1609366965733" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1609337749845">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1609337749845" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -403,11 +489,16 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/webautomation$RegisterTest_fieldsRuleCheck.ic" NAME="RegisterTest.fieldsRuleCheck Coverage Results" MODIFIED="1609241016144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.tuttur.test.*</FILTER>
+    </SUITE>
   </component>
 </project>

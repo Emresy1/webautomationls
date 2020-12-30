@@ -121,14 +121,15 @@ public class RegisterTest extends BaseTest {
      */
 
     @Test
-    public void fieldsRuleCheck() throws IOException {
+    public void fieldsRuleCheck() throws IOException, InterruptedException {
 
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
                 .checkInvalidValues()
                 .checkBirthdateMaxLenght()
-                .check18YearsRule();
+                .check18YearsRule()
+                .checkPasswordCombination();
 
     }
 

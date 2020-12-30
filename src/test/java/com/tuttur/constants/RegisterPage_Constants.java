@@ -29,6 +29,8 @@ public class RegisterPage_Constants extends BasePageUtil {
     public By FORGOT_PASS_TITLE = By.className("modalHeader-text");
     public By BUTTON_RESET_PASSWORD = By.cssSelector(".medium.primary.forgotPasswordForm-button");
     public By INPUT_ERROR_TEXT = By.className("formElementError-text");
+    public By CLOSE_MODAL = By.cssSelector(".medium.modalHeader-close");
+    public By WARNING_TEXT = By.className("formElementError-text");
 
 
 
