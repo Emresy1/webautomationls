@@ -28,20 +28,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="forgotPassword code review">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" afterDir="false" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="forgotPassword ivalidSsn and failControl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/ForgotPass_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/ForgotPass_Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +98,22 @@
         </value>
       </option>
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ForgotPassTest.failControl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tuttur.web.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.ForgotPassTest" />
+      <option name="METHOD_NAME" value="failControl" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -171,29 +182,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="JUnit.ForgotPassTest.forgotPassword" />
-      <item itemvalue="JUnit.RegisterTest" />
       <item itemvalue="JUnit.ForgotPassTest.successForgotPassword" />
       <item itemvalue="JUnit.ForgotPassTest.failControlWithSsn" />
       <item itemvalue="JUnit.ForgotPassTest.failControlWithInvalidSsn" />
+      <item itemvalue="JUnit.ForgotPassTest.failControl" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ForgotPassTest.failControlWithInvalidSsn" />
-        <item itemvalue="JUnit.ForgotPassTest.failControlWithSsn" />
+        <item itemvalue="JUnit.ForgotPassTest.failControl" />
         <item itemvalue="JUnit.ForgotPassTest.successForgotPassword" />
+        <item itemvalue="JUnit.ForgotPassTest.failControlWithSsn" />
         <item itemvalue="JUnit.ForgotPassTest.forgotPassword" />
-        <item itemvalue="JUnit.RegisterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -345,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608987465611</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="forgotPassword ivalidSsn and failControl">
+      <created>1609164094146</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1609164094146</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +401,8 @@
     <MESSAGE value="csvFix" />
     <MESSAGE value="login on registerPage with current user" />
     <MESSAGE value="forgotPassword code review" />
-    <option name="LAST_COMMIT_MESSAGE" value="forgotPassword code review" />
+    <MESSAGE value="forgotPassword ivalidSsn and failControl" />
+    <option name="LAST_COMMIT_MESSAGE" value="forgotPassword ivalidSsn and failControl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -402,6 +412,11 @@
           <line>34</line>
           <properties field="testDataExcelFileName" class="com.tuttur.base.BaseTest" />
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

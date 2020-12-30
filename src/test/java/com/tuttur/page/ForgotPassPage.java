@@ -64,7 +64,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     public LoginPage sendResetLink() {
 
-        checkbox(1).click();
+        checkbox(0).click();
         clickObjectBy(BUTTON_SEND);
         buttonClose().click();  //cliklemiyor
         return new LoginPage(driver);
