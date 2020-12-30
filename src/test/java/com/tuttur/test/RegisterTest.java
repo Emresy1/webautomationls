@@ -91,7 +91,8 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-                .setRegisterForm(6,0);
+                .setRegisterForm(6,0)
+                .checkForgotPasswordModal(6);
     }
 
     /**
@@ -125,10 +126,11 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-                .checkInvalidValues();
+               // .checkInvalidValues()
+               // .checkBirthdateMaxLenght()
+                .check18YearsRule();
+
         
     }
-
-
 
 }

@@ -141,7 +141,6 @@ public class BasePageUtil {
 	}
 
 
-
 	public WebElement clickObjectBy(By by) {
 		WebElement element = driver.findElement(by);
 		waitForElement(element,OPT_WAIT_4_ELEMENT);
@@ -178,11 +177,13 @@ public class BasePageUtil {
 		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
 		wait.until(ExpectedConditions.presenceOfElementLocated(elementBy));
 	}
+
 	public void waitForString(WebDriver driver, int seconds, By by, String st) {
 		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
 		WebElement element = getElementBy(by);
 		wait.until(ExpectedConditions.textToBePresentInElement(element,st));
 	}
+
 	public void waitForElement(WebElement elm , int seconds) {
 		
 		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);

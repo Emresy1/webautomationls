@@ -2,18 +2,16 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.RegisterPage_Constants;
-import com.tuttur.util.BasePageUtil;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.*;
+
 
 public class RegisterPage extends RegisterPage_Constants {
 
@@ -24,6 +22,11 @@ public class RegisterPage extends RegisterPage_Constants {
     PropertiesFile prop = new PropertiesFile(driver);
     DbQueriesPage db = new DbQueriesPage(driver);
     GeneralPage general = new GeneralPage(driver);
+    SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM", new Locale("tr"));
+    Date currentMonth = new Date();
+    LocalDate currentDate = LocalDate.now();
+
+
 
 
 
@@ -166,6 +169,15 @@ public class RegisterPage extends RegisterPage_Constants {
         isElementOnScreen(BANNER);
         return this;
     }
+
+    public RegisterPage checkForgotPasswordModal(int rowNumber){
+
+        waitForElement(driver,OPT_WAIT_4_ELEMENT,BUTTON_RESET_PASSWORD);
+
+        Assert.assertEquals(getElementBy(FORGOT_PASS_TITLE).getText(), getData(rowNumber,13));
+
+        return this;
+    }
     public RegisterPage setRegisterForm(int rowNumber, int usernameIndex) throws IOException, InterruptedException {
 
         setName(getData(rowNumber,1));
@@ -210,6 +222,75 @@ public class RegisterPage extends RegisterPage_Constants {
         return inputsArray;
     }
 
+    public RegisterPage checkBirthdateMaxLenght(){
+        List<WebElement> inputs = findElements(FORM_INPUT);
+
+        String maxChar = "12345";
+
+
+        inputs.get(2).sendKeys(maxChar);
+        inputs.get(3).sendKeys(maxChar);
+
+        Assert.assertEquals(inputs.get(2).getAttribute("maxlength"),"2");
+        Assert.assertEquals(inputs.get(3).getAttribute("maxlength"),"4");
+
+        isSelectboxMonth();
+
+        return this;
+
+    }
+
+    private void typeRuleDate() {
+
+        WebElement falseDate = getElemenstBy(FORM_INPUT, 2);
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) +1;
+        String currentDate = Integer.toString(day);
+        falseDate.sendKeys(currentDate);
+
+
+
+    }
+    private void selectRuleMonth() {
+
+        String[] months = {"Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim"
+        ,"Kasım","Aralık"};
+        List<String> monthList = Arrays.asList(months);
+
+
+        for (String month: monthList) {
+            if (month.equals(monthFormat.format(currentMonth))){
+
+               selectMonth(month);
+
+            }
+        }
+    }
+
+    private void typeYear(){
+
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        System.out.println("Yıl : " + year);
+
+    }
+
+    public void check18YearsRule(){
+
+        typeRuleDate();
+        selectRuleMonth();
+        typeYear();
+            /*
+            Gün ve Ay inputların 18 yaş kuralı yok fixlendiğinde assert edilecek
+             */
+
+    }
+
+    private boolean isSelectboxMonth(){
+
+        WebElement month = getElementBy(BIRTHDATE).findElement(By.tagName("select"));
+        return isExistElement(MIN_WAIT_4_ELEMENT,month);
+    }
+
+
 
     public RegisterPage checkInvalidValues() {
 
@@ -226,6 +307,13 @@ public class RegisterPage extends RegisterPage_Constants {
             checkFieldRule(FORM_INPUT,i);
 
         }
+
+        setObjectBy(EMAIL, getData(4,8));
+        clickObjectBy(REGISTER_USERNAME);
+
+        waitForElement(driver,OPT_WAIT_4_ELEMENT,INPUT_ERROR_TEXT);
+        Assert.assertEquals(getElementBy(INPUT_ERROR_TEXT).getText(),getData(4,11));
+
         return this;
 
     }

@@ -18,6 +18,7 @@ public class RegisterPage_Constants extends BasePageUtil {
     public By DATE = By.className("formInput-input");
     public By YEAR = By.className("formInput-input");
     public By MONTHS = By.className("formSelect-select");
+    public By BIRTHDATE = By.className("formSelect-border");
     public By CHECKBOX = By.className("formCheckbox-checkbox");
     public By SUBMIT = By.cssSelector(".medium.primary.registerForm-button");
     public By ACTIVATION_FIELD = By.name("activationCode");
@@ -25,6 +26,11 @@ public class RegisterPage_Constants extends BasePageUtil {
     public By FORM_INPUT = By.className("formInput-input");
     public By BANNER = By.className("registerModal-banner");
     public By WARNING_TEXT_ON_MODAL = By.className("formPage-error");
+    public By FORGOT_PASS_TITLE = By.className("modalHeader-text");
+    public By BUTTON_RESET_PASSWORD = By.cssSelector(".medium.primary.forgotPasswordForm-button");
+    public By INPUT_ERROR_TEXT = By.className("formElementError-text");
+
+
 
 
 
