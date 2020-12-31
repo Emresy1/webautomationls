@@ -4,6 +4,7 @@ import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.RegisterPage_Constants;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -128,18 +129,73 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    private RegisterPage clickMembershipApprove() throws InterruptedException {
+    public RegisterPage clickMembershipApprove() throws InterruptedException {
 
         List<WebElement> checkbox = findElements(CHECKBOX);
         scrollToElement(CHECKBOX);
         int count = 0;
 
-        for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {
-            waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
-            checkbox.get(loopCount).click();
+            for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {
+                waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
+                checkbox.get(loopCount).click();
 
-        }
+            }
+
         return this;
+    }
+
+    public RegisterPage inputPatternCheck() throws IOException {
+
+        reopenModal();
+        ssnPatternCheck();
+        gsmPatternCheck();
+        emailPatternCheck();
+
+
+        return this;
+    }
+
+    private WebElement modalTitle(){
+
+        return getElementBy(MODAL_TITLE);
+    }
+
+    private void gsmPatternCheck() throws IOException {
+
+        WebElement gsm = getElementBy(GSM);
+
+        gsm.sendKeys(getData(4,7));
+        modalTitle().click();
+
+        Assert.assertTrue("Gsm uyarı texti görülmedi", getElemenstBy(INPUT_ERROR_TEXT,1).getText()
+        .equals(prop.getObject("gsmPatternMessage")));
+
+    }
+
+    private void emailPatternCheck() throws IOException {
+
+        WebElement email = getElementBy(EMAIL);
+
+        email.sendKeys(getData(4,8));
+        modalTitle().click();
+
+        Assert.assertTrue("Email uyarı texti görülmedi", getElemenstBy(INPUT_ERROR_TEXT,2).getText()
+        .equals(prop.getObject("emailPatternMessage")));
+
+    }
+
+    private void ssnPatternCheck() throws IOException {
+
+        WebElement ssn = getElementBy(SSN);
+
+        ssn.sendKeys(getData(4,6));
+        modalTitle().click();
+
+        Assert.assertTrue("Tckn uyarı texti görülmedi", getElementBy(INPUT_ERROR_TEXT).getText()
+                        .equals(prop.getObject("ssnPatternMessage")));
+
+
+
     }
 
     public RegisterPage setBirthDate(int rowNumber, int dayIndex, int yearIndex) {
@@ -151,7 +207,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    private RegisterPage clickSubmit() {
+    public RegisterPage clickSubmit() {
 
         clickObjectBy(SUBMIT);
         return this;
@@ -176,7 +232,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
         waitForElement(driver,OPT_WAIT_4_ELEMENT,BUTTON_RESET_PASSWORD);
 
-        Assert.assertEquals(getElementBy(FORGOT_PASS_TITLE).getText(), getData(rowNumber,13));
+        Assert.assertEquals(getElementBy(MODAL_TITLE).getText(), getData(rowNumber,13));
 
         return this;
     }
@@ -190,8 +246,6 @@ public class RegisterPage extends RegisterPage_Constants {
         setEmail(getData(rowNumber,8));
         setUsername(usernameIndex);
         setPassword(getData(rowNumber,9));
-        clickMembershipApprove();
-        clickSubmit();
 
         return this;
     }
@@ -265,6 +319,16 @@ public class RegisterPage extends RegisterPage_Constants {
         List<WebElement> warningTexts = findElements(WARNING_TEXT);
         return warningTexts;
 
+    }
+
+    public RegisterPage checkUsernameCombination(){
+
+        String character = "123";
+
+        setObjectBy(REGISTER_USERNAME,character);
+
+
+        return this;
     }
 
     public RegisterPage checkPasswordCombination() throws IOException, InterruptedException {
@@ -366,8 +430,7 @@ public class RegisterPage extends RegisterPage_Constants {
     public RegisterPage checkInvalidValues() {
 
 
-        String[] invalidValues = {getData(4,1), getData(4,2),
-                getData(4,6), getData(4,7),};
+        String[] invalidValues = {"12345","12345","abcdef","abcdef"};
 
         List<String> invalidValueList = Arrays.asList(invalidValues);
         int count = 0;
@@ -378,12 +441,6 @@ public class RegisterPage extends RegisterPage_Constants {
             checkFieldRule(FORM_INPUT,i);
 
         }
-
-        setObjectBy(EMAIL, getData(4,8));
-        clickObjectBy(REGISTER_USERNAME);
-
-        waitForElement(driver,OPT_WAIT_4_ELEMENT,INPUT_ERROR_TEXT);
-        Assert.assertEquals(getElementBy(INPUT_ERROR_TEXT).getText(),getData(4,11));
 
         return this;
 

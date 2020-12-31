@@ -36,6 +36,8 @@ public class RegisterTest extends BaseTest {
                 .getRegisterPage()
                 .isExistBanner()
                 .setRegisterForm(1,0)
+                .clickMembershipApprove()
+                .clickSubmit()
                 .smsActivation()
                 .checkUserText(general.username);
 
@@ -55,6 +57,8 @@ public class RegisterTest extends BaseTest {
                 .getRegisterPage()
                 .isExistBanner()
                 .setRegisterForm(2,1)
+                .clickMembershipApprove()
+                .clickSubmit()
                 .smsActivation()
                 .checkUserText(general.generateUsernameText.toString());
 
@@ -75,7 +79,10 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-                .setRegisterForm(5,0);
+                .setRegisterForm(5,0)
+                .clickMembershipApprove()
+                .clickSubmit();
+
         new MainPage(driver).checkRegisterLogin();
     }
 
@@ -92,6 +99,8 @@ public class RegisterTest extends BaseTest {
 
         new MainPage(driver).getRegisterPage()
                 .setRegisterForm(6,0)
+                .clickMembershipApprove()
+                .clickSubmit()
                 .checkForgotPasswordModal(6);
     }
 
@@ -110,10 +119,12 @@ public class RegisterTest extends BaseTest {
         new MainPage(driver).getRegisterPage()
                 .isExistBanner()
                 .setRegisterForm(3,0)
+                .clickMembershipApprove()
+                .clickSubmit()
                 .checkWarningTextOnModal(3,10,11);
     }
 
-    /**
+    /**in
      * Case 2.1
      * Numerik ve alfanumerik satırların kural kontrolü
      *
@@ -129,7 +140,9 @@ public class RegisterTest extends BaseTest {
                 .checkInvalidValues()
                 .checkBirthdateMaxLenght()
                 .check18YearsRule()
-                .checkPasswordCombination();
+                .checkPasswordCombination()
+                .inputPatternCheck()
+                .checkUsernameCombination();
 
     }
 
