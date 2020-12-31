@@ -26,14 +26,16 @@ public class ForgotPassTest extends BaseTest {
      * @throws IOException
      */
     @Test
-    public void successForgotPassword() throws IOException {
+    public void successForgotPasswordWithSms() throws IOException {
 
         base.getSheet("ForgotPassData");
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
                 .forgotPassSteps(1)
-                .sendResetLink()
+                .checkboxClick(0)
+                .clickButtonSend()
+                .buttonCloseClick()
                 .getForgotPassPage()
                 .setPasswordChange();
         /// şifre değiştirme sayfası geliştirmesi tamamlandığında , url güncellenicek. Şuan eski url'e gidiyor
@@ -68,6 +70,24 @@ public class ForgotPassTest extends BaseTest {
                 .getForgotPassModal()
                 .forgotPassSteps(3)
                 .checkFailMessageForSsn(3);
+
+    }
+
+    /**
+     * Case 1.3
+     * Seçim yapmadan link gönderme konrolü
+     */
+
+    @Test
+    public void unSelectedSendResetLink() throws IOException {
+
+        base.getSheet("ForgotPassData");
+
+        new MainPage(driver).getLoginPage()
+                .getForgotPassModal()
+                .forgotPassSteps(4)
+                .clickButtonSend();
+        new ForgotPassPage(driver).checkFailMessage(4);
 
     }
 

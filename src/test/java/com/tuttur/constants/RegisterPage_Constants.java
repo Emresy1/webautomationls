@@ -31,6 +31,7 @@ public class RegisterPage_Constants extends BasePageUtil {
     public By INPUT_ERROR_TEXT = By.className("formElementError-text");
     public By CLOSE_MODAL = By.cssSelector(".medium.modalHeader-close");
     public By WARNING_TEXT = By.className("formElementError-text");
+    public By CURSOR_FİELD= By.cssSelector(".formInput--isFocus.formInput.formInput--hasLabel");
 
 
 

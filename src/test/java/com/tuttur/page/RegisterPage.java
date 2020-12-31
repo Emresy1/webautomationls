@@ -1,5 +1,6 @@
 package com.tuttur.page;
 
+import com.sun.jna.StringArray;
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.RegisterPage_Constants;
 import org.junit.Assert;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -28,10 +30,6 @@ public class RegisterPage extends RegisterPage_Constants {
     Date currentMonth = new Date();
     LocalDate currentDate = LocalDate.now();
     Actions action = new Actions(driver);
-
-
-
-
 
 
     private RegisterPage setName(String name) throws IOException {
@@ -76,14 +74,14 @@ public class RegisterPage extends RegisterPage_Constants {
 
     private RegisterPage setGsm(String gsm) throws IOException {
 
-        setObjectBy(GSM,gsm);
+        setObjectBy(GSM, gsm);
         return this;
 
     }
 
     private RegisterPage setEmail(String email) throws IOException {
 
-        setObjectBy(EMAIL,email);
+        setObjectBy(EMAIL, email);
         return this;
 
     }
@@ -135,11 +133,11 @@ public class RegisterPage extends RegisterPage_Constants {
         scrollToElement(CHECKBOX);
         int count = 0;
 
-            for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {
-                waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
-                checkbox.get(loopCount).click();
+        for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {
+            waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
+            checkbox.get(loopCount).click();
 
-            }
+        }
 
         return this;
     }
@@ -155,7 +153,7 @@ public class RegisterPage extends RegisterPage_Constants {
         return this;
     }
 
-    private WebElement modalTitle(){
+    private WebElement modalTitle() {
 
         return getElementBy(MODAL_TITLE);
     }
@@ -164,11 +162,11 @@ public class RegisterPage extends RegisterPage_Constants {
 
         WebElement gsm = getElementBy(GSM);
 
-        gsm.sendKeys(getData(4,7));
+        gsm.sendKeys(getData(4, 7));
         modalTitle().click();
 
-        Assert.assertTrue("Gsm uyarı texti görülmedi", getElemenstBy(INPUT_ERROR_TEXT,1).getText()
-        .equals(prop.getObject("gsmPatternMessage")));
+        Assert.assertTrue("Gsm uyarı texti görülmedi", getElemenstBy(INPUT_ERROR_TEXT, 1).getText()
+                .equals(prop.getObject("gsmPatternMessage")));
 
     }
 
@@ -176,11 +174,11 @@ public class RegisterPage extends RegisterPage_Constants {
 
         WebElement email = getElementBy(EMAIL);
 
-        email.sendKeys(getData(4,8));
+        email.sendKeys(getData(4, 8));
         modalTitle().click();
 
-        Assert.assertTrue("Email uyarı texti görülmedi", getElemenstBy(INPUT_ERROR_TEXT,2).getText()
-        .equals(prop.getObject("emailPatternMessage")));
+        Assert.assertTrue("Email uyarı texti görülmedi", getElemenstBy(INPUT_ERROR_TEXT, 2).getText()
+                .equals(prop.getObject("emailPatternMessage")));
 
     }
 
@@ -188,21 +186,20 @@ public class RegisterPage extends RegisterPage_Constants {
 
         WebElement ssn = getElementBy(SSN);
 
-        ssn.sendKeys(getData(4,6));
+        ssn.sendKeys(getData(4, 6));
         modalTitle().click();
 
         Assert.assertTrue("Tckn uyarı texti görülmedi", getElementBy(INPUT_ERROR_TEXT).getText()
-                        .equals(prop.getObject("ssnPatternMessage")));
-
+                .equals(prop.getObject("ssnPatternMessage")));
 
 
     }
 
     public RegisterPage setBirthDate(int rowNumber, int dayIndex, int yearIndex) {
 
-        setDay(getData(rowNumber,3),dayIndex);
-        selectMonth(getData(rowNumber,4));
-        setYear(getData(rowNumber,5),yearIndex);
+        setDay(getData(rowNumber, 3), dayIndex);
+        selectMonth(getData(rowNumber, 4));
+        setYear(getData(rowNumber, 5), yearIndex);
         return this;
 
     }
@@ -222,38 +219,40 @@ public class RegisterPage extends RegisterPage_Constants {
         return new MainPage(driver);
 
     }
-    public RegisterPage isExistBanner(){
+
+    public RegisterPage isExistBanner() {
 
         isElementOnScreen(BANNER);
         return this;
     }
 
-    public RegisterPage checkForgotPasswordModal(int rowNumber){
+    public RegisterPage checkForgotPasswordModal(int rowNumber) {
 
-        waitForElement(driver,OPT_WAIT_4_ELEMENT,BUTTON_RESET_PASSWORD);
+        waitForElement(driver, OPT_WAIT_4_ELEMENT, BUTTON_RESET_PASSWORD);
 
-        Assert.assertEquals(getElementBy(MODAL_TITLE).getText(), getData(rowNumber,13));
+        Assert.assertEquals(getElementBy(MODAL_TITLE).getText(), getData(rowNumber, 13));
 
         return this;
     }
+
     public RegisterPage setRegisterForm(int rowNumber, int usernameIndex) throws IOException, InterruptedException {
 
-        setName(getData(rowNumber,1));
-        setLastName(getData(rowNumber,2));
-        setBirthDate(rowNumber,2,3);
-        setSsn(getData(rowNumber,6));
-        setGsm(getData(rowNumber,7));
-        setEmail(getData(rowNumber,8));
+        setName(getData(rowNumber, 1));
+        setLastName(getData(rowNumber, 2));
+        setBirthDate(rowNumber, 2, 3);
+        setSsn(getData(rowNumber, 6));
+        setGsm(getData(rowNumber, 7));
+        setEmail(getData(rowNumber, 8));
         setUsername(usernameIndex);
-        setPassword(getData(rowNumber,9));
+        setPassword(getData(rowNumber, 9));
 
         return this;
     }
 
-    public RegisterPage checkWarningTextOnModal(int rowNumber, int assertCell ,int warningTextCell){
+    public RegisterPage checkWarningTextOnModal(int rowNumber, int assertCell, int warningTextCell) {
 
-        Assert.assertTrue(getData(rowNumber,assertCell), getElementBy(WARNING_TEXT_ON_MODAL).getText()
-        .equals(getData(rowNumber,warningTextCell)));
+        Assert.assertTrue(getData(rowNumber, assertCell), getElementBy(WARNING_TEXT_ON_MODAL).getText()
+                .equals(getData(rowNumber, warningTextCell)));
 
         return this;
     }
@@ -269,8 +268,8 @@ public class RegisterPage extends RegisterPage_Constants {
         List<WebElement> inputsArray = new ArrayList<>();
         List<WebElement> inputs = findElements(FORM_INPUT);
 
-        int [] index = {0,1,4,5};
-        for (int elementIndex: index) {
+        int[] index = {0, 1, 4, 5};
+        for (int elementIndex : index) {
 
             inputsArray.add(inputs.get(elementIndex));
         }
@@ -278,7 +277,7 @@ public class RegisterPage extends RegisterPage_Constants {
         return inputsArray;
     }
 
-    public RegisterPage checkBirthdateMaxLenght(){
+    public RegisterPage checkBirthdateMaxLenght() {
         List<WebElement> inputs = findElements(FORM_INPUT);
 
         String maxChar = "12345";
@@ -287,8 +286,8 @@ public class RegisterPage extends RegisterPage_Constants {
         inputs.get(2).sendKeys(maxChar);
         inputs.get(3).sendKeys(maxChar);
 
-        Assert.assertEquals(inputs.get(2).getAttribute("value").length(),2);
-        Assert.assertEquals(inputs.get(3).getAttribute("value").length(),4);
+        Assert.assertEquals(inputs.get(2).getAttribute("value").length(), 2);
+        Assert.assertEquals(inputs.get(3).getAttribute("value").length(), 4);
 
         isSelectboxMonth();
 
@@ -304,7 +303,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     private List<String> propertiesWarningTexts() throws IOException {
 
-        String[] propWarningText = {prop.getObject("letterCheck"),prop.getObject("numberCheck"),
+        String[] propWarningText = {prop.getObject("letterCheck"), prop.getObject("numberCheck"),
                 prop.getObject("lenghtCheck"), prop.getObject("specialCharacterCheck"),
                 prop.getObject("upperLowerLetterCheck")};
 
@@ -314,18 +313,18 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    private List<WebElement> warningTexts(){
+    private List<WebElement> warningTexts() {
 
         List<WebElement> warningTexts = findElements(WARNING_TEXT);
         return warningTexts;
 
     }
 
-    public RegisterPage checkUsernameCombination(){
+    public RegisterPage checkUsernameCombination() {
 
         String character = "123";
 
-        setObjectBy(REGISTER_USERNAME,character);
+        setObjectBy(REGISTER_USERNAME, character);
 
 
         return this;
@@ -334,36 +333,35 @@ public class RegisterPage extends RegisterPage_Constants {
     public RegisterPage checkPasswordCombination() throws IOException, InterruptedException {
 
         String character = "*";
-        setObjectBy(REGISTER_PASSWORD,character);
+        setObjectBy(REGISTER_PASSWORD, character);
 
         scrollToElement(LASTNAME);
 
-        int count =0;
+        int count = 0;
 
-            for (int i=count; i< warningTexts().size(); i++){
+        for (int i = count; i < warningTexts().size(); i++) {
 
-                Assert.assertEquals(warningTexts().get(i).getText(), propertiesWarningTexts().get(i));
-            }
+            Assert.assertEquals(warningTexts().get(i).getText(), propertiesWarningTexts().get(i));
+        }
 
-            typeCorrectPassword();
+        typeCorrectPassword();
 
 
         return this;
     }
+
     private void typeCorrectPassword() throws IOException, InterruptedException {
 
         String newPassword = "afgs3dsd-Ab";
 
         reopenModal();
         scrollToElement(LASTNAME);
-        setObjectBy(REGISTER_PASSWORD,newPassword);
+        setObjectBy(REGISTER_PASSWORD, newPassword);
 
 
         try {
-           Assert.assertTrue("Uyarı texti kaybolmadı", !getElementBy(WARNING_TEXT).isDisplayed());
-        }
-
-        catch (Exception exp){
+            Assert.assertTrue("Uyarı texti kaybolmadı", !getElementBy(WARNING_TEXT).isDisplayed());
+        } catch (Exception exp) {
             exp.printStackTrace();
         }
 
@@ -374,36 +372,36 @@ public class RegisterPage extends RegisterPage_Constants {
         reopenModal();
 
         WebElement falseDate = getElemenstBy(FORM_INPUT, 2);
-        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) +1;
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH) + 1;
         String currentDate = Integer.toString(day);
 
         falseDate.sendKeys(currentDate);
 
 
-
     }
+
     private void selectRuleMonth() {
 
-        String[] months = {"Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim"
-        ,"Kasım","Aralık"};
+        String[] months = {"Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim"
+                , "Kasım", "Aralık"};
         List<String> monthList = Arrays.asList(months);
 
 
-        for (String month: monthList) {
-            if (month.equals(monthFormat.format(currentMonth))){
+        for (String month : monthList) {
+            if (month.equals(monthFormat.format(currentMonth))) {
 
-               selectMonth(month);
+                selectMonth(month);
 
             }
         }
     }
 
-    private void typeYear(){
+    private void typeYear() {
 
         int year = Calendar.getInstance().get(Calendar.YEAR);
         String currentYear = Integer.toString(year);
 
-        setObjectsBy(FORM_INPUT,3,currentYear);
+        setObjectsBy(FORM_INPUT, 3, currentYear);
 
     }
 
@@ -419,18 +417,17 @@ public class RegisterPage extends RegisterPage_Constants {
         return this;
     }
 
-    private boolean isSelectboxMonth(){
+    private boolean isSelectboxMonth() {
 
         WebElement month = getElementBy(BIRTHDATE).findElement(By.tagName("select"));
-        return isExistElement(MIN_WAIT_4_ELEMENT,month);
+        return isExistElement(MIN_WAIT_4_ELEMENT, month);
     }
-
 
 
     public RegisterPage checkInvalidValues() {
 
 
-        String[] invalidValues = {"12345","12345","abcdef","abcdef"};
+        String[] invalidValues = {"12345", "12345", "abcdef", "abcdef"};
 
         List<String> invalidValueList = Arrays.asList(invalidValues);
         int count = 0;
@@ -438,7 +435,7 @@ public class RegisterPage extends RegisterPage_Constants {
         for (int i = count; i < formInput().size(); i++) {
 
             formInput().get(i).sendKeys(invalidValueList.get(i));
-            checkFieldRule(FORM_INPUT,i);
+            checkFieldRule(FORM_INPUT, i);
 
         }
 
@@ -446,6 +443,51 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
+
+    public RegisterPage checkMandatoryField(int rowNumber) throws IOException, InterruptedException {
+
+        String[] info = {"Asım Emre", "Sarıkaya", "20","1991"};
+        List<String> registerInfoList = Arrays.asList(info);
+
+
+        for (String registerInfo : registerInfoList) {
+            scrollToElement(SUBMIT);
+            clickSubmit();
+            Assert.assertTrue("", getElementBy(WARNING_TEXT_ON_MODAL)
+                    .getText().equals(prop.getObject("mandatoryFieldMessage")));
+            if(isExistElement(OPT_WAIT_4_ELEMENT,getElementBy(CURSOR_FİELD).findElement(FORM_INPUT))) {
+                getElementBy(CURSOR_FİELD).findElement(FORM_INPUT).sendKeys(registerInfo);
+            }
+            else {
+                selectMonth("Nisan");
+            }
+
+
+           // setObjectBy(CURSOR_FİELD, registerInfo);
+        }
+
+        return this;
+
+    }
+
+
+    public RegisterPage checkMembershipMandatory() throws InterruptedException, IOException {
+
+        List<WebElement> checkbox = findElements(CHECKBOX);
+        scrollToElement(CHECKBOX);
+        int count = 0;
+
+        for (int loopCount = count; loopCount < 2; loopCount++) {
+            waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
+            clickSubmit();
+            Assert.assertTrue("", getElementBy(WARNING_TEXT_ON_MODAL)
+                    .getText().equals(prop.getObject("mandatoryFieldMessage")));
+            checkbox.get(loopCount).click();
+
+        }
+
+        return this;
+    }
 
 
 }

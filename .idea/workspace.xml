@@ -29,22 +29,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="buttonClose fix">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_12_2020_11_15_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_12_2020_11_15__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2020_10_20_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2020_10_20__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2020_10_54_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_12_2020_10_54__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/RegisterPage_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/RegisterPage_Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/ForgotPassPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/RegisterPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/RegisterPage_Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +98,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterTest.fieldsRuleCheck">
+  <component name="RunManager" selected="JUnit.RegisterTest.mandatoryFieldCheck">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -126,7 +126,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ForgotPassTest.failControlWithInvalidSsn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ForgotPassTest.successForgotPasswordWithSms" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tuttur.web.test" />
       <extension name="coverage">
         <pattern>
@@ -136,13 +136,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.ForgotPassTest" />
-      <option name="METHOD_NAME" value="failControlWithInvalidSsn" />
+      <option name="METHOD_NAME" value="successForgotPasswordWithSms" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ForgotPassTest.failControlWithSsn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ForgotPassTest.unSelectedSendResetLink" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tuttur.web.test" />
       <extension name="coverage">
         <pattern>
@@ -152,30 +152,14 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.ForgotPassTest" />
-      <option name="METHOD_NAME" value="failControlWithSsn" />
+      <option name="METHOD_NAME" value="unSelectedSendResetLink" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ForgotPassTest.successForgotPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterTest.mandatoryFieldCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="tuttur.web.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.ForgotPassTest" />
-      <option name="METHOD_NAME" value="successForgotPassword" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegisterTest.fieldsRuleCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.tuttur.test.*" />
@@ -184,26 +168,42 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
-      <option name="METHOD_NAME" value="fieldsRuleCheck" />
+      <option name="METHOD_NAME" value="mandatoryFieldCheck" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterTest.successFullyRegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tuttur.web.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
+      <option name="METHOD_NAME" value="successFullyRegisterTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ForgotPassTest.successForgotPassword" />
-      <item itemvalue="JUnit.ForgotPassTest.failControlWithSsn" />
-      <item itemvalue="JUnit.ForgotPassTest.failControlWithInvalidSsn" />
       <item itemvalue="JUnit.ForgotPassTest.failControl" />
-      <item itemvalue="JUnit.RegisterTest.fieldsRuleCheck" />
+      <item itemvalue="JUnit.ForgotPassTest.successForgotPasswordWithSms" />
+      <item itemvalue="JUnit.ForgotPassTest.unSelectedSendResetLink" />
+      <item itemvalue="JUnit.RegisterTest.successFullyRegisterTest" />
+      <item itemvalue="JUnit.RegisterTest.mandatoryFieldCheck" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisterTest.fieldsRuleCheck" />
-        <item itemvalue="JUnit.ForgotPassTest.successForgotPassword" />
-        <item itemvalue="JUnit.ForgotPassTest.failControlWithInvalidSsn" />
+        <item itemvalue="JUnit.RegisterTest.mandatoryFieldCheck" />
+        <item itemvalue="JUnit.RegisterTest.successFullyRegisterTest" />
+        <item itemvalue="JUnit.ForgotPassTest.successForgotPasswordWithSms" />
+        <item itemvalue="JUnit.ForgotPassTest.unSelectedSendResetLink" />
         <item itemvalue="JUnit.ForgotPassTest.failControl" />
-        <item itemvalue="JUnit.ForgotPassTest.failControlWithSsn" />
       </list>
     </recent_temporary>
   </component>
@@ -437,48 +437,6 @@
     <MESSAGE value="buttonClose fix" />
     <option name="LAST_COMMIT_MESSAGE" value="buttonClose fix" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="100" y="100" width="1240" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1609355242486">
-      <screen x="0" y="23" width="1440" height="834" />
-    </state>
-    <state x="100" y="100" width="1240" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.23.1440.834@0.23.1440.834" timestamp="1609355242486" />
-    <state width="1398" height="209" key="GridCell.Tab.0.bottom" timestamp="1609366965732">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="209" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1609366965732" />
-    <state width="1398" height="209" key="GridCell.Tab.0.center" timestamp="1609366965731">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="209" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1609366965731" />
-    <state width="1398" height="209" key="GridCell.Tab.0.left" timestamp="1609366965730">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="209" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1609366965730" />
-    <state width="1398" height="209" key="GridCell.Tab.0.right" timestamp="1609366965731">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="209" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1609366965731" />
-    <state width="1398" height="209" key="GridCell.Tab.1.bottom" timestamp="1609366965734">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="209" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1609366965734" />
-    <state width="1398" height="209" key="GridCell.Tab.1.center" timestamp="1609366965733">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="209" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1609366965733" />
-    <state width="1398" height="209" key="GridCell.Tab.1.left" timestamp="1609366965733">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="209" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1609366965732" />
-    <state width="1398" height="209" key="GridCell.Tab.1.right" timestamp="1609366965733">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="209" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1609366965733" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1609337749845">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1609337749845" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -489,9 +447,9 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java</url>
+          <line>457</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

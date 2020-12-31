@@ -39,6 +39,15 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return findElements(SEND_SMS_CHECKBOX).get(index);
     }
 
+    public ForgotPassPage checkboxClick (int index) {
+
+        sleep(2);
+        WebElement checkbox = findElements(SEND_SMS_CHECKBOX).get(index);
+        checkbox.click();
+        return this;
+
+    }
+
     private void clickResetPassword(){
         waitForElement(driver, MIN_WAIT_4_ELEMENT, RESET_PASS);
         clickObjectBy(RESET_PASS);
@@ -55,20 +64,23 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     }
 
-    public LoginPage sendResetLink() {
+    public ForgotPassPage clickButtonSend() {
 
-        checkbox(0).click();
         clickObjectBy(BUTTON_SEND);
-        buttonClose().click();  //xpath eklendi, id için iş açıldı
-
-        return new LoginPage(driver);
+        return this;
 
     }
 
-    public WebElement buttonClose() {
+
+
+
+
+    public LoginPage buttonCloseClick () {
 
         waitForElement(driver, OPT_WAIT_4_ELEMENT, BUTTON_CLOSE);
-        return getElementBy(BUTTON_CLOSE);
+        clickObjectBy(BUTTON_CLOSE);
+        return new LoginPage(driver);
+
     }
 
     public ForgotPassPage setPasswordChange() throws IOException {
@@ -103,6 +115,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
 
     }
+
 
 }
 

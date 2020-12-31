@@ -36,6 +36,7 @@ public class RegisterTest extends BaseTest {
                 .getRegisterPage()
                 .isExistBanner()
                 .setRegisterForm(1,0)
+                .checkMembershipMandatory()
                 .clickMembershipApprove()
                 .clickSubmit()
                 .smsActivation()
@@ -143,6 +144,17 @@ public class RegisterTest extends BaseTest {
                 .checkPasswordCombination()
                 .inputPatternCheck()
                 .checkUsernameCombination();
+
+    }
+
+    @Test
+    public void mandatoryFieldCheck () throws IOException, InterruptedException {
+
+        util.getSheet("RegisterData");
+
+        new MainPage(driver).accountUpdate()
+                .getRegisterPage()
+                .checkMandatoryField(1);
 
     }
 
