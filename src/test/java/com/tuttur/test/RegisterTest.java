@@ -36,7 +36,6 @@ public class RegisterTest extends BaseTest {
                 .getRegisterPage()
                 .isExistBanner()
                 .setRegisterForm(1,0)
-                .checkMembershipMandatory()
                 .clickMembershipApprove(0)
                 .clickSubmit()
                 .smsActivation()
@@ -182,6 +181,7 @@ public class RegisterTest extends BaseTest {
                 .checkUsernameCombination();
 
         // checkUsernameCombination metodu patlıyor uyarı textlerindeki geliştirme henüz bitmedi. Bittiğinde düzelecek.
+        // soyad kısmındaa uyarrı texti yok fixlendiğinde yazılacaak.
     }
 
     @Test
