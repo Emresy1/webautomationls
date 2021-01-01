@@ -154,7 +154,11 @@ public class RegisterTest extends BaseTest {
 
         new MainPage(driver).accountUpdate()
                 .getRegisterPage()
-                .checkMandatoryField(1);
+                .formButtonAndInfoControl()
+                .checkMandatoryField()
+                .checkMembershipMandatory();
+
+
 
     }
 

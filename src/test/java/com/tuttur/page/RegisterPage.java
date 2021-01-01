@@ -444,26 +444,29 @@ public class RegisterPage extends RegisterPage_Constants {
     }
 
 
-    public RegisterPage checkMandatoryField(int rowNumber) throws IOException, InterruptedException {
+    public RegisterPage checkMandatoryField () throws IOException, InterruptedException {
 
-        String[] info = {"Asım Emre", "Sarıkaya", "20","1991"};
+        String[] info = {"Asım Emre", "Sarıkaya", "20", "", "1991"
+                , "17376674056", "5302214268", "emres@tuttur.com", "Automation1421", "Test654321"};
         List<String> registerInfoList = Arrays.asList(info);
 
 
         for (String registerInfo : registerInfoList) {
+
             scrollToElement(SUBMIT);
             clickSubmit();
             Assert.assertTrue("", getElementBy(WARNING_TEXT_ON_MODAL)
                     .getText().equals(prop.getObject("mandatoryFieldMessage")));
-            if(isExistElement(OPT_WAIT_4_ELEMENT,getElementBy(CURSOR_FİELD).findElement(FORM_INPUT))) {
+
+            if (findElements(CURSOR_FİELD).size() != 0) {
+
                 getElementBy(CURSOR_FİELD).findElement(FORM_INPUT).sendKeys(registerInfo);
-            }
-            else {
+
+            } else if (getElementBy(By.cssSelector(".formSelect.formSelect--hasLabel")).isDisplayed()) {
+
                 selectMonth("Nisan");
+
             }
-
-
-           // setObjectBy(CURSOR_FİELD, registerInfo);
         }
 
         return this;
@@ -485,6 +488,16 @@ public class RegisterPage extends RegisterPage_Constants {
             checkbox.get(loopCount).click();
 
         }
+
+        return this;
+    }
+
+    public RegisterPage formButtonAndInfoControl () {
+
+        Assert.assertTrue("Üye ol butonu aktif değil",getElementBy(SUBMIT).isEnabled());
+        Assert.assertTrue("Zaten üyeyim butonu mevcut değil",getElementBy(ALREADY_MEMBER).isDisplayed());
+        Assert.assertTrue("Bilgilendirme mesajı mevcut değil",getElemenstBy(INFO_TEXT,0).isDisplayed());
+        Assert.assertTrue("Bilgilendirme mesajı mevcut değil",getElemenstBy(INFO_TEXT,1).isDisplayed());
 
         return this;
     }
