@@ -25,5 +25,9 @@ public class GeneralPage extends BasePage {
 
     public static String newPasswordChange = "Test" + generateRandomInt(9999);
 
+    public static String usernamePlaceholder;
+
+    public static String refreshUsername;
+
 
     }

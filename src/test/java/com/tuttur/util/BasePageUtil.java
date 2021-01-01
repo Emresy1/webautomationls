@@ -2,10 +2,7 @@ package com.tuttur.util;
 
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,6 +30,7 @@ public class BasePageUtil {
     public static final int RESEND_CODE_WAIT = 181;
 	
 	public WebElement getElementBy(By by) {
+
 		return driver.findElement(by);
 	}
 	
@@ -43,6 +41,16 @@ public class BasePageUtil {
 	public void waitForElementDisappear(WebElement element){
 		WebDriverWait wait = new WebDriverWait(driver,DEFAULT_WAIT_4_ELEMENT);
 		wait.until(ExpectedConditions.invisibilityOf(element));
+	}
+
+	public void waitForInvisibility(WebElement webElement, int maxSeconds) {
+
+		Long startTime = System.currentTimeMillis();
+		try {
+			while (System.currentTimeMillis() - startTime < maxSeconds * 1000 && webElement.isDisplayed()) {}
+		} catch (StaleElementReferenceException e) {
+			return;
+		}
 	}
 
 	public String getData (int rowNumber , int cellNumber) {

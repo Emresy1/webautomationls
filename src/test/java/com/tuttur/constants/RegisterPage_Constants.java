@@ -34,6 +34,7 @@ public class RegisterPage_Constants extends BasePageUtil {
     public By CURSOR_FİELD= By.cssSelector(".formInput--isFocus.formInput.formInput--hasLabel");
     public By ALREADY_MEMBER = By.className("registerForm-link");
     public By INFO_TEXT = By.className("formElementInfo-text");
+    public By USERNAME_LOADING = By.cssSelector(".formInput.formInput--hasLabel.formInput--hasPlaceholder.loading");
 
 
 

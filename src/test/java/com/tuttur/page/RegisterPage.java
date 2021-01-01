@@ -1,16 +1,14 @@
 package com.tuttur.page;
 
-import com.sun.jna.StringArray;
+
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.RegisterPage_Constants;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -88,7 +86,8 @@ public class RegisterPage extends RegisterPage_Constants {
 
     /**
      * Methoda 0 indexi verilirse username fieldına keywordu setleyecek. index 1 olduğunda username fieldı içerisinde
-     * yer alan "kullan" fonksiyonu ile kullanıcı kendi username üretmiş olacaktır.
+     * yer alan "kullan" fonksiyonu ile, index 2 olduğunda ise önerilen username yeni bir username ile değişecek
+     * ve kullanıcı kendi username üretmiş olacaktır.
      *
      * @param usernameIndex
      * @throws IOException
@@ -96,19 +95,37 @@ public class RegisterPage extends RegisterPage_Constants {
 
     private RegisterPage setUsername(int usernameIndex) throws IOException {
 
-        boolean click = 0 < usernameIndex;
+        int click = usernameIndex;
         sleep(2);
-        WebElement use = findElements(By.className("medium")).get(3);
+        List<WebElement> use = findElements(By.className("medium"));
 
-        if (click == true) {
+        if (click == 1) {
 
-            use.click();
+            use.get(3).click();
             getUsernameText();
 
-        } else {
+        } else if(click == 0){
 
             waitForElement(driver, OPT_WAIT_4_ELEMENT, REGISTER_USERNAME);
             setObjectBy(REGISTER_USERNAME, general.username);
+        }
+        else {
+
+            String placeholder = getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10);
+
+           general.usernamePlaceholder = placeholder;
+
+            use.get(2).click();
+
+            WebElement loading = getElementBy(USERNAME_LOADING);
+            waitForInvisibility(loading,OPT_WAIT_4_ELEMENT);
+
+            Assert.assertNotEquals(general.usernamePlaceholder,
+                    getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10));
+            use.get(3).click();
+
+            general.refreshUsername = getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10);
+
         }
         return this;
     }
@@ -148,7 +165,6 @@ public class RegisterPage extends RegisterPage_Constants {
         ssnPatternCheck();
         gsmPatternCheck();
         emailPatternCheck();
-
 
         return this;
     }
@@ -301,7 +317,7 @@ public class RegisterPage extends RegisterPage_Constants {
         new MainPage(driver).getRegisterPage();
     }
 
-    private List<String> propertiesWarningTexts() throws IOException {
+    private List<String> propertiesPasswordTexts() throws IOException {
 
         String[] propWarningText = {prop.getObject("letterCheck"), prop.getObject("numberCheck"),
                 prop.getObject("lenghtCheck"), prop.getObject("specialCharacterCheck"),
@@ -320,12 +336,22 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    public RegisterPage checkUsernameCombination() {
+    public RegisterPage checkUsernameCombination() throws IOException, InterruptedException {
 
         String character = "123";
 
-        setObjectBy(REGISTER_USERNAME, character);
+        setObjectBy(REGISTER_USERNAME,character);
+        scrollToElement(NAME);
 
+        List<WebElement> inputWarningText = findElements(INPUT_ERROR_TEXT);
+
+        int count =0;
+
+        for (int i=count; i< inputWarningText.size(); i++){
+
+            Assert.assertTrue("Uyarı mesajı görülmedi", inputWarningText.get(i).getText()
+            .equals(propertiesUsernameText().get(i)));
+        }
 
         return this;
     }
@@ -341,11 +367,10 @@ public class RegisterPage extends RegisterPage_Constants {
 
         for (int i = count; i < warningTexts().size(); i++) {
 
-            Assert.assertEquals(warningTexts().get(i).getText(), propertiesWarningTexts().get(i));
-        }
+                Assert.assertEquals(warningTexts().get(i).getText(), propertiesPasswordTexts().get(i));
+            }
 
         typeCorrectPassword();
-
 
         return this;
     }
@@ -501,6 +526,17 @@ public class RegisterPage extends RegisterPage_Constants {
 
         return this;
     }
+
+    private List<String> propertiesUsernameText() throws IOException {
+
+        String[] usernameText = {prop.getObject("minEightCharacter"),prop.getObject("minOneLetter"),
+        prop.getObject("consecutiveNumber")};
+
+        List<String> warningText = Arrays.asList(usernameText);
+
+        return warningText;
+    }
+
 
 
 }

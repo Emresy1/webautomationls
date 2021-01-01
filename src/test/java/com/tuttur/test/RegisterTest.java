@@ -64,9 +64,30 @@ public class RegisterTest extends BaseTest {
                 .checkUserText(general.generateUsernameText.toString());
 
     }
-
     /**
      * Case 1.2
+     * Mevcut kullanıcı ile register
+     * Kullanıcı adı yenile ve kullan
+     */
+
+    @Test
+    public void registerWithRefreshUsername() throws IOException, InterruptedException {
+
+        util.getSheet("RegisterData");
+
+        new MainPage(driver).accountUpdate()
+                .getRegisterPage()
+                .setRegisterForm(2,3)
+                .clickMembershipApprove()
+                .clickSubmit()
+                .smsActivation()
+                .checkUserText(general.refreshUsername);
+
+    }
+
+
+    /**
+     * Case 1.3
      * Mevcut kullanıcı ile register
      * Aynı datalar ile register olunduğunda kullanıcı login olur
      *
@@ -88,7 +109,7 @@ public class RegisterTest extends BaseTest {
     }
 
     /**
-     * Case 1.3
+     * Case 1.4
      * Mevcut kullanıcı ile register
      * Aynı datalar ile register olup şifre farklı girildiğinde şifremi unuttuma yönlenir.
      */
@@ -103,6 +124,21 @@ public class RegisterTest extends BaseTest {
                 .clickMembershipApprove()
                 .clickSubmit()
                 .checkForgotPasswordModal(6);
+    }
+    /**
+     * Case 1.5
+     * Bloklu kullanıcıyla register
+     */
+
+    @Test
+    public void registerWithBlockedUser() throws IOException, InterruptedException {
+
+       util.getSheet("RegisterData");
+
+       new MainPage(driver).getRegisterPage()
+               .setRegisterForm(7,0)
+               .clickMembershipApprove()
+               .clickSubmit();
     }
 
     /**
@@ -145,6 +181,7 @@ public class RegisterTest extends BaseTest {
                 .inputPatternCheck()
                 .checkUsernameCombination();
 
+        // checkUsernameCombination metodu patlıyor uyarı textlerindeki geliştirme henüz bitmedi. Bittiğinde düzelecek.
     }
 
     @Test
@@ -161,5 +198,6 @@ public class RegisterTest extends BaseTest {
 
 
     }
+
 
 }
