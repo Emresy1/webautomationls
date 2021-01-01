@@ -144,24 +144,52 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    public RegisterPage clickMembershipApprove() throws InterruptedException {
+    public RegisterPage clickMembershipApprove(int index) throws InterruptedException, IOException {
 
         List<WebElement> checkbox = findElements(CHECKBOX);
         scrollToElement(CHECKBOX);
+
         int count = 0;
 
-        for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {
-            waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
-            checkbox.get(loopCount).click();
+        if (index == 0){
 
+                for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {
+
+                    waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
+                    checkbox.get(loopCount).click();
+
+            }
         }
 
+        else {
+
+            for (int loopCount=0; loopCount < 2; loopCount++) {
+
+                waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
+                clickSubmit();
+
+                Assert.assertTrue("", getElementBy(WARNING_TEXT_ON_MODAL)
+                        .getText().equals(prop.getObject("mandatoryFieldMessage")));
+
+                checkbox.get(loopCount).click();
+            }
+           }
+
         return this;
+    }
+    private void namePatternCheck() throws IOException {
+
+        setObjectBy(By.className("formElementError-text"), "a");
+        modalTitle().click();
+
+        Assert.assertTrue("Uyarı texti görülmedi", getElementBy(WARNING_TEXT)
+                         .equals(prop.getObject("namePatternMessage")));
     }
 
     public RegisterPage inputPatternCheck() throws IOException {
 
         reopenModal();
+        namePatternCheck();
         ssnPatternCheck();
         gsmPatternCheck();
         emailPatternCheck();
@@ -402,7 +430,6 @@ public class RegisterPage extends RegisterPage_Constants {
 
         falseDate.sendKeys(currentDate);
 
-
     }
 
     private void selectRuleMonth() {
@@ -448,9 +475,7 @@ public class RegisterPage extends RegisterPage_Constants {
         return isExistElement(MIN_WAIT_4_ELEMENT, month);
     }
 
-
     public RegisterPage checkInvalidValues() {
-
 
         String[] invalidValues = {"12345", "12345", "abcdef", "abcdef"};
 
@@ -467,7 +492,6 @@ public class RegisterPage extends RegisterPage_Constants {
         return this;
 
     }
-
 
     public RegisterPage checkMandatoryField () throws IOException, InterruptedException {
 
@@ -495,34 +519,19 @@ public class RegisterPage extends RegisterPage_Constants {
         }
 
         return this;
-
     }
 
-
-    public RegisterPage checkMembershipMandatory() throws InterruptedException, IOException {
-
-        List<WebElement> checkbox = findElements(CHECKBOX);
-        scrollToElement(CHECKBOX);
-        int count = 0;
-
-        for (int loopCount = count; loopCount < 2; loopCount++) {
-            waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
-            clickSubmit();
-            Assert.assertTrue("", getElementBy(WARNING_TEXT_ON_MODAL)
-                    .getText().equals(prop.getObject("mandatoryFieldMessage")));
-            checkbox.get(loopCount).click();
-
-        }
-
-        return this;
-    }
 
     public RegisterPage formButtonAndInfoControl () {
 
         Assert.assertTrue("Üye ol butonu aktif değil",getElementBy(SUBMIT).isEnabled());
         Assert.assertTrue("Zaten üyeyim butonu mevcut değil",getElementBy(ALREADY_MEMBER).isDisplayed());
-        Assert.assertTrue("Bilgilendirme mesajı mevcut değil",getElemenstBy(INFO_TEXT,0).isDisplayed());
-        Assert.assertTrue("Bilgilendirme mesajı mevcut değil",getElemenstBy(INFO_TEXT,1).isDisplayed());
+
+        List<WebElement> infoText = findElements(INFO_TEXT);
+        for (int i=0; i < infoText.size(); i++){
+
+            Assert.assertTrue("Bilgilendirme mesajı görülmedi", infoText.get(i).isDisplayed());
+        }
 
         return this;
     }

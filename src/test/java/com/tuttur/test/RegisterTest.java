@@ -37,7 +37,7 @@ public class RegisterTest extends BaseTest {
                 .isExistBanner()
                 .setRegisterForm(1,0)
                 .checkMembershipMandatory()
-                .clickMembershipApprove()
+                .clickMembershipApprove(0)
                 .clickSubmit()
                 .smsActivation()
                 .checkUserText(general.username);
@@ -58,7 +58,7 @@ public class RegisterTest extends BaseTest {
                 .getRegisterPage()
                 .isExistBanner()
                 .setRegisterForm(2,1)
-                .clickMembershipApprove()
+                .clickMembershipApprove(0)
                 .clickSubmit()
                 .smsActivation()
                 .checkUserText(general.generateUsernameText.toString());
@@ -78,7 +78,7 @@ public class RegisterTest extends BaseTest {
         new MainPage(driver).accountUpdate()
                 .getRegisterPage()
                 .setRegisterForm(2,3)
-                .clickMembershipApprove()
+                .clickMembershipApprove(0)
                 .clickSubmit()
                 .smsActivation()
                 .checkUserText(general.refreshUsername);
@@ -102,7 +102,7 @@ public class RegisterTest extends BaseTest {
 
         new MainPage(driver).getRegisterPage()
                 .setRegisterForm(5,0)
-                .clickMembershipApprove()
+                .clickMembershipApprove(0)
                 .clickSubmit();
 
         new MainPage(driver).checkRegisterLogin();
@@ -121,7 +121,7 @@ public class RegisterTest extends BaseTest {
 
         new MainPage(driver).getRegisterPage()
                 .setRegisterForm(6,0)
-                .clickMembershipApprove()
+                .clickMembershipApprove(0)
                 .clickSubmit()
                 .checkForgotPasswordModal(6);
     }
@@ -137,7 +137,7 @@ public class RegisterTest extends BaseTest {
 
        new MainPage(driver).getRegisterPage()
                .setRegisterForm(7,0)
-               .clickMembershipApprove()
+               .clickMembershipApprove(0)
                .clickSubmit();
     }
 
@@ -156,7 +156,7 @@ public class RegisterTest extends BaseTest {
         new MainPage(driver).getRegisterPage()
                 .isExistBanner()
                 .setRegisterForm(3,0)
-                .clickMembershipApprove()
+                .clickMembershipApprove(0)
                 .clickSubmit()
                 .checkWarningTextOnModal(3,10,11);
     }
@@ -193,7 +193,7 @@ public class RegisterTest extends BaseTest {
                 .getRegisterPage()
                 .formButtonAndInfoControl()
                 .checkMandatoryField()
-                .checkMembershipMandatory();
+                .clickMembershipApprove(1);
 
 
 
