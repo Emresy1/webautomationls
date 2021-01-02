@@ -3,8 +3,10 @@ package com.tuttur.test;
 
 import com.tuttur.base.BaseTest;
 import com.tuttur.configs.PropertiesFile;
+import com.tuttur.page.ForgotPassPage;
 import com.tuttur.page.GeneralPage;
 import com.tuttur.page.MainPage;
+import com.tuttur.page.RegisterPage;
 import com.tuttur.util.BasePageUtil;
 import org.junit.Test;
 
@@ -137,7 +139,8 @@ public class RegisterTest extends BaseTest {
        new MainPage(driver).getRegisterPage()
                .setRegisterForm(7,0)
                .clickMembershipApprove(0)
-               .clickSubmit();
+               .clickSubmit()
+               .checkFormErrorMessage(prop.getObject("blockeduserMessage"));
     }
 
     /**
@@ -195,9 +198,62 @@ public class RegisterTest extends BaseTest {
                 .checkMandatoryField()
                 .clickMembershipApprove(1);
 
+    }
 
+    /**
+     * Case 2.2
+     *  Sistemde mevcut kullanıcı ile, Ad soyad, doğum tarihi ve tckn bilgileri doğru, diğer inputlara
+     *  random data girilerek login
+     */
+
+    @Test
+    public void loginWithCompulsoryInput() throws IOException, InterruptedException {
+
+        util.getSheet("RegisterData");
+
+        new MainPage(driver).getRegisterPage()
+                .setRegisterForm(8,1)
+                .clickMembershipApprove(0)
+                .clickSubmit();
+        new MainPage(driver).checkUserText(general.staticUsername);
 
     }
 
+    /**
+     * Case 2.3
+     * Kullanıcının ad, soyad ve doğum tarihi eşleşmedi
+     */
+
+    @Test
+    public void checkCredentialsDoNotMatch() throws IOException, InterruptedException {
+
+        util.getSheet("RegisterData");
+
+        new MainPage(driver).getRegisterPage()
+                .setRegisterForm(9,1)
+                .clickMembershipApprove(0)
+                .clickSubmit()
+                .checkFormErrorMessage(prop.getObject("credentialsDoNotMatch"));
+    }
+
+    /**
+     * Case 2.4
+     * Sistemde kayıtlı cep telefonu ile register
+     */
+
+    @Test
+    public void checkExistGsm() throws IOException, InterruptedException {
+
+        util.getSheet("RegisterData");
+
+        new MainPage(driver).accountUpdate()
+                .getRegisterPage()
+                .setRegisterForm(10,1)
+                .clickMembershipApprove(0)
+                .clickSubmit();
+        new ForgotPassPage(driver).checkWarningTextOnModal(prop.getObject("existGsmMessage"));
+
+        // uyaarı texti registerda görülecek şu an şifremi unuttum modalına göre yazıldı.
+    }
 
 }

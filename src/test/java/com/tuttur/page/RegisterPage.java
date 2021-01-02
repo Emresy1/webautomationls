@@ -177,24 +177,22 @@ public class RegisterPage extends RegisterPage_Constants {
 
         return this;
     }
-    private void namePatternCheck() throws IOException {
 
-        setObjectBy(By.className("formElementError-text"), "a");
-        modalTitle().click();
-
-        Assert.assertTrue("Uyarı texti görülmedi", getElementBy(WARNING_TEXT)
-                         .equals(prop.getObject("namePatternMessage")));
-    }
 
     public RegisterPage inputPatternCheck() throws IOException {
 
         reopenModal();
-        namePatternCheck();
         ssnPatternCheck();
         gsmPatternCheck();
         emailPatternCheck();
 
         return this;
+    }
+
+    public void checkFormErrorMessage(String text){
+
+        waitForElement(driver,OPT_WAIT_4_ELEMENT,WARNING_TEXT_ON_MODAL);
+        Assert.assertTrue("Uyarı mesajı yanlış", getElementBy(WARNING_TEXT_ON_MODAL).getText().equals(text));
     }
 
     private WebElement modalTitle() {

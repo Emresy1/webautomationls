@@ -72,6 +72,14 @@ public class ForgotPassPage extends ForgotPass_Constants {
     }
 
 
+    public ForgotPassPage checkWarningTextOnModal(String text){
+
+        waitForElement(driver,OPT_WAIT_4_ELEMENT,RESET_PASS);
+        Assert.assertTrue("Modalda uyarı texti görülmedi", getElementBy(WARNING_TEXT_MODAL).getText()
+        .equals(text));
+
+        return this;
+    }
 
 
 

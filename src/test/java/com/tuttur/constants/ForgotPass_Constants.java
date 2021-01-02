@@ -23,5 +23,7 @@ public class ForgotPass_Constants extends BasePageUtil {
     public By BUTTON_CLOSE = By.xpath("//*[@id=\"modal\"]/div[2]/div[2]/div[2]/div/div/div[2]/button");
     public By ERROR_FIELD = By.className("formPage-error");
     public By SSN_ERROR_MESSAGE = By.className("formElementError-text");
+    public By WARNING_TEXT_MODAL = By.className("formPage-description");
+
 
 }

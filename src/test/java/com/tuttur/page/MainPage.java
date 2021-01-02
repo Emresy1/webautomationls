@@ -29,25 +29,32 @@ public class MainPage extends MainPage_Constants {
     GeneralPage general = new GeneralPage(driver);
 
     public void dropdownMenu(String menu) {
+
         List<WebElement> dropdown = driver.findElements(DROPDOWN_MENU);
 
         for (WebElement element : dropdown) {
+
             String menuItem = element.findElement(By.tagName("a")).getText();
 
             if (menuItem.contains(menu)) {
+
                 element.click();
             }
         }
     }
 
     public LoginPage getLoginPage() {
+
         clickObjectBy(BUTTON_LOGIN);
+
         return new LoginPage(driver);
     }
 
     public MainPage logout() {
+
         clickObjectBy(AVATAR);
         dropdownMenu("Çıkış");
+
         return this;
     }
 
@@ -72,6 +79,7 @@ public class MainPage extends MainPage_Constants {
 
     }
 
+
     public MainPage checkAccountNo( int rowNumber) throws IOException {
 
         assertTrue(getData(rowNumber,7),getElementBy(ACCOUNT_NO).getText()
@@ -90,6 +98,7 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkUserText(String username){
 
         String headerUser = username;
+        waitForElement(driver,OPT_WAIT_4_ELEMENT,USERNAMETEXT);
         Assert.assertTrue("Kullanıcı adı görülmedi", getElementBy(USERNAMETEXT).getText()
         .equals(headerUser));
 
