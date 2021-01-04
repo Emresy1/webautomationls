@@ -392,11 +392,11 @@ public class RegisterPage extends RegisterPage_Constants {
 
         scrollToElement(LASTNAME);
 
-        int count = 0;
+        int count = 1;
 
         for (int i = count; i < warningTexts().size(); i++) {
 
-                Assert.assertEquals(warningTexts().get(i).getText(), propertiesPasswordTexts().get(i));
+                Assert.assertEquals(warningTexts().get(i).getText(), propertiesPasswordTexts().get(i-1));
             }
 
         typeCorrectPassword();
@@ -451,7 +451,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     private void typeYear() {
 
-        int year = Calendar.getInstance().get(Calendar.YEAR);
+        int year = Calendar.getInstance().get(Calendar.YEAR) - 18;
         String currentYear = Integer.toString(year);
 
         setObjectsBy(FORM_INPUT, 3, currentYear);
@@ -463,11 +463,18 @@ public class RegisterPage extends RegisterPage_Constants {
         typeRuleDate();
         selectRuleMonth();
         typeYear();
+        check18YearsMessage();
             /*
             Gün ve Ay inputların 18 yaş kuralı yok fixlendiğinde assert edilecek
              */
 
         return this;
+    }
+
+    private void check18YearsMessage () throws IOException {
+
+     Assert.assertTrue("18 yaş kontrolü başarısız",getElementBy(INPUT_ERROR_TEXT).getText()
+             .equals((prop.getObject("18yearsMessage"))));
     }
 
     private boolean isSelectboxMonth() {
