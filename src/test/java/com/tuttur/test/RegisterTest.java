@@ -3,22 +3,21 @@ package com.tuttur.test;
 
 import com.tuttur.base.BaseTest;
 import com.tuttur.configs.PropertiesFile;
-import com.tuttur.page.ForgotPassPage;
-import com.tuttur.page.GeneralPage;
-import com.tuttur.page.MainPage;
-import com.tuttur.page.RegisterPage;
+import com.tuttur.page.*;
 import com.tuttur.util.BasePageUtil;
 import org.junit.Test;
 
 import java.io.IOException;
 
-public class RegisterTest extends BaseTest {
+public class RegisterTest extends BaseTest  {
 
     PropertiesFile prop = new PropertiesFile(driver);
     GeneralPage general = new GeneralPage(driver);
     BasePageUtil util = new BasePageUtil(driver);
 
     public RegisterTest() throws IOException {
+
+
     }
 
     /**
@@ -44,6 +43,7 @@ public class RegisterTest extends BaseTest {
                 .checkUserText(general.username);
 
     }
+
 
     /**
      * Case 1.1

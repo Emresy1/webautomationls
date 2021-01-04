@@ -19,6 +19,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     public RegisterPage(WebDriver driver) throws IOException {
         super(driver);
+
     }
 
     PropertiesFile prop = new PropertiesFile(driver);
@@ -107,7 +108,9 @@ public class RegisterPage extends RegisterPage_Constants {
         } else if(click == 0){
 
             waitForElement(driver, OPT_WAIT_4_ELEMENT, REGISTER_USERNAME);
-            setObjectBy(REGISTER_USERNAME, general.username);
+            setObjectBy(REGISTER_USERNAME, general.usernameText);
+
+           general.username = getElementBy(By.name("username")).getAttribute("value");
         }
         else {
 
