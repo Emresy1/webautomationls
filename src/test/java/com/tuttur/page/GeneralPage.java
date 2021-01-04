@@ -17,7 +17,7 @@ public class GeneralPage extends BasePage {
     }
 
 
-    public  String usernameText = "automation" + generateRandomInt(9999);
+    public String usernameText = "automation" + generateRandomInt(9999);
 
     public static String username;
 
