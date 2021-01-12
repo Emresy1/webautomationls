@@ -34,7 +34,9 @@ public class ForgotPassPage extends ForgotPass_Constants {
      * @param index
      * @return
      */
+
     private WebElement checkbox(int index) {
+
         sleep(2);
         return findElements(SEND_SMS_CHECKBOX).get(index);
     }
@@ -53,7 +55,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
         clickObjectBy(RESET_PASS);
     }
 
-
     public ForgotPassPage forgotPassSteps(int rowNumber) throws IOException {
 
         setSSN(rowNumber);
@@ -71,7 +72,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     }
 
-
     public ForgotPassPage checkWarningTextOnModal(String text){
 
         waitForElement(driver,OPT_WAIT_4_ELEMENT,RESET_PASS);
@@ -80,8 +80,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
         return this;
     }
-
-
 
     public LoginPage buttonCloseClick () {
 
@@ -123,8 +121,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
 
     }
-
-
 }
 
 

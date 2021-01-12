@@ -210,6 +210,7 @@ public class BasePageUtil {
 		Set<String> allWindows = driver.getWindowHandles();
 		for(String currentWindow : allWindows){
 		    driver.switchTo().window(currentWindow);
+
 		}
 	}
 	

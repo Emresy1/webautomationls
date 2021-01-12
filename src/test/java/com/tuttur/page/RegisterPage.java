@@ -27,8 +27,7 @@ public class RegisterPage extends RegisterPage_Constants {
     GeneralPage general = new GeneralPage(driver);
     SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM", new Locale("tr"));
     Date currentMonth = new Date();
-    LocalDate currentDate = LocalDate.now();
-    Actions action = new Actions(driver);
+
 
 
     private RegisterPage setName(String name) throws IOException {
@@ -96,40 +95,45 @@ public class RegisterPage extends RegisterPage_Constants {
 
     private RegisterPage setUsername(int usernameIndex) throws IOException {
 
-        int click = usernameIndex;
         sleep(2);
         List<WebElement> use = findElements(By.className("medium"));
 
-        if (click == 1) {
+        switch (usernameIndex){
 
-            use.get(3).click();
-            getUsernameText();
+            case 1:
+                use.get(3).click();
+                getUsernameText();
 
-        } else if(click == 0){
+                break;
 
-            waitForElement(driver, OPT_WAIT_4_ELEMENT, REGISTER_USERNAME);
-            setObjectBy(REGISTER_USERNAME, general.usernameText);
+            case 0:
 
-           general.username = getElementBy(By.name("username")).getAttribute("value");
+                waitForElement(driver, OPT_WAIT_4_ELEMENT, REGISTER_USERNAME);
+                setObjectBy(REGISTER_USERNAME, general.usernameText);
+
+                general.username = getElementBy(By.name("username")).getAttribute("value");
+
+                break;
+
+            default:
+
+                String placeholder = getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10);
+
+                general.usernamePlaceholder = placeholder;
+
+                use.get(2).click();
+
+                WebElement loading = getElementBy(USERNAME_LOADING);
+                waitForInvisibility(loading,OPT_WAIT_4_ELEMENT);
+
+                Assert.assertNotEquals(general.usernamePlaceholder,
+                        getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10));
+                use.get(3).click();
+
+                general.refreshUsername = getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10);
+
         }
-        else {
 
-            String placeholder = getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10);
-
-           general.usernamePlaceholder = placeholder;
-
-            use.get(2).click();
-
-            WebElement loading = getElementBy(USERNAME_LOADING);
-            waitForInvisibility(loading,OPT_WAIT_4_ELEMENT);
-
-            Assert.assertNotEquals(general.usernamePlaceholder,
-                    getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10));
-            use.get(3).click();
-
-            general.refreshUsername = getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10);
-
-        }
         return this;
     }
 
@@ -464,6 +468,7 @@ public class RegisterPage extends RegisterPage_Constants {
         selectRuleMonth();
         typeYear();
         check18YearsMessage();
+
             /*
             Gün ve Ay inputların 18 yaş kuralı yok fixlendiğinde assert edilecek
              */
