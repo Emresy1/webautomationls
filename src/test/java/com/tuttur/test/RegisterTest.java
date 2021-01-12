@@ -36,7 +36,7 @@ public class RegisterTest extends BaseTest {
         new MainPage(driver).accountUpdate()
                 .getRegisterPage()
                 .isExistBanner()
-                .setRegisterForm(1, 0)
+                .setRegisterForm(1, "username-type")
                 .clickMembershipApprove(0)
                 .clickSubmit()
                 .smsActivation()
@@ -45,10 +45,10 @@ public class RegisterTest extends BaseTest {
     }
 
 
-    /**
+   /* *//**
      * Case 1.1
      * Başarılı üye ol (username kullan fonksiyonu ile)
-     */
+     *//*
 
     @Test
     public void registerWithUseFunctional() throws IOException, InterruptedException {
@@ -66,11 +66,11 @@ public class RegisterTest extends BaseTest {
 
     }
 
-    /**
+    *//**
      * Case 1.2
      * Mevcut kullanıcı ile register
      * Kullanıcı adı yenile ve kullan
-     */
+     *//*
 
     @Test
     public void registerWithRefreshUsername() throws IOException, InterruptedException {
@@ -88,14 +88,14 @@ public class RegisterTest extends BaseTest {
     }
 
 
-    /**
+    *//**
      * Case 1.3
      * Mevcut kullanıcı ile register
      * Aynı datalar ile register olunduğunda kullanıcı login olur
      *
      * @throws IOException
      * @throws InterruptedException
-     */
+     *//*
 
     @Test
     public void currentUserRegisterToLogin() throws IOException, InterruptedException {
@@ -110,11 +110,11 @@ public class RegisterTest extends BaseTest {
         new MainPage(driver).checkRegisterLogin();
     }
 
-    /**
+    *//**
      * Case 1.4
      * Mevcut kullanıcı ile register
      * Aynı datalar ile register olup şifre farklı girildiğinde şifremi unuttuma yönlenir.
-     */
+     *//*
 
     @Test
     public void currentUserRegisterToForgotPassword() throws IOException, InterruptedException {
@@ -128,10 +128,10 @@ public class RegisterTest extends BaseTest {
                 .checkForgotPasswordModal(6);
     }
 
-    /**
+    *//**
      * Case 1.5
      * Bloklu kullanıcıyla register
-     */
+     *//*
 
     @Test
     public void registerWithBlockedUser() throws IOException, InterruptedException {
@@ -145,12 +145,12 @@ public class RegisterTest extends BaseTest {
                 .checkFormErrorMessage(prop.getObject("blockeduserMessage"));
     }
 
-    /**
+    *//**
      * Case 2.0
      * Başarısız üye ol (invalid datalar ile)
      * Yanlış isim
      * Yanlış doğum tarihi
-     */
+     *//*
 
     @Test
     public void registerWithInvalidData() throws IOException, InterruptedException {
@@ -166,13 +166,13 @@ public class RegisterTest extends BaseTest {
                 .checkWarningTextOnModal(3, 10, 11);
     }
 
-    /**
+    *//**
      * in
      * Case 2.1
      * Numerik ve alfanumerik satırların kural kontrolü
      *
      * @throws IOException
-     */
+     *//*
 
     @Test
     public void fieldsRuleCheck() throws IOException, InterruptedException {
@@ -204,11 +204,11 @@ public class RegisterTest extends BaseTest {
 
     }
 
-    /**
+    *//**
      * Case 2.2
      * Sistemde mevcut kullanıcı ile, Ad soyad, doğum tarihi ve tckn bilgileri doğru, diğer inputlara
      * random data girilerek login
-     */
+     *//*
 
     @Test
     public void loginWithCompulsoryInput() throws IOException, InterruptedException {
@@ -223,10 +223,10 @@ public class RegisterTest extends BaseTest {
 
     }
 
-    /**
+    *//**
      * Case 2.3
      * Kullanıcının ad, soyad ve doğum tarihi eşleşmedi
-     */
+     *//*
 
     @Test
     public void checkCredentialsDoNotMatch() throws IOException, InterruptedException {
@@ -240,10 +240,10 @@ public class RegisterTest extends BaseTest {
                 .checkFormErrorMessage(prop.getObject("credentialsDoNotMatch"));
     }
 
-    /**
+    *//**
      * Case 2.4
      * Sistemde kayıtlı cep telefonu ile register
-     */
+     *//*
 
     @Test
     public void checkExistGsm() throws IOException, InterruptedException {
@@ -259,5 +259,5 @@ public class RegisterTest extends BaseTest {
 
         // uyaarı texti registerda görülecek şu an şifremi unuttum modalına göre yazıldı.
     }
-
+*/
 }

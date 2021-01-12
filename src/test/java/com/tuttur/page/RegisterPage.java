@@ -89,24 +89,24 @@ public class RegisterPage extends RegisterPage_Constants {
      * yer alan "kullan" fonksiyonu ile, index 2 olduğunda ise önerilen username yeni bir username ile değişecek
      * ve kullanıcı kendi username üretmiş olacaktır.
      *
-     * @param usernameIndex
+     * @param usernameSelection
      * @throws IOException
      */
 
-    private RegisterPage setUsername(int usernameIndex) throws IOException {
+    private RegisterPage setUsername(String usernameSelection) throws IOException {
 
         sleep(2);
         List<WebElement> use = findElements(By.className("medium"));
 
-        switch (usernameIndex){
+        switch (usernameSelection){
 
-            case 1:
+            case "username-function":
                 use.get(3).click();
                 getUsernameText();
 
                 break;
 
-            case 0:
+            case "username-type":
 
                 waitForElement(driver, OPT_WAIT_4_ELEMENT, REGISTER_USERNAME);
                 setObjectBy(REGISTER_USERNAME, general.usernameText);
@@ -284,7 +284,7 @@ public class RegisterPage extends RegisterPage_Constants {
         return this;
     }
 
-    public RegisterPage setRegisterForm(int rowNumber, int usernameIndex) throws IOException, InterruptedException {
+    public RegisterPage setRegisterForm(int rowNumber, String usernameSelection) throws IOException, InterruptedException {
 
         setName(getData(rowNumber, 1));
         setLastName(getData(rowNumber, 2));
@@ -292,7 +292,7 @@ public class RegisterPage extends RegisterPage_Constants {
         setSsn(getData(rowNumber, 6));
         setGsm(getData(rowNumber, 7));
         setEmail(getData(rowNumber, 8));
-        setUsername(usernameIndex);
+        setUsername(usernameSelection);
         setPassword(getData(rowNumber, 9));
 
         return this;
