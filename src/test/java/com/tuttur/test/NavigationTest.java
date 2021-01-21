@@ -4,6 +4,8 @@ import com.tuttur.base.BaseTest;
 import com.tuttur.page.MainPage;
 
 import com.tuttur.page.NavigationPage;
+import com.tuttur.util.BasePageUtil;
+import com.tuttur.util.ExcelUtil;
 import org.junit.Test;
 
 
@@ -12,6 +14,9 @@ import java.io.IOException;
 import java.io.IOException;
 
 public class NavigationTest extends BaseTest {
+
+
+    BasePageUtil util = new BasePageUtil(driver);
 
 
     /**
@@ -62,6 +67,7 @@ public class NavigationTest extends BaseTest {
 
         new NavigationPage(driver).checkShortcutMenuUrl();
     }
+
 
 
 

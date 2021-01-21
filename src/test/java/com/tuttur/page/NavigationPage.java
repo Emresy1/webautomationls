@@ -3,6 +3,8 @@ package com.tuttur.page;
 import com.tuttur.base.BasePage;
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.Navigation_Constants;
+import com.tuttur.util.BasePageUtil;
+import com.tuttur.util.ExcelUtil;
 import edu.emory.mathcs.backport.java.util.Arrays;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -11,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -21,6 +24,8 @@ public class NavigationPage extends Navigation_Constants {
 
     Actions actions = new Actions(driver);
     PropertiesFile prop = new PropertiesFile(driver);
+    ExcelUtil util = new ExcelUtil(driver);
+    BasePageUtil base = new BasePageUtil(driver);
 
     public NavigationPage checkSubmenuUrl() throws IOException {
 
@@ -31,7 +36,7 @@ public class NavigationPage extends Navigation_Constants {
         for (int h = headerCount; h < headerMenus.size(); h++) {
 
             headerMenus.get(h).click();
-            Assert.assertEquals(driver.getCurrentUrl().substring(44), headerMenu()[h]);
+            Assert.assertEquals(driver.getCurrentUrl().substring(44), headerMenu().get(h));
 
             List<WebElement> subMenus = findElements(HEADER_SUBMENU);
 
@@ -45,22 +50,22 @@ public class NavigationPage extends Navigation_Constants {
                     if (headerMenuActive.getText().equals("İDDAA")) {
 
                         subMenus.get(i).click();
-                        Assert.assertEquals(driver.getCurrentUrl().substring(44), betSubmenus()[i]);
+                        Assert.assertEquals(driver.getCurrentUrl().substring(44), betSubmenus().get(i));
 
                     } else if (headerMenuActive.getText().equals("SOSYAL BAHİS")) {
 
                         subMenus.get(i).click();
-                        Assert.assertEquals(driver.getCurrentUrl().substring(44), socialSubMenus()[i]);
+                        Assert.assertEquals(driver.getCurrentUrl().substring(44), socialSubMenus().get(i));
 
                     } else if (headerMenuActive.getText().equals("SPOR TOTO")) {
 
                         subMenus.get(i).click();
-                        Assert.assertEquals(driver.getCurrentUrl().substring(44), sportTotoSubmenus()[i]);
+                        Assert.assertEquals(driver.getCurrentUrl().substring(44), sportTotoSubmenus().get(i));
 
                     } else if (headerMenuActive.getText().equals("TJK")) {
 
                         subMenus.get(i).click();
-                        Assert.assertEquals(driver.getCurrentUrl().substring(44), tjkSubmenus()[i]);
+                        Assert.assertEquals(driver.getCurrentUrl().substring(44), tjkSubmenus().get(i));
 
                     }
 
@@ -74,77 +79,68 @@ public class NavigationPage extends Navigation_Constants {
 
     }
 
-    public NavigationPage checkShortcutMenuUrl () throws IOException {
+    public NavigationPage checkShortcutMenuUrl() throws IOException {
 
         int count = 0;
         List<WebElement> shortcutList = findElements(SHORTCUT_MENU);
 
-        for (int i = count; i < shortcutList.size();i++) {
+        for (int i = count; i < shortcutList.size(); i++) {
             shortcutList.get(i).click();
 
-            Assert.assertEquals("Url hatalı",driver.getCurrentUrl().substring(44),shortcutMenus()[i]);
+            Assert.assertEquals("Url hatalı", driver.getCurrentUrl().substring(44), shortcutMenus().get(i));
         }
         return this;
 
     }
-    private String[] headerMenu() throws IOException {
 
-        String[] menus = {prop.getObject("bet"), prop.getObject("socialBet"),
-                prop.getObject("sportToto")
-                , prop.getObject("tjk"), prop.getObject("campaigns")};
-        return menus;
+    private List<String> headerMenu() throws IOException {
+
+        base.getSheet("NavigationUrl");
+        List<String> menuUrl = util.getRowDataAll(2, 7);
+        return menuUrl;
 
     }
 
-    private String[] betSubmenus() throws IOException {
+    private List<String> betSubmenus() throws IOException {
 
-        String[] betUrlData = {prop.getObject("liveBet"), prop.getObject("football"),
-                prop.getObject("pingPong"),
-                prop.getObject("basketball")
-                , prop.getObject("tennis")
-                , prop.getObject("iceHokey"), prop.getObject("handball")
-                , prop.getObject("volleyball")
-                //, prop.getObject("snooker")
-                , prop.getObject("longTerm")};
+        base.getSheet("NavigationUrl");
+        List<String> betUrlData = util.getRowDataAll(8, 18);
 
         return betUrlData;
+
     }
 
-    private String[] socialSubMenus() throws IOException {
+    private List<String> socialSubMenus() throws IOException {
 
-        String[] socialUrlData = {prop.getObject("theBest")
-                , prop.getObject("allPosts"), prop.getObject("mostPlayed"), prop.getObject("kingsOfBet")};
-
+        base.getSheet("NavigationUrl");
+        List<String> socialUrlData = util.getRowDataAll(21, 25);
 
         return socialUrlData;
 
     }
 
-    private String[] sportTotoSubmenus() throws IOException {
+    private List<String> sportTotoSubmenus() throws IOException {
 
-        String[] sportTotoUrlData = {prop.getObject("sportToto"), prop.getObject("sportTotoResults")};
-
+        base.getSheet("NavigationUrl");
+        List<String> sportTotoUrlData = util.getRowDataAll(26,28);
 
         return sportTotoUrlData;
 
     }
 
-    private String[] tjkSubmenus() throws IOException {
+    private List<String> tjkSubmenus() throws IOException {
 
-        String[] tjkUrlData = {prop.getObject("tjk"),
-                prop.getObject("tjkResults")};
+        base.getSheet("NavigationUrl");
+        List<String> tjkUrlData = util.getRowDataAll(29,31);
 
         return tjkUrlData;
 
     }
 
-    private String[] shortcutMenus() throws IOException {
+    private List<String> shortcutMenus() throws IOException {
 
-        String[] shortcutUrlData = {prop.getObject("liveBet"), prop.getObject("football"),
-                prop.getObject("pingPong"),
-                prop.getObject("basketball"),
-                prop.getObject("socialBet"),
-                prop.getObject("tutturAnalysis")};
+        base.getSheet("NavigationUrl");
+        List<String> shortcutUrlData = util.getRowDataAll(32,38);
 
         return shortcutUrlData;
 

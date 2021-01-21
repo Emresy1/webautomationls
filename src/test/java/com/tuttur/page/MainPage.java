@@ -3,6 +3,7 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 
+import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import static org.junit.Assert.assertTrue;
@@ -30,6 +31,8 @@ public class MainPage extends MainPage_Constants {
     PropertiesFile prop = new PropertiesFile(driver);
     DbQueriesPage db = new DbQueriesPage(driver);
     Actions actions = new Actions(driver);
+    BasePageUtil base = new BasePageUtil(driver);
+    ExcelUtil util = new ExcelUtil(driver);
 
     public void dropdownMenu(String menu) {
 
@@ -155,7 +158,7 @@ public class MainPage extends MainPage_Constants {
 
               switchToWindows();
 
-            Assert.assertEquals(driver.getCurrentUrl(), socialMediaUrl()[i]);
+            Assert.assertEquals(driver.getCurrentUrl(), socialMediaUrl().get(i));
 
 
             driver.close();
@@ -173,14 +176,15 @@ public class MainPage extends MainPage_Constants {
         WebElement[] market = {getElementBy(APPLE_MARKET),getElementBy(ANDROID_MARKET)};
         List<WebElement> markets = Arrays.asList(market);
 
-        String[] marketsUrl = {prop.getObject("appleMarket"),prop.getObject("androidMarket")};
+        base.getSheet("NavigationUrl");
+        List<String> marketsUrl = util.getRowDataAll(49,51);
 
         for (int i=0; i< markets.size(); i++){
 
             markets.get(i).click();
             switchToWindows();
 
-            Assert.assertEquals(driver.getCurrentUrl(), marketsUrl[i]);
+            Assert.assertEquals(driver.getCurrentUrl(), marketsUrl.get(i));
 
             driver.close();
             switchToWindows();
@@ -190,10 +194,10 @@ public class MainPage extends MainPage_Constants {
         return this;
      }
 
-     private String[] socialMediaUrl() throws IOException {
+     private List<String> socialMediaUrl() throws IOException {
 
-        String[] socialMedia = {prop.getObject("facebook"),prop.getObject("twitter"),prop.getObject("instagram")
-        ,prop.getObject("youtube")};
+        base.getSheet("NavigationUrl");
+        List<String> socialMedia = util.getRowDataAll(42,46);
 
         return socialMedia;
      }
