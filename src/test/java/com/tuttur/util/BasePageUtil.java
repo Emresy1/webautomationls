@@ -28,6 +28,14 @@ public class BasePageUtil {
     public static final int OPT_WAIT_4_ELEMENT = 5;
     public static final int MIN_WAIT_4_ELEMENT = 2;
     public static final int RESEND_CODE_WAIT = 181;
+
+
+
+    public String getAttribute (By by,String attributeName) {
+
+    	return driver.findElement(by).getAttribute(attributeName);
+	}
+
 	
 	public WebElement getElementBy(By by) {
 
@@ -46,6 +54,7 @@ public class BasePageUtil {
 	public void waitForInvisibility(WebElement webElement, int maxSeconds) {
 
 		Long startTime = System.currentTimeMillis();
+
 		try {
 			while (System.currentTimeMillis() - startTime < maxSeconds * 1000 && webElement.isDisplayed()) {}
 		} catch (StaleElementReferenceException e) {
@@ -63,11 +72,10 @@ public class BasePageUtil {
 		ExcelUtil.setExcelFileSheet(sheetName);
 	}
 
-	public WebElement setObjectBy(By by, String value) {
+	public void setObjectBy(By by, String value) {
 		WebElement element = getElementBy(by);
 		element.clear();
 		element.sendKeys(value);
-		return element;
 	}
 
 	public void assertDisplayed(By element1, By element2, By element3){
@@ -88,10 +96,11 @@ public class BasePageUtil {
 
 	}
 
-	public WebElement setObjectsBy(By by, int index ,String value ) {
+	public void setObjectsBy(By by, int index ,String value ) {
+
 		WebElement element = getElemenstBy(by,index);
 		element.sendKeys(value);
-		return element;
+
 	}
 	public void assertElementsIsEmpty(By element1, By element2, By element3){
 
@@ -149,22 +158,26 @@ public class BasePageUtil {
 	}
 
 
-	public WebElement clickObjectBy(By by) {
+	public void clickObjectBy(By by) {
+
 		WebElement element = driver.findElement(by);
 		waitForElement(element,OPT_WAIT_4_ELEMENT);
 		element.click();
-		return element;
+
 	}
-    public WebElement clickObjectsBy ( By by,int i) {
+    public void clickObjectsBy ( By by,int i) {
+
 		WebElement element = driver.findElements(by).get(i);
 		waitForElement(element,OPT_WAIT_4_ELEMENT);
 		element.click();
-		return element;
+
 	}
 
 	public List <WebElement> findElements (By by) {
+
 		List <WebElement> elements = driver.findElements(by);
 		return elements;
+
 	}
 
 	public void javaScriptClicker(WebDriver driver, WebElement element) {

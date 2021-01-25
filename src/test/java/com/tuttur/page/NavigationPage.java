@@ -6,7 +6,7 @@ import com.tuttur.constants.Navigation_Constants;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
 import edu.emory.mathcs.backport.java.util.Arrays;
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+
 
 public class NavigationPage extends Navigation_Constants {
     public NavigationPage(WebDriver driver) {
@@ -36,7 +37,7 @@ public class NavigationPage extends Navigation_Constants {
         for (int h = headerCount; h < headerMenus.size(); h++) {
 
             headerMenus.get(h).click();
-            Assert.assertEquals(driver.getCurrentUrl().substring(44), headerMenu().get(h));
+           assertEquals(subUrl(), headerMenu().get(h));
 
             List<WebElement> subMenus = findElements(HEADER_SUBMENU);
 
@@ -50,22 +51,22 @@ public class NavigationPage extends Navigation_Constants {
                     if (headerMenuActive.getText().equals("İDDAA")) {
 
                         subMenus.get(i).click();
-                        Assert.assertEquals(driver.getCurrentUrl().substring(44), betSubmenus().get(i));
+                        assertEquals(subUrl(), betSubmenus().get(i));
 
                     } else if (headerMenuActive.getText().equals("SOSYAL BAHİS")) {
 
                         subMenus.get(i).click();
-                        Assert.assertEquals(driver.getCurrentUrl().substring(44), socialSubMenus().get(i));
+                        assertEquals(subUrl(), socialSubMenus().get(i));
 
                     } else if (headerMenuActive.getText().equals("SPOR TOTO")) {
 
                         subMenus.get(i).click();
-                        Assert.assertEquals(driver.getCurrentUrl().substring(44), sportTotoSubmenus().get(i));
+                        assertEquals(subUrl(), sportTotoSubmenus().get(i));
 
                     } else if (headerMenuActive.getText().equals("TJK")) {
 
                         subMenus.get(i).click();
-                        Assert.assertEquals(driver.getCurrentUrl().substring(44), tjkSubmenus().get(i));
+                        assertEquals(subUrl(), tjkSubmenus().get(i));
 
                     }
 
@@ -79,6 +80,12 @@ public class NavigationPage extends Navigation_Constants {
 
     }
 
+    private String subUrl () {
+
+        return  driver.getCurrentUrl().substring(44);
+
+    }
+
     public NavigationPage checkShortcutMenuUrl() throws IOException {
 
         int count = 0;
@@ -87,7 +94,7 @@ public class NavigationPage extends Navigation_Constants {
         for (int i = count; i < shortcutList.size(); i++) {
             shortcutList.get(i).click();
 
-            Assert.assertEquals("Url hatalı", driver.getCurrentUrl().substring(44), shortcutMenus().get(i));
+            assertEquals("Url hatalı", subUrl(), shortcutMenus().get(i));
         }
         return this;
 

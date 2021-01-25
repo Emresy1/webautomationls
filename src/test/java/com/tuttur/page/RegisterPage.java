@@ -28,7 +28,7 @@ public class RegisterPage extends RegisterPage_Constants {
     SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM", new Locale("tr"));
     Date currentMonth = new Date();
 
-
+    private String attributeValue = "value";
 
     private RegisterPage setName(String name) throws IOException {
 
@@ -96,7 +96,7 @@ public class RegisterPage extends RegisterPage_Constants {
     private RegisterPage setUsername(String usernameSelection) throws IOException {
 
         sleep(2);
-        List<WebElement> use = findElements(By.className("medium"));
+        List<WebElement> use = findElements(USERNAME_FUNCTION);
 
         switch (usernameSelection){
 
@@ -111,13 +111,14 @@ public class RegisterPage extends RegisterPage_Constants {
                 waitForElement(driver, OPT_WAIT_4_ELEMENT, REGISTER_USERNAME);
                 setObjectBy(REGISTER_USERNAME, general.usernameText);
 
-                general.username = getElementBy(By.name("username")).getAttribute("value");
+                general.username = getAttribute(REGISTER_USERNAME,attributeValue);
+
 
                 break;
 
             default:
 
-                String placeholder = getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10);
+                String placeholder = getAttribute(REGISTER_USERNAME,"placeholder").substring(10);
 
                 general.usernamePlaceholder = placeholder;
 
@@ -127,10 +128,11 @@ public class RegisterPage extends RegisterPage_Constants {
                 waitForInvisibility(loading,OPT_WAIT_4_ELEMENT);
 
                 Assert.assertNotEquals(general.usernamePlaceholder,
-                        getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10));
+                        getAttribute(REGISTER_USERNAME,"placeholder").substring(10));
                 use.get(3).click();
 
-                general.refreshUsername = getElementBy(REGISTER_USERNAME).getAttribute("placeholder").substring(10);
+                general.refreshUsername = getAttribute(REGISTER_USERNAME,"placeholder").substring(10);
+
 
         }
 
@@ -139,7 +141,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     public String getUsernameText() {
 
-        general.generateUsernameText = getElementBy(By.name("username")).getAttribute("value");
+        general.generateUsernameText = getAttribute(REGISTER_USERNAME,attributeValue);
 
         return general.generateUsernameText;
     }
@@ -335,8 +337,8 @@ public class RegisterPage extends RegisterPage_Constants {
         inputs.get(2).sendKeys(maxChar);
         inputs.get(3).sendKeys(maxChar);
 
-        Assert.assertEquals(inputs.get(2).getAttribute("value").length(), 2);
-        Assert.assertEquals(inputs.get(3).getAttribute("value").length(), 4);
+        Assert.assertEquals(inputs.get(2).getAttribute(attributeValue).length(), 2);
+        Assert.assertEquals(inputs.get(3).getAttribute(attributeValue).length(), 4);
 
         isSelectboxMonth();
 

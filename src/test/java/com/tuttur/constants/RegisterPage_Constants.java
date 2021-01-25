@@ -35,6 +35,7 @@ public class RegisterPage_Constants extends BasePageUtil {
     public By ALREADY_MEMBER = By.className("registerForm-link");
     public By INFO_TEXT = By.className("formElementInfo-text");
     public By USERNAME_LOADING = By.cssSelector(".formInput.formInput--hasLabel.formInput--hasPlaceholder.loading");
+    public By USERNAME_FUNCTION = By.className("medium");
 
 
 

@@ -171,6 +171,7 @@ public class MainPage extends MainPage_Constants {
 
      }
 
+
      public MainPage checkRedirectStoreUrl() throws IOException {
 
         WebElement[] market = {getElementBy(APPLE_MARKET),getElementBy(ANDROID_MARKET)};
