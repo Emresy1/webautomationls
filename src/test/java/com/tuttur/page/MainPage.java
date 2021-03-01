@@ -114,7 +114,8 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkRegisterLogin () throws InterruptedException, IOException {
 
-        assertTrue(getData(5,10), getElementBy(ACCOUNT_NO).getText().equals(getData(5,12)));
+        assertTrue(getData(5,10), getElementBy(ACCOUNT_NO).getText()
+                .equals(getData(5,12)));
         return this;
     }
 
@@ -205,7 +206,8 @@ public class MainPage extends MainPage_Constants {
 
      private List<WebElement> socialMediaElements(){
 
-         WebElement[] socialMedia = {getElementBy(FACEBOOK),getElementBy(TWITTER),getElementBy(INSTAGRAM),getElementBy(YOUTUBE)};
+         WebElement[] socialMedia = {getElementBy(FACEBOOK),getElementBy(TWITTER),getElementBy(INSTAGRAM),
+                 getElementBy(YOUTUBE)};
          List<WebElement> social = Arrays.asList(socialMedia);
 
          return social;

@@ -65,6 +65,7 @@ public class NavigationTest extends BaseTest {
     @Test
     public void checkShortcutMenuRedirect () throws IOException {
 
+        
         new NavigationPage(driver).checkShortcutMenuUrl();
     }
 

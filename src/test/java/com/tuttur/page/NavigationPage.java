@@ -1,6 +1,6 @@
 package com.tuttur.page;
 
-import com.tuttur.base.BasePage;
+
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.Navigation_Constants;
 import com.tuttur.util.BasePageUtil;
@@ -8,6 +8,7 @@ import com.tuttur.util.ExcelUtil;
 import edu.emory.mathcs.backport.java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 import org.openqa.selenium.By;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -16,7 +17,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-
 
 public class NavigationPage extends Navigation_Constants {
     public NavigationPage(WebDriver driver) {
@@ -44,26 +44,27 @@ public class NavigationPage extends Navigation_Constants {
 
             if (subMenus.size() != 0) {
 
-                WebElement headerMenuActive = driver.findElement(HEADER_MENU_ACTIVE);
+              //  WebElement headerMenuActive = driver.findElement(HEADER_MENU_ACTIVE);
+                String headerMenuActive = driver.findElement(HEADER_MENU_ACTIVE).getText();
 
                 for (int i = subCount; i < subMenus.size(); i++) {
 
-                    if (headerMenuActive.getText().equals("İDDAA")) {
+                    if (headerMenuActive.equals("İDDAA")) {
 
                         subMenus.get(i).click();
                         assertEquals(subUrl(), betSubmenus().get(i));
 
-                    } else if (headerMenuActive.getText().equals("SOSYAL BAHİS")) {
+                    } else if (headerMenuActive.equals("SOSYAL BAHİS")) {
 
                         subMenus.get(i).click();
                         assertEquals(subUrl(), socialSubMenus().get(i));
 
-                    } else if (headerMenuActive.getText().equals("SPOR TOTO")) {
+                    } else if (headerMenuActive.equals("SPOR TOTO")) {
 
                         subMenus.get(i).click();
                         assertEquals(subUrl(), sportTotoSubmenus().get(i));
 
-                    } else if (headerMenuActive.getText().equals("TJK")) {
+                    } else if (headerMenuActive.equals("TJK")) {
 
                         subMenus.get(i).click();
                         assertEquals(subUrl(), tjkSubmenus().get(i));
@@ -79,6 +80,7 @@ public class NavigationPage extends Navigation_Constants {
         return this;
 
     }
+
 
     private String subUrl () {
 

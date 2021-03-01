@@ -68,6 +68,7 @@ public class BasePageUtil {
 
 	}
 
+
 	public void getSheet ( String sheetName) {
 		ExcelUtil.setExcelFileSheet(sheetName);
 	}
@@ -157,7 +158,6 @@ public class BasePageUtil {
 		}
 	}
 
-
 	public void clickObjectBy(By by) {
 
 		WebElement element = driver.findElement(by);
@@ -165,6 +165,7 @@ public class BasePageUtil {
 		element.click();
 
 	}
+
     public void clickObjectsBy ( By by,int i) {
 
 		WebElement element = driver.findElements(by).get(i);

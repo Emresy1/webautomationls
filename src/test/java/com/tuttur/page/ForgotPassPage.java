@@ -35,12 +35,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
      * @return
      */
 
-    private WebElement checkbox(int index) {
-
-        sleep(2);
-        return findElements(SEND_SMS_CHECKBOX).get(index);
-    }
-
     public ForgotPassPage checkboxClick (int index) {
 
         sleep(2);
@@ -48,6 +42,12 @@ public class ForgotPassPage extends ForgotPass_Constants {
         checkbox.click();
         return this;
 
+    }
+
+    private WebElement checkbox(int index) {
+
+        sleep(2);
+        return findElements(SEND_SMS_CHECKBOX).get(index);
     }
 
     private void clickResetPassword(){
@@ -102,8 +102,9 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     private void checkPasswordChange() throws IOException {
 
+
         Assert.assertTrue("şifre değişikliği başarısız", getElementBy(SUCCESS_MESSAGE)
-                                .getText().substring(0, 26).equals(prop.getObject("success_pass_change_message")));
+                .getText().substring(0, 26).equals(prop.getObject("success_pass_change_message")));
 
     }
 

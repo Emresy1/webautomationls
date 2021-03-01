@@ -159,8 +159,9 @@ public class RegisterPage extends RegisterPage_Constants {
         scrollToElement(CHECKBOX);
 
         int count = 0;
+        int indexCount = 0;
 
-        if (index == 0){
+        if (index == indexCount){
 
                 for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {
 

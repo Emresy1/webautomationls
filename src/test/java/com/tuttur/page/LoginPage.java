@@ -12,7 +12,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
-public class LoginPage extends LoginPage_Constants {
+public class LoginPage extends LoginPage_Constants{
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -29,6 +29,8 @@ public class LoginPage extends LoginPage_Constants {
 
     private void setPassword(String password) throws IOException {
         setObjectBy(PASSWORD, password);
+
+
 
     }
 
