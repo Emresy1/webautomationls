@@ -59,7 +59,10 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.2
      * TCKN  ile başarılı login
+     * FİXLENECEK 1111111111111
      */
+
+
     @Test
     public void successfulllyLoginWithIdentityNo() throws IOException {
 
@@ -72,6 +75,7 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.3
      * TCKN ile başarısız login kontrolü
+     * FİXLENECEK 111111111
      */
     @Test
     public void failLoginWithSsn() throws IOException {
@@ -99,6 +103,7 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.5
      * Account no ile başarısız login kontrolü
+     * FİXLENECEK 11111111
      */
     @Test
     public void failLoginWithAccountNo() throws IOException {
@@ -114,6 +119,7 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.6
      * Email ile başarısız login kontrolü
+     * FİXLENECEK 111111
      */
     @Test
     public void failLoginWithEmail() throws IOException {
@@ -128,6 +134,7 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.7
      * Telefon numarası ile başarısız login kontrolü
+     * FİXLENECEK 1111111111
      */
     @Test
     public void failLoginWithPhoneNumber() throws IOException {
@@ -143,6 +150,7 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.8
      * Login inputlarının maksimum değer kontrolü
+     * FİXLENECEK 1111111
      *
      * @throws IOException
      */
@@ -177,6 +185,7 @@ public class LoginTest extends BaseTest {
     /**
      * Case 2.0
      * Boş input ile login kontrolü
+     * FİXLENECEK 11111111
      *
      * @throws IOException
      */

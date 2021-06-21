@@ -132,7 +132,6 @@ public class MainPage extends MainPage_Constants {
 
             actions.moveToElement(headerMenus.get(headerIndex)).build().perform();
 
-
             List<WebElement> subMenus = findElements(IDDAA_SUBMENU);
 
             for (int i = subCount; i < subMenus.size();i++) {
@@ -160,7 +159,6 @@ public class MainPage extends MainPage_Constants {
               switchToWindows();
 
             Assert.assertEquals(driver.getCurrentUrl(), socialMediaUrl().get(i));
-
 
             driver.close();
 
