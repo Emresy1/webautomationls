@@ -184,8 +184,6 @@ public class LoginTest extends BaseTest {
     /**
      * Case 2.0
      * Boş input ile login kontrolü
-     * FİXLENECEK 11111111
-     *
      * @throws IOException
      */
 
@@ -198,6 +196,22 @@ public class LoginTest extends BaseTest {
         new LoginPage(driver).checkMissingInfoText(11);
 
     }
+    /**
+     * Case 2.1
+     * Input uyarı mesajı kontrolü
+     *
+     */
+
+    @Test
+    public void LoginInputMessageControl () throws IOException, InterruptedException {
+
+        base.getSheet ("LoginData");
+        new MainPage(driver).getLoginPage().login(12);
+        new LoginPage(driver).checkInputInfoText(12);
+
+    }
+
+
 
 }
 

@@ -89,15 +89,16 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkAccountNo( int rowNumber) throws IOException {
 
-        assertTrue(getData(rowNumber,7),getElementBy(ACCOUNT_NO).getText()
+        Assert.assertTrue(prop.getObject("accountNumberCheck"),getElementBy(ACCOUNT_NO).getText()
                 .equals(getData(rowNumber,3)));
+
         return this;
     }
 
     public MainPage checkUsernameText( int rowNumber) throws IOException {
 
 
-        assertTrue(getData(rowNumber,7), getElementBy(USERNAMETEXT).getText()
+        assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
                 .equals(getData(rowNumber,3)));
 
         return this;

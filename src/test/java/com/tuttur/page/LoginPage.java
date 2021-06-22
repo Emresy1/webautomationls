@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
-public class LoginPage extends LoginPage_Constants{
+public class LoginPage extends LoginPage_Constants {
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -81,8 +81,8 @@ public class LoginPage extends LoginPage_Constants{
 
     public void checkFailLogin(int rowNumber) throws IOException {
 
-        assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).isDisplayed());
-             //   getText().equals(getData(rowNumber, 6)));
+        assertTrue(prop.getObject("failLoginCheck"), getElementBy(MODAL_ERROR_TEXT).isDisplayed());
+        //   getText().equals(getData(rowNumber, 6)));
     }
 
     public void checkFailLoginWithGsm(int rowNumber) throws IOException {
@@ -94,23 +94,30 @@ public class LoginPage extends LoginPage_Constants{
     public void checkFailLoginWithEmail(int rowNumber) throws IOException {
 
         assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).isDisplayed());
-             //   .getText().equals(getData(rowNumber, 6)));
+        //   .getText().equals(getData(rowNumber, 6)));
     }
 
     public void checkInputErrorValidations(int rowNumber) throws IOException {
 
-        assertTrue(getData(rowNumber, 7), getElemenstBy(INPUT_ERROR_TEXT, 0).getText()
+        assertTrue(prop.getObject("errorMessageCheck"), getElemenstBy(INPUT_ERROR_TEXT, 0).getText()
                 .equals(getData(rowNumber, 6)));
     }
 
     public void checkMissingInfoText(int rowNumber) throws IOException {
 
-        assertTrue(getData(rowNumber, 7), getElementBy(INPUT_ERROR_TEXT).getText()
-                .equals(getData(rowNumber, 4)));
-        assertTrue(getData(rowNumber, 7), getElemenstBy(INPUT_ERROR_TEXT, 1).getText()
-                .equals(getData(rowNumber, 5)));
+        assertTrue(prop.getObject("errorMessageCheck"), getElementBy(MODAL_ERROR_TEXT).getText()
+                .equals(getData(rowNumber, 6)));
+
     }
 
+    public void checkInputInfoText(int rowNumber) throws IOException {
+
+        assertTrue(prop.getObject("errorMessageCheck"), getElementBy(INPUT_ERROR_TEXT).getText()
+                .equals(getData(rowNumber, 4)));
+        assertTrue(prop.getObject("errorMessageCheck"), getElemenstBy(INPUT_ERROR_TEXT, 1).getText()
+                .equals(getData(rowNumber, 5)));
+
+    }
 
     public void checkRememberMe() throws IOException {
 
