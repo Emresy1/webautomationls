@@ -30,6 +30,17 @@ public class BasePageUtil {
     public static final int RESEND_CODE_WAIT = 181;
 
 
+    public boolean isDisplayed ( By by) {
+
+    	return getElementBy(by).isDisplayed();
+
+	}
+
+	public boolean isEnabled (By by) {
+
+    	return getElementBy(by).isEnabled();
+
+	}
 
     public String getAttribute (By by,String attributeName) {
 
@@ -43,10 +54,12 @@ public class BasePageUtil {
 	}
 	
 	public WebElement getElemenstBy(By by, int i) {
+
 		return driver.findElements(by).get(i);
 	}
 
 	public void waitForElementDisappear(WebElement element){
+
 		WebDriverWait wait = new WebDriverWait(driver,DEFAULT_WAIT_4_ELEMENT);
 		wait.until(ExpectedConditions.invisibilityOf(element));
 	}

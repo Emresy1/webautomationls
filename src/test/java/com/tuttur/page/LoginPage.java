@@ -24,13 +24,13 @@ public class LoginPage extends LoginPage_Constants{
 
 
     private void setUsername(String username) throws IOException {
+
         setObjectBy(USERNAME, username);
 
     }
 
     private void setPassword(String password) throws IOException {
         setObjectBy(PASSWORD, password);
-
 
 
     }
@@ -65,6 +65,7 @@ public class LoginPage extends LoginPage_Constants{
     public ForgotPassPage getForgotPassModal() throws IOException {
 
         clickObjectBy(FORGOTPASSWORD);
+
         return new ForgotPassPage(driver);
     }
 
@@ -86,7 +87,7 @@ public class LoginPage extends LoginPage_Constants{
 
     public void checkFailLoginWithGsm(int rowNumber) throws IOException {
 
-        assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).getText()
+        assertTrue(getData(rowNumber, 7), getElementBy(INPUT_ERROR_TEXT).getText()
                 .equals(getData(rowNumber, 6)));
     }
 
@@ -99,16 +100,17 @@ public class LoginPage extends LoginPage_Constants{
     public void checkInputErrorValidations(int rowNumber) throws IOException {
 
         assertTrue(getData(rowNumber, 7), getElemenstBy(INPUT_ERROR_TEXT, 0).getText()
+                .equals(getData(rowNumber, 6)));
+    }
+
+    public void checkMissingInfoText(int rowNumber) throws IOException {
+
+        assertTrue(getData(rowNumber, 7), getElementBy(INPUT_ERROR_TEXT).getText()
                 .equals(getData(rowNumber, 4)));
         assertTrue(getData(rowNumber, 7), getElemenstBy(INPUT_ERROR_TEXT, 1).getText()
                 .equals(getData(rowNumber, 5)));
     }
 
-    public void checkMissingInfoText(int rowNumber) throws IOException {
-
-        assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).getText()
-                .equals(getData(rowNumber, 6)));
-    }
 
     public void checkRememberMe() throws IOException {
 

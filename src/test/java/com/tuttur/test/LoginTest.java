@@ -133,7 +133,7 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.7
      * Telefon numarası ile başarısız login kontrolü
-     * FİXLENECEK 1111111111
+     *
      */
     @Test
     public void failLoginWithPhoneNumber() throws IOException, InterruptedException {
@@ -149,7 +149,7 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.8
      * Login inputlarının maksimum değer kontrolü
-     * FİXLENECEK 1111111
+     *
      *
      * @throws IOException
      */
@@ -191,7 +191,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginWithMissingInfo() throws IOException, InterruptedException {
-
 
         base.getSheet("LoginData");
 

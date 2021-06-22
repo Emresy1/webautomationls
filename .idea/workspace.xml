@@ -61,13 +61,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="1lynpqooF1jM0KR6sAmgmjheiYL" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -477,60 +470,6 @@
     <MESSAGE value="refactoring" />
     <MESSAGE value="fix list" />
     <option name="LAST_COMMIT_MESSAGE" value="fix list" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1624268266843">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1624268266843" />
-    <state width="1398" height="210" key="GridCell.Tab.0.bottom" timestamp="1624353712440">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624353712440" />
-    <state width="1398" height="210" key="GridCell.Tab.0.center" timestamp="1624353712440">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1624353712440" />
-    <state width="1398" height="210" key="GridCell.Tab.0.left" timestamp="1624353712439">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1624353712439" />
-    <state width="1398" height="210" key="GridCell.Tab.0.right" timestamp="1624353712440">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1624353712440" />
-    <state width="1398" height="210" key="GridCell.Tab.1.bottom" timestamp="1624353712442">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624353712442" />
-    <state width="1398" height="210" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1624353648109" />
-    <state width="1398" height="210" key="GridCell.Tab.1.center" timestamp="1624353712441">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1624353712441" />
-    <state width="1398" height="210" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1624353648108" />
-    <state width="1398" height="210" key="GridCell.Tab.1.left" timestamp="1624353712441">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1624353712441" />
-    <state width="1398" height="210" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1624353648108" />
-    <state width="1398" height="210" key="GridCell.Tab.1.right" timestamp="1624353712441">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1624353712441" />
-    <state width="1398" height="210" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1624353648109" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1624270011814">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1624270011814" />
-    <state x="421" y="205" width="598" height="490" key="find.popup" timestamp="1624269981002">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1624269981002" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1624271886235">
-      <screen x="0" y="0" width="1440" height="900" />
-    </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1624271886235" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

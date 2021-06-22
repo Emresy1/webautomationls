@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 
@@ -30,9 +31,9 @@ public class MainPage extends MainPage_Constants {
 
     PropertiesFile prop = new PropertiesFile(driver);
     DbQueriesPage db = new DbQueriesPage(driver);
-    Actions actions = new Actions(driver);
     BasePageUtil base = new BasePageUtil(driver);
     ExcelUtil util = new ExcelUtil(driver);
+    Actions action = new Actions(driver);
 
     public void dropdownMenu(String menu) {
 
@@ -130,7 +131,7 @@ public class MainPage extends MainPage_Constants {
 
         for (int headerIndex = headerCount ; headerIndex < headerMenus.size() ; headerIndex++) {
 
-            actions.moveToElement(headerMenus.get(headerIndex)).build().perform();
+            action.moveToElement(headerMenus.get(headerIndex)).build().perform();
 
             List<WebElement> subMenus = findElements(IDDAA_SUBMENU);
 
@@ -210,4 +211,5 @@ public class MainPage extends MainPage_Constants {
 
          return social;
      }
+
    }

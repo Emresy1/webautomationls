@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 
+
 public class RegisterPage extends RegisterPage_Constants {
 
     public RegisterPage(WebDriver driver) throws IOException {
@@ -30,6 +31,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     private String attributeValue = "value";
 
+
     private RegisterPage setName(String name) throws IOException {
 
         setObjectBy(NAME, name);
@@ -43,6 +45,8 @@ public class RegisterPage extends RegisterPage_Constants {
         return this;
 
     }
+
+
 
     private void setDay(String day, int elementIndex) {
         setObjectsBy(DATE, elementIndex, day);
@@ -421,7 +425,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
 
         try {
-            Assert.assertTrue("Uyarı texti kaybolmadı", !getElementBy(WARNING_TEXT).isDisplayed());
+            Assert.assertTrue("Uyarı texti kaybolmadı", !isDisplayed(WARNING_TEXT));
         } catch (Exception exp) {
             exp.printStackTrace();
         }
@@ -527,7 +531,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
                 getElementBy(CURSOR_FİELD).findElement(FORM_INPUT).sendKeys(registerInfo);
 
-            } else if (getElementBy(By.cssSelector(".formSelect.formSelect--hasLabel")).isDisplayed()) {
+            } else if (isDisplayed(FORM_SELECT_MONTHS)) {
 
                 selectMonth("Nisan");
 
@@ -540,8 +544,8 @@ public class RegisterPage extends RegisterPage_Constants {
 
     public RegisterPage formButtonAndInfoControl () {
 
-        Assert.assertTrue("Üye ol butonu aktif değil",getElementBy(SUBMIT).isEnabled());
-        Assert.assertTrue("Zaten üyeyim butonu mevcut değil",getElementBy(ALREADY_MEMBER).isDisplayed());
+        Assert.assertTrue("Üye ol butonu aktif değil",isEnabled(SUBMIT));
+        Assert.assertTrue("Zaten üyeyim butonu mevcut değil",isDisplayed(ALREADY_MEMBER));
 
         List<WebElement> infoText = findElements(INFO_TEXT);
         for (int i=0; i < infoText.size(); i++){

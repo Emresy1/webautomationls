@@ -36,6 +36,7 @@ public class RegisterPage_Constants extends BasePageUtil {
     public By INFO_TEXT = By.className("formElementInfo-text");
     public By USERNAME_LOADING = By.cssSelector(".formInput.formInput--hasLabel.formInput--hasPlaceholder.loading");
     public By USERNAME_FUNCTION = By.className("medium");
+    public By FORM_SELECT_MONTHS= By.cssSelector(".formSelect.formSelect--hasLabel");
 
 
 
