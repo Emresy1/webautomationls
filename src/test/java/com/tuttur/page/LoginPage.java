@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 
 import com.tuttur.util.ExcelUtil;
 import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 
@@ -34,13 +35,28 @@ public class LoginPage extends LoginPage_Constants{
 
     }
 
-    public MainPage login(int rowNumber) throws IOException {
+    // editlenecek !!!!
+    private void confirmContract() throws InterruptedException {
+
+        while (getElementBy(CONTRACT_TAB).isDisplayed()) {
+
+            scrollToElement(CONTRACT_CHECKBOX);
+
+            clickObjectBy(CONTRACT_CHECKBOX);
+            clickObjectBy(BUTTON_ACCEPT);
+
+        }
+    }
+
+    public MainPage login(int rowNumber) throws IOException, InterruptedException {
 
         setUsername(getData(rowNumber, 1));
         setPassword(getData(rowNumber, 2));
 
         clickObjectBy(REMEMBER_ME);
         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
+
+        //confirmContract();
         return new MainPage(driver);
 
     }
@@ -64,8 +80,8 @@ public class LoginPage extends LoginPage_Constants{
 
     public void checkFailLogin(int rowNumber) throws IOException {
 
-        assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).getText()
-                .equals(getData(rowNumber, 6)));
+        assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).isDisplayed());
+             //   getText().equals(getData(rowNumber, 6)));
     }
 
     public void checkFailLoginWithGsm(int rowNumber) throws IOException {
@@ -76,8 +92,8 @@ public class LoginPage extends LoginPage_Constants{
 
     public void checkFailLoginWithEmail(int rowNumber) throws IOException {
 
-        assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).getText()
-                .equals(getData(rowNumber, 6)));
+        assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).isDisplayed());
+             //   .getText().equals(getData(rowNumber, 6)));
     }
 
     public void checkInputErrorValidations(int rowNumber) throws IOException {

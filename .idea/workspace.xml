@@ -28,22 +28,16 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="refactoring">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="fix list">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/LoginPage_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/LoginPage_Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/NavigationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/NavigationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BasePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BasePage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/ForgotPass_Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/DbQueriesPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/DbQueriesPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/ForgotPassTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/LoginPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/LoginPage_Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/LoginPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/RegisterTest.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +99,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest.loginWithMissingInfo">
+  <component name="RunManager" selected="JUnit.LoginTest.failLoginWithEmail">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -113,6 +107,22 @@
         </value>
       </option>
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.failLoginWithAccountNo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+      <option name="METHOD_NAME" value="failLoginWithAccountNo" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -133,7 +143,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.failLoginWithPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.failLoginWithSsn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
@@ -143,39 +153,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="failLoginWithPassword" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.failLoginWithPhoneNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="failLoginWithPhoneNumber" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.loginInputMaxValueControl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="loginInputMaxValueControl" />
+      <option name="METHOD_NAME" value="failLoginWithSsn" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -197,20 +175,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginTest.successfulllyLoginWithIdentityNo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+      <option name="METHOD_NAME" value="successfulllyLoginWithIdentityNo" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.LoginTest.failLoginWithEmail" />
-      <item itemvalue="JUnit.LoginTest.failLoginWithPhoneNumber" />
-      <item itemvalue="JUnit.LoginTest.loginInputMaxValueControl" />
-      <item itemvalue="JUnit.LoginTest.failLoginWithPassword" />
       <item itemvalue="JUnit.LoginTest.loginWithMissingInfo" />
+      <item itemvalue="JUnit.LoginTest.successfulllyLoginWithIdentityNo" />
+      <item itemvalue="JUnit.LoginTest.failLoginWithSsn" />
+      <item itemvalue="JUnit.LoginTest.failLoginWithAccountNo" />
+      <item itemvalue="JUnit.LoginTest.failLoginWithEmail" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginTest.loginWithMissingInfo" />
-        <item itemvalue="JUnit.LoginTest.failLoginWithPassword" />
-        <item itemvalue="JUnit.LoginTest.loginInputMaxValueControl" />
-        <item itemvalue="JUnit.LoginTest.failLoginWithPhoneNumber" />
         <item itemvalue="JUnit.LoginTest.failLoginWithEmail" />
+        <item itemvalue="JUnit.LoginTest.failLoginWithAccountNo" />
+        <item itemvalue="JUnit.LoginTest.failLoginWithSsn" />
+        <item itemvalue="JUnit.LoginTest.successfulllyLoginWithIdentityNo" />
+        <item itemvalue="JUnit.LoginTest.loginWithMissingInfo" />
       </list>
     </recent_temporary>
   </component>
@@ -243,7 +237,7 @@
       <workItem from="1621934673750" duration="159000" />
       <workItem from="1623752724027" duration="1603000" />
       <workItem from="1624267510521" duration="171000" />
-      <workItem from="1624268198987" duration="1548000" />
+      <workItem from="1624268198987" duration="7757000" />
     </task>
     <task id="LOCAL-00001" summary="readcsvdata">
       <created>1608708002801</created>
@@ -420,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614624364917</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fix list">
+      <created>1624270009946</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1624270009946</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,29 +475,62 @@
     <MESSAGE value="registerPage input mandatory control" />
     <MESSAGE value="registerPage form mandatory fields control" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="fix list" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix list" />
   </component>
   <component name="WindowStateProjectService">
     <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1624268266843">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900@0.0.1440.900" timestamp="1624268266843" />
-    <state width="1398" height="218" key="GridCell.Tab.0.bottom" timestamp="1624269475060">
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom" timestamp="1624353712440">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="218" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624269475060" />
-    <state width="1398" height="218" key="GridCell.Tab.0.center" timestamp="1624269475059">
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624353712440" />
+    <state width="1398" height="210" key="GridCell.Tab.0.center" timestamp="1624353712440">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="218" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1624269475059" />
-    <state width="1398" height="218" key="GridCell.Tab.0.left" timestamp="1624269475058">
+    <state width="1398" height="210" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1624353712440" />
+    <state width="1398" height="210" key="GridCell.Tab.0.left" timestamp="1624353712439">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="218" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1624269475058" />
-    <state width="1398" height="218" key="GridCell.Tab.0.right" timestamp="1624269475059">
+    <state width="1398" height="210" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1624353712439" />
+    <state width="1398" height="210" key="GridCell.Tab.0.right" timestamp="1624353712440">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="218" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1624269475059" />
+    <state width="1398" height="210" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1624353712440" />
+    <state width="1398" height="210" key="GridCell.Tab.1.bottom" timestamp="1624353712442">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="210" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1624353712442" />
+    <state width="1398" height="210" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1624353648109" />
+    <state width="1398" height="210" key="GridCell.Tab.1.center" timestamp="1624353712441">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="210" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1624353712441" />
+    <state width="1398" height="210" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1624353648108" />
+    <state width="1398" height="210" key="GridCell.Tab.1.left" timestamp="1624353712441">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="210" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1624353712441" />
+    <state width="1398" height="210" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1624353648108" />
+    <state width="1398" height="210" key="GridCell.Tab.1.right" timestamp="1624353712441">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="210" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1624353712441" />
+    <state width="1398" height="210" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1624353648109" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1624270011814">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1624270011814" />
+    <state x="421" y="205" width="598" height="490" key="find.popup" timestamp="1624269981002">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1624269981002" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1624271886235">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1624271886235" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -506,6 +540,11 @@
           <line>34</line>
           <properties field="testDataExcelFileName" class="com.tuttur.base.BaseTest" />
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

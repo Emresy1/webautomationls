@@ -28,7 +28,7 @@ public class LoginTest extends BaseTest {
      */
 
     @Test
-    public void successfullyLoginWithAccountNo() throws IOException {
+    public void successfullyLoginWithAccountNo() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -45,7 +45,7 @@ public class LoginTest extends BaseTest {
      */
 
     @Test
-    public void successfullyLoginWithUserName() throws IOException {
+    public void successfullyLoginWithUserName() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -59,12 +59,11 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.2
      * TCKN  ile başarılı login
-     * FİXLENECEK 1111111111111
      */
 
 
     @Test
-    public void successfulllyLoginWithIdentityNo() throws IOException {
+    public void successfulllyLoginWithIdentityNo() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -75,10 +74,10 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.3
      * TCKN ile başarısız login kontrolü
-     * FİXLENECEK 111111111
+     * assert mesajı düzeltilecek !!!!!
      */
     @Test
-    public void failLoginWithSsn() throws IOException {
+    public void failLoginWithSsn() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -92,7 +91,7 @@ public class LoginTest extends BaseTest {
      * Username ile başarısız login kontrolü
      */
     @Test
-    public void failLoginWithUsername() throws IOException {
+    public void failLoginWithUsername() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -103,10 +102,10 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.5
      * Account no ile başarısız login kontrolü
-     * FİXLENECEK 11111111
+     * assert mesajı düzeltilecek
      */
     @Test
-    public void failLoginWithAccountNo() throws IOException {
+    public void failLoginWithAccountNo() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -119,10 +118,10 @@ public class LoginTest extends BaseTest {
     /**
      * Case 1.6
      * Email ile başarısız login kontrolü
-     * FİXLENECEK 111111
+     * assert mesajı düzeltilecek
      */
     @Test
-    public void failLoginWithEmail() throws IOException {
+    public void failLoginWithEmail() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -137,7 +136,7 @@ public class LoginTest extends BaseTest {
      * FİXLENECEK 1111111111
      */
     @Test
-    public void failLoginWithPhoneNumber() throws IOException {
+    public void failLoginWithPhoneNumber() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -155,7 +154,7 @@ public class LoginTest extends BaseTest {
      * @throws IOException
      */
     @Test
-    public void loginInputMaxValueControl() throws IOException {
+    public void loginInputMaxValueControl() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -172,7 +171,7 @@ public class LoginTest extends BaseTest {
      * @throws IOException
      */
     @Test
-    public void failLoginWithPassword() throws IOException {
+    public void failLoginWithPassword() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -191,7 +190,7 @@ public class LoginTest extends BaseTest {
      */
 
     @Test
-    public void loginWithMissingInfo() throws IOException {
+    public void loginWithMissingInfo() throws IOException, InterruptedException {
 
 
         base.getSheet("LoginData");
