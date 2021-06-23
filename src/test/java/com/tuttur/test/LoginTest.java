@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import com.tuttur.base.BaseTest;
 import com.tuttur.configs.PropertiesFile;
-import com.tuttur.page.DbQueriesPage;
 import com.tuttur.page.LoginPage;
 import com.tuttur.page.MainPage;
 
@@ -19,7 +18,6 @@ public class LoginTest extends BaseTest {
 
     PropertiesFile prop = new PropertiesFile(driver);
     BasePageUtil base = new BasePageUtil(driver);
-    DbQueriesPage db = new DbQueriesPage(driver);
 
 
     /**
@@ -186,8 +184,6 @@ public class LoginTest extends BaseTest {
     /**
      * Case 2.0
      * Boş input ile login kontrolü
-     *
-     *
      * @throws IOException
      */
 
@@ -200,24 +196,22 @@ public class LoginTest extends BaseTest {
         new LoginPage(driver).checkMissingInfoText(11);
 
     }
-
     /**
      * Case 2.1
-     * Sözleşmeler
+     * Input uyarı mesajı kontrolü
+     *
      */
+
     @Test
-    public void confirmContract() throws IOException, InterruptedException {
+    public void LoginInputMessageControl () throws IOException, InterruptedException {
 
-        base.getSheet("LoginData");
-        db.executeQuery(prop.getObject("deleteContract"));
-
+        base.getSheet ("LoginData");
         new MainPage(driver).getLoginPage().login(12);
-        new LoginPage(driver).confirmContract()
-                .checkUsernameText(12);
-
-
+        new LoginPage(driver).checkInputInfoText(12);
 
     }
+
+
 
 }
 
