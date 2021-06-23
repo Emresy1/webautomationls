@@ -41,31 +41,32 @@ public class LoginPage extends LoginPage_Constants {
 
     public MainPage confirmContract() throws InterruptedException, IOException {
 
-       // sleep(1);
+        // sleep(1);
         waitForElement(driver,MIN_WAIT_4_ELEMENT,CONTRACT_HEADER);
 
         String[] contract = {"GIZLILIK SÖZLEŞMESI","KULLANICI SÖZLEŞMESI","AYDINLATMA METNI","AÇIK RIZA ONAY METNI"
-        ,"KIŞISEL VERI BAŞVURU FORMU"};
+                ,"KIŞISEL VERI BAŞVURU FORMU"};
 
         int index = 0;
 
 
-            for (String contractName:contract) {
+        for (String contractName:contract) {
 
+            sleep(1);
+
+            if (contractName.equals(driver.findElements(CONTRACT_TAB).get(0).getText())) {
+
+                scrollToElement(CONTRACT_CHECKBOX);
+
+                clickObjectBy(CONTRACT_CHECKBOX);
                 sleep(1);
-
-                if (contractName.equals(driver.findElements(CONTRACT_TAB).get(0).getText())) {
-
-                    scrollToElement(CONTRACT_CHECKBOX);
-
-                    clickObjectBy(CONTRACT_CHECKBOX);
-                    sleep(1);
-                    clickObjectBy(BUTTON_ACCEPT);
+                clickObjectBy(BUTTON_ACCEPT);
 
             }
         }
         return new MainPage(driver);
     }
+
 
     public MainPage login(int rowNumber) throws IOException, InterruptedException {
 
