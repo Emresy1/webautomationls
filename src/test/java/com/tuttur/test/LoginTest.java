@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.tuttur.base.BaseTest;
 import com.tuttur.configs.PropertiesFile;
+import com.tuttur.page.DbQueriesPage;
 import com.tuttur.page.LoginPage;
 import com.tuttur.page.MainPage;
 
@@ -18,6 +19,7 @@ public class LoginTest extends BaseTest {
 
     PropertiesFile prop = new PropertiesFile(driver);
     BasePageUtil base = new BasePageUtil(driver);
+    DbQueriesPage db = new DbQueriesPage(driver);
 
 
     /**
@@ -208,6 +210,23 @@ public class LoginTest extends BaseTest {
         base.getSheet ("LoginData");
         new MainPage(driver).getLoginPage().login(12);
         new LoginPage(driver).checkInputInfoText(12);
+
+    }
+
+    /**
+     * Case 2.1
+     * Sözleşmeler
+     */
+    @Test
+    public void confirmContract() throws IOException, InterruptedException {
+
+        base.getSheet("LoginData");
+        db.executeQuery(prop.getObject("deleteContract"));
+
+        new MainPage(driver).getLoginPage().login(13);
+        new LoginPage(driver).confirmContract()
+                .checkUsernameText(13);
+
 
     }
 
