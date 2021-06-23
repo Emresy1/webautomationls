@@ -9,9 +9,12 @@ import com.tuttur.util.ExcelUtil;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 public class LoginPage extends LoginPage_Constants{
 
@@ -35,17 +38,33 @@ public class LoginPage extends LoginPage_Constants{
 
     }
 
-    // editlenecek !!!!
-    private void confirmContract() throws InterruptedException {
 
-        while (getElementBy(CONTRACT_TAB).isDisplayed()) {
+    public MainPage confirmContract() throws InterruptedException, IOException {
 
-            scrollToElement(CONTRACT_CHECKBOX);
+       // sleep(1);
+        waitForElement(driver,MIN_WAIT_4_ELEMENT,CONTRACT_HEADER);
 
-            clickObjectBy(CONTRACT_CHECKBOX);
-            clickObjectBy(BUTTON_ACCEPT);
+        String[] contract = {"GIZLILIK SÖZLEŞMESI","KULLANICI SÖZLEŞMESI","AYDINLATMA METNI","AÇIK RIZA ONAY METNI"
+        ,"KIŞISEL VERI BAŞVURU FORMU"};
 
+        int index = 0;
+
+
+            for (String contractName:contract) {
+
+                sleep(1);
+
+                if (contractName.equals(driver.findElements(CONTRACT_TAB).get(0).getText())) {
+
+                    scrollToElement(CONTRACT_CHECKBOX);
+
+                    clickObjectBy(CONTRACT_CHECKBOX);
+                    sleep(1);
+                    clickObjectBy(BUTTON_ACCEPT);
+
+            }
         }
+        return new MainPage(driver);
     }
 
     public MainPage login(int rowNumber) throws IOException, InterruptedException {
@@ -56,7 +75,6 @@ public class LoginPage extends LoginPage_Constants{
         clickObjectBy(REMEMBER_ME);
         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
 
-        //confirmContract();
         return new MainPage(driver);
 
     }

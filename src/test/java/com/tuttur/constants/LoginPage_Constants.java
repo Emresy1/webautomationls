@@ -15,8 +15,8 @@ public class LoginPage_Constants extends BasePageUtil {
     public By MODAL_ERROR_TEXT = By.className("formPage-error");
     public By CONTRACT_TAB = By.id("tabButtonActive");
     public By CONTRACT_CHECKBOX = By.className("formCheckbox-checkbox");
+    public By CONTRACT_HEADER = By.className("modalHeader-text");
     public By BUTTON_ACCEPT = By.cssSelector(".medium.primary.personelData-acceptContainer-checkboxContainer-button");
-
     public By INPUT_ERROR_TEXT = By.className("formElementError-text");
     public By REMEMBER_ME = By.className("formCheckbox-checkbox");
     public By FORGOTPASSWORD = By.className("formInput-subComponent");
