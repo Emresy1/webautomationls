@@ -213,11 +213,7 @@ public class BasePageUtil {
 		wait.until(ExpectedConditions.presenceOfElementLocated(elementBy));
 	}
 
-	public void waitForString(WebDriver driver, int seconds, By by, String st) {
-		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
-		WebElement element = getElementBy(by);
-		wait.until(ExpectedConditions.textToBePresentInElement(element,st));
-	}
+
 
 	public void waitForElement(WebElement elm , int seconds) {
 		
@@ -225,11 +221,11 @@ public class BasePageUtil {
 		wait.until(ExpectedConditions.elementToBeClickable(elm));
 	}
 	
-	public void waitForText(WebDriver driver, int seconds, By by, String value) {
+	public void waitForTextOnElement(WebDriver driver, int seconds, By by, String value) {
 		
 		WebElement element = getElementBy(by);
 		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
-		wait.until(ExpectedConditions.textToBePresentInElement(element, value));
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(by, value));
 	}
 	
 	public void switchToWindows() {

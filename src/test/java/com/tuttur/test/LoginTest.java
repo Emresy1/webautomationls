@@ -224,8 +224,8 @@ public class LoginTest extends BaseTest {
         db.executeQuery(prop.getObject("deleteContract"));
 
         new MainPage(driver).getLoginPage().login(13);
-        new LoginPage(driver).confirmContract()
-                .checkUsernameText(13);
+               // .checkUsernameText(13);
+
 
 
     }

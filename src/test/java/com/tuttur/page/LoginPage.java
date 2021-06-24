@@ -39,32 +39,38 @@ public class LoginPage extends LoginPage_Constants {
     }
 
 
-    public MainPage confirmContract() throws InterruptedException, IOException {
-
-        // sleep(1);
-        waitForElement(driver,MIN_WAIT_4_ELEMENT,CONTRACT_HEADER);
-
-        String[] contract = {"GIZLILIK SÖZLEŞMESI","KULLANICI SÖZLEŞMESI","AYDINLATMA METNI","AÇIK RIZA ONAY METNI"
-                ,"KIŞISEL VERI BAŞVURU FORMU"};
-
-        int index = 0;
+    private void confirmContract() throws InterruptedException, IOException {
 
 
-        for (String contractName:contract) {
+        if (isExist(MIN_WAIT_4_ELEMENT, CONTRACT_HEADER)) {
 
-            sleep(1);
+            waitForElement(driver, MIN_WAIT_4_ELEMENT, CONTRACT_HEADER);
 
-            if (contractName.equals(driver.findElements(CONTRACT_TAB).get(0).getText())) {
+            String[] contract = {"KULLANICI SÖZLEŞMESI", "GIZLILIK SÖZLEŞMESI", "AYDINLATMA METNI", "AÇIK RIZA ONAY METNI"
+                    , "KIŞISEL VERI BAŞVURU FORMU"};
 
-                scrollToElement(CONTRACT_CHECKBOX);
 
-                clickObjectBy(CONTRACT_CHECKBOX);
-                sleep(1);
-                clickObjectBy(BUTTON_ACCEPT);
+            for (String contractName : contract) {
 
+                waitForTextOnElement(driver,OPT_WAIT_4_ELEMENT,CONTRACT_TAB,contractName);
+
+                if (contractName.equals(driver.findElements(CONTRACT_TAB).get(0).getText())) {
+
+
+                    scrollToElement(CONTRACT_CHECKBOX);
+
+                    clickObjectBy(CONTRACT_CHECKBOX);
+
+                    WebElement buttonAccept = getElementBy(BUTTON_ACCEPT);
+                    waitForElement(buttonAccept, MIN_WAIT_4_ELEMENT);
+
+                    clickObjectBy(BUTTON_ACCEPT);
+
+
+                }
             }
         }
-        return new MainPage(driver);
+
     }
 
 
@@ -75,6 +81,8 @@ public class LoginPage extends LoginPage_Constants {
 
         clickObjectBy(REMEMBER_ME);
         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
+
+        confirmContract();
 
         return new MainPage(driver);
 
