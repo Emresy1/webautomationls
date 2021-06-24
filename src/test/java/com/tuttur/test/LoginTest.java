@@ -142,10 +142,8 @@ public class LoginTest extends BaseTest {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage()
-                .login(8);
-        new LoginPage(driver)
-                .checkFailLoginWithGsm(8);
+        new MainPage(driver).getLoginPage().login(8);
+        new LoginPage(driver).checkFailLoginWithGsm(8);
     }
 
     /**
@@ -227,11 +225,7 @@ public class LoginTest extends BaseTest {
                // .checkUsernameText(13);
 
 
-
     }
-
-
-
 }
 
 

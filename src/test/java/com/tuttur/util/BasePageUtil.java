@@ -222,8 +222,7 @@ public class BasePageUtil {
 	}
 	
 	public void waitForTextOnElement(WebDriver driver, int seconds, By by, String value) {
-		
-		WebElement element = getElementBy(by);
+
 		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
 		wait.until(ExpectedConditions.textToBePresentInElementLocated(by, value));
 	}

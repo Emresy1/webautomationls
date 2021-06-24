@@ -98,6 +98,7 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkUsernameText( int rowNumber) throws IOException {
 
 
+        waitForElement(driver,MIN_WAIT_4_ELEMENT,USERNAMETEXT);
         assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
                 .equals(getData(rowNumber,3)));
 

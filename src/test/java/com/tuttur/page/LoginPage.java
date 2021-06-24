@@ -2,19 +2,13 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.LoginPage_Constants;
-
 import static org.junit.Assert.assertTrue;
 
-import com.tuttur.util.ExcelUtil;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class LoginPage extends LoginPage_Constants {
 
@@ -26,36 +20,34 @@ public class LoginPage extends LoginPage_Constants {
     DbQueriesPage db = new DbQueriesPage(driver);
 
 
-    private void setUsername(String username) throws IOException {
+    private void setUsername(String username) {
 
         setObjectBy(USERNAME, username);
 
     }
 
-    private void setPassword(String password) throws IOException {
+    private void setPassword(String password){
         setObjectBy(PASSWORD, password);
 
 
     }
 
 
-    private void confirmContract() throws InterruptedException, IOException {
+    private void confirmContract() throws InterruptedException {
 
 
-        if (isExist(MIN_WAIT_4_ELEMENT, CONTRACT_HEADER)) {
+        if (isExist(OPT_WAIT_4_ELEMENT,CONTRACT_HEADER)) {
 
             waitForElement(driver, MIN_WAIT_4_ELEMENT, CONTRACT_HEADER);
 
-            String[] contract = {"KULLANICI SÖZLEŞMESI", "GIZLILIK SÖZLEŞMESI", "AYDINLATMA METNI", "AÇIK RIZA ONAY METNI"
-                    , "KIŞISEL VERI BAŞVURU FORMU"};
-
+            String[] contract = {"KULLANICI SÖZLEŞMESI","GIZLILIK SÖZLEŞMESI","AYDINLATMA METNI",
+                    "AÇIK RIZA ONAY METNI","KIŞISEL VERI BAŞVURU FORMU"};
 
             for (String contractName : contract) {
 
-                waitForTextOnElement(driver,OPT_WAIT_4_ELEMENT,CONTRACT_TAB,contractName);
+                waitForTextOnElement(driver, OPT_WAIT_4_ELEMENT, CONTRACT_TAB, contractName);
 
                 if (contractName.equals(driver.findElements(CONTRACT_TAB).get(0).getText())) {
-
 
                     scrollToElement(CONTRACT_CHECKBOX);
 
@@ -70,7 +62,6 @@ public class LoginPage extends LoginPage_Constants {
                 }
             }
         }
-
     }
 
 
@@ -79,13 +70,20 @@ public class LoginPage extends LoginPage_Constants {
         setUsername(getData(rowNumber, 1));
         setPassword(getData(rowNumber, 2));
 
+        WebElement buttonLogin = getElementBy(By.cssSelector(".medium.primary.loginForm-button"));
+
         clickObjectBy(REMEMBER_ME);
         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
 
-        confirmContract();
 
-        return new MainPage(driver);
 
+        if (driver.findElements(MODAL_ERROR_TEXT).size() == 0) {
+
+            waitForElementDisappear(buttonLogin);
+            confirmContract();
+        }
+
+            return new MainPage(driver);
     }
 
 
