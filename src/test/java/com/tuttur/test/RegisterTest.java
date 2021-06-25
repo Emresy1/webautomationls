@@ -29,73 +29,30 @@ public class RegisterTest extends BaseTest {
      */
 
     @Test
-    public void successFullyRegisterTest() throws InterruptedException, IOException {
+    public void successfullyRegisterTest() throws InterruptedException, IOException {
 
         util.getSheet("RegisterData");
 
         new MainPage(driver).accountUpdate()
                 .getRegisterPage()
                 .isExistBanner()
-                .setRegisterForm(1, "username-type")
+                .setRegisterForm(1)
                 .clickMembershipApprove(0)
                 .clickSubmit()
                 .smsActivation()
-                .checkUserText(general.username);
+                .checkNameOnWelcomePage()
+                .isDisplayedUsername();
 
     }
 
-
-   /* *//**
+    /**
      * Case 1.1
-     * Başarılı üye ol (username kullan fonksiyonu ile)
-     *//*
-
-    @Test
-    public void registerWithUseFunctional() throws IOException, InterruptedException {
-
-        util.getSheet("RegisterData");
-
-        new MainPage(driver).accountUpdate()
-                .getRegisterPage()
-                .isExistBanner()
-                .setRegisterForm(2, 1)
-                .clickMembershipApprove(0)
-                .clickSubmit()
-                .smsActivation()
-                .checkUserText(general.generateUsernameText.toString());
-
-    }
-
-    *//**
-     * Case 1.2
-     * Mevcut kullanıcı ile register
-     * Kullanıcı adı yenile ve kullan
-     *//*
-
-    @Test
-    public void registerWithRefreshUsername() throws IOException, InterruptedException {
-
-        util.getSheet("RegisterData");
-
-        new MainPage(driver).accountUpdate()
-                .getRegisterPage()
-                .setRegisterForm(2, 3)
-                .clickMembershipApprove(0)
-                .clickSubmit()
-                .smsActivation()
-                .checkUserText(general.refreshUsername);
-
-    }
-
-
-    *//**
-     * Case 1.3
      * Mevcut kullanıcı ile register
      * Aynı datalar ile register olunduğunda kullanıcı login olur
      *
      * @throws IOException
      * @throws InterruptedException
-     *//*
+     */
 
     @Test
     public void currentUserRegisterToLogin() throws IOException, InterruptedException {
@@ -103,18 +60,18 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-                .setRegisterForm(5, 0)
+                .setRegisterForm(5)
                 .clickMembershipApprove(0)
                 .clickSubmit();
 
         new MainPage(driver).checkRegisterLogin();
     }
 
-    *//**
-     * Case 1.4
+    /**
+     * Case 1.2
      * Mevcut kullanıcı ile register
      * Aynı datalar ile register olup şifre farklı girildiğinde şifremi unuttuma yönlenir.
-     *//*
+     */
 
     @Test
     public void currentUserRegisterToForgotPassword() throws IOException, InterruptedException {
@@ -122,16 +79,16 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-                .setRegisterForm(6, 0)
+                .setRegisterForm(6)
                 .clickMembershipApprove(0)
                 .clickSubmit()
                 .checkForgotPasswordModal(6);
     }
 
-    *//**
-     * Case 1.5
+    /**
+     * Case 1.3
      * Bloklu kullanıcıyla register
-     *//*
+     */
 
     @Test
     public void registerWithBlockedUser() throws IOException, InterruptedException {
@@ -139,18 +96,18 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-                .setRegisterForm(7, 0)
+                .setRegisterForm(7)
                 .clickMembershipApprove(0)
                 .clickSubmit()
                 .checkFormErrorMessage(prop.getObject("blockeduserMessage"));
     }
 
-    *//**
+    /**
      * Case 2.0
      * Başarısız üye ol (invalid datalar ile)
      * Yanlış isim
      * Yanlış doğum tarihi
-     *//*
+     */
 
     @Test
     public void registerWithInvalidData() throws IOException, InterruptedException {
@@ -160,13 +117,13 @@ public class RegisterTest extends BaseTest {
         new MainPage(driver)
                 .getRegisterPage()
                 .isExistBanner()
-                .setRegisterForm(3, 0)
+                .setRegisterForm(3)
                 .clickMembershipApprove(0)
                 .clickSubmit()
-                .checkWarningTextOnModal(3, 10, 11);
+                .checkWarningTextOnModal();
     }
 
-    *//**
+    /**
      * in
      * Case 2.1
      * Numerik ve alfanumerik satırların kural kontrolü

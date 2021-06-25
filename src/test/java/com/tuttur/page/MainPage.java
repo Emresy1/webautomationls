@@ -114,6 +114,10 @@ public class MainPage extends MainPage_Constants {
 
         return this;
     }
+    public void isDisplayedUsername(){
+
+        Assert.assertFalse(getElementBy(USERNAMETEXT).getText().isEmpty());
+    }
 
     public MainPage checkRegisterLogin () throws InterruptedException, IOException {
 

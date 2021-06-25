@@ -206,7 +206,9 @@ public class RegisterPage extends RegisterPage_Constants {
     public void checkFormErrorMessage(String text){
 
         waitForElement(driver,OPT_WAIT_4_ELEMENT,WARNING_TEXT_ON_MODAL);
-        Assert.assertTrue("Uyarı mesajı yanlış", getElementBy(WARNING_TEXT_ON_MODAL).getText().equals(text));
+
+        Assert.assertTrue("Uyarı mesajı yanlış", getElementBy(WARNING_TEXT_ON_MODAL).getText()
+                .replace(")","").equals(text));
     }
 
     private WebElement modalTitle() {
@@ -267,13 +269,17 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    public MainPage smsActivation() throws IOException {
+    public WelcomePage smsActivation() throws IOException {
+
+        WebElement activatiionModal = getElementBy(ACTIVATION_FIELD);
 
         String smsCode = db.getValidationCode(prop.getObject("verifyCode"));
         setObjectBy(ACTIVATION_FIELD, smsCode);
         clickObjectBy(ACTIVATION_BUTTON);
-        return new MainPage(driver);
 
+        waitForElementDisappear(activatiionModal);
+
+        return new WelcomePage(driver);
     }
 
     public RegisterPage isExistBanner() {
@@ -291,24 +297,24 @@ public class RegisterPage extends RegisterPage_Constants {
         return this;
     }
 
-    public RegisterPage setRegisterForm(int rowNumber, String usernameSelection) throws IOException, InterruptedException {
+    public RegisterPage setRegisterForm(int rowNumber) throws IOException, InterruptedException {
 
         setName(getData(rowNumber, 1));
         setLastName(getData(rowNumber, 2));
-        setBirthDate(rowNumber, 2, 3);
         setSsn(getData(rowNumber, 6));
+        setBirthDate(rowNumber, 1, 2);
         setGsm(getData(rowNumber, 7));
         setEmail(getData(rowNumber, 8));
-        setUsername(usernameSelection);
+        //setUsername(usernameSelection);
         setPassword(getData(rowNumber, 9));
 
         return this;
     }
 
-    public RegisterPage checkWarningTextOnModal(int rowNumber, int assertCell, int warningTextCell) {
+    public RegisterPage checkWarningTextOnModal() throws IOException {
 
-        Assert.assertTrue(getData(rowNumber, assertCell), getElementBy(WARNING_TEXT_ON_MODAL).getText()
-                .equals(getData(rowNumber, warningTextCell)));
+        Assert.assertTrue("Uyarı texti hatalı", getElementBy(WARNING_TEXT_ON_MODAL).getText()
+                .replace(")","").equals(prop.getObject("warningTextInvalidInfo")));
 
         return this;
     }

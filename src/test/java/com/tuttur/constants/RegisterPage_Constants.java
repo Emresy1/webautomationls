@@ -15,14 +15,14 @@ public class RegisterPage_Constants extends BasePageUtil {
     public By EMAIL = By.name("email");
     public By REGISTER_USERNAME = By.name("username");
     public By REGISTER_PASSWORD = By.name("password");
-    public By DATE = By.className("formInput-input");
+    public By DATE = By.cssSelector(".formInput-input.undefined");
     public By YEAR = By.className("formInput-input");
     public By MONTHS = By.className("formSelect-select");
     public By BIRTHDATE = By.className("formSelect-border");
     public By CHECKBOX = By.className("formCheckbox-checkbox");
     public By SUBMIT = By.cssSelector(".medium.primary.registerForm-button");
     public By ACTIVATION_FIELD = By.name("activationCode");
-    public By ACTIVATION_BUTTON = By.cssSelector(".medium.primary.phoneActivationForm-button");
+    public By ACTIVATION_BUTTON = By.cssSelector(".medium.primary.phoneActivation-activateButton");
     public By FORM_INPUT = By.className("formInput-input");
     public By BANNER = By.className("registerModal-banner");
     public By WARNING_TEXT_ON_MODAL = By.className("formPage-error");
