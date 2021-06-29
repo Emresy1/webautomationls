@@ -31,12 +31,16 @@ public class RegisterPage_Constants extends BasePageUtil {
     public By INPUT_ERROR_TEXT = By.className("formElementError-text");
     public By CLOSE_MODAL = By.cssSelector(".medium.modalHeader-close");
     public By WARNING_TEXT = By.className("formElementError-text");
-    public By CURSOR_FİELD= By.cssSelector(".formInput--isFocus.formInput.formInput--hasLabel");
+    public By REGISTER_DESC = By.className("formPage-description");
+    public By PROGRESS_BAR = By.className("passwordInfo-progress");
+    public By CURSOR_FİELD= By.cssSelector(".formInput.formInput--isFocus.formInput--isError.formInput--hasLabel");
     public By ALREADY_MEMBER = By.className("registerForm-link");
-    public By INFO_TEXT = By.className("formElementInfo-text");
+    public By INFO_TEXT = By.className("formCheckbox-span");
     public By USERNAME_LOADING = By.cssSelector(".formInput.formInput--hasLabel.formInput--hasPlaceholder.loading");
     public By USERNAME_FUNCTION = By.className("medium");
     public By FORM_SELECT_MONTHS= By.cssSelector(".formSelect.formSelect--hasLabel");
+    public By PLACEHOLDER = By.className("formInput-label");
+    public By BUTTON_CLOSE_COOKİE_BAR = By.className("cookieBar-close");
 
 
 

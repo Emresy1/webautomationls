@@ -129,7 +129,7 @@ public class RegisterTest extends BaseTest {
      * Numerik ve alfanumerik satırların kural kontrolü
      *
      * @throws IOException
-     *//*
+     */
 
     @Test
     public void fieldsRuleCheck() throws IOException, InterruptedException {
@@ -142,30 +142,35 @@ public class RegisterTest extends BaseTest {
                 .check18YearsRule()
                 .checkPasswordCombination()
                 .inputPatternCheck();
-        // .checkUsernameCombination();
 
-        // checkUsernameCombination metodu patlıyor uyarı textlerindeki geliştirme henüz bitmedi. Bittiğinde düzelecek.
-        // soyad kısmındaa uyarrı texti yok fixlendiğinde yazılacaak.
     }
+
+    /**
+     * Case 2.2
+     * Zorunlu inputların kontrolü
+     * @throws IOException
+     * @throws InterruptedException
+     */
 
     @Test
     public void mandatoryFieldCheck() throws IOException, InterruptedException {
 
         util.getSheet("RegisterData");
 
-        new MainPage(driver).accountUpdate()
-                .getRegisterPage()
+       // new MainPage(driver).accountUpdate()
+                new MainPage(driver).getRegisterPage()
                 .formButtonAndInfoControl()
+                .isDisplayedPlaceholders()
                 .checkMandatoryField()
                 .clickMembershipApprove(1);
 
     }
 
-    *//**
+    /**
      * Case 2.2
      * Sistemde mevcut kullanıcı ile, Ad soyad, doğum tarihi ve tckn bilgileri doğru, diğer inputlara
      * random data girilerek login
-     *//*
+     */
 
     @Test
     public void loginWithCompulsoryInput() throws IOException, InterruptedException {
@@ -173,14 +178,14 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-                .setRegisterForm(8, 1)
+        //        .setRegisterForm(8, 1)
                 .clickMembershipApprove(0)
                 .clickSubmit();
         new MainPage(driver).checkUserText(general.staticUsername);
 
     }
 
-    *//**
+    /**
      * Case 2.3
      * Kullanıcının ad, soyad ve doğum tarihi eşleşmedi
      *//*

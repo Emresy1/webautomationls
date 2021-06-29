@@ -32,6 +32,8 @@ public class BaseTest {
 
 	public WebDriver driver;
 
+	PropertiesFile prop = new PropertiesFile(driver);
+
 	public static final String testDataExcelFileName = "TestData.xlsx";
 
 	public static String browserName = null;
@@ -75,6 +77,7 @@ public class BaseTest {
 		}
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
 		driver.manage().window().maximize();
 
 		driver.get(baseUrl);
