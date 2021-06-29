@@ -1,7 +1,7 @@
 package com.tuttur.page;
 
 import com.tuttur.constants.WelcomePage_Constants;
-import org.junit.Assert;
+import static  org.junit.Assert.assertTrue;
 import org.openqa.selenium.WebDriver;
 import java.io.IOException;
 
@@ -17,7 +17,7 @@ public class WelcomePage extends WelcomePage_Constants {
         String nameLastName = getData(1,1).toUpperCase()
                 + " " + getData(1,2).toUpperCase();
 
-        Assert.assertTrue("İsim ve soyisim eşleşmedi", nameLastName.equals(getElementBy(NAME).getText()));
+       assertTrue("İsim ve soyisim eşleşmedi", nameLastName.equals(getElementBy(NAME).getText()));
 
         clickObjectBy(ICON_WEBSITE);
 

@@ -5,20 +5,14 @@ import com.tuttur.configs.PropertiesFile;
 
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import static org.junit.Assert.assertTrue;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -89,7 +83,7 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkAccountNo( int rowNumber) throws IOException {
 
-        Assert.assertTrue(prop.getObject("accountNumberCheck"),getElementBy(ACCOUNT_NO).getText()
+        assertTrue(prop.getObject("accountNumberCheck"),getElementBy(ACCOUNT_NO).getText()
                 .equals(getData(rowNumber,3)));
 
         return this;
@@ -109,7 +103,7 @@ public class MainPage extends MainPage_Constants {
         String headerUser = username;
         waitForElement(driver,OPT_WAIT_4_ELEMENT,USERNAMETEXT);
 
-        Assert.assertTrue("x", getElementBy(USERNAMETEXT).getText()
+        assertTrue("x", getElementBy(USERNAMETEXT).getText()
         .equals(headerUser));
 
         return this;
