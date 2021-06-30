@@ -9,6 +9,7 @@ import com.tuttur.page.LoginPage;
 import com.tuttur.page.MainPage;
 
 
+import com.tuttur.page.WelcomePage;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -223,7 +224,7 @@ public class LoginTest extends BaseTest {
         db.executeQuery(prop.getObject("deleteContract"));
 
         new MainPage(driver).getLoginPage().login(13);
-               // .checkUsernameText(13);
+                //.checkUsernameText(13);
 
 
     }
