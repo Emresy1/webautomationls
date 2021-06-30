@@ -37,6 +37,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(1)
+                .clickButtonLogin()
                 .checkAccountNo(1);
     }
 
@@ -54,8 +55,8 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(2)
+                .clickButtonLogin()
                 .checkUsernameText(2);
-
     }
 
 
@@ -71,6 +72,7 @@ public class LoginTest extends BaseTest {
         base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage().login(3)
+                .clickButtonLogin()
                 .checkUsernameText(3);
     }
 
@@ -84,7 +86,7 @@ public class LoginTest extends BaseTest {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(4);
+        new MainPage(driver).getLoginPage().login(4).clickButtonLogin();
         new LoginPage(driver).checkFailLogin(4);
 
     }
@@ -98,7 +100,7 @@ public class LoginTest extends BaseTest {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(5);
+        new MainPage(driver).getLoginPage().login(5).clickButtonLogin();
         new LoginPage(driver).checkFailLogin(5);
     }
 
@@ -113,7 +115,7 @@ public class LoginTest extends BaseTest {
         base.getSheet("LoginData");
 
         //committesttt
-        new MainPage(driver).getLoginPage().login(6);
+        new MainPage(driver).getLoginPage().login(6).clickButtonLogin();
         new LoginPage(driver).checkFailLogin(6);
 
     }
@@ -129,7 +131,7 @@ public class LoginTest extends BaseTest {
         base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
-                .login(7);
+                .login(7).clickButtonLogin();
         new LoginPage(driver).checkFailLoginWithEmail(7);
     }
 
@@ -143,7 +145,7 @@ public class LoginTest extends BaseTest {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(8);
+        new MainPage(driver).getLoginPage().login(8).clickButtonLogin();
         new LoginPage(driver).checkFailLoginWithGsm(8);
     }
 
@@ -160,7 +162,7 @@ public class LoginTest extends BaseTest {
         base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
-                .login(9);
+                .login(9).clickButtonLogin();
         new LoginPage(driver).checkInputErrorValidations(9);
     }
 
@@ -177,7 +179,7 @@ public class LoginTest extends BaseTest {
         base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
-                .login(10);
+                .login(10).clickButtonLogin();
         new LoginPage(driver).checkFailLogin(10);
     }
 
@@ -193,7 +195,7 @@ public class LoginTest extends BaseTest {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(11);
+        new MainPage(driver).getLoginPage().login(11).clickButtonLogin();
         new LoginPage(driver).checkMissingInfoText(11);
 
     }
@@ -207,7 +209,7 @@ public class LoginTest extends BaseTest {
     public void LoginInputMessageControl () throws IOException, InterruptedException {
 
         base.getSheet ("LoginData");
-        new MainPage(driver).getLoginPage().login(12);
+        new MainPage(driver).getLoginPage().login(12).clickButtonLogin();
         new LoginPage(driver).checkInputInfoText(12);
 
     }
@@ -222,7 +224,7 @@ public class LoginTest extends BaseTest {
         base.getSheet("LoginData");
         db.executeQuery(prop.getObject("deleteContract"));
 
-        new MainPage(driver).getLoginPage().login(13);
+        new MainPage(driver).getLoginPage().login(13).clickButtonLogin();
                // .checkUsernameText(13);
 
 

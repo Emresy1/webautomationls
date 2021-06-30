@@ -15,15 +15,18 @@ public class ForgotPass_Constants extends BasePageUtil {
     public By SEND_SMS_CHECK = By.className("formCheckbox-label");
     public By SEND_BUTTON = By.cssSelector(".medium.primary.w-100");
     public By CLOSE_BUTTON = By.cssSelector("medium primary");
-    public By PASSWORD_INPUT = By.name("passwordInput");
-    public By CHANGE_BUTTON = By.id("changePasswordButton");
-    public By SUCCESS_MESSAGE = By.className("emailProcessComplete");
-    public By LOGIN_BUTTON = By.id("loginButton");
+    public By PASSWORD_INPUT = By.name("password");
+    public By PASSWORD_REPEAT_INPUT = By.name("passwordRepeat");
+    public By CHANGE_BUTTON = By.cssSelector(".medium.primary.resetPasswordContainer-resetPasswordSubmit");
+    public By SUCCESS_MESSAGE = By.className("resetPasswordSuccess-successTitle");
+    public By LOGIN_BUTTON = By.cssSelector(".medium.primary.resetPasswordSuccess-successButton");
     public By BUTTON_SEND = By.cssSelector(".medium.primary.w-100");
     public By BUTTON_CLOSE = By.xpath("//*[@id=\"modal\"]/div[2]/div[2]/div[2]/div/div/div[2]/button");
     public By ERROR_FIELD = By.className("formPage-error");
     public By SSN_ERROR_MESSAGE = By.className("formElementError-text");
     public By WARNING_TEXT_MODAL = By.className("formPage-description");
+    public By VERIFY_CODE_FIELD = By.name("verifyCode");
+    public By VERIFY_BUTTON = By.cssSelector(".medium.primary.forgotPasswordForm-button.validateCodeButton");
 
 
 }

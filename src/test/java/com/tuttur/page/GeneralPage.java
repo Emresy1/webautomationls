@@ -19,7 +19,7 @@ public class GeneralPage extends BasePage {
 
     public static String generateUsernameText;
 
-    public static String newPasswordChange = "Test" + generateRandomInt(9999);
+    public static String newPasswordChange = "TestPass" + generateRandomInt(9999);
 
     public static String usernamePlaceholder;
 

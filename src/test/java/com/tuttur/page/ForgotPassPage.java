@@ -3,6 +3,7 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.ForgotPass_Constants;
+import com.tuttur.util.ExcelUtil;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +20,9 @@ public class ForgotPassPage extends ForgotPass_Constants {
     PropertiesFile prop = new PropertiesFile(driver);
     GeneralPage general = new GeneralPage(driver);
     RegisterPage register = new RegisterPage(driver);
+    DbQueriesPage db = new DbQueriesPage(driver);
+    LoginPage login = new LoginPage(driver);
+
 
     private void setSSN(int rowNumber) {
         setObjectBy(SSN,getData(rowNumber,1) );
@@ -58,7 +62,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
     public ForgotPassPage forgotPassSteps(int rowNumber) throws IOException {
 
         setSSN(rowNumber);
-        register.setBirthDate(rowNumber,3,4);
+        register.setBirthDate(rowNumber,1,2);
         clickResetPassword();
 
         return this;
@@ -72,6 +76,16 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     }
 
+    public ForgotPassPage setVerifyCode () throws IOException {
+
+        String smsCodePass = db.getValidationCode(prop.getObject("verifyCode"));
+        setObjectBy(VERIFY_CODE_FIELD,smsCodePass);
+        clickObjectBy(VERIFY_BUTTON);
+
+        return this;
+
+    }
+
     public ForgotPassPage checkWarningTextOnModal(String text){
 
         waitForElement(driver,OPT_WAIT_4_ELEMENT,RESET_PASS);
@@ -81,20 +95,28 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
     }
 
-    public LoginPage buttonCloseClick () {
+    //public LoginPage buttonCloseClick () {
 
-        waitForElement(driver, OPT_WAIT_4_ELEMENT, BUTTON_CLOSE);
-        clickObjectBy(BUTTON_CLOSE);
-        return new LoginPage(driver);
+   //     waitForElement(driver, OPT_WAIT_4_ELEMENT, BUTTON_CLOSE);
+    //    clickObjectBy(BUTTON_CLOSE);
+    //    return new LoginPage(driver);
+
+   // }
+    public void setNewPasswordToCsv () {
+
+        setData(general.newPasswordChange,1,2);
 
     }
 
-    public ForgotPassPage setPasswordChange() throws IOException {
+
+
+    public ForgotPassPage changePassword() throws IOException, InterruptedException {
 
         setObjectBy(PASSWORD_INPUT, general.newPasswordChange);
+        setObjectBy(PASSWORD_REPEAT_INPUT, general.newPasswordChange);
         clickObjectBy(CHANGE_BUTTON);
-        switchToWindows();
         checkPasswordChange();
+        setNewPasswordToCsv();
         clickObjectBy(LOGIN_BUTTON);
 
         return this;
@@ -122,6 +144,8 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
 
     }
+
+
 }
 
 

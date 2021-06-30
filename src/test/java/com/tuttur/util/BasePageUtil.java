@@ -81,6 +81,11 @@ public class BasePageUtil {
 
 	}
 
+	public void  setData (String value , int rowNumber,int cellNumber) {
+
+    	 ExcelUtil.setCellData(value,rowNumber,cellNumber);
+	}
+
 
 	public void getSheet ( String sheetName) {
 		ExcelUtil.setExcelFileSheet(sheetName);

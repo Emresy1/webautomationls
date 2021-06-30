@@ -26,7 +26,7 @@ public class ForgotPassTest extends BaseTest {
      * @throws IOException
      */
     @Test
-    public void successForgotPasswordWithSms() throws IOException {
+    public void successForgotPasswordWithSms() throws IOException, InterruptedException {
 
         base.getSheet("ForgotPassData");
 
@@ -35,10 +35,11 @@ public class ForgotPassTest extends BaseTest {
                 .forgotPassSteps(1)
                 .checkboxClick(0)
                 .clickButtonSend()
-                .buttonCloseClick()
-                .getForgotPassPage()
-                .setPasswordChange();
-        /// şifre değiştirme sayfası geliştirmesi tamamlandığında , url güncellenicek. Şuan eski url'e gidiyor
+                .setVerifyCode()
+                .changePassword();
+        new LoginPage(driver).login(1);
+      //  new MainPage(driver).checkUsernameText(1)--- csv cell alanı güncelleneicek , setdata methodu ile
+
 
     }
 

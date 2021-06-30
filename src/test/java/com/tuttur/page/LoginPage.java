@@ -65,7 +65,7 @@ public class LoginPage extends LoginPage_Constants {
     }
 
 
-    public MainPage login(int rowNumber) throws IOException, InterruptedException {
+    public LoginPage login(int rowNumber) throws IOException, InterruptedException {
 
         setUsername(getData(rowNumber, 1));
         setPassword(getData(rowNumber, 2));
@@ -76,29 +76,25 @@ public class LoginPage extends LoginPage_Constants {
         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
 
 
-
         if (driver.findElements(MODAL_ERROR_TEXT).size() == 0) {
 
             waitForElementDisappear(buttonLogin);
             confirmContract();
         }
 
-            return new MainPage(driver);
+            return this;
     }
 
+    public MainPage clickButtonLogin () throws IOException {
+
+        clickObjectBy(BUTTON_LOGIN_ON_POPUP);
+
+        return new MainPage (driver);
+    }
 
     public ForgotPassPage getForgotPassModal() throws IOException {
 
         clickObjectBy(FORGOTPASSWORD);
-
-        return new ForgotPassPage(driver);
-    }
-
-    public ForgotPassPage getForgotPassPage() throws IOException {
-
-        int smsLink = db.getValidationCodeInt(prop.getObject("smsLink"), 6);
-        String url = "https://ttest:q26RwfyLotHm@alpha.tuttur.com/account/reset-password/code/" + smsLink + "/type/smsLink";
-        driver.get(url);
 
         return new ForgotPassPage(driver);
     }
