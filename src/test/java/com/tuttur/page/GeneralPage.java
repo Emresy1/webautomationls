@@ -25,6 +25,6 @@ public class GeneralPage extends BasePage {
 
     public static String refreshUsername;
 
-    public static String staticUsername = "betult39";
+    public static String staticUsername = "betult787885";
 
     }

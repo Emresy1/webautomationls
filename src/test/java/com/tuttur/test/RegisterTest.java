@@ -178,7 +178,7 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-        //        .setRegisterForm(8, 1)
+                .setRegisterForm(8)
                 .clickMembershipApprove(0)
                 .clickSubmit();
         new MainPage(driver).checkUserText(general.staticUsername);
@@ -188,7 +188,7 @@ public class RegisterTest extends BaseTest {
     /**
      * Case 2.3
      * Kullanıcının ad, soyad ve doğum tarihi eşleşmedi
-     *//*
+     */
 
     @Test
     public void checkCredentialsDoNotMatch() throws IOException, InterruptedException {
@@ -196,16 +196,16 @@ public class RegisterTest extends BaseTest {
         util.getSheet("RegisterData");
 
         new MainPage(driver).getRegisterPage()
-                .setRegisterForm(9, 1)
+                .setRegisterForm(9)
                 .clickMembershipApprove(0)
                 .clickSubmit()
                 .checkFormErrorMessage(prop.getObject("credentialsDoNotMatch"));
     }
 
-    *//**
+    /**
      * Case 2.4
      * Sistemde kayıtlı cep telefonu ile register
-     *//*
+     */
 
     @Test
     public void checkExistGsm() throws IOException, InterruptedException {
@@ -214,12 +214,12 @@ public class RegisterTest extends BaseTest {
 
         new MainPage(driver).accountUpdate()
                 .getRegisterPage()
-                .setRegisterForm(10, 1)
+                .setRegisterForm(10)
                 .clickMembershipApprove(0)
-                .clickSubmit();
-        new ForgotPassPage(driver).checkWarningTextOnModal(prop.getObject("existGsmMessage"));
+                .clickSubmit()
+                .checkFormErrorMessage(prop.getObject("existGsmMessage"));
+
 
         // uyaarı texti registerda görülecek şu an şifremi unuttum modalına göre yazıldı.
     }
-*/
 }

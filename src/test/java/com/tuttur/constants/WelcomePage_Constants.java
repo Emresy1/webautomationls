@@ -11,6 +11,6 @@ public class WelcomePage_Constants extends BasePageUtil {
     }
 
 
-    public By NAME = By.className("welcomePage-content-nameSmall");
+    public By NAME = By.className("welcomePage-content-name");
     public By ICON_WEBSITE = By.className("welcomePage-banner-top-title");
 }
