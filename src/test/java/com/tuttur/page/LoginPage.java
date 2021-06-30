@@ -65,7 +65,7 @@ public class LoginPage extends LoginPage_Constants {
     }
 
 
-    public LoginPage login(int rowNumber) throws IOException, InterruptedException {
+    public MainPage login(int rowNumber) throws IOException, InterruptedException {
 
         setUsername(getData(rowNumber, 1));
         setPassword(getData(rowNumber, 2));
@@ -82,7 +82,7 @@ public class LoginPage extends LoginPage_Constants {
             confirmContract();
         }
 
-            return this;
+            return new MainPage(driver);
     }
 
     public MainPage clickButtonLogin () throws IOException {
