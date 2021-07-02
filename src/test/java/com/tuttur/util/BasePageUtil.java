@@ -318,5 +318,12 @@ public class BasePageUtil {
       Random random = new Random();
     return random.nextInt(upperRange);
       }
-	
+
+
+	public void ssnSendKeysJs(By by , String ssnNo){
+		JavascriptExecutor jse = ((JavascriptExecutor)driver);
+		WebElement ssn = driver.findElement(by);
+		jse.executeScript("arguments[0].value="+ssnNo+";", ssn);
+	}
+
     }

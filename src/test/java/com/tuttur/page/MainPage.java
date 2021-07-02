@@ -93,7 +93,7 @@ public class MainPage extends MainPage_Constants {
 
         waitForElement(driver,MIN_WAIT_4_ELEMENT,USERNAMETEXT);
         assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
-                .equals(getData(rowNumber,3)));
+                .equals(getData(rowNumber,6)));
 
         return this;
     }

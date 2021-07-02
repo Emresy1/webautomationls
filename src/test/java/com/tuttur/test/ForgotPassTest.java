@@ -37,9 +37,18 @@ public class ForgotPassTest extends BaseTest {
                 .clickButtonSend()
                 .setVerifyCode()
                 .changePassword();
-        new LoginPage(driver).login(1,"non-contract");
+        new LoginPage(driver).login(1, "non-contract");
+    }
+    //  new MainPage(driver).checkUsernameText(1)--- csv cell alanı güncelleneicek , setdata methodu ile
 
-      //  new MainPage(driver).checkUsernameText(1)--- csv cell alanı güncelleneicek , setdata methodu ile
+    @Test
+    public void inputPublicControls() throws IOException {
+
+        base.getSheet("ForgotPassData");
+
+        new MainPage(driver).getLoginPage()
+                 .getForgotPassModal()
+                 .ssnInputMaxValueControl();
 
 
     }
@@ -49,14 +58,14 @@ public class ForgotPassTest extends BaseTest {
      * Hatalı kullanıcı bilgileri ile kontrol
      */
     @Test
-    public void failControl() throws IOException {
+    public void inalidBirthdayTest() throws IOException {
 
         base.getSheet("ForgotPassData");
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
                 .forgotPassSteps(2)
-                .checkFailMessage(2);
+                .checkFailMessage();
     }
 
     /**
@@ -64,34 +73,20 @@ public class ForgotPassTest extends BaseTest {
      * Geçersiz TCKN kontrolü
      */
     @Test
-    public void failControlWithInvalidSsn() throws IOException {
+    public void invalidSsnTest() throws IOException {
 
         base.getSheet("ForgotPassData");
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
                 .forgotPassSteps(3)
-                .checkFailMessageForSsn(3);
+                .checkFailMessageForSsn();
 
     }
 
-    /**
-     * Case 1.3
-     * Seçim yapmadan link gönderme konrolü
-     */
 
-    @Test
-    public void unSelectedSendResetLink() throws IOException {
 
-        base.getSheet("ForgotPassData");
 
-        new MainPage(driver).getLoginPage()
-                .getForgotPassModal()
-                .forgotPassSteps(4)
-                .clickButtonSend();
-        new ForgotPassPage(driver).checkFailMessage(4);
-
-    }
 
 
 }

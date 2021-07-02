@@ -10,6 +10,7 @@ public class ForgotPass_Constants extends BasePageUtil {
     }
     public By SSN = By.name("ssn");
     public By BIRTHDATE = By.className("formSelect-select");
+    public By DATE = By.cssSelector(".formInput-input.undefined");
     public By RESET_PASS = By.cssSelector(".medium.primary.forgotPasswordForm-button");
     public By SEND_SMS_CHECKBOX = By.className("formRadio-checkbox");//By.cssSelector(".formCheckbox-checkbox");
     public By SEND_SMS_CHECK = By.className("formCheckbox-label");

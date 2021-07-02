@@ -52,7 +52,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    private void selectMonth(String month) {
+    public void selectMonth(String month) {
 
         WebElement months = getElementBy(MONTHS);
         Select select = new Select(months);
