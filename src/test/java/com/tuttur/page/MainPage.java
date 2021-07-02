@@ -84,7 +84,7 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkAccountNo( int rowNumber) throws IOException {
 
         assertTrue(prop.getObject("accountNumberCheck"),getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(rowNumber,3)));
+                .equals(getData(rowNumber,6)));
 
         return this;
     }

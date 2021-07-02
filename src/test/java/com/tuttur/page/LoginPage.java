@@ -113,8 +113,8 @@ public class LoginPage extends LoginPage_Constants {
 
     public void checkFailLoginWithGsm(int rowNumber) throws IOException {
 
-        assertTrue(getData(rowNumber, 7), getElementBy(INPUT_ERROR_TEXT).getText()
-                .equals(getData(rowNumber, 6)));
+        assertTrue(prop.getObject("errorMessageCheck"), getElementBy(INPUT_ERROR_TEXT).getText()
+                .equals(getData(rowNumber, 7)));
     }
 
     public void checkFailLoginWithEmail(int rowNumber) throws IOException {
@@ -126,13 +126,13 @@ public class LoginPage extends LoginPage_Constants {
     public void checkInputErrorValidations(int rowNumber) throws IOException {
 
         assertTrue(prop.getObject("errorMessageCheck"), getElemenstBy(INPUT_ERROR_TEXT, 0).getText()
-                .equals(getData(rowNumber, 6)));
+                .equals(getData(rowNumber, 7)));
     }
 
     public void checkMissingInfoText(int rowNumber) throws IOException {
 
         assertTrue(prop.getObject("errorMessageCheck"), getElementBy(MODAL_ERROR_TEXT).getText()
-                .equals(getData(rowNumber, 6)));
+                .equals(getData(rowNumber, 7)));
 
     }
 

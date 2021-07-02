@@ -165,7 +165,6 @@ public class LoginTest extends BaseTest {
         new LoginPage(driver).checkInputErrorValidations(9);
     }
 
-
     /**
      * Case 1.9
      * Hatalı şifre ile login kontrolü
