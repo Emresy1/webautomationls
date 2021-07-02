@@ -37,7 +37,7 @@ public class ForgotPassTest extends BaseTest {
                 .clickButtonSend()
                 .setVerifyCode()
                 .changePassword();
-        new LoginPage(driver).login(1);
+        new LoginPage(driver).login(1,"non-contract");
 
       //  new MainPage(driver).checkUsernameText(1)--- csv cell alanı güncelleneicek , setdata methodu ile
 

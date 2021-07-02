@@ -35,9 +35,8 @@ public class LoginTest extends BaseTest {
 
         base.getSheet("LoginData");
 
-
         new MainPage(driver).getLoginPage()
-                .login(1)
+                .login(1,"non-contract")
                 .checkAccountNo(1);
     }
 
@@ -54,7 +53,7 @@ public class LoginTest extends BaseTest {
         base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
-                .login(2)
+                .login(2,"non-contract")
                 .checkUsernameText(2);
     }
 
@@ -66,11 +65,11 @@ public class LoginTest extends BaseTest {
 
 
     @Test
-    public void successfulllyLoginWithIdentityNo() throws IOException, InterruptedException {
+    public void successfulllyLoginWithSsn() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(3)
+        new MainPage(driver).getLoginPage().login(3,"non-contract")
                 .checkUsernameText(3);
     }
 
@@ -80,11 +79,11 @@ public class LoginTest extends BaseTest {
      * assert mesajı düzeltilecek !!!!!
      */
     @Test
-    public void failLoginWithSsn() throws IOException, InterruptedException {
+    public void unsuccessfullyLoginWithSsn() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(4);
+        new MainPage(driver).getLoginPage().login(4,"non-contract");
         new LoginPage(driver).checkFailLogin(4);
 
     }
@@ -94,11 +93,12 @@ public class LoginTest extends BaseTest {
      * Username ile başarısız login kontrolü
      */
     @Test
-    public void failLoginWithUsername() throws IOException, InterruptedException {
+    public void unsuccessfullyLoginWithUsername() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(5);
+        new MainPage(driver).getLoginPage()
+                .login(5,"non-contract");
         new LoginPage(driver).checkFailLogin(5);
     }
 
@@ -108,12 +108,12 @@ public class LoginTest extends BaseTest {
      * assert mesajı düzeltilecek
      */
     @Test
-    public void failLoginWithAccountNo() throws IOException, InterruptedException {
+    public void unsuccessfullyLoginWithAccountNo() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
         //committesttt
-        new MainPage(driver).getLoginPage().login(6);
+        new MainPage(driver).getLoginPage().login(6,"non-contract");
         new LoginPage(driver).checkFailLogin(6);
 
     }
@@ -124,12 +124,12 @@ public class LoginTest extends BaseTest {
      * assert mesajı düzeltilecek
      */
     @Test
-    public void failLoginWithEmail() throws IOException, InterruptedException {
+    public void unsuccessfullyLoginWithEmail() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
-                .login(7);
+                .login(7,"non-contract");
         new LoginPage(driver).checkFailLoginWithEmail(7);
     }
 
@@ -139,11 +139,12 @@ public class LoginTest extends BaseTest {
      *
      */
     @Test
-    public void failLoginWithPhoneNumber() throws IOException, InterruptedException {
+    public void unsuccessfullyLoginWithPhoneNumber() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(8);
+        new MainPage(driver).getLoginPage()
+                .login(8,"non-contract");
         new LoginPage(driver).checkFailLoginWithGsm(8);
     }
 
@@ -160,7 +161,7 @@ public class LoginTest extends BaseTest {
         base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
-                .login(9);
+                .login(9,"non-contract");
         new LoginPage(driver).checkInputErrorValidations(9);
     }
 
@@ -172,12 +173,12 @@ public class LoginTest extends BaseTest {
      * @throws IOException
      */
     @Test
-    public void failLoginWithPassword() throws IOException, InterruptedException {
+    public void unsuccessfullyLoginWithPassword() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
         new MainPage(driver).getLoginPage()
-                .login(10);
+                .login(10,"non-contract");
         new LoginPage(driver).checkFailLogin(10);
     }
 
@@ -193,7 +194,8 @@ public class LoginTest extends BaseTest {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(11);
+        new MainPage(driver).getLoginPage()
+                .login(11,"non-contract");
         new LoginPage(driver).checkMissingInfoText(11);
 
     }
@@ -204,16 +206,17 @@ public class LoginTest extends BaseTest {
      */
 
     @Test
-    public void LoginInputMessageControl () throws IOException, InterruptedException {
+    public void loginInputMessageControl () throws IOException, InterruptedException {
 
         base.getSheet ("LoginData");
-        new MainPage(driver).getLoginPage().login(12);
+        new MainPage(driver).getLoginPage()
+                .login(12,"non-contract");
         new LoginPage(driver).checkInputInfoText(12);
 
     }
 
     /**
-     * Case 2.1
+     * Case 2.2
      * Sözleşmeler
      */
     @Test
@@ -222,11 +225,26 @@ public class LoginTest extends BaseTest {
         base.getSheet("LoginData");
         db.executeQuery(prop.getObject("deleteContract"));
 
-        new MainPage(driver).getLoginPage().login(13);
-                //.checkUsernameText(13);
-
-
+        new MainPage(driver).getLoginPage()
+                .login(13,"contracts")
+                .checkUsernameText(13);
     }
+
+    /**
+     * Case 2.3
+     * Tek sözleşme onaylama
+     */
+    @Test
+    public void confirmSingleContract() throws IOException, InterruptedException {
+
+        base.getSheet("LoginData");
+        db.executeQuery(prop.getObject("deleteMultipleContract"));
+
+        new MainPage(driver).getLoginPage()
+                .login(14,"contract")
+                .checkUsernameText(14);
+    }
+
 }
 
 

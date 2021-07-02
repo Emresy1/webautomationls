@@ -36,18 +36,14 @@ public class LoginPage extends LoginPage_Constants {
     private void confirmContract() throws InterruptedException {
 
 
-        if (isExist(OPT_WAIT_4_ELEMENT,CONTRACT_HEADER)) {
-
-            waitForElement(driver, MIN_WAIT_4_ELEMENT, CONTRACT_HEADER);
-
             String[] contract = {"KULLANICI SÖZLEŞMESI","GIZLILIK SÖZLEŞMESI","AYDINLATMA METNI",
                     "AÇIK RIZA ONAY METNI","KIŞISEL VERI BAŞVURU FORMU"};
 
             for (String contractName : contract) {
 
-                waitForTextOnElement(driver, OPT_WAIT_4_ELEMENT, CONTRACT_TAB, contractName);
+                waitForTextOnElement(driver, OPT_WAIT_4_ELEMENT, CONTRACT_TAB_ACTIVE, contractName);
 
-                if (contractName.equals(driver.findElements(CONTRACT_TAB).get(0).getText())) {
+                if (contractName.equals(driver.findElements(CONTRACT_TAB_ACTIVE).get(0).getText())) {
 
                     scrollToElement(CONTRACT_CHECKBOX);
 
@@ -62,10 +58,9 @@ public class LoginPage extends LoginPage_Constants {
                 }
             }
         }
-    }
 
 
-    public MainPage login(int rowNumber) throws IOException, InterruptedException {
+    public MainPage login(int rowNumber, String contract) throws IOException, InterruptedException {
 
         setUsername(getData(rowNumber, 1));
         setPassword(getData(rowNumber, 2));
@@ -76,10 +71,20 @@ public class LoginPage extends LoginPage_Constants {
         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
 
 
-        if (driver.findElements(MODAL_ERROR_TEXT).size() == 0) {
+        switch (contract)
+        {
+            case "contracts":
 
-            waitForElementDisappear(buttonLogin);
-            confirmContract();
+                waitForElementDisappear(buttonLogin);
+                confirmContract();
+                break;
+
+            case "contract":
+
+                clickObjectBy(CONTRACT_CHECKBOX);
+                clickObjectBy(BUTTON_ACCEPT);
+
+                break;
         }
 
             return new MainPage(driver);

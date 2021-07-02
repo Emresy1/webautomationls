@@ -14,7 +14,9 @@ public class LoginPage_Constants extends BasePageUtil {
     public By BUTTON_LOGIN_ON_POPUP = By.cssSelector(".medium.primary.loginForm-button");
     public By MODAL_ERROR_TEXT = By.className("formPage-error");
     public By MODAL_HEADER = By.className("modalHeader-text");
-    public By CONTRACT_TAB = By.id("tabButtonActive");
+    public By CONTRACT_TAB_ACTIVE = By.id("tabButtonActive");
+    public By CONTRACT_TAB = By.id("tabButton");
+    public By CONTRACT_CONTENT = By.cssSelector(".contract.personelData-content");
     public By CONTRACT_CHECKBOX = By.className("formCheckbox-checkbox");
     public By CONTRACT_HEADER = By.className("modalHeader-text");
     public By BUTTON_ACCEPT = By.cssSelector(".medium.primary.personelData-acceptContainer-checkboxContainer-button");
