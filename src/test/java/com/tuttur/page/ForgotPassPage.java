@@ -23,6 +23,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
     RegisterPage register = new RegisterPage(driver);
     DbQueriesPage db = new DbQueriesPage(driver);
     LoginPage login = new LoginPage(driver);
+    MainPage main = new MainPage(driver);
 
 
     private void setSSN(int rowNumber) {
@@ -59,7 +60,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
         clickObjectBy(RESET_PASS);
     }
 
-    public ForgotPassPage forgotPassSteps(int rowNumber) throws IOException {
+    public ForgotPassPage setUserInfo(int rowNumber) throws IOException {
 
         setSSN(rowNumber);
         register.setBirthDate(rowNumber, 1, 2);
@@ -69,21 +70,27 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     }
 
-    public ForgotPassPage ssnInputMaxValueControl() throws IOException {
+    public ForgotPassPage invalidSsnControls () throws IOException {
 
+        //setSSN(2);
         setObjectBy(SSN,"123456789012");
         clickObjectsBy(DATE,1);
+        waitForElement(driver,MIN_WAIT_4_ELEMENT,SSN_ERROR_MESSAGE);
         checkSsnMaxValue();
         checkFailMessageForSsn();
-        clickObjectBy(SSN);
-        getElementBy(SSN).clear();
-        ssnSendKeysJs(SSN,"17376674056");
-        //---- CSV YE geçildiğinde birthdate methodu kullanılacak
-        setObjectsBy(DATE,1,"11");
-        register.selectMonth("Ocak");
-        setObjectsBy(DATE,2,"1989");
-        clickObjectBy(RESET_PASS);
+
+        return this;
+
+    }
+
+    public ForgotPassPage invalidBirthdateControls () throws IOException {
+
+        clickObjectBy(CLOSE_BUTTON);
+        main.getLoginPage();
+        login.getForgotPassModal();
+        setUserInfo(3);
         checkFailMessage();
+
         return this;
 
     }

@@ -15,7 +15,7 @@ public class ForgotPass_Constants extends BasePageUtil {
     public By SEND_SMS_CHECKBOX = By.className("formRadio-checkbox");//By.cssSelector(".formCheckbox-checkbox");
     public By SEND_SMS_CHECK = By.className("formCheckbox-label");
     public By SEND_BUTTON = By.cssSelector(".medium.primary.w-100");
-    public By CLOSE_BUTTON = By.cssSelector("medium primary");
+    public By CLOSE_BUTTON = By.cssSelector(".medium.modalHeader-close");
     public By PASSWORD_INPUT = By.name("password");
     public By PASSWORD_REPEAT_INPUT = By.name("passwordRepeat");
     public By CHANGE_BUTTON = By.cssSelector(".medium.primary.resetPasswordContainer-resetPasswordSubmit");

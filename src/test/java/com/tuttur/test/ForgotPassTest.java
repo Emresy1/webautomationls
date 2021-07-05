@@ -32,7 +32,7 @@ public class ForgotPassTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .forgotPassSteps(1)
+                .setUserInfo(1)
                 .checkboxClick(0)
                 .clickButtonSend()
                 .setVerifyCode()
@@ -47,8 +47,9 @@ public class ForgotPassTest extends BaseTest {
         base.getSheet("ForgotPassData");
 
         new MainPage(driver).getLoginPage()
-                 .getForgotPassModal()
-                 .ssnInputMaxValueControl();
+                .getForgotPassModal()
+                .invalidSsnControls()
+                .invalidBirthdateControls();
 
 
     }
@@ -64,7 +65,7 @@ public class ForgotPassTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .forgotPassSteps(2)
+                .setUserInfo(2)
                 .checkFailMessage();
     }
 
@@ -79,14 +80,10 @@ public class ForgotPassTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .forgotPassSteps(3)
+                .setUserInfo(3)
                 .checkFailMessageForSsn();
 
     }
-
-
-
-
 
 
 }
