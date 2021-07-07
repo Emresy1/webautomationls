@@ -21,7 +21,7 @@ public class ForgotPassTest extends BaseTest {
 
     /**
      * Case 1.0
-     * Başarılı şifremi unuttum akışı
+     * Başarılı şifremi unuttum akışı gsm
      *
      * @throws IOException
      */
@@ -35,12 +35,41 @@ public class ForgotPassTest extends BaseTest {
                 .setUserInfo(1)
                 .checkboxClick(0)
                 .clickButtonSend()
-                .setVerifyCode()
+                .setVerifyCode(prop.getObject("verifyCodeGsm"))
                 .changePassword();
         new LoginPage(driver).login(1, "non-contract");
     }
-    //  new MainPage(driver).checkUsernameText(1)--- csv cell alanı güncelleneicek , setdata methodu ile
 
+
+    /**
+     * Case 1.1
+     * Başarılı şifremi unuttum akışı e-posta
+     *
+     * @throws IOException
+     */
+    @Test
+
+    public void successForgotPasswordWithEmail() throws IOException, InterruptedException {
+
+        base.getSheet("ForgotPassData");
+
+        new MainPage(driver).getLoginPage()
+                .getForgotPassModal()
+                .setUserInfo(1)
+                .checkboxClick(1)
+                .clickButtonSend()
+                .setVerifyCode(prop.getObject("verifyCodeEmail"))
+                .changePassword();
+        new LoginPage(driver).login(1, "non-contract");
+    }
+
+
+    /**
+     * Case 1.2
+     * Geçersiz bilgiler ile input kontrolleri
+     *
+     * @throws IOException
+     */
     @Test
     public void inputPublicControls() throws IOException {
 
@@ -48,41 +77,27 @@ public class ForgotPassTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .invalidSsnControls()
+                .invalidSsnWithYearControls()
                 .invalidBirthdateControls();
-
-
     }
 
+
     /**
-     * Case 1.1
+     * Case 1.3
      * Hatalı kullanıcı bilgileri ile kontrol
      */
     @Test
-    public void inalidBirthdayTest() throws IOException {
+    public void unmatchPasswordControl() throws IOException {
 
         base.getSheet("ForgotPassData");
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .setUserInfo(2)
-                .checkFailMessage();
-    }
-
-    /**
-     * Case 1.2
-     * Geçersiz TCKN kontrolü
-     */
-    @Test
-    public void invalidSsnTest() throws IOException {
-
-        base.getSheet("ForgotPassData");
-
-        new MainPage(driver).getLoginPage()
-                .getForgotPassModal()
-                .setUserInfo(3)
-                .checkFailMessageForSsn();
-
+                .setUserInfo(1)
+                .checkboxClick(0)
+                .clickButtonSend()
+                .setVerifyCode(prop.getObject("verifyCodeGsm"))
+                .setUnmatchPassword();
     }
 
 
