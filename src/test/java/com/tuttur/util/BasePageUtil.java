@@ -65,6 +65,7 @@ public class BasePageUtil {
 		wait.until(ExpectedConditions.invisibilityOf(element));
 	}
 
+
 	public void waitForInvisibility(WebElement webElement, int maxSeconds) {
 
 		Long startTime = System.currentTimeMillis();

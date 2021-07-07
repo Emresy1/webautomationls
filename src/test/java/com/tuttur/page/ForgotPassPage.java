@@ -4,12 +4,17 @@ package com.tuttur.page;
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.ForgotPass_Constants;
 import com.tuttur.util.ExcelUtil;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class ForgotPassPage extends ForgotPass_Constants {
@@ -101,6 +106,27 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
 
     }
+    public ForgotPassPage countdown(){
+
+
+        waitForElement(driver,OPT_WAIT_4_ELEMENT, By.className("countdown-number"));
+        int loopCount = 180;
+
+            while (0 < loopCount) {
+
+                sleep(1);
+                String timer = getElementBy(By.className("countdown-number")).getText().trim();
+                int intTimer = Integer.parseInt(timer);
+
+                Assert.assertEquals(loopCount, intTimer);
+
+                loopCount--;
+                System.out.println("loopCount : " + loopCount + " timer :" + intTimer);
+
+            }
+        return this;
+
+    }
 
     public ForgotPassPage setVerifyCode() throws IOException {
 
@@ -115,7 +141,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
     public ForgotPassPage checkWarningTextOnModal(String text) {
 
         waitForElement(driver, OPT_WAIT_4_ELEMENT, RESET_PASS);
-        Assert.assertTrue("Modalda uyarı texti görülmedi", getElementBy(WARNING_TEXT_MODAL).getText()
+        assertTrue("Modalda uyarı texti görülmedi", getElementBy(WARNING_TEXT_MODAL).getText()
                 .equals(text));
 
         return this;
@@ -145,21 +171,21 @@ public class ForgotPassPage extends ForgotPass_Constants {
     private void checkPasswordChange() throws IOException {
 
 
-        Assert.assertTrue(prop.getObject("failPasswordChange"), getElementBy(SUCCESS_MESSAGE)
+        assertTrue(prop.getObject("failPasswordChange"), getElementBy(SUCCESS_MESSAGE)
                 .getText().substring(0, 26).equals(prop.getObject("PasswordChanged")));
 
     }
 
     public ForgotPassPage checkFailMessage() throws IOException {
 
-        Assert.assertTrue(prop.getObject("warningTextİncorret"), getElementBy(ERROR_FIELD)
+        assertTrue(prop.getObject("warningTextİncorret"), getElementBy(ERROR_FIELD)
                 .getText().equals(prop.getObject("infoDidNotMatch")));
         return this;
     }
 
     public ForgotPassPage checkFailMessageForSsn() throws IOException {
 
-        Assert.assertTrue(prop.getObject("warningTextİncorret"), getElementBy(SSN_ERROR_MESSAGE)
+        assertTrue(prop.getObject("warningTextİncorret"), getElementBy(SSN_ERROR_MESSAGE)
                 .getText().equals(prop.getObject("invalidSsn")));
         return this;
 

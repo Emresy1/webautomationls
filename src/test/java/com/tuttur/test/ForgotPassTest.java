@@ -85,5 +85,22 @@ public class ForgotPassTest extends BaseTest {
 
     }
 
+    /**
+     * Case 1.3
+     * Verify code
+     */
+    @Test
+    public void verifyCodeTest() throws IOException {
+
+        base.getSheet("ForgotPassData");
+
+        new MainPage(driver).getLoginPage()
+                .getForgotPassModal()
+                .setUserInfo(1)
+                .checkboxClick(0)
+                .clickButtonSend()
+                .countdown();
+    }
+
 
 }
