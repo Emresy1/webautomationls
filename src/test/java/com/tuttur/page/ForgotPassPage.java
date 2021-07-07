@@ -54,12 +54,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     }
 
-    private WebElement checkbox(int index) {
-
-        sleep(2);
-        return findElements(SEND_SMS_CHECKBOX).get(index);
-    }
-
     private void clickResetPassword() {
         waitForElement(driver, MIN_WAIT_4_ELEMENT, RESET_PASS);
         clickObjectBy(RESET_PASS);
@@ -74,21 +68,29 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
 
     }
+    private WebElement checkbox(int index) {
 
-    public ForgotPassPage invalidSsnControls () throws IOException {
+        sleep(2);
+        return findElements(SEND_SMS_CHECKBOX).get(index);
+    }
+
+    public ForgotPassPage invalidSsnWithYearControls() throws IOException {
 
         //setSSN(2);
-        setObjectBy(SSN,"123456789012");
-        clickObjectsBy(DATE,1);
-        waitForElement(driver,MIN_WAIT_4_ELEMENT,SSN_ERROR_MESSAGE);
+        setObjectBy(SSN, "123456789012");
+        register.setBirthDate(2, 1, 2);
+        clickObjectsBy(DATE, 1);
+        checkFailMessageForYear();
+        waitForElement(driver, MIN_WAIT_4_ELEMENT, SSN_ERROR_MESSAGE);
         checkSsnMaxValue();
         checkFailMessageForSsn();
+        checkButtonDisabledControl();
 
         return this;
 
     }
 
-    public ForgotPassPage invalidBirthdateControls () throws IOException {
+    public ForgotPassPage invalidBirthdateControls() throws IOException {
 
         clickObjectBy(CLOSE_BUTTON);
         main.getLoginPage();
@@ -128,9 +130,9 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     }
 
-    public ForgotPassPage setVerifyCode() throws IOException {
+    public ForgotPassPage setVerifyCode(String verifyCode) throws IOException {
 
-        String smsCodePass = db.getValidationCode(prop.getObject("verifyCode"));
+        String smsCodePass = db.getValidationCode(verifyCode);
         setObjectBy(VERIFY_CODE_FIELD, smsCodePass);
         clickObjectBy(VERIFY_BUTTON);
 
@@ -147,14 +149,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
     }
 
-    //public LoginPage buttonCloseClick () {
-
-    //     waitForElement(driver, OPT_WAIT_4_ELEMENT, BUTTON_CLOSE);
-    //    clickObjectBy(BUTTON_CLOSE);
-    //    return new LoginPage(driver);
-
-    // }
-
 
     public LoginPage changePassword() throws IOException, InterruptedException {
 
@@ -168,6 +162,16 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return new LoginPage(driver);
     }
 
+    public ForgotPassPage setUnmatchPassword () throws IOException {
+
+        setObjectBy(PASSWORD_INPUT,"Test123456");
+        setObjectBy(PASSWORD_REPEAT_INPUT,"Test123465");
+        clickObjectBy(CHANGE_BUTTON);
+        checkFailChangePassword();
+
+        return this;
+
+    }
     private void checkPasswordChange() throws IOException {
 
 
@@ -188,7 +192,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
         assertTrue(prop.getObject("warningTextİncorret"), getElementBy(SSN_ERROR_MESSAGE)
                 .getText().equals(prop.getObject("invalidSsn")));
         return this;
-
     }
 
     public ForgotPassPage checkSsnMaxValue() {
@@ -201,6 +204,29 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
         return this;
     }
+
+    public ForgotPassPage checkFailMessageForYear() throws IOException {
+
+        Assert.assertTrue(prop.getObject("warningTextİncorret"), getElemenstBy(SSN_ERROR_MESSAGE, 1)
+                .getText().equals(prop.getObject("invalidYear")));
+        return this;
+
+    }
+
+    public ForgotPassPage checkButtonDisabledControl() {
+
+        Assert.assertTrue("buton disable değil!", !getElementBy(RESET_PASS).isEnabled());
+        return this;
+    }
+
+    public ForgotPassPage checkFailChangePassword() throws IOException {
+
+        Assert.assertTrue(prop.getObject("warningTextİncorret"), getElementBy(CHANGE_INPUT_MESSAGE)
+                .getText().equals("Şifrelerin birbiriyle uyuşmuyor"));
+        return this;
+
+    }
+
 
 }
 

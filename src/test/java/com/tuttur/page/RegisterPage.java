@@ -60,7 +60,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     }
 
-    private void setYear(String year, int elementIndex) {
+    public void setYear(String year, int elementIndex) {
 
         setObjectsBy(DATE, elementIndex, year);
 
@@ -271,7 +271,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
         WebElement activatiionModal = getElementBy(ACTIVATION_FIELD);
 
-        String smsCode = db.getValidationCode(prop.getObject("verifyCode"));
+        String smsCode = db.getValidationCode(prop.getObject("verifyCodeGsm"));
         setObjectBy(ACTIVATION_FIELD, smsCode);
         clickObjectBy(ACTIVATION_BUTTON);
 

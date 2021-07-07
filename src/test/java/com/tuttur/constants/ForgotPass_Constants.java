@@ -12,7 +12,7 @@ public class ForgotPass_Constants extends BasePageUtil {
     public By BIRTHDATE = By.className("formSelect-select");
     public By DATE = By.cssSelector(".formInput-input.undefined");
     public By RESET_PASS = By.cssSelector(".medium.primary.forgotPasswordForm-button");
-    public By SEND_SMS_CHECKBOX = By.className("formRadio-checkbox");//By.cssSelector(".formCheckbox-checkbox");
+    public By SEND_SMS_CHECKBOX = By.className("formRadio-checkbox");
     public By SEND_SMS_CHECK = By.className("formCheckbox-label");
     public By SEND_BUTTON = By.cssSelector(".medium.primary.w-100");
     public By CLOSE_BUTTON = By.cssSelector(".medium.modalHeader-close");
@@ -28,6 +28,7 @@ public class ForgotPass_Constants extends BasePageUtil {
     public By WARNING_TEXT_MODAL = By.className("formPage-description");
     public By VERIFY_CODE_FIELD = By.name("verifyCode");
     public By VERIFY_BUTTON = By.cssSelector(".medium.primary.forgotPasswordForm-button.validateCodeButton");
+    public By CHANGE_INPUT_MESSAGE = By.className("resetPasswordContainer-inputErrorField ");
 
 
 }
