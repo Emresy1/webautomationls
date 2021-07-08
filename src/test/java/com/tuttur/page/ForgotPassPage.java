@@ -65,7 +65,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
         setSSN(rowNumber);
         register.setBirthDate(rowNumber, 1, 2);
-        clickResetPassword();
 
         return this;
 
@@ -73,13 +72,12 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     public ForgotPassPage invalidSsnWithYearControls() throws IOException {
 
-        setSSN(3);
-        //setObjectBy(SSN, "123456789012");
-        register.setBirthDate(3, 1, 2);
+        setData("1880",3,5);
+        setUserInfo(3);
         clickObjectsBy(DATE, 1);
-        checkFailMessage(0,prop.getObject("invalidYear"));
+        checkFailMessage(1,prop.getObject("invalidYear"));
         checkSsnMaxValue();
-        checkFailMessage(1,prop.getObject("invalidSsn"));
+        checkFailMessage(0,prop.getObject("invalidSsn"));
         checkButtonDisabledControl();
 
         return this;
@@ -91,7 +89,9 @@ public class ForgotPassPage extends ForgotPass_Constants {
         clickObjectBy(CLOSE_BUTTON);
         main.getLoginPage();
         login.getForgotPassModal();
-        setUserInfo(4);
+        setData("1990",3,5);
+        setUserInfo(3);
+        clickResetPassword();
         checkFailMessage();
 
         return this;
@@ -134,15 +134,6 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
         return this;
 
-    }
-
-    public ForgotPassPage checkWarningTextOnModal(String text) {
-
-        waitForElement(driver, OPT_WAIT_4_ELEMENT, RESET_PASS);
-        assertTrue("Modalda uyarı texti görülmedi", getElementBy(WARNING_TEXT_MODAL).getText()
-                .equals(text));
-
-        return this;
     }
 
     private void fillPasswordInput(){
@@ -196,8 +187,10 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     public ForgotPassPage checkFailMessage() throws IOException {
 
+        waitForElement(driver,MIN_WAIT_4_ELEMENT,ERROR_FIELD);
+
         assertTrue(prop.getObject("warningTextIncorret"), getElementBy(ERROR_FIELD)
-                .getText().equals(prop.getObject("infoDidNotMatch")));
+                .getText().equals(prop.getObject("canNotEmptySsnMessage")));
         return this;
     }
 

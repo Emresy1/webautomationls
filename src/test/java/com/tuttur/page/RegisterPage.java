@@ -269,13 +269,13 @@ public class RegisterPage extends RegisterPage_Constants {
 
     public WelcomePage smsActivation() throws IOException {
 
-        WebElement activatiionModal = getElementBy(ACTIVATION_FIELD);
+        WebElement activationModal = getElementBy(ACTIVATION_FIELD);
 
-        String smsCode = db.getValidationCode(prop.getObject("verifyCodeGsm"));
+        String smsCode = db.getValidationCode(prop.getObject("verifyCode"));
         setObjectBy(ACTIVATION_FIELD, smsCode);
         clickObjectBy(ACTIVATION_BUTTON);
 
-        waitForElementDisappear(activatiionModal);
+        waitForElementDisappear(activationModal);
 
         return new WelcomePage(driver);
     }
