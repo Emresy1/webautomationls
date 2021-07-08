@@ -65,7 +65,7 @@ public class LoginPage extends LoginPage_Constants {
         setUsername(getData(rowNumber, 1));
         setPassword(getData(rowNumber, 2));
 
-        WebElement buttonLogin = getElementBy(By.cssSelector(".medium.primary.loginForm-button"));
+        WebElement buttonLogin = getElementBy(BUTTON_LOGIN_ON_POPUP);
 
         clickObjectBy(REMEMBER_ME);
         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
@@ -90,12 +90,6 @@ public class LoginPage extends LoginPage_Constants {
             return new MainPage(driver);
     }
 
-    public MainPage clickButtonLogin () throws IOException {
-
-        clickObjectBy(BUTTON_LOGIN_ON_POPUP);
-
-        return new MainPage (driver);
-    }
 
     public ForgotPassPage getForgotPassModal() throws IOException {
 
@@ -105,43 +99,23 @@ public class LoginPage extends LoginPage_Constants {
     }
 
 
-    public void checkFailLogin(int rowNumber) throws IOException {
+    public void checkFailLogin() throws IOException {
 
-        assertTrue(prop.getObject("failLoginCheck"), getElementBy(MODAL_ERROR_TEXT).isDisplayed());
-        //   getText().equals(getData(rowNumber, 6)));
+        assertTrue(prop.getObject("failLoginCheck"), getElementBy(MODAL_ERROR_TEXT)
+           .getText().equals(prop.getObject("unmatchingInfo")));
     }
 
-    public void checkFailLoginWithGsm(int rowNumber) throws IOException {
+    public void checkInputErrorMessages(int index, String message) throws IOException {
 
-        assertTrue(prop.getObject("errorMessageCheck"), getElementBy(INPUT_ERROR_TEXT).getText()
-                .equals(getData(rowNumber, 7)));
+        assertTrue(prop.getObject("errorMessageCheck"), getElemenstBy(INPUT_ERROR_TEXT, index).getText()
+                .equals(message));
     }
 
-    public void checkFailLoginWithEmail(int rowNumber) throws IOException {
 
-        assertTrue(getData(rowNumber, 7), getElementBy(MODAL_ERROR_TEXT).isDisplayed());
-        //   .getText().equals(getData(rowNumber, 6)));
-    }
+    public void checkInputInfoText() throws IOException {
 
-    public void checkInputErrorValidations(int rowNumber) throws IOException {
-
-        assertTrue(prop.getObject("errorMessageCheck"), getElemenstBy(INPUT_ERROR_TEXT, 0).getText()
-                .equals(getData(rowNumber, 7)));
-    }
-
-    public void checkMissingInfoText(int rowNumber) throws IOException {
-
-        assertTrue(prop.getObject("errorMessageCheck"), getElementBy(MODAL_ERROR_TEXT).getText()
-                .equals(getData(rowNumber, 7)));
-
-    }
-
-    public void checkInputInfoText(int rowNumber) throws IOException {
-
-        assertTrue(prop.getObject("errorMessageCheck"), getElementBy(INPUT_ERROR_TEXT).getText()
-                .equals(getData(rowNumber, 4)));
-        assertTrue(prop.getObject("errorMessageCheck"), getElemenstBy(INPUT_ERROR_TEXT, 1).getText()
-                .equals(getData(rowNumber, 5)));
+        checkInputErrorMessages(0,prop.getObject("entryValidInfo"));
+        checkInputErrorMessages(1,prop.getObject("min6characters"));
 
     }
 

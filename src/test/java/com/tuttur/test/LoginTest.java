@@ -7,12 +7,7 @@ import com.tuttur.configs.PropertiesFile;
 import com.tuttur.page.DbQueriesPage;
 import com.tuttur.page.LoginPage;
 import com.tuttur.page.MainPage;
-
-
-import com.tuttur.page.WelcomePage;
 import com.tuttur.util.BasePageUtil;
-import com.tuttur.util.ExcelUtil;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.junit.Test;
 
 
@@ -48,7 +43,7 @@ public class LoginTest extends BaseTest {
      */
 
     @Test
-    public void successfullyLoginWithUserName() throws IOException, InterruptedException {
+    public void successfullyLoginWithUsername() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
@@ -69,22 +64,25 @@ public class LoginTest extends BaseTest {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(3,"non-contract")
+        new MainPage(driver).getLoginPage()
+                .login(3,"non-contract")
                 .checkUsernameText(3);
     }
 
     /**
      * Case 1.3
      * TCKN ile başarısız login kontrolü
-     * assert mesajı düzeltilecek !!!!!
+     *
      */
     @Test
     public void unsuccessfullyLoginWithSsn() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage().login(4,"non-contract");
-        new LoginPage(driver).checkFailLogin(4);
+        new MainPage(driver).getLoginPage()
+                .login(4,"non-contract");
+        new LoginPage(driver)
+                .checkFailLogin();
 
     }
 
@@ -99,29 +97,29 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(5,"non-contract");
-        new LoginPage(driver).checkFailLogin(5);
+        new LoginPage(driver).checkFailLogin();
     }
 
     /**
      * Case 1.5
      * Account no ile başarısız login kontrolü
-     * assert mesajı düzeltilecek
+     *
      */
     @Test
     public void unsuccessfullyLoginWithAccountNo() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
 
-        //committesttt
-        new MainPage(driver).getLoginPage().login(6,"non-contract");
-        new LoginPage(driver).checkFailLogin(6);
+        new MainPage(driver).getLoginPage()
+                .login(6,"non-contract");
+        new LoginPage(driver).checkFailLogin();
 
     }
 
     /**
      * Case 1.6
      * Email ile başarısız login kontrolü
-     * assert mesajı düzeltilecek
+     *
      */
     @Test
     public void unsuccessfullyLoginWithEmail() throws IOException, InterruptedException {
@@ -130,7 +128,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(7,"non-contract");
-        new LoginPage(driver).checkFailLoginWithEmail(7);
+        new LoginPage(driver).checkInputErrorMessages(0,prop.getObject("canNotEmptyInputMessage"));
     }
 
     /**
@@ -145,7 +143,8 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(8,"non-contract");
-        new LoginPage(driver).checkFailLoginWithGsm(8);
+        new LoginPage(driver)
+                .checkInputErrorMessages(0,prop.getObject("entryValidInfo"));
     }
 
     /**
@@ -162,7 +161,8 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(9,"non-contract");
-        new LoginPage(driver).checkInputErrorValidations(9);
+        new LoginPage(driver)
+                .checkInputErrorMessages(0,prop.getObject("entryValidInfo"));
     }
 
     /**
@@ -178,7 +178,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(10,"non-contract");
-        new LoginPage(driver).checkFailLogin(10);
+        new LoginPage(driver).checkFailLogin();
     }
 
 
@@ -195,7 +195,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(11,"non-contract");
-        new LoginPage(driver).checkMissingInfoText(11);
+        new LoginPage(driver).checkInputErrorMessages(0,prop.getObject("canNotEmptyInputMessage"));
 
     }
     /**
@@ -210,7 +210,7 @@ public class LoginTest extends BaseTest {
         base.getSheet ("LoginData");
         new MainPage(driver).getLoginPage()
                 .login(12,"non-contract");
-        new LoginPage(driver).checkInputInfoText(12);
+        new LoginPage(driver).checkInputInfoText();
 
     }
 
@@ -219,7 +219,7 @@ public class LoginTest extends BaseTest {
      * Sözleşmeler
      */
     @Test
-    public void confirmContract() throws IOException, InterruptedException {
+    public void confirmContracts() throws IOException, InterruptedException {
 
         base.getSheet("LoginData");
         db.executeQuery(prop.getObject("deleteContract"));

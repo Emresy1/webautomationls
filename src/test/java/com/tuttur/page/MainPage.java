@@ -84,7 +84,7 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkAccountNo( int rowNumber) throws IOException {
 
         assertTrue(prop.getObject("accountNumberCheck"),getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(rowNumber,6)));
+                .equals(getData(rowNumber,3)));
 
         return this;
     }
@@ -92,8 +92,9 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkUsernameText( int rowNumber) throws IOException {
 
         waitForElement(driver,MIN_WAIT_4_ELEMENT,USERNAMETEXT);
+
         assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
-                .equals(getData(rowNumber,6)));
+                .equals(getData(rowNumber,4)));
 
         return this;
     }
@@ -114,8 +115,8 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkRegisterLogin () throws InterruptedException, IOException {
 
-        assertTrue(getData(5,10), getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(5,12)));
+        assertTrue(prop.getObject("unsuccessfullyLoginAfterRegister"), getElementBy(ACCOUNT_NO).getText()
+                .equals(getData(5,10)));
         return this;
     }
 

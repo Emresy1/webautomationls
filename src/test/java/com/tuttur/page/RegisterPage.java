@@ -290,7 +290,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
         waitForElement(driver, OPT_WAIT_4_ELEMENT, BUTTON_RESET_PASSWORD);
 
-        Assert.assertEquals(getElementBy(MODAL_TITLE).getText(), getData(rowNumber, 13));
+        Assert.assertEquals(getElementBy(MODAL_TITLE).getText(), "Şifremi Unuttum");
 
         return this;
     }

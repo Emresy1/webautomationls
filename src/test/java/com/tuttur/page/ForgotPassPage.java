@@ -47,7 +47,8 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     public ForgotPassPage checkboxClick(int index) {
 
-        sleep(2);
+        waitForElement(driver,MIN_WAIT_4_ELEMENT,SEND_SMS_CHECKBOX);
+
         WebElement checkbox = findElements(SEND_SMS_CHECKBOX).get(index);
         checkbox.click();
         return this;
@@ -55,6 +56,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
     }
 
     private void clickResetPassword() {
+
         waitForElement(driver, MIN_WAIT_4_ELEMENT, RESET_PASS);
         clickObjectBy(RESET_PASS);
     }
@@ -68,22 +70,16 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
 
     }
-    private WebElement checkbox(int index) {
-
-        sleep(2);
-        return findElements(SEND_SMS_CHECKBOX).get(index);
-    }
 
     public ForgotPassPage invalidSsnWithYearControls() throws IOException {
 
-        //setSSN(2);
-        setObjectBy(SSN, "123456789012");
-        register.setBirthDate(2, 1, 2);
+        setSSN(3);
+        //setObjectBy(SSN, "123456789012");
+        register.setBirthDate(3, 1, 2);
         clickObjectsBy(DATE, 1);
-        checkFailMessageForYear();
-        waitForElement(driver, MIN_WAIT_4_ELEMENT, SSN_ERROR_MESSAGE);
+        checkFailMessage(0,prop.getObject("invalidYear"));
         checkSsnMaxValue();
-        checkFailMessageForSsn();
+        checkFailMessage(1,prop.getObject("invalidSsn"));
         checkButtonDisabledControl();
 
         return this;
@@ -95,7 +91,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
         clickObjectBy(CLOSE_BUTTON);
         main.getLoginPage();
         login.getForgotPassModal();
-        setUserInfo(3);
+        setUserInfo(4);
         checkFailMessage();
 
         return this;
@@ -111,21 +107,20 @@ public class ForgotPassPage extends ForgotPass_Constants {
     public ForgotPassPage countdown(){
 
 
-        waitForElement(driver,OPT_WAIT_4_ELEMENT, By.className("countdown-number"));
+        waitForElement(driver,OPT_WAIT_4_ELEMENT, TIMER);
         int loopCount = 180;
 
             while (0 < loopCount) {
 
                 sleep(1);
-                String timer = getElementBy(By.className("countdown-number")).getText().trim();
+                String timer = getElementBy(TIMER).getText().trim();
                 int intTimer = Integer.parseInt(timer);
 
                 Assert.assertEquals(loopCount, intTimer);
 
                 loopCount--;
                 System.out.println("loopCount : " + loopCount + " timer :" + intTimer);
-
-
+                
             }
         return this;
 
@@ -150,11 +145,15 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
     }
 
+    private void fillPasswordInput(){
+        setObjectBy(PASSWORD_INPUT, general.newPasswordChange);
+        setObjectBy(PASSWORD_REPEAT_INPUT, general.newPasswordChange);
+    }
+
 
     public LoginPage changePassword() throws IOException, InterruptedException {
 
-        setObjectBy(PASSWORD_INPUT, general.newPasswordChange);
-        setObjectBy(PASSWORD_REPEAT_INPUT, general.newPasswordChange);
+        fillPasswordInput();
         clickObjectBy(CHANGE_BUTTON);
         checkPasswordChange();
         setData(general.newPasswordChange, 1, 2);
@@ -163,10 +162,15 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return new LoginPage(driver);
     }
 
-    public ForgotPassPage setUnmatchPassword () throws IOException {
+    private void setPasswordInputs(int rowNumber){
 
-        setObjectBy(PASSWORD_INPUT,"Test123456");
-        setObjectBy(PASSWORD_REPEAT_INPUT,"Test123465");
+        setObjectBy(PASSWORD_INPUT,getData(rowNumber,2));
+        setObjectBy(PASSWORD_REPEAT_INPUT,getData(rowNumber, 7));
+    }
+
+    public ForgotPassPage checkUnmatchPassword () throws IOException {
+
+        setPasswordInputs(4);
         clickObjectBy(CHANGE_BUTTON);
         checkFailChangePassword();
 
@@ -177,23 +181,27 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
 
         assertTrue(prop.getObject("failPasswordChange"), getElementBy(SUCCESS_MESSAGE)
-                .getText().substring(0, 26).equals(prop.getObject("PasswordChanged")));
+                .getText().substring(0, 26).equals(prop.getObject("passwordChanged")));
+
+    }
+
+    public ForgotPassPage checkFailMessage(int index, String message) throws IOException {
+        waitForElement(driver, MIN_WAIT_4_ELEMENT, INPUT_ERROR_MESSAGE);
+
+        Assert.assertTrue(prop.getObject("warningTextIncorret"), getElemenstBy(INPUT_ERROR_MESSAGE, index)
+                .getText().equals(message));
+        return this;
 
     }
 
     public ForgotPassPage checkFailMessage() throws IOException {
 
-        assertTrue(prop.getObject("warningTextİncorret"), getElementBy(ERROR_FIELD)
+        assertTrue(prop.getObject("warningTextIncorret"), getElementBy(ERROR_FIELD)
                 .getText().equals(prop.getObject("infoDidNotMatch")));
         return this;
     }
 
-    public ForgotPassPage checkFailMessageForSsn() throws IOException {
 
-        assertTrue(prop.getObject("warningTextİncorret"), getElementBy(SSN_ERROR_MESSAGE)
-                .getText().equals(prop.getObject("invalidSsn")));
-        return this;
-    }
 
     public ForgotPassPage checkSsnMaxValue() {
 
@@ -206,24 +214,17 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
     }
 
-    public ForgotPassPage checkFailMessageForYear() throws IOException {
-
-        Assert.assertTrue(prop.getObject("warningTextİncorret"), getElemenstBy(SSN_ERROR_MESSAGE, 1)
-                .getText().equals(prop.getObject("invalidYear")));
-        return this;
-
-    }
 
     public ForgotPassPage checkButtonDisabledControl() {
 
-        Assert.assertTrue("buton disable değil!", !getElementBy(RESET_PASS).isEnabled());
+        getElementBy(RESET_PASS).isEnabled();
         return this;
     }
 
     public ForgotPassPage checkFailChangePassword() throws IOException {
 
-        Assert.assertTrue(prop.getObject("warningTextİncorret"), getElementBy(CHANGE_INPUT_MESSAGE)
-                .getText().equals("Şifrelerin birbiriyle uyuşmuyor"));
+        Assert.assertTrue(prop.getObject("warningTextIncorret"), getElementBy(CHANGE_INPUT_MESSAGE)
+                .getText().equals(prop.getObject("unMatchingPassword")));
         return this;
 
     }

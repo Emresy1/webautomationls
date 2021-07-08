@@ -24,11 +24,12 @@ public class ForgotPass_Constants extends BasePageUtil {
     public By BUTTON_SEND = By.cssSelector(".medium.primary.w-100");
     public By BUTTON_CLOSE = By.xpath("//*[@id=\"modal\"]/div[2]/div[2]/div[2]/div/div/div[2]/button");
     public By ERROR_FIELD = By.className("formPage-error");
-    public By SSN_ERROR_MESSAGE = By.className("formElementError-text");
+    public By INPUT_ERROR_MESSAGE = By.className("formElementError-text");
     public By WARNING_TEXT_MODAL = By.className("formPage-description");
     public By VERIFY_CODE_FIELD = By.name("verifyCode");
     public By VERIFY_BUTTON = By.cssSelector(".medium.primary.forgotPasswordForm-button.validateCodeButton");
     public By CHANGE_INPUT_MESSAGE = By.className("resetPasswordContainer-inputErrorField ");
+    public By TIMER = By.className("countdown-number");
 
 
 }

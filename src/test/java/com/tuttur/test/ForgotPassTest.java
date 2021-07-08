@@ -12,11 +12,7 @@ import java.io.IOException;
 public class ForgotPassTest extends BaseTest {
 
     PropertiesFile prop = new PropertiesFile(driver);
-    GeneralPage general = new GeneralPage(driver);
     BasePageUtil base = new BasePageUtil(driver);
-
-    public ForgotPassTest() throws IOException {
-    }
 
 
     /**
@@ -37,7 +33,8 @@ public class ForgotPassTest extends BaseTest {
                 .clickButtonSend()
                 .setVerifyCode(prop.getObject("verifyCodeGsm"))
                 .changePassword();
-        new LoginPage(driver).login(1, "non-contract");
+        new LoginPage(driver).login(1, "non-contract")
+                .checkUsernameText(1);
     }
 
 
@@ -55,12 +52,13 @@ public class ForgotPassTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .setUserInfo(1)
+                .setUserInfo(2)
                 .checkboxClick(1)
                 .clickButtonSend()
                 .setVerifyCode(prop.getObject("verifyCodeEmail"))
                 .changePassword();
-        new LoginPage(driver).login(1, "non-contract");
+        new LoginPage(driver).login(1, "non-contract")
+                .checkUsernameText(2);
     }
 
 
@@ -93,11 +91,11 @@ public class ForgotPassTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .setUserInfo(1)
+                .setUserInfo(4)
                 .checkboxClick(0)
                 .clickButtonSend()
                 .setVerifyCode(prop.getObject("verifyCodeGsm"))
-                .setUnmatchPassword();
+                .checkUnmatchPassword();
     }
 
     /**
@@ -111,7 +109,7 @@ public class ForgotPassTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
-                .setUserInfo(1)
+                .setUserInfo(5)
                 .checkboxClick(0)
                 .clickButtonSend()
                 .countdown();

@@ -55,7 +55,7 @@ public class RegisterTest extends BaseTest {
      */
 
     @Test
-    public void currentUserRegisterToLogin() throws IOException, InterruptedException {
+    public void registerFromLoginWithCurrentUser() throws IOException, InterruptedException {
 
         util.getSheet("RegisterData");
 
@@ -74,7 +74,7 @@ public class RegisterTest extends BaseTest {
      */
 
     @Test
-    public void currentUserRegisterToForgotPassword() throws IOException, InterruptedException {
+    public void registerFromForgotPassWiithCurrentUser() throws IOException, InterruptedException {
 
         util.getSheet("RegisterData");
 
