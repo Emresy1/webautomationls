@@ -55,10 +55,11 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     }
 
-    private void clickResetPassword() {
+    public ForgotPassPage clickResetPassword() {
 
         waitForElement(driver, MIN_WAIT_4_ELEMENT, RESET_PASS);
         clickObjectBy(RESET_PASS);
+        return this;
     }
 
     public ForgotPassPage setUserInfo(int rowNumber) throws IOException {

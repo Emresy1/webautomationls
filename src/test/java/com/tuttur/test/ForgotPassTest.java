@@ -29,12 +29,13 @@ public class ForgotPassTest extends BaseTest {
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
                 .setUserInfo(1)
+                .clickResetPassword()
                 .checkboxClick(0)
                 .clickButtonSend()
                 .setVerifyCode(prop.getObject("verifyCodeGsm"))
                 .changePassword();
         new LoginPage(driver).login(1, "non-contract")
-                .checkUsernameText(1,6);
+                .checkUsernameText(1 ,6);
     }
 
 
@@ -53,6 +54,7 @@ public class ForgotPassTest extends BaseTest {
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
                 .setUserInfo(2)
+                .clickResetPassword()
                 .checkboxClick(1)
                 .clickButtonSend()
                 .setVerifyCode(prop.getObject("verifyCodeEmail"))
@@ -82,7 +84,7 @@ public class ForgotPassTest extends BaseTest {
 
     /**
      * Case 1.3
-     * Hatalı kullanıcı bilgileri ile kontrol
+     * Eşleşmeyen şifre kontrolü
      */
     @Test
     public void unmatchPasswordControl() throws IOException {
@@ -92,6 +94,7 @@ public class ForgotPassTest extends BaseTest {
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
                 .setUserInfo(4)
+                .clickResetPassword()
                 .checkboxClick(0)
                 .clickButtonSend()
                 .setVerifyCode(prop.getObject("verifyCodeGsm"))
@@ -110,6 +113,7 @@ public class ForgotPassTest extends BaseTest {
         new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
                 .setUserInfo(5)
+                .clickResetPassword()
                 .checkboxClick(0)
                 .clickButtonSend()
                 .countdown();
