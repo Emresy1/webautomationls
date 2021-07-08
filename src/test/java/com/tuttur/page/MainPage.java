@@ -89,12 +89,12 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
-    public MainPage checkUsernameText( int rowNumber) throws IOException {
+    public MainPage checkUsernameText(int rowNumber, int cellNumber) throws IOException {
 
         waitForElement(driver,MIN_WAIT_4_ELEMENT,USERNAMETEXT);
 
         assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
-                .equals(getData(rowNumber,4)));
+                .equals(getData(rowNumber,cellNumber)));
 
         return this;
     }

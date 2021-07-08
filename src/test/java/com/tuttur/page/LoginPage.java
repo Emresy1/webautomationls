@@ -59,7 +59,6 @@ public class LoginPage extends LoginPage_Constants {
             }
         }
 
-
     public MainPage login(int rowNumber, String contract) throws IOException, InterruptedException {
 
         setUsername(getData(rowNumber, 1));
@@ -81,6 +80,8 @@ public class LoginPage extends LoginPage_Constants {
 
             case "contract":
 
+                waitForElementDisappear(buttonLogin);
+
                 clickObjectBy(CONTRACT_CHECKBOX);
                 clickObjectBy(BUTTON_ACCEPT);
 
@@ -99,16 +100,17 @@ public class LoginPage extends LoginPage_Constants {
     }
 
 
-    public void checkFailLogin() throws IOException {
+    public void checkWarningMessageOnModal(String message) throws IOException {
 
         assertTrue(prop.getObject("failLoginCheck"), getElementBy(MODAL_ERROR_TEXT)
-           .getText().equals(prop.getObject("unmatchingInfo")));
+           .getText().equals(message));
     }
 
-    public void checkInputErrorMessages(int index, String message) throws IOException {
+    public LoginPage checkInputErrorMessages(int index, String message) throws IOException {
 
         assertTrue(prop.getObject("errorMessageCheck"), getElemenstBy(INPUT_ERROR_TEXT, index).getText()
                 .equals(message));
+        return this;
     }
 
 
@@ -119,9 +121,5 @@ public class LoginPage extends LoginPage_Constants {
 
     }
 
-    public void checkRememberMe() throws IOException {
-
-        assertTrue("Beni hatırla başarısız", getElementBy(USERNAME).getText().equals(prop.getObject("rememberMeUser")));
-    }
 
 }

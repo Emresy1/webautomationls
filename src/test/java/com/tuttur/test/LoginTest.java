@@ -49,7 +49,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(2,"non-contract")
-                .checkUsernameText(2);
+                .checkUsernameText(2,4);
     }
 
 
@@ -66,7 +66,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(3,"non-contract")
-                .checkUsernameText(3);
+                .checkUsernameText(3,4);
     }
 
     /**
@@ -82,7 +82,7 @@ public class LoginTest extends BaseTest {
         new MainPage(driver).getLoginPage()
                 .login(4,"non-contract");
         new LoginPage(driver)
-                .checkFailLogin();
+                .checkWarningMessageOnModal(prop.getObject("canNotEmptyInputMessage"));
 
     }
 
@@ -97,7 +97,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(5,"non-contract");
-        new LoginPage(driver).checkFailLogin();
+        new LoginPage(driver).checkWarningMessageOnModal(prop.getObject("unmatchingInfo"));
     }
 
     /**
@@ -112,7 +112,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(6,"non-contract");
-        new LoginPage(driver).checkFailLogin();
+        new LoginPage(driver).checkWarningMessageOnModal(prop.getObject("canNotEmptyInputMessage"));
 
     }
 
@@ -128,7 +128,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(7,"non-contract");
-        new LoginPage(driver).checkInputErrorMessages(0,prop.getObject("canNotEmptyInputMessage"));
+        new LoginPage(driver).checkInputErrorMessages(0,prop.getObject("entryValidInfo"));
     }
 
     /**
@@ -178,7 +178,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(10,"non-contract");
-        new LoginPage(driver).checkFailLogin();
+        new LoginPage(driver).checkWarningMessageOnModal(prop.getObject("unmatchingInfo"));
     }
 
 
@@ -195,7 +195,8 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(11,"non-contract");
-        new LoginPage(driver).checkInputErrorMessages(0,prop.getObject("canNotEmptyInputMessage"));
+        new LoginPage(driver).checkWarningMessageOnModal(prop.getObject("canNotEmptyInputMessage"));
+
 
     }
     /**
@@ -226,7 +227,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(13,"contracts")
-                .checkUsernameText(13);
+                .checkUsernameText(13,4);
     }
 
     /**
@@ -241,7 +242,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(14,"contract")
-                .checkUsernameText(14);
+                .checkUsernameText(14,4);
     }
 
 }

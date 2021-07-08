@@ -34,7 +34,7 @@ public class ForgotPassTest extends BaseTest {
                 .setVerifyCode(prop.getObject("verifyCodeGsm"))
                 .changePassword();
         new LoginPage(driver).login(1, "non-contract")
-                .checkUsernameText(1);
+                .checkUsernameText(1,6);
     }
 
 
@@ -58,7 +58,7 @@ public class ForgotPassTest extends BaseTest {
                 .setVerifyCode(prop.getObject("verifyCodeEmail"))
                 .changePassword();
         new LoginPage(driver).login(1, "non-contract")
-                .checkUsernameText(2);
+                .checkUsernameText(2,6);
     }
 
 
