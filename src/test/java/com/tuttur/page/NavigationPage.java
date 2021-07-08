@@ -149,7 +149,7 @@ public class NavigationPage extends Navigation_Constants {
     private List<String> shortcutMenus() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> shortcutUrlData = util.getRowDataAll(32,38);
+        List<String> shortcutUrlData = util.getRowDataAll(32,37);
 
         return shortcutUrlData;
 
