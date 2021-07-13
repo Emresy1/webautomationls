@@ -8,6 +8,7 @@ import com.tuttur.util.ExcelUtil;
 import static org.junit.Assert.assertTrue;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,8 @@ import org.openqa.selenium.interactions.Actions;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class MainPage extends MainPage_Constants {
@@ -212,4 +215,99 @@ public class MainPage extends MainPage_Constants {
          return social;
      }
 
+     public boolean isExistBanner(){
+
+        return isExist(MIN_WAIT_4_ELEMENT,BANNER);
+     }
+
+     private List<WebElement> banners(){
+
+        return driver.findElements(BANNER);
+     }
+
+    private List<WebElement> dynamicBanners(){
+
+        return driver.findElements(ODD_ON_BANNER);
+    }
+
+     public MainPage bannerSlider(){
+
+        int bannerCount = 1;
+
+        if (banners().size() > bannerCount) {
+            for (int i = 0; i < banners().size(); i++) {
+
+                getElementBy(BANNER_NEXT).isDisplayed();
+                waitForElement(driver, MIN_WAIT_4_ELEMENT, BANNER_NORMAL);
+
+            }
+        }
+        return this;
+     }
+     public MainPage isExistOddOnBanner(){
+
+        int count =0;
+
+        for (int bannerIndex=count; bannerIndex < banners().size(); bannerIndex++){
+
+            if (banners().get(bannerIndex).findElements(ODD_ON_BANNER).size() != 0){
+
+                banners().get(bannerIndex).findElement(TOTAL_ODDS).isDisplayed();
+
+                for (int oddIndex=0; oddIndex < dynamicBanners().size(); oddIndex++){
+
+                    dynamicBanners().get(oddIndex).isDisplayed();
+                }
+            }
+        }
+         return this;
+     }
+
+     public MainPage isExistBulletAndArrow(){
+
+        int arrowCount = 2;
+        int bannerCount = 0;
+
+        if (driver.findElements(BANNER).size() != bannerCount){
+
+
+            assertTrue(driver.findElements(ARROWS).size() == arrowCount);
+            isExist(MIN_WAIT_4_ELEMENT,SLIDER_BULLET);
+
+        }
+
+        return this;
    }
+
+
+
+     public MainPage addOddToBetslip(){
+
+        int xOffset = 1268;
+        int yOffset = 410;
+
+
+         for (WebElement dynamicBanner: dynamicBanners()) {
+
+             List<WebElement> activeOdds = dynamicBanner.findElements(ODD_OUTCOME_BANNER);
+
+                     activeOdds.stream().filter(odd -> !odd.getAttribute("class").contains("eventOdd--locked"))
+                     .forEach(odd -> {
+
+                         if (!activeOdds.get(0).isSelected()){
+
+                             action.moveByOffset(xOffset,yOffset).perform();
+                             activeOdds.get(0).click();
+
+                             sleep(2);
+
+                         }
+                      }
+                     );
+
+         }
+
+
+        return this;
+     }
+}

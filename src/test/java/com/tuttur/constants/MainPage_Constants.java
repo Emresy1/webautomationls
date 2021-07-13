@@ -25,8 +25,17 @@ public class MainPage_Constants extends BasePageUtil{
 	public By ANDROID_MARKET = By.className("footerContentDownloads-androidImg");
 	public By HEADER_IDDAA_BUTTON = By.cssSelector(".headerMenu-item");
 	public By IDDAA_SUBMENU = By.className("headerMenu-subMenu-item");
-		
-	
+	public By BANNER = By.className("slider-item-img");
+	public By BANNER_NORMAL = By.cssSelector(".slider.slider--normal");
+	public By BANNER_NEXT = By.cssSelector(".slider.slider--next");
+	public By ODD_ON_BANNER = By.className("slider-item-market");
+	public By ARROWS = By.cssSelector(".medium.slider-control.slider-control");
+	public By SLIDER_BULLET = By.className("slider-bullet");
+	public By TOTAL_ODDS = By.className("eventTotalOdds");
+	public By BLOCKED_ODD_ON_BANNER = By.className("eventOdd--locked");
+	public By ACTIVE_ODD_ON_BANNER = By.cssSelector(".eventOdd.eventOdd--ratio-up.eventOdd--oddNumber");
+	public By ODD_OUTCOME_BANNER = By.className("eventOdd");
+	public By BETSLIP_EVENT_ROW = By.className("betslipEventRow-contentInfo");
 
 
 
@@ -35,9 +44,12 @@ public class MainPage_Constants extends BasePageUtil{
 
 
 
-	
-	
 
-	
+
+
+
+
+
+
 
 }

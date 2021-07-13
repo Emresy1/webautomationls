@@ -1,12 +1,7 @@
 package com.tuttur.base;
 
-
-
-
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
-import com.tuttur.util.ExcelUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -46,9 +41,7 @@ public class BaseTest {
 		 String path = System.getProperty("user.dir");
 		 PropertiesFile.getProperties();
 
-
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-
 
 		if (StringUtils.isEmpty(System.getProperty("key"))) {
 
@@ -79,6 +72,8 @@ public class BaseTest {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
+
+
 	}
 
 	@After

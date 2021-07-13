@@ -81,7 +81,6 @@ public class ForgotPassTest extends BaseTest {
                 .invalidBirthdateControls();
     }
 
-
     /**
      * Case 1.3
      * Eşleşmeyen şifre kontrolü
