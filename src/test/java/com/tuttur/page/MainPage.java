@@ -299,6 +299,7 @@ public class MainPage extends MainPage_Constants {
                              action.moveByOffset(xOffset,yOffset).perform();
                              activeOdds.get(0).click();
 
+
                              sleep(2);
 
                          }
