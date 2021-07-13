@@ -3,7 +3,13 @@ package com.tuttur.page;
 import com.tuttur.constants.Navigation_Constants;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
+import edu.emory.mathcs.backport.java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.openqa.selenium.By;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.io.IOException;
@@ -24,17 +30,17 @@ public class NavigationPage extends Navigation_Constants {
 
         int subCount = 0;
         int headerCount = 0;
-        for (int h = headerCount; h < headerMenus.size(); h++) {
+        for (int headerIndex = headerCount; headerIndex < headerMenus.size(); headerIndex++) {
 
-            headerMenus.get(h).click();
-           assertEquals(subUrl(), headerMenu().get(h));
+            headerMenus.get(headerIndex).click();
+            assertEquals(subUrl(), headerMenu().get(headerIndex));
 
             List<WebElement> subMenus = findElements(HEADER_SUBMENU);
 
 
             if (subMenus.size() != 0) {
 
-              //  WebElement headerMenuActive = driver.findElement(HEADER_MENU_ACTIVE);
+                //  WebElement headerMenuActive = driver.findElement(HEADER_MENU_ACTIVE);
                 String headerMenuActive = driver.findElement(HEADER_MENU_ACTIVE).getText();
 
                 for (int i = subCount; i < subMenus.size(); i++) {
@@ -42,7 +48,7 @@ public class NavigationPage extends Navigation_Constants {
                     if (headerMenuActive.equals("İDDAA")) {
 
                         subMenus.get(i).click();
-                        assertEquals(subUrl(), betSubmenus().get(i));
+                        assertTrue(subUrl().contains(betSubmenus().get(i)));
 
                     } else if (headerMenuActive.equals("SOSYAL BAHİS")) {
 
@@ -60,7 +66,6 @@ public class NavigationPage extends Navigation_Constants {
                         assertEquals(subUrl(), tjkSubmenus().get(i));
 
                     }
-
                 }
             }
 
@@ -72,9 +77,9 @@ public class NavigationPage extends Navigation_Constants {
     }
 
 
-    private String subUrl () {
+    private String subUrl() {
 
-        return  driver.getCurrentUrl().substring(44);
+        return driver.getCurrentUrl().substring(44);
 
     }
 
@@ -95,7 +100,7 @@ public class NavigationPage extends Navigation_Constants {
     private List<String> headerMenu() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> menuUrl = util.getRowDataAll(2, 7);
+        List<String> menuUrl = util.getRowDataAll(2, 8);
         return menuUrl;
 
     }
@@ -103,7 +108,7 @@ public class NavigationPage extends Navigation_Constants {
     private List<String> betSubmenus() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> betUrlData = util.getRowDataAll(8, 18);
+        List<String> betUrlData = util.getRowDataAll(8, 19);
 
         return betUrlData;
 
@@ -112,7 +117,7 @@ public class NavigationPage extends Navigation_Constants {
     private List<String> socialSubMenus() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> socialUrlData = util.getRowDataAll(21, 25);
+        List<String> socialUrlData = util.getRowDataAll(22, 28);
 
         return socialUrlData;
 
@@ -121,7 +126,7 @@ public class NavigationPage extends Navigation_Constants {
     private List<String> sportTotoSubmenus() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> sportTotoUrlData = util.getRowDataAll(26,28);
+        List<String> sportTotoUrlData = util.getRowDataAll(31, 33);
 
         return sportTotoUrlData;
 
@@ -130,7 +135,7 @@ public class NavigationPage extends Navigation_Constants {
     private List<String> tjkSubmenus() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> tjkUrlData = util.getRowDataAll(29,31);
+        List<String> tjkUrlData = util.getRowDataAll(34, 36);
 
         return tjkUrlData;
 
@@ -139,7 +144,7 @@ public class NavigationPage extends Navigation_Constants {
     private List<String> shortcutMenus() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> shortcutUrlData = util.getRowDataAll(32,38);
+        List<String> shortcutUrlData = util.getRowDataAll(37, 44);
 
         return shortcutUrlData;
 
