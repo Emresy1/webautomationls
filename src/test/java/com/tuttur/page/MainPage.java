@@ -8,7 +8,6 @@ import com.tuttur.util.ExcelUtil;
 import static org.junit.Assert.assertTrue;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
@@ -16,8 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 
 public class MainPage extends MainPage_Constants {
@@ -291,24 +289,23 @@ public class MainPage extends MainPage_Constants {
 
              List<WebElement> activeOdds = dynamicBanner.findElements(ODD_OUTCOME_BANNER);
 
-                     activeOdds.stream().filter(odd -> !odd.getAttribute("class").contains("eventOdd--locked"))
-                     .forEach(odd -> {
+                     activeOdds.stream().filter(odd -> !odd.getAttribute("class").contains("eventOdd--locked"));
 
-                         if (!activeOdds.get(0).isSelected()){
+                         if (activeOdds.size() > 0){
 
                              action.moveByOffset(xOffset,yOffset).perform();
                              activeOdds.get(0).click();
 
-
-                             sleep(2);
-
                          }
                       }
-                     );
 
-         }
+         String oddd = getElementBy(SELECTED_ODD).getText().substring(0,7).trim();
+         String of = getElementBy(EVENT_CONTENT_INFO).getText().substring(0,7).trim();
 
+         Assert.assertEquals(oddd,of);
 
         return this;
      }
+
+
 }

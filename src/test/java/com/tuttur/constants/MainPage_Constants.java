@@ -36,6 +36,9 @@ public class MainPage_Constants extends BasePageUtil{
 	public By ACTIVE_ODD_ON_BANNER = By.cssSelector(".eventOdd.eventOdd--ratio-up.eventOdd--oddNumber");
 	public By ODD_OUTCOME_BANNER = By.className("eventOdd");
 	public By BETSLIP_EVENT_ROW = By.className("betslipEventRow-contentInfo");
+	public By BANNER_OUTCOME = By.className("eventOdd-outcome");
+	public By SELECTED_ODD = By.className("eventOdd--selected");
+	public By EVENT_CONTENT_INFO = By.className("betslipEventRow-contentInfo");
 
 
 
