@@ -32,11 +32,12 @@ public class DashboardTest extends BaseTest {
      */
 
     @Test
-    public void liveWidgetTest() throws IOException {
+    public void liveWidgetTest() throws IOException, InterruptedException {
 
         new MainPage(driver).isExistLiveWidget()
                 .isExistBranchInWidget()
-                .checkDefaultBranch("FUTBOL");
+                .checkDefaultBranch("FUTBOL")
+                .checkEventItemsInBranch();
 
 
 

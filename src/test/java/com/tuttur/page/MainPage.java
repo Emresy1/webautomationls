@@ -14,10 +14,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import java.io.IOException;
 import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
+import java.util.*;
+import java.util.stream.Stream;
 
 
 public class MainPage extends MainPage_Constants {
@@ -320,7 +318,7 @@ public class MainPage extends MainPage_Constants {
 
      private List<WebElement> branchListInWidget(){
 
-       return driver.findElements(WIDGET).get(0).findElements(WIDGET_BRANCH);
+       return driver.findElements(LIVE_WIDGET).get(0).findElements(WIDGET_BRANCH);
 
      }
      public MainPage isExistBranchInWidget(){
@@ -337,57 +335,92 @@ public class MainPage extends MainPage_Constants {
         return this;
      }
 
-     private List<WebElement> eventRowItems(){
+     private List<By> eventRowItems(){
 
-        ArrayList<WebElement> items = new ArrayList<>();
-        items.add(leagueFlag());
-        items.add(leagueCode());
-        items.add(status());
-        items.add(mbc());
-        items.add(teams());
+        List<By> items = new ArrayList<>();
+        items.add(LEAGUE_FLAG);
+        items.add(LEAGUE_CODE);
+        items.add(STATUS_PLAYING);
+        items.add(MBC);
+        items.add(TEAMS);
+        items.add(LIVE_SCORE);
+        items.add(LIVE_ICON);
+        items.add(LIVE_ODD);
+        items.add(EVENT_TOTAL_ODD);
 
+        return items;
      }
 
-     public MainPage checkEventItemsInBranch(){
+     public MainPage checkEventItemsInBranch() throws InterruptedException {
 
-        int count =0;
-        for (int index=count; index < branchListInWidget().size(); count++){
+        scrollToElement(LIVE_WIDGET);
 
-            switch (branchListInWidget().get(index).getText()){
+         int count = 0;
 
-                case "FUTBOL":
+         for (int index = count; index < branchListInWidget().size()-1;) {
 
-                    List<WebElement> eventRowList = driver.findElements(WIDGET).get(0).findElements(LIVE_EVENT);
+             switch (branchListInWidget().get(index).getText().toUpperCase(Locale.ROOT)) {
 
-                    for (WebElement eventRow: eventRowList) {
+                 case "FUTBOL":
+                 case "HENTBOL":
 
-                        for (int j=0; j < )
+                     checkItemsOnEventRow();
 
-                    }
+                     checkStatusName("Y","'",":");
+
+                     break;
+                 case "BASKETBOL":
+
+                     checkItemsOnEventRow();
+
+                     checkStatusName("P","UZ",":");
+
+                     break;
+                 case "TENIS":
+                 case "VOLEYBOL":
+                 case "MASA TENISI":
+
+                     checkItemsOnEventRow();
+
+                     checkStatusName("S","UZ",":");
+
+                     break;
+
+             }
+
+             if (index < branchListInWidget().size()-1){
+
+                 index++;
+                 branchListInWidget().get(index).click();
+
+             }
+
+
+         }
+         return this;
+    }
+
+    private void checkStatusName(String status1, String status2, String status3){
+
+        String statusName = getElementBy(eventRowItems().get(2)).getText();
+
+        assertTrue(statusName.contains(status1) || statusName.contains(status2) || statusName.contains(status3));
+    }
+
+    private void checkItemsOnEventRow() {
+
+        List<WebElement> eventRowListt = driver.findElements(LIVE_WIDGET).get(0).findElements(LIVE_EVENT);
+
+        for (WebElement eventRow : eventRowListt) {
+
+            for (int i = 0; i < eventRowItems().size(); i++) {
+
+                Assert.assertFalse(eventRow.findElements(eventRowItems().get(i)).equals(null));
             }
-
         }
-     }
-     private WebElement leagueFlag(){
+    }
 
-        return getElementBy(LEAGUE_FLAG);
-     }
-     private WebElement leagueCode(){
 
-        return getElementBy(LEAGUE_CODE);
-     }
-     private WebElement status(){
-
-        return getElementBy(STATUS_PLAYING);
-     }
-     private WebElement mbc(){
-
-        return getElementBy(MBC);
-     }
-     private WebElement teams(){
-
-        return getElementBy(TEAMS);
-     }
 
 
 }
