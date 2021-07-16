@@ -117,9 +117,10 @@ public class ForgotPassPage extends ForgotPass_Constants {
                 String timer = getElementBy(TIMER).getText().trim();
                 int intTimer = Integer.parseInt(timer);
 
+                loopCount--;
+
                 Assert.assertEquals(loopCount, intTimer);
 
-                loopCount--;
                 System.out.println("loopCount : " + loopCount + " timer :" + intTimer);
                 
             }

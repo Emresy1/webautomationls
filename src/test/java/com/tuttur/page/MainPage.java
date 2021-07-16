@@ -13,6 +13,8 @@ import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import java.io.IOException;
+import java.sql.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -299,12 +301,92 @@ public class MainPage extends MainPage_Constants {
                          }
                       }
 
-         String oddd = getElementBy(SELECTED_ODD).getText().substring(0,7).trim();
-         String of = getElementBy(EVENT_CONTENT_INFO).getText().substring(0,7).trim();
+         String oddMarketName = getElementBy(SELECTED_ODD).getText();
+         String betslipMarketName = getElementBy(EVENT_CONTENT_INFO).getText().substring(0,7).trim();
 
-         Assert.assertEquals(oddd,of);
+
+         Assert.assertEquals(oddMarketName.substring(0,7).trim(),betslipMarketName);
+         Assert.assertEquals(oddMarketName.substring(8,13).trim(),getElementBy(BETSLIP_OUTCOME).getText().trim());
 
         return this;
+     }
+
+     public MainPage isExistLiveWidget(){
+
+        Assert.assertEquals(getElemenstBy(WIDGET_HEADER,0).getText(),"CANLI OYNANANLAR");
+
+        return this;
+     }
+
+     private List<WebElement> branchListInWidget(){
+
+       return driver.findElements(WIDGET).get(0).findElements(WIDGET_BRANCH);
+
+     }
+     public MainPage isExistBranchInWidget(){
+
+        assertTrue(branchListInWidget().size() != 0);
+
+        return this;
+
+     }
+     public MainPage checkDefaultBranch(String branch){
+
+        Assert.assertEquals(branchListInWidget().get(0).getText(),branch);
+
+        return this;
+     }
+
+     private List<WebElement> eventRowItems(){
+
+        ArrayList<WebElement> items = new ArrayList<>();
+        items.add(leagueFlag());
+        items.add(leagueCode());
+        items.add(status());
+        items.add(mbc());
+        items.add(teams());
+
+     }
+
+     public MainPage checkEventItemsInBranch(){
+
+        int count =0;
+        for (int index=count; index < branchListInWidget().size(); count++){
+
+            switch (branchListInWidget().get(index).getText()){
+
+                case "FUTBOL":
+
+                    List<WebElement> eventRowList = driver.findElements(WIDGET).get(0).findElements(LIVE_EVENT);
+
+                    for (WebElement eventRow: eventRowList) {
+
+                        for (int j=0; j < )
+
+                    }
+            }
+
+        }
+     }
+     private WebElement leagueFlag(){
+
+        return getElementBy(LEAGUE_FLAG);
+     }
+     private WebElement leagueCode(){
+
+        return getElementBy(LEAGUE_CODE);
+     }
+     private WebElement status(){
+
+        return getElementBy(STATUS_PLAYING);
+     }
+     private WebElement mbc(){
+
+        return getElementBy(MBC);
+     }
+     private WebElement teams(){
+
+        return getElementBy(TEAMS);
      }
 
 

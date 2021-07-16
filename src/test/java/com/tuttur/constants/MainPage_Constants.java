@@ -39,6 +39,17 @@ public class MainPage_Constants extends BasePageUtil{
 	public By BANNER_OUTCOME = By.className("eventOdd-outcome");
 	public By SELECTED_ODD = By.className("eventOdd--selected");
 	public By EVENT_CONTENT_INFO = By.className("betslipEventRow-contentInfo");
+	public By BETSLIP_OUTCOME = By.className("betslipEventRow-oddItem");
+	public By WIDGET_HEADER = By.className("widgetHeader");
+	public By WIDGET = By.cssSelector(".widget.mostPlayedWidget");
+	public By WIDGET_BRANCH = By.className("tabView-tabButton");
+	public By FUTBOL_EVENT_ROW = By.cssSelector(".sportsbookEventRow.futbol");
+	public By LIVE_EVENT = By.className("sportsbookEventRow--liveMatch");
+	public By LEAGUE_FLAG = By.className("sportsbookEventRow-league-flag");
+	public By LEAGUE_CODE = By.className("sportsbookEventRow-league-code");
+	public By STATUS_PLAYING = By.cssSelector(".status.playing");
+	public By MBC = By.className("eventMbc");
+	public By TEAMS = By.className("sportsbookEventRow-header-teams");
 
 
 
