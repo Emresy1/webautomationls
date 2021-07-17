@@ -37,7 +37,9 @@ public class DashboardTest extends BaseTest {
         new MainPage(driver).isExistLiveWidget()
                 .isExistBranchInWidget()
                 .checkDefaultBranch("FUTBOL")
-                .checkEventItemsInBranch();
+                .checkEventItemsInBranch()
+                .getFutbolBranch()
+                .clickTotalOdd();
 
 
 

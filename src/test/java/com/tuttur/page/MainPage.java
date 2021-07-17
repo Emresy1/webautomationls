@@ -420,6 +420,34 @@ public class MainPage extends MainPage_Constants {
         }
     }
 
+    public MainPage getFutbolBranch(){
+
+        branchListInWidget().get(0).click();
+
+        return this;
+    }
+    public EventDetailPage clickTotalOdd(){
+
+        List<WebElement> eventRow = driver.findElements(LIVE_MATCH_EVENT_ROW);
+
+        for (int i=0; i < eventRow.size(); i++){
+
+            eventRow.get(i).findElements(EVENT_TOTAL_ODD).stream().filter(odd
+                    -> odd.getAttribute("class").contains("disabled"));
+
+            if (!eventRow.get(i).findElements(EVENT_TOTAL_ODD).get(0).getAttribute("class").contains("disabled")){
+
+                eventRow.get(i).findElement(EVENT_TOTAL_ODD).click();
+            }
+        }
+
+
+
+
+
+        return new EventDetailPage(driver);
+    }
+
 
 
 
