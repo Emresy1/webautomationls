@@ -55,6 +55,7 @@ public class MainPage_Constants extends BasePageUtil{
 	public By LIVE_ODD = By.className("sportsbookEventOdds");
 	public By EVENT_TOTAL_ODD = By.className("eventTotalOdds");
 	public By LIVE_MATCH_EVENT_ROW = By.cssSelector(".sportsbookEventRow.futbol.sportsbookEventRow--liveMatch");
+	public By EVENT_DETAIL_TEAMS = By.className("eventDetailTeams");
 
 
 

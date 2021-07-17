@@ -400,12 +400,32 @@ public class MainPage extends MainPage_Constants {
          return this;
     }
 
-    private void checkStatusName(String status1, String status2, String status3){
+    public EventDetailPage clickTotalOdd(){
 
-        String statusName = getElementBy(eventRowItems().get(2)).getText();
+        List<WebElement> eventRow = driver.findElements(LIVE_MATCH_EVENT_ROW);
 
-        assertTrue(statusName.contains(status1) || statusName.contains(status2) || statusName.contains(status3));
+        int count =0;
+        do {
+
+            if (!eventRow.get(count).findElements(EVENT_TOTAL_ODD).get(0).getAttribute("class").contains("disabled")){
+
+                String eventName = eventRow.get(count).findElement(TEAMS).getText();
+
+                eventRow.get(count).findElement(EVENT_TOTAL_ODD).click();
+
+                waitForElement(driver, DEFAULT_WAIT_4_ELEMENT, EVENT_DETAIL_TEAMS);
+
+                Assert.assertEquals(eventName, getElementBy(EVENT_DETAIL_TEAMS).getText());
+            }
+            count++;
+
+        }
+        while (driver.findElements(EVENT_DETAIL_TEAMS).size() == 0);
+
+        return new EventDetailPage(driver);
     }
+
+
 
     private void checkItemsOnEventRow() {
 
@@ -426,28 +446,13 @@ public class MainPage extends MainPage_Constants {
 
         return this;
     }
-    public EventDetailPage clickTotalOdd(){
 
-        List<WebElement> eventRow = driver.findElements(LIVE_MATCH_EVENT_ROW);
+    private void checkStatusName(String status1, String status2, String status3){
 
-        for (int i=0; i < eventRow.size(); i++){
+        String statusName = getElementBy(eventRowItems().get(2)).getText();
 
-            eventRow.get(i).findElements(EVENT_TOTAL_ODD).stream().filter(odd
-                    -> odd.getAttribute("class").contains("disabled"));
-
-            if (!eventRow.get(i).findElements(EVENT_TOTAL_ODD).get(0).getAttribute("class").contains("disabled")){
-
-                eventRow.get(i).findElement(EVENT_TOTAL_ODD).click();
-            }
-        }
-
-
-
-
-
-        return new EventDetailPage(driver);
+        assertTrue(statusName.contains(status1) || statusName.contains(status2) || statusName.contains(status3));
     }
-
 
 
 
