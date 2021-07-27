@@ -309,9 +309,9 @@ public class MainPage extends MainPage_Constants {
         return this;
      }
 
-     public MainPage isExistLiveWidget(){
+     public MainPage isExistLiveWidget(int index){
 
-        Assert.assertEquals(getElemenstBy(WIDGET_HEADER,0).getText(),"CANLI OYNANANLAR");
+        Assert.assertEquals(getElemenstBy(WIDGET_HEADER,index).getText(),"CANLI OYNANANLAR");
 
         return this;
      }
@@ -407,7 +407,8 @@ public class MainPage extends MainPage_Constants {
         int count =0;
         do {
 
-            if (!eventRow.get(count).findElements(EVENT_TOTAL_ODD).get(0).getAttribute("class").contains("disabled")){
+            if (!eventRow.get(count)
+                    .findElements(EVENT_TOTAL_ODD).get(0).getAttribute("class").contains("disabled")){
 
                 String eventName = eventRow.get(count).findElement(TEAMS).getText();
 
@@ -451,7 +452,8 @@ public class MainPage extends MainPage_Constants {
 
         String statusName = getElementBy(eventRowItems().get(2)).getText();
 
-        assertTrue(statusName.contains(status1) || statusName.contains(status2) || statusName.contains(status3));
+        assertTrue(statusName.contains(status1) || statusName.contains(status2) ||
+                statusName.contains(status3));
     }
 
 

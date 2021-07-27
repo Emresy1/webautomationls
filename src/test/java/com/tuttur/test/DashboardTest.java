@@ -34,13 +34,12 @@ public class DashboardTest extends BaseTest {
     @Test
     public void liveWidgetTest() throws IOException, InterruptedException {
 
-        new MainPage(driver).isExistLiveWidget()
+        new MainPage(driver).isExistLiveWidget(0)
                 .isExistBranchInWidget()
                 .checkDefaultBranch("FUTBOL")
                 .checkEventItemsInBranch()
                 .getFutbolBranch()
                 .clickTotalOdd();
-
 
 
     }
