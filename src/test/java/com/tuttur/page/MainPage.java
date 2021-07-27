@@ -405,7 +405,7 @@ public class MainPage extends MainPage_Constants {
         List<WebElement> eventRow = driver.findElements(LIVE_MATCH_EVENT_ROW);
 
         int count =0;
-        do {
+        for (int i=count; i < eventRow.size(); i++){
 
             if (!eventRow.get(count)
                     .findElements(EVENT_TOTAL_ODD).get(0).getAttribute("class").contains("disabled")){
@@ -418,10 +418,20 @@ public class MainPage extends MainPage_Constants {
 
                 Assert.assertEquals(eventName, getElementBy(EVENT_DETAIL_TEAMS).getText());
             }
-            count++;
 
+            count++;
         }
-        while (driver.findElements(EVENT_DETAIL_TEAMS).size() == 0);
+        if (getElementBy(LIVE_WIDGET).isDisplayed()){
+            int index = 0;
+
+            String eventName = eventRow.get(index).findElement(TEAMS).getText();
+
+            eventRow.get(index).findElements(TEAMS).get(index).click();
+
+            waitForElement(driver, DEFAULT_WAIT_4_ELEMENT, EVENT_DETAIL_TEAMS);
+
+            Assert.assertEquals(eventName, getElementBy(EVENT_DETAIL_TEAMS).getText());
+        }
 
         return new EventDetailPage(driver);
     }
