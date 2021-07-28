@@ -378,6 +378,7 @@ public class MainPage extends MainPage_Constants {
        //  items.add(LIVE_ODD);
         // items.add(EVENT_TOTAL_ODD);
          return items;
+
      }
 
      public MainPage checkEventItemsInBranch(By widgetName, By events , List<By> items) throws InterruptedException {
