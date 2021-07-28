@@ -52,9 +52,10 @@ public class DashboardTest extends BaseTest {
     @Test
     public void soonStartWidget() throws IOException, InterruptedException {
 
-        new BasePageUtil(driver).sleep(3);
-        new MainPage(driver).scrollToElement(cons.NEAR_FUTURE_WİDGET);
-        new MainPage(driver).isExistWidget(1, "YAKIN ZAMANDA BAŞLAYACAKLAR")
+
+
+        new MainPage(driver).scrollToWidget(cons.NEAR_FUTURE_WİDGET)
+                .isExistWidget(1, "YAKIN ZAMANDA BAŞLAYACAKLAR")
                 .checkDefaultBranch(cons.NEAR_FUTURE_WİDGET, "FUTBOL")
                 .checkEventItemsInBranch(cons.NEAR_FUTURE_WİDGET, cons.EVENT_ROW,
                         new MainPage(driver).eventRowItems());

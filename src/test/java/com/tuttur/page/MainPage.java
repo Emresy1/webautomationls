@@ -323,7 +323,13 @@ public class MainPage extends MainPage_Constants {
         return this;
      }
 
-     public MainPage isExistWidget(int index, String widgetText){
+     public MainPage scrollToWidget (By widget) throws InterruptedException {
+
+        waitForElement(driver,DEFAULT_WAIT_4_ELEMENT,widget);
+        scrollToElement(widget);
+        return this;
+     }
+     public MainPage isExistWidget(int index, String widgetText)  {
 
         Assert.assertEquals(getElemenstBy(WIDGET_HEADER,index).getText(),widgetText);
 
@@ -374,9 +380,9 @@ public class MainPage extends MainPage_Constants {
          items.add(LEAGUE_CODE);
          items.add(EVENT_TIME);
          items.add(MBC);
-        // items.add(TEAMS);
-       //  items.add(LIVE_ODD);
-        // items.add(EVENT_TOTAL_ODD);
+         items.add(TEAMS);
+         items.add(LIVE_ODD);
+         items.add(EVENT_TOTAL_ODD);
          return items;
 
      }
@@ -396,14 +402,14 @@ public class MainPage extends MainPage_Constants {
 
                      checkItemsOnEventRow(widgetName,events,items);
 
-                     checkStatusName("Y","'",":");
+                     checkStatusName(widgetName);
 
                      break;
                  case "BASKETBOL":
 
                      checkItemsOnEventRow(widgetName,events,items);
 
-                     checkStatusName("P","UZ",":");
+                     checkStatusName(widgetName);
 
                      break;
                  case "TENIS":
@@ -412,7 +418,7 @@ public class MainPage extends MainPage_Constants {
 
                      checkItemsOnEventRow(widgetName,events,items);
 
-                     checkStatusName("S","UZ",":");
+                     checkStatusName(widgetName);
 
                      break;
 
@@ -421,6 +427,7 @@ public class MainPage extends MainPage_Constants {
              if (index < branchListInWidget(widgetName).size()-1){
 
                  index++;
+                 waitForElement(branchListInWidget(widgetName).get(index),MIN_WAIT_4_ELEMENT);
                  branchListInWidget(widgetName).get(index).click();
 
              }
@@ -475,7 +482,8 @@ public class MainPage extends MainPage_Constants {
 
             for (int i = 0; i < items.size(); i++) {
 
-                Assert.assertFalse(eventRow.findElements(items.get(i)).equals(null));
+           //     eventRow.findElement(items.get(i)).isDisplayed();
+                waitForElement(eventRow.findElement(items.get(i)),3);
             }
         }
     }
@@ -487,12 +495,76 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
-    private void checkStatusName(String status1, String status2, String status3){
+    private void checkStatusName (By widgetName){
 
+
+        WebElement activeTab = findElements(widgetName).get(0).findElement(WIDGET_ACTIVE_TAB);
         String statusName = getElementBy(eventRowItems().get(2)).getText();
 
-        assertTrue(statusName.contains(status1) || statusName.contains(status2) ||
-                statusName.contains(status3));
+
+            switch (activeTab.getText()) {
+
+                case "FUTBOL":
+                case "HENTBOL":
+                boolean contains = false;
+                    for (String status : statusNameFutbol()) {
+
+                      if (statusName.contains(status)) {
+
+                         contains = true;
+                         break;
+                      }
+                    }
+
+                    break;
+                case "BASKETBOL":
+
+                    for (String status : statusNameBasketbol()) {
+
+                        if (statusName.contains(status)) {
+
+                            contains = true;
+                            break;
+                        }
+                    }
+                    break;
+
+                case "TENIS":
+                case "VOLEYBOL":
+                case "MASA TENISI":
+
+                    for (String status : statusNameTenis()) {
+
+                        if (statusName.contains(status)) {
+
+                            contains = true;
+                            break;
+                        }
+                    }
+                    break;
+
+            }
+
+        }
+
+
+
+    private String [] statusNameFutbol () {
+
+        String status [] = {"Y","'",":","DA","UZ"};
+        return status;
+    }
+
+    private String [] statusNameBasketbol () {
+
+        String status [] = {"P","UZ",":","DA"};
+        return status;
+    }
+
+    private String [] statusNameTenis () {
+
+        String status [] = {"S","UZ",":","DA"};
+        return status;
     }
 
 
