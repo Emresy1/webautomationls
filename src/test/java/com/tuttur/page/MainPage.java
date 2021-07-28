@@ -5,6 +5,8 @@ import com.tuttur.configs.PropertiesFile;
 
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -14,8 +16,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import java.io.IOException;
 import java.sql.Array;
-import java.util.*;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 
 
 public class MainPage extends MainPage_Constants {
@@ -82,42 +86,44 @@ public class MainPage extends MainPage_Constants {
     }
 
 
-    public MainPage checkAccountNo( int rowNumber) throws IOException {
+    public MainPage checkAccountNo(int rowNumber) throws IOException {
 
-        assertTrue(prop.getObject("accountNumberCheck"),getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(rowNumber,3)));
+        assertTrue(prop.getObject("accountNumberCheck"), getElementBy(ACCOUNT_NO).getText()
+                .equals(getData(rowNumber, 3)));
 
         return this;
     }
 
     public MainPage checkUsernameText(int rowNumber, int cellNumber) throws IOException {
 
-        waitForElement(driver,MIN_WAIT_4_ELEMENT,USERNAMETEXT);
+        waitForElement(driver, MIN_WAIT_4_ELEMENT, USERNAMETEXT);
 
         assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
-                .equals(getData(rowNumber,cellNumber)));
+                .equals(getData(rowNumber, cellNumber)));
 
         return this;
     }
-    public MainPage checkUserText(String username){
+
+    public MainPage checkUserText(String username) {
 
         String headerUser = username;
-        waitForElement(driver,OPT_WAIT_4_ELEMENT,USERNAMETEXT);
+        waitForElement(driver, OPT_WAIT_4_ELEMENT, USERNAMETEXT);
 
         assertTrue("x", getElementBy(USERNAMETEXT).getText()
-        .equals(headerUser));
+                .equals(headerUser));
 
         return this;
     }
-    public void isDisplayedUsername(){
+
+    public void isDisplayedUsername() {
 
         Assert.assertFalse(getElementBy(USERNAMETEXT).getText().isEmpty());
     }
 
-    public MainPage checkRegisterLogin () throws InterruptedException, IOException {
+    public MainPage checkRegisterLogin() throws InterruptedException, IOException {
 
         assertTrue(prop.getObject("unsuccessfullyLoginAfterRegister"), getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(5,10)));
+                .equals(getData(5, 10)));
         return this;
     }
 
@@ -130,13 +136,13 @@ public class MainPage extends MainPage_Constants {
         int subCount = 0;
         int headerCount = 0;
 
-        for (int headerIndex = headerCount ; headerIndex < headerMenus.size() ; headerIndex++) {
+        for (int headerIndex = headerCount; headerIndex < headerMenus.size(); headerIndex++) {
 
             action.moveToElement(headerMenus.get(headerIndex)).build().perform();
 
             List<WebElement> subMenus = findElements(IDDAA_SUBMENU);
 
-            for (int i = subCount; i < subMenus.size();i++) {
+            for (int i = subCount; i < subMenus.size(); i++) {
 
                 subMenus.get(i).click();
                 WebElement element = subMenus.get(i);
@@ -151,37 +157,43 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkRedirectSocialMediaUrl() throws InterruptedException, IOException {
 
 
+        sleep(4);
+        scrollToElement(SOCIAL_FOOTER);
 
-        scrollToElement(FACEBOOK);
+        for (int i = 0; i < socialMediaElements().size(); i++) {
 
-        for (int i=0; i<socialMediaElements().size(); i++){
 
             socialMediaElements().get(i).click();
 
-              switchToWindows();
+            switchToWindows();
 
-            Assert.assertEquals(driver.getCurrentUrl(), socialMediaUrl().get(i));
+            Assert.assertTrue(driver.getCurrentUrl().contains(socialMediaUrl().get(i)));
+            //Assert.assertEquals(driver.getCurrentUrl(), socialMediaUrl().get(i));
 
             driver.close();
 
-              switchToWindows();
+            switchToWindows();
 
         }
 
         return this;
 
-     }
+    }
 
 
-     public MainPage checkRedirectStoreUrl() throws IOException {
+    public MainPage checkRedirectStoreUrl() throws IOException, InterruptedException {
 
-        WebElement[] market = {getElementBy(APPLE_MARKET),getElementBy(ANDROID_MARKET)};
+        sleep(3);
+        scrollToElement(APPLE_MARKET);
+
+        WebElement[] market = {getElementBy(APPLE_MARKET), getElementBy(GALAXY_STORE)
+                , getElementBy(HUAWEI_STORE)};
         List<WebElement> markets = Arrays.asList(market);
 
         base.getSheet("NavigationUrl");
-        List<String> marketsUrl = util.getRowDataAll(49,51);
+        List<String> marketsUrl = util.getRowDataAll(55, 58);
 
-        for (int i=0; i< markets.size(); i++){
+        for (int i = 0; i < markets.size(); i++) {
 
             markets.get(i).click();
             switchToWindows();
@@ -194,41 +206,41 @@ public class MainPage extends MainPage_Constants {
         }
 
         return this;
-     }
+    }
 
-     private List<String> socialMediaUrl() throws IOException {
+    private List<String> socialMediaUrl() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> socialMedia = util.getRowDataAll(42,46);
+        List<String> socialMedia = util.getRowDataAll(48, 52);
 
         return socialMedia;
-     }
+    }
 
-     private List<WebElement> socialMediaElements(){
+    private List<WebElement> socialMediaElements() {
 
-         WebElement[] socialMedia = {getElementBy(FACEBOOK),getElementBy(TWITTER),getElementBy(INSTAGRAM),
-                 getElementBy(YOUTUBE)};
-         List<WebElement> social = Arrays.asList(socialMedia);
+        WebElement[] socialMedia = {getElementBy(FACEBOOK), getElementBy(TWITTER), getElementBy(INSTAGRAM),
+                getElementBy(YOUTUBE)};
+        List<WebElement> social = Arrays.asList(socialMedia);
 
-         return social;
-     }
+        return social;
+    }
 
-     public boolean isExistBanner(){
+    public boolean isExistBanner() {
 
-        return isExist(MIN_WAIT_4_ELEMENT,BANNER);
-     }
+        return isExist(MIN_WAIT_4_ELEMENT, BANNER);
+    }
 
-     private List<WebElement> banners(){
+    private List<WebElement> banners() {
 
         return driver.findElements(BANNER);
-     }
+    }
 
-    private List<WebElement> dynamicBanners(){
+    private List<WebElement> dynamicBanners() {
 
         return driver.findElements(ODD_ON_BANNER);
     }
 
-     public MainPage bannerSlider(){
+    public MainPage bannerSlider() {
 
         int bannerCount = 1;
 
@@ -241,64 +253,66 @@ public class MainPage extends MainPage_Constants {
             }
         }
         return this;
-     }
-     public MainPage isExistOddOnBanner(){
+    }
 
-        int count =0;
+    public MainPage isExistOddOnBanner() {
 
-        for (int bannerIndex=count; bannerIndex < banners().size(); bannerIndex++){
+        int count = 0;
 
-            if (banners().get(bannerIndex).findElements(ODD_ON_BANNER).size() != 0){
+        for (int bannerIndex = count; bannerIndex < banners().size(); bannerIndex++) {
+
+            if (banners().get(bannerIndex).findElements(ODD_ON_BANNER).size() != 0) {
 
                 banners().get(bannerIndex).findElement(TOTAL_ODDS).isDisplayed();
 
-                for (int oddIndex=0; oddIndex < dynamicBanners().size(); oddIndex++){
+                for (int oddIndex = 0; oddIndex < dynamicBanners().size(); oddIndex++) {
 
                     dynamicBanners().get(oddIndex).isDisplayed();
                 }
             }
         }
-         return this;
-     }
+        return this;
+    }
 
-     public MainPage isExistBulletAndArrow(){
+    public MainPage isExistBulletAndArrow() {
 
         int arrowCount = 2;
         int bannerCount = 0;
 
-        if (driver.findElements(BANNER).size() != bannerCount){
+        if (driver.findElements(BANNER).size() != bannerCount) {
 
 
             assertTrue(driver.findElements(ARROWS).size() == arrowCount);
-            isExist(MIN_WAIT_4_ELEMENT,SLIDER_BULLET);
+            isExist(MIN_WAIT_4_ELEMENT, SLIDER_BULLET);
 
         }
 
         return this;
-   }
+    }
 
 
-
-     public MainPage addOddToBetslip(){
+    public MainPage addOddToBetslip() {
 
         int xOffset = 1268;
         int yOffset = 410;
 
 
-         for (WebElement dynamicBanner: dynamicBanners()) {
+        for (WebElement dynamicBanner : dynamicBanners()) {
 
-             List<WebElement> activeOdds = dynamicBanner.findElements(ODD_OUTCOME_BANNER);
+            List<WebElement> activeOdds = dynamicBanner.findElements(ODD_OUTCOME_BANNER);
 
-                     activeOdds.stream().filter(odd -> !odd.getAttribute("class").contains("eventOdd--locked"));
+            activeOdds.stream().filter(odd -> !odd.getAttribute("class").contains("eventOdd--locked"));
 
-                         if (activeOdds.size() > 0){
+            if (activeOdds.size() > 0) {
 
-                             action.moveByOffset(xOffset,yOffset).perform();
-                             activeOdds.get(0).click();
+                action.moveByOffset(xOffset, yOffset).perform();
+                activeOdds.get(0).click();
 
-                         }
-                      }
+            }
+        }
 
+        String oddd = getElementBy(SELECTED_ODD).getText().substring(0, 7).trim();
+        String of = getElementBy(EVENT_CONTENT_INFO).getText().substring(0, 7).trim();
          String oddMarketName = getElementBy(SELECTED_ODD).getText();
          String betslipMarketName = getElementBy(EVENT_CONTENT_INFO).getText().substring(0,7).trim();
 
@@ -309,33 +323,35 @@ public class MainPage extends MainPage_Constants {
         return this;
      }
 
-     public MainPage isExistLiveWidget(int index){
+     public MainPage isExistWidget(int index, String widgetText){
 
-        Assert.assertEquals(getElemenstBy(WIDGET_HEADER,index).getText(),"CANLI OYNANANLAR");
-
-        return this;
-     }
-
-     private List<WebElement> branchListInWidget(){
-
-       return driver.findElements(LIVE_WIDGET).get(0).findElements(WIDGET_BRANCH);
-
-     }
-     public MainPage isExistBranchInWidget(){
-
-        assertTrue(branchListInWidget().size() != 0);
-
-        return this;
-
-     }
-     public MainPage checkDefaultBranch(String branch){
-
-        Assert.assertEquals(branchListInWidget().get(0).getText(),branch);
+        Assert.assertEquals(getElemenstBy(WIDGET_HEADER,index).getText(),widgetText);
 
         return this;
      }
 
-     private List<By> eventRowItems(){
+     public List<WebElement> branchListInWidget(By widgetName){
+
+       return driver.findElements(widgetName).get(0).findElements(WIDGET_BRANCH);
+
+     }
+     public MainPage isExistBranchInWidget(By widgetName){
+
+        assertTrue(branchListInWidget(widgetName).size() != 0);
+
+        return this;
+
+     }
+
+
+     public MainPage checkDefaultBranch(By widgetName ,String branch){
+
+        Assert.assertEquals(branchListInWidget(widgetName).get(0).getText(),branch);
+
+        return this;
+    }
+
+     public List<By> eventRowLiveItems(){
 
         List<By> items = new ArrayList<>();
         items.add(LEAGUE_FLAG);
@@ -351,27 +367,40 @@ public class MainPage extends MainPage_Constants {
         return items;
      }
 
-     public MainPage checkEventItemsInBranch() throws InterruptedException {
+     public List<By> eventRowItems () {
 
-        scrollToElement(LIVE_WIDGET);
+         List<By> items = new ArrayList<>();
+         items.add(LEAGUE_FLAG);
+         items.add(LEAGUE_CODE);
+         items.add(EVENT_TIME);
+         items.add(MBC);
+        // items.add(TEAMS);
+       //  items.add(LIVE_ODD);
+        // items.add(EVENT_TOTAL_ODD);
+         return items;
+     }
+
+     public MainPage checkEventItemsInBranch(By widgetName, By events , List<By> items) throws InterruptedException {
+
+
 
          int count = 0;
 
-         for (int index = count; index < branchListInWidget().size()-1;) {
+         for (int index = count; index < branchListInWidget(widgetName).size()-1;) {
 
-             switch (branchListInWidget().get(index).getText().toUpperCase(Locale.ROOT)) {
+             switch (branchListInWidget(widgetName).get(index).getText().toUpperCase(Locale.ROOT)) {
 
                  case "FUTBOL":
                  case "HENTBOL":
 
-                     checkItemsOnEventRow();
+                     checkItemsOnEventRow(widgetName,events,items);
 
                      checkStatusName("Y","'",":");
 
                      break;
                  case "BASKETBOL":
 
-                     checkItemsOnEventRow();
+                     checkItemsOnEventRow(widgetName,events,items);
 
                      checkStatusName("P","UZ",":");
 
@@ -380,7 +409,7 @@ public class MainPage extends MainPage_Constants {
                  case "VOLEYBOL":
                  case "MASA TENISI":
 
-                     checkItemsOnEventRow();
+                     checkItemsOnEventRow(widgetName,events,items);
 
                      checkStatusName("S","UZ",":");
 
@@ -388,17 +417,16 @@ public class MainPage extends MainPage_Constants {
 
              }
 
-             if (index < branchListInWidget().size()-1){
+             if (index < branchListInWidget(widgetName).size()-1){
 
                  index++;
-                 branchListInWidget().get(index).click();
+                 branchListInWidget(widgetName).get(index).click();
 
              }
+        }
+        return this;
+     }
 
-
-         }
-         return this;
-    }
 
     public EventDetailPage clickTotalOdd(){
 
@@ -438,22 +466,22 @@ public class MainPage extends MainPage_Constants {
 
 
 
-    private void checkItemsOnEventRow() {
+    private void checkItemsOnEventRow( By widgetName , By events,List<By> items) {
 
-        List<WebElement> eventRowListt = driver.findElements(LIVE_WIDGET).get(0).findElements(LIVE_EVENT);
+        List<WebElement> eventRowListt = driver.findElements(widgetName).get(0).findElements(events);
 
         for (WebElement eventRow : eventRowListt) {
 
-            for (int i = 0; i < eventRowItems().size(); i++) {
+            for (int i = 0; i < items.size(); i++) {
 
-                Assert.assertFalse(eventRow.findElements(eventRowItems().get(i)).equals(null));
+                Assert.assertFalse(eventRow.findElements(items.get(i)).equals(null));
             }
         }
     }
 
-    public MainPage getFutbolBranch(){
+    public MainPage getFutbolBranch(By widgetName){
 
-        branchListInWidget().get(0).click();
+        branchListInWidget(widgetName).get(0).click();
 
         return this;
     }
@@ -465,6 +493,22 @@ public class MainPage extends MainPage_Constants {
         assertTrue(statusName.contains(status1) || statusName.contains(status2) ||
                 statusName.contains(status3));
     }
+
+
+     public MainPage checkTheyWillStartSoonWidget () throws InterruptedException {
+
+
+
+        scrollToElement(WIDGET_TEXT);
+        isExistWidget(1,"YAKIN ZAMANDA BAŞLAYACAKLAR");
+        checkDefaultBranch(NEAR_FUTURE_WİDGET,"YAKIN ZAMANDA BAŞLAYACAKLAR");
+
+
+
+
+       return this;
+     }
+
 
 
 

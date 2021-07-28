@@ -21,8 +21,10 @@ public class MainPage_Constants extends BasePageUtil{
 	public By TWITTER = By.className("footerContent-socials-twitter");
 	public By INSTAGRAM = By.className("footerContent-socials-instagram");
 	public By YOUTUBE =By.className("footerContent-socials-youtube");
-	public By APPLE_MARKET = By.className("footerContentDownloads-iosImg");
+	public By APPLE_MARKET = By.className("footerContentDownloads-appStore");
 	public By ANDROID_MARKET = By.className("footerContentDownloads-androidImg");
+	public By GALAXY_STORE = By.className("footerContentDownloads-samsungStore");
+	public By HUAWEI_STORE = By.className("footerContentDownloads-huaweiStore");
 	public By HEADER_IDDAA_BUTTON = By.cssSelector(".headerMenu-item");
 	public By IDDAA_SUBMENU = By.className("headerMenu-subMenu-item");
 	public By BANNER = By.className("slider-item-img");
@@ -50,14 +52,20 @@ public class MainPage_Constants extends BasePageUtil{
 	public By STATUS_PLAYING = By.cssSelector(".status.playing");
 	public By MBC = By.className("eventMbc");
 	public By TEAMS = By.className("sportsbookEventRow-header-teams");
+	public By WIDGET_TEXT = By.className("widgetHeader-text");
 	public By LIVE_SCORE = By.cssSelector(".eventScore.live");
 	public By LIVE_ICON = By.className("icon-canli_basladi_nocanvas");
 	public By LIVE_ODD = By.className("sportsbookEventOdds");
 	public By EVENT_TOTAL_ODD = By.className("eventTotalOdds");
 	public By LIVE_MATCH_EVENT_ROW = By.cssSelector(".sportsbookEventRow.futbol.sportsbookEventRow--liveMatch");
 	public By EVENT_DETAIL_TEAMS = By.className("eventDetailTeams");
+	public By NEAR_FUTURE_WİDGET = By.cssSelector(".widget.nearFutureWidget");
+	public By EVENT_ROW = By.className("sportsbookEventRow-header");
+	public By EVENT_TIME = By.className("eventTime");
 
 
+
+	public By SOCIAL_FOOTER = By.className("footerContent-socials");
 
 
 

@@ -93,9 +93,19 @@ public class NavigationPage extends Navigation_Constants {
 
             assertEquals("Url hatalı", subUrl(), shortcutMenus().get(i));
         }
+
+        base.getSheet("NavigationUrl");
+        clickObjectBy(TUTTUR_ANALYSIS);
+        assertEquals("Url hatalı",subUrl(),util.getData(43,1));
+        clickObjectBy(POPULAR_COUPONS);
+        assertEquals("Url hatalı",subUrl(),util.getData(44,1));
+
+
         return this;
 
     }
+
+
 
     private List<String> headerMenu() throws IOException {
 
