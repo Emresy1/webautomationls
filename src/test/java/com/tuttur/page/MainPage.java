@@ -8,12 +8,14 @@ import com.tuttur.util.ExcelUtil;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 import java.io.IOException;
 import java.sql.Array;
 import java.util.ArrayList;
@@ -78,7 +80,7 @@ public class MainPage extends MainPage_Constants {
         return new RegisterPage(driver);
     }
 
-    public RegisterPage getRegisterPageNotUpdate () throws IOException {
+    public RegisterPage getRegisterPageNotUpdate() throws IOException {
 
         clickObjectBy(REGISTER_BUTTON);
         return new RegisterPage(driver);
@@ -313,51 +315,53 @@ public class MainPage extends MainPage_Constants {
 
         String oddd = getElementBy(SELECTED_ODD).getText().substring(0, 7).trim();
         String of = getElementBy(EVENT_CONTENT_INFO).getText().substring(0, 7).trim();
-         String oddMarketName = getElementBy(SELECTED_ODD).getText();
-         String betslipMarketName = getElementBy(EVENT_CONTENT_INFO).getText().substring(0,7).trim();
+        String oddMarketName = getElementBy(SELECTED_ODD).getText();
+        String betslipMarketName = getElementBy(EVENT_CONTENT_INFO).getText().substring(0, 7).trim();
 
 
-         Assert.assertEquals(oddMarketName.substring(0,7).trim(),betslipMarketName);
-         Assert.assertEquals(oddMarketName.substring(8,13).trim(),getElementBy(BETSLIP_OUTCOME).getText().trim());
+        Assert.assertEquals(oddMarketName.substring(0, 7).trim(), betslipMarketName);
+        Assert.assertEquals(oddMarketName.substring(8, 13).trim(), getElementBy(BETSLIP_OUTCOME).getText().trim());
 
         return this;
-     }
+    }
 
-     public MainPage scrollToWidget (By widget) throws InterruptedException {
+    public MainPage scrollToWidget(By widget) throws InterruptedException {
 
-        waitForElement(driver,DEFAULT_WAIT_4_ELEMENT,widget);
+        waitForElement(driver, DEFAULT_WAIT_4_ELEMENT, widget);
         scrollToElement(widget);
         return this;
-     }
-     public MainPage isExistWidget(int index, String widgetText)  {
+    }
 
-        Assert.assertEquals(getElemenstBy(WIDGET_HEADER,index).getText(),widgetText);
+    public MainPage isExistWidget(int index, String widgetText) {
+
+        Assert.assertEquals(getElemenstBy(WIDGET_HEADER, index).getText(), widgetText);
 
         return this;
-     }
+    }
 
-     public List<WebElement> branchListInWidget(By widgetName){
+    public List<WebElement> branchListInWidget(By widgetName) {
 
-       return driver.findElements(widgetName).get(0).findElements(WIDGET_BRANCH);
+        return driver.findElements(widgetName).get(0).findElements(WIDGET_BRANCH);
 
-     }
-     public MainPage isExistBranchInWidget(By widgetName){
+    }
+
+    public MainPage isExistBranchInWidget(By widgetName) {
 
         assertTrue(branchListInWidget(widgetName).size() != 0);
 
         return this;
 
-     }
+    }
 
 
-     public MainPage checkDefaultBranch(By widgetName ,String branch){
+    public MainPage checkDefaultBranch(By widgetName, String branch) {
 
-        Assert.assertEquals(branchListInWidget(widgetName).get(0).getText(),branch);
+        Assert.assertEquals(branchListInWidget(widgetName).get(0).getText(), branch);
 
         return this;
     }
 
-     public List<By> eventRowLiveItems(){
+    public List<By> eventRowLiveItems() {
 
         List<By> items = new ArrayList<>();
         items.add(LEAGUE_FLAG);
@@ -371,80 +375,79 @@ public class MainPage extends MainPage_Constants {
         items.add(EVENT_TOTAL_ODD);
 
         return items;
-     }
+    }
 
-     public List<By> eventRowItems () {
+    public List<By> eventRowItems() {
 
-         List<By> items = new ArrayList<>();
-         items.add(LEAGUE_FLAG);
-         items.add(LEAGUE_CODE);
-         items.add(EVENT_TIME);
-         items.add(MBC);
-         items.add(TEAMS);
-         items.add(LIVE_ODD);
-         items.add(EVENT_TOTAL_ODD);
-         return items;
+        List<By> items = new ArrayList<>();
+        items.add(LEAGUE_FLAG);
+        items.add(LEAGUE_CODE);
+        items.add(EVENT_TIME);
+        items.add(MBC);
+        items.add(TEAMS);
+        items.add(LIVE_ODD);
+        items.add(EVENT_TOTAL_ODD);
+        return items;
 
-     }
+    }
 
-     public MainPage checkEventItemsInBranch(By widgetName, By events , List<By> items) throws InterruptedException {
+    public MainPage checkEventItemsInBranch(By widgetName, By events, List<By> items) throws InterruptedException {
 
 
+        int count = 0;
 
-         int count = 0;
+        for (int index = count; index < branchListInWidget(widgetName).size() - 1; ) {
 
-         for (int index = count; index < branchListInWidget(widgetName).size()-1;) {
+            switch (branchListInWidget(widgetName).get(index).getText().toUpperCase(Locale.ROOT)) {
 
-             switch (branchListInWidget(widgetName).get(index).getText().toUpperCase(Locale.ROOT)) {
+                case "FUTBOL":
+                case "HENTBOL":
 
-                 case "FUTBOL":
-                 case "HENTBOL":
+                    checkItemsOnEventRow(widgetName, events, items);
 
-                     checkItemsOnEventRow(widgetName,events,items);
+                    checkStatusName(widgetName);
 
-                     checkStatusName(widgetName);
+                    break;
+                case "BASKETBOL":
 
-                     break;
-                 case "BASKETBOL":
+                    checkItemsOnEventRow(widgetName, events, items);
 
-                     checkItemsOnEventRow(widgetName,events,items);
+                    checkStatusName(widgetName);
 
-                     checkStatusName(widgetName);
+                    break;
+                case "TENIS":
+                case "VOLEYBOL":
+                case "MASA TENISI":
 
-                     break;
-                 case "TENIS":
-                 case "VOLEYBOL":
-                 case "MASA TENISI":
+                    checkItemsOnEventRow(widgetName, events, items);
 
-                     checkItemsOnEventRow(widgetName,events,items);
+                    checkStatusName(widgetName);
 
-                     checkStatusName(widgetName);
+                    break;
 
-                     break;
+            }
 
-             }
+            if (index < branchListInWidget(widgetName).size() - 1) {
 
-             if (index < branchListInWidget(widgetName).size()-1){
+                index++;
+                waitForElement(branchListInWidget(widgetName).get(index), MIN_WAIT_4_ELEMENT);
+                branchListInWidget(widgetName).get(index).click();
 
-                 index++;
-                 waitForElement(branchListInWidget(widgetName).get(index),MIN_WAIT_4_ELEMENT);
-                 branchListInWidget(widgetName).get(index).click();
-
-             }
+            }
         }
         return this;
-     }
+    }
 
 
-    public EventDetailPage clickTotalOdd(){
+    public EventDetailPage clickTotalOdd() {
 
         List<WebElement> eventRow = driver.findElements(LIVE_MATCH_EVENT_ROW);
 
-        int count =0;
-        for (int i=count; i < eventRow.size(); i++){
+        int count = 0;
+        for (int i = count; i < eventRow.size(); i++) {
 
             if (!eventRow.get(count)
-                    .findElements(EVENT_TOTAL_ODD).get(0).getAttribute("class").contains("disabled")){
+                    .findElements(EVENT_TOTAL_ODD).get(0).getAttribute("class").contains("disabled")) {
 
                 String eventName = eventRow.get(count).findElement(TEAMS).getText();
 
@@ -457,7 +460,7 @@ public class MainPage extends MainPage_Constants {
 
             count++;
         }
-        if (getElementBy(LIVE_WIDGET).isDisplayed()){
+        if (getElementBy(LIVE_WIDGET).isDisplayed()) {
             int index = 0;
 
             String eventName = eventRow.get(index).findElement(TEAMS).getText();
@@ -473,8 +476,7 @@ public class MainPage extends MainPage_Constants {
     }
 
 
-
-    private void checkItemsOnEventRow( By widgetName , By events,List<By> items) {
+    private void checkItemsOnEventRow(By widgetName, By events, List<By> items) {
 
         List<WebElement> eventRowListt = driver.findElements(widgetName).get(0).findElements(events);
 
@@ -482,38 +484,39 @@ public class MainPage extends MainPage_Constants {
 
             for (int i = 0; i < items.size(); i++) {
 
-           //     eventRow.findElement(items.get(i)).isDisplayed();
-                waitForElement(eventRow.findElement(items.get(i)),3);
+                //     eventRow.findElement(items.get(i)).isDisplayed();
+                waitForElement(eventRow.findElement(items.get(i)), 3);
             }
         }
     }
 
-    public MainPage getFutbolBranch(By widgetName){
+    public MainPage getFutbolBranch(By widgetName) {
 
         branchListInWidget(widgetName).get(0).click();
 
         return this;
     }
 
-    private void checkStatusName (By widgetName){
+    private void checkStatusName(By widgetName) {
 
-
+        List<WebElement> widget = findElements(WIDGET_HEADER);
         WebElement activeTab = findElements(widgetName).get(0).findElement(WIDGET_ACTIVE_TAB);
         String statusName = getElementBy(eventRowItems().get(2)).getText();
 
+        if (widget.get(0).getText().equals("CANLI OYNANANLAR")) {
 
             switch (activeTab.getText()) {
 
                 case "FUTBOL":
                 case "HENTBOL":
-                boolean contains = false;
+                    boolean contains = false;
                     for (String status : statusNameFutbol()) {
 
-                      if (statusName.contains(status)) {
+                        if (statusName.contains(status)) {
 
-                         contains = true;
-                         break;
-                      }
+                            contains = true;
+                            break;
+                        }
                     }
 
                     break;
@@ -544,44 +547,75 @@ public class MainPage extends MainPage_Constants {
                     break;
 
             }
+        } else if (widget.get(1).getText().equals("YAKIN ZAMANDA BAŞLAYACAKLAR")) {
+
+            boolean contains = false;
+
+            for (String status : statusNameSoonTime()) {
+
+                if (statusName.contains(status)) {
+
+                    contains = true;
+                }
+            }
+        } else if (widget.get(2).getText().equals("POPÜLER MAÇLAR")){
+
+            boolean contains = false;
+            for (String status : statusNamePopular()) {
+
+                if (statusName.contains(status)) {
+
+                    contains = true;
+
+                }
+            }
 
         }
 
-
-
-    private String [] statusNameFutbol () {
-
-        String status [] = {"Y","'",":","DA","UZ"};
-        return status;
-    }
-
-    private String [] statusNameBasketbol () {
-
-        String status [] = {"P","UZ",":","DA"};
-        return status;
-    }
-
-    private String [] statusNameTenis () {
-
-        String status [] = {"S","UZ",":","DA"};
-        return status;
     }
 
 
-     public MainPage checkTheyWillStartSoonWidget () throws InterruptedException {
+    private String[] statusNameFutbol() {
 
+        String status[] = {"Y", "'", ":", "DA", "UZ"};
+        return status;
+    }
+
+    private String[] statusNameBasketbol() {
+
+        String status[] = {"P", "UZ", ":", "DA"};
+        return status;
+    }
+
+    private String[] statusNameTenis() {
+
+        String status[] = {"S", "UZ", ":", "DA"};
+        return status;
+    }
+
+    private String[] statusNameSoonTime() {
+
+        String status[] = {".", "."};
+        return status;
+    }
+
+    private String[] statusNamePopular() {
+
+        String status[] = {"Bgn", "Yrn", ":"};
+        return status;
+    }
+
+
+    public MainPage checkTheyWillStartSoonWidget() throws InterruptedException {
 
 
         scrollToElement(WIDGET_TEXT);
-        isExistWidget(1,"YAKIN ZAMANDA BAŞLAYACAKLAR");
-        checkDefaultBranch(NEAR_FUTURE_WİDGET,"YAKIN ZAMANDA BAŞLAYACAKLAR");
+        isExistWidget(1, "YAKIN ZAMANDA BAŞLAYACAKLAR");
+        checkDefaultBranch(NEAR_FUTURE_WİDGET, "YAKIN ZAMANDA BAŞLAYACAKLAR");
 
 
-
-
-       return this;
-     }
-
+        return this;
+    }
 
 
 }
