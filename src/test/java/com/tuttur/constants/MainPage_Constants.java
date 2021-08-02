@@ -60,6 +60,7 @@ public class MainPage_Constants extends BasePageUtil{
 	public By LIVE_MATCH_EVENT_ROW = By.cssSelector(".sportsbookEventRow.futbol.sportsbookEventRow--liveMatch");
 	public By EVENT_DETAIL_TEAMS = By.className("eventDetailTeams");
 	public By NEAR_FUTURE_WİDGET = By.cssSelector(".widget.nearFutureWidget");
+	public By POPULAR_WIDGET = By.cssSelector(".widget.popularEventsWidget");
 	public By EVENT_ROW = By.className("sportsbookEventRow");
 	public By EVENT_TIME = By.className("eventTime");
 	public By WIDGET_ACTIVE_TAB = By.cssSelector(".tabView-tabButton.tabView-tabButton-active");

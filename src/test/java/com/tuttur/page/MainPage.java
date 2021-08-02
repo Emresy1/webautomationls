@@ -34,6 +34,9 @@ public class MainPage extends MainPage_Constants {
     ExcelUtil util = new ExcelUtil(driver);
     Actions action = new Actions(driver);
 
+
+    boolean contains = false;
+
     public void dropdownMenu(String menu) {
 
         List<WebElement> dropdown = driver.findElements(DROPDOWN_MENU);
@@ -488,6 +491,8 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
+
+
     private void checkStatusName(By widgetName) {
 
         List<WebElement> widget = findElements(WIDGET_HEADER);
@@ -495,7 +500,7 @@ public class MainPage extends MainPage_Constants {
         List<WebElement> statusName = findElements(EVENT_TIME);
         // String statusName = getElementBy(eventRowItems().get(2)).getText();
 
-        boolean contains = false;
+
 
         if (getElementBy(widgetName).getText().contains("CANLI OYNANANLAR")) {
 
@@ -543,36 +548,32 @@ public class MainPage extends MainPage_Constants {
             }
         } else if (getElementBy(widgetName).getText().contains("YAKIN ZAMANDA BAŞLAYACAKLAR")) {
 
-            int count = 0;
+            checkStatus(NEAR_FUTURE_WİDGET);
 
-            for (int i = count; i < getElementBy(NEAR_FUTURE_WİDGET).findElements(EVENT_ROW).size(); i++) {
+        }
+        else if (getElementBy(widgetName).getText().contains("POPÜLER MAÇLAR")) {
 
-                for (String status : statusNameSoonTime()) {
+            checkStatus(POPULAR_WIDGET);
+
+
+          }
+        }
+
+        private void checkStatus(By widgetName){
+
+        int count =0;
+            for (int i = count; i < getElementBy(widgetName).findElements(EVENT_ROW).size(); i++) {
+
+                for (String status : statusNamePopular()) {
 
                     if (getElementBy(widgetName).findElements(EVENT_TIME).get(i).getText().contains(status)) {
 
                         contains = true;
+
                     }
                 }
             }
-        } else if (getElementBy(widgetName).getText().contains("POPÜLER MAÇLAR")) {
-
-            int count = 0;
-
-            for (int i = count; i < findElements(EVENT_ROW).size(); i++) {
-
-            for (String status : statusNamePopular()) {
-
-                if (getElementBy(widgetName).findElements(EVENT_TIME).get(i).getText().contains(status)) {
-
-                    contains = true;
-
-                }
-            }
-
-        }}
-
-    }
+        }
 
 
     private String[] statusNameFutbol() {
