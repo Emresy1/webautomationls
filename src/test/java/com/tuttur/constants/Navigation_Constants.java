@@ -15,7 +15,5 @@ public class Navigation_Constants extends BasePageUtil {
     public By HEADER_SUBMENU = By.className("headerMenu-subMenu-item");
     public By HEADER_MENU_ACTIVE= By.cssSelector(".headerMenu-item.active");
     public By SHORTCUT_MENU = By.cssSelector(".branches li");
-    public By TUTTUR_ANALYSIS = By.className("secondaryMenu-tutturAnaliz");
-    public By POPULAR_COUPONS = By.className("secondaryMenu-popularCoupons");
 
 }

@@ -38,7 +38,7 @@ public class NavigationTest extends BaseTest {
      */
 
     @Test
-    public void checkRedirectStore() throws IOException, InterruptedException {
+    public void checkRedirectStore() throws IOException {
 
         new MainPage(driver).checkRedirectStoreUrl();
 
