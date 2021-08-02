@@ -545,7 +545,7 @@ public class MainPage extends MainPage_Constants {
 
             int count = 0;
 
-            for (int i = count; i < findElements(EVENT_ROW).size(); i++) {
+            for (int i = count; i < getElementBy(NEAR_FUTURE_WİDGET).findElements(EVENT_ROW).size(); i++) {
 
                 for (String status : statusNameSoonTime()) {
 
