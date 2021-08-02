@@ -8,12 +8,14 @@ import com.tuttur.util.ExcelUtil;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 import java.io.IOException;
 import java.sql.Array;
 import java.util.*;
@@ -84,42 +86,44 @@ public class MainPage extends MainPage_Constants {
     }
 
 
-    public MainPage checkAccountNo( int rowNumber) throws IOException {
+    public MainPage checkAccountNo(int rowNumber) throws IOException {
 
-        assertTrue(prop.getObject("accountNumberCheck"),getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(rowNumber,3)));
+        assertTrue(prop.getObject("accountNumberCheck"), getElementBy(ACCOUNT_NO).getText()
+                .equals(getData(rowNumber, 3)));
 
         return this;
     }
 
     public MainPage checkUsernameText(int rowNumber, int cellNumber) throws IOException {
 
-        waitForElement(driver,MIN_WAIT_4_ELEMENT,USERNAMETEXT);
+        waitForElement(driver, MIN_WAIT_4_ELEMENT, USERNAMETEXT);
 
         assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
-                .equals(getData(rowNumber,cellNumber)));
+                .equals(getData(rowNumber, cellNumber)));
 
         return this;
     }
-    public MainPage checkUserText(String username){
+
+    public MainPage checkUserText(String username) {
 
         String headerUser = username;
-        waitForElement(driver,OPT_WAIT_4_ELEMENT,USERNAMETEXT);
+        waitForElement(driver, OPT_WAIT_4_ELEMENT, USERNAMETEXT);
 
         assertTrue("x", getElementBy(USERNAMETEXT).getText()
-        .equals(headerUser));
+                .equals(headerUser));
 
         return this;
     }
-    public void isDisplayedUsername(){
+
+    public void isDisplayedUsername() {
 
         Assert.assertFalse(getElementBy(USERNAMETEXT).getText().isEmpty());
     }
 
-    public MainPage checkRegisterLogin () throws InterruptedException, IOException {
+    public MainPage checkRegisterLogin() throws InterruptedException, IOException {
 
         assertTrue(prop.getObject("unsuccessfullyLoginAfterRegister"), getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(5,10)));
+                .equals(getData(5, 10)));
         return this;
     }
 
@@ -132,13 +136,13 @@ public class MainPage extends MainPage_Constants {
         int subCount = 0;
         int headerCount = 0;
 
-        for (int headerIndex = headerCount ; headerIndex < headerMenus.size() ; headerIndex++) {
+        for (int headerIndex = headerCount; headerIndex < headerMenus.size(); headerIndex++) {
 
             action.moveToElement(headerMenus.get(headerIndex)).build().perform();
 
             List<WebElement> subMenus = findElements(IDDAA_SUBMENU);
 
-            for (int i = subCount; i < subMenus.size();i++) {
+            for (int i = subCount; i < subMenus.size(); i++) {
 
                 subMenus.get(i).click();
                 WebElement element = subMenus.get(i);
@@ -153,37 +157,36 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkRedirectSocialMediaUrl() throws InterruptedException, IOException {
 
 
-
         scrollToElement(FACEBOOK);
 
-        for (int i=0; i<socialMediaElements().size(); i++){
+        for (int i = 0; i < socialMediaElements().size(); i++) {
 
             socialMediaElements().get(i).click();
 
-              switchToWindows();
+            switchToWindows();
 
             Assert.assertEquals(driver.getCurrentUrl(), socialMediaUrl().get(i));
 
             driver.close();
 
-              switchToWindows();
+            switchToWindows();
 
         }
 
         return this;
 
-     }
+    }
 
 
-     public MainPage checkRedirectStoreUrl() throws IOException {
+    public MainPage checkRedirectStoreUrl() throws IOException {
 
-        WebElement[] market = {getElementBy(APPLE_MARKET),getElementBy(ANDROID_MARKET)};
+        WebElement[] market = {getElementBy(APPLE_MARKET), getElementBy(ANDROID_MARKET)};
         List<WebElement> markets = Arrays.asList(market);
 
         base.getSheet("NavigationUrl");
-        List<String> marketsUrl = util.getRowDataAll(49,51);
+        List<String> marketsUrl = util.getRowDataAll(49, 51);
 
-        for (int i=0; i< markets.size(); i++){
+        for (int i = 0; i < markets.size(); i++) {
 
             markets.get(i).click();
             switchToWindows();
@@ -196,41 +199,41 @@ public class MainPage extends MainPage_Constants {
         }
 
         return this;
-     }
+    }
 
-     private List<String> socialMediaUrl() throws IOException {
+    private List<String> socialMediaUrl() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> socialMedia = util.getRowDataAll(42,46);
+        List<String> socialMedia = util.getRowDataAll(42, 46);
 
         return socialMedia;
-     }
+    }
 
-     private List<WebElement> socialMediaElements(){
+    private List<WebElement> socialMediaElements() {
 
-         WebElement[] socialMedia = {getElementBy(FACEBOOK),getElementBy(TWITTER),getElementBy(INSTAGRAM),
-                 getElementBy(YOUTUBE)};
-         List<WebElement> social = Arrays.asList(socialMedia);
+        WebElement[] socialMedia = {getElementBy(FACEBOOK), getElementBy(TWITTER), getElementBy(INSTAGRAM),
+                getElementBy(YOUTUBE)};
+        List<WebElement> social = Arrays.asList(socialMedia);
 
-         return social;
-     }
+        return social;
+    }
 
-     public boolean isExistBanner(){
+    public boolean isExistBanner() {
 
-        return isExist(MIN_WAIT_4_ELEMENT,BANNER);
-     }
+        return isExist(MIN_WAIT_4_ELEMENT, BANNER);
+    }
 
-     private List<WebElement> banners(){
+    private List<WebElement> banners() {
 
         return driver.findElements(BANNER);
-     }
+    }
 
-    private List<WebElement> dynamicBanners(){
+    private List<WebElement> dynamicBanners() {
 
         return driver.findElements(ODD_ON_BANNER);
     }
 
-     public MainPage bannerSlider(){
+    public MainPage bannerSlider() {
 
         int bannerCount = 1;
 
@@ -243,63 +246,63 @@ public class MainPage extends MainPage_Constants {
             }
         }
         return this;
-     }
-     public MainPage isExistOddOnBanner(){
+    }
 
-        int count =0;
+    public MainPage isExistOddOnBanner() {
 
-        for (int bannerIndex=count; bannerIndex < banners().size(); bannerIndex++){
+        int count = 0;
 
-            if (banners().get(bannerIndex).findElements(ODD_ON_BANNER).size() != 0){
+        for (int bannerIndex = count; bannerIndex < banners().size(); bannerIndex++) {
+
+            if (banners().get(bannerIndex).findElements(ODD_ON_BANNER).size() != 0) {
 
                 banners().get(bannerIndex).findElement(TOTAL_ODDS).isDisplayed();
 
-                for (int oddIndex=0; oddIndex < dynamicBanners().size(); oddIndex++){
+                for (int oddIndex = 0; oddIndex < dynamicBanners().size(); oddIndex++) {
 
                     dynamicBanners().get(oddIndex).isDisplayed();
                 }
             }
         }
-         return this;
-     }
+        return this;
+    }
 
-     public MainPage isExistBulletAndArrow(){
+    public MainPage isExistBulletAndArrow() {
 
         int arrowCount = 2;
         int bannerCount = 0;
 
-        if (driver.findElements(BANNER).size() != bannerCount){
+        if (driver.findElements(BANNER).size() != bannerCount) {
 
 
             assertTrue(driver.findElements(ARROWS).size() == arrowCount);
-            isExist(MIN_WAIT_4_ELEMENT,SLIDER_BULLET);
+            isExist(MIN_WAIT_4_ELEMENT, SLIDER_BULLET);
 
         }
 
         return this;
-   }
+    }
 
 
-
-     public MainPage addOddToBetslip(){
+    public MainPage addOddToBetslip() {
 
         int xOffset = 1268;
         int yOffset = 410;
 
 
-         for (WebElement dynamicBanner: dynamicBanners()) {
+        for (WebElement dynamicBanner : dynamicBanners()) {
 
-             List<WebElement> activeOdds = dynamicBanner.findElements(ODD_OUTCOME_BANNER);
+            List<WebElement> activeOdds = dynamicBanner.findElements(ODD_OUTCOME_BANNER);
 
-                     activeOdds.stream().filter(odd -> !odd.getAttribute("class").contains("eventOdd--locked"));
+            activeOdds.stream().filter(odd -> !odd.getAttribute("class").contains("eventOdd--locked"));
 
-                         if (activeOdds.size() > 0){
+            if (activeOdds.size() > 0) {
 
-                             action.moveByOffset(xOffset,yOffset).perform();
-                             activeOdds.get(0).click();
+                action.moveByOffset(xOffset, yOffset).perform();
+                activeOdds.get(0).click();
 
-                         }
-                      }
+            }
+        }
 
         String oddd = getElementBy(SELECTED_ODD).getText().substring(0, 7).trim();
         String of = getElementBy(EVENT_CONTENT_INFO).getText().substring(0, 7).trim();
@@ -489,11 +492,12 @@ public class MainPage extends MainPage_Constants {
 
         List<WebElement> widget = findElements(WIDGET_HEADER);
         WebElement activeTab = findElements(widgetName).get(0).findElement(WIDGET_ACTIVE_TAB);
-        String statusName = getElementBy(eventRowItems().get(2)).getText();
+        List<WebElement> statusName = findElements(EVENT_TIME);
+        // String statusName = getElementBy(eventRowItems().get(2)).getText();
 
         boolean contains = false;
 
-        if(getElementBy(widgetName).getText().contains("CANLI OYNANANLAR")) {
+        if (getElementBy(widgetName).getText().contains("CANLI OYNANANLAR")) {
 
             switch (activeTab.getText()) {
 
@@ -502,7 +506,7 @@ public class MainPage extends MainPage_Constants {
 
                     for (String status : statusNameFutbol()) {
 
-                        if (statusName.contains(status)) {
+                        if (getElementBy(widgetName).findElements(EVENT_TIME).get(0).getText().contains(status)) {
 
                             contains = true;
                             break;
@@ -514,7 +518,7 @@ public class MainPage extends MainPage_Constants {
 
                     for (String status : statusNameBasketbol()) {
 
-                        if (statusName.contains(status)) {
+                        if (getElementBy(widgetName).findElements(EVENT_TIME).get(0).getText().contains(status)) {
 
                             contains = true;
                             break;
@@ -528,7 +532,7 @@ public class MainPage extends MainPage_Constants {
 
                     for (String status : statusNameTenis()) {
 
-                        if (statusName.contains(status)) {
+                        if (getElementBy(widgetName).findElements(EVENT_TIME).get(0).getText().contains(status)) {
 
                             contains = true;
                             break;
@@ -539,27 +543,34 @@ public class MainPage extends MainPage_Constants {
             }
         } else if (getElementBy(widgetName).getText().contains("YAKIN ZAMANDA BAŞLAYACAKLAR")) {
 
+            int count = 0;
 
+            for (int i = count; i < findElements(EVENT_ROW).size(); i++) {
 
-            for (String status : statusNameSoonTime()) {
+                for (String status : statusNameSoonTime()) {
 
-                if (statusName.contains(status)) {
+                    if (getElementBy(widgetName).findElements(EVENT_TIME).get(i).getText().contains(status)) {
 
-                    contains = true;
+                        contains = true;
+                    }
                 }
             }
-        } else if (getElementBy(widgetName).getText().contains("POPÜLER MAÇLAR")){
+        } else if (getElementBy(widgetName).getText().contains("POPÜLER MAÇLAR")) {
+
+            int count = 0;
+
+            for (int i = count; i < findElements(EVENT_ROW).size(); i++) {
 
             for (String status : statusNamePopular()) {
 
-                if (statusName.contains(status)) {
+                if (getElementBy(widgetName).findElements(EVENT_TIME).get(i).getText().contains(status)) {
 
                     contains = true;
 
                 }
             }
 
-        }
+        }}
 
     }
 
@@ -584,7 +595,7 @@ public class MainPage extends MainPage_Constants {
 
     private String[] statusNameSoonTime() {
 
-        String status[] = {"DK", "SA","GÜN"};
+        String status[] = {"DK", "SA", "GÜN"};
         return status;
     }
 
