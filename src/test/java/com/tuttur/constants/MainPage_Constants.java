@@ -64,6 +64,7 @@ public class MainPage_Constants extends BasePageUtil{
 	public By EVENT_ROW = By.className("sportsbookEventRow");
 	public By EVENT_TIME = By.className("eventTime");
 	public By WIDGET_ACTIVE_TAB = By.cssSelector(".tabView-tabButton.tabView-tabButton-active");
+	public By WIDGET_SHOW_ALL = By.className("dashboardWidgetView-showAll");
 
 
 

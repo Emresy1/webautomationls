@@ -385,7 +385,7 @@ public class MainPage extends MainPage_Constants {
 
     }
 
-    public MainPage checkEventItemsInBranch(By widgetName, By events, List<By> items) throws InterruptedException {
+    public MainPage checkEventItemsInBranch(By widgetName, By events, List<By> items, int i) throws InterruptedException {
 
 
         int count = 0;
@@ -426,16 +426,23 @@ public class MainPage extends MainPage_Constants {
                 index++;
                 waitForElement(branchListInWidget(widgetName).get(index), MIN_WAIT_4_ELEMENT);
                 branchListInWidget(widgetName).get(index).click();
-
             }
         }
+        showAllEventsClick(i);
         return this;
     }
 
+    private void showAllEventsClick(int index) throws InterruptedException {
 
-    public EventDetailPage clickTotalOdd() {
+        scrollToElements(WIDGET_SHOW_ALL,index);
+        clickObjectsBy(WIDGET_SHOW_ALL, index);
+        driver.navigate().back();
 
-        List<WebElement> eventRow = driver.findElements(LIVE_MATCH_EVENT_ROW);
+    }
+
+    public EventDetailPage  clickTotalOdd(By eventRows,By widgetName) {
+
+        List<WebElement> eventRow = driver.findElements(eventRows);
 
         int count = 0;
         for (int i = count; i < eventRow.size(); i++) {
@@ -454,7 +461,7 @@ public class MainPage extends MainPage_Constants {
 
             count++;
         }
-        if (getElementBy(LIVE_WIDGET).isDisplayed()) {
+        if (getElementBy(widgetName).isDisplayed()) {
             int index = 0;
 
             String eventName = eventRow.get(index).findElement(TEAMS).getText();
@@ -492,14 +499,12 @@ public class MainPage extends MainPage_Constants {
     }
 
 
-
     private void checkStatusName(By widgetName) {
 
         List<WebElement> widget = findElements(WIDGET_HEADER);
         WebElement activeTab = findElements(widgetName).get(0).findElement(WIDGET_ACTIVE_TAB);
         List<WebElement> statusName = findElements(EVENT_TIME);
         // String statusName = getElementBy(eventRowItems().get(2)).getText();
-
 
 
         if (getElementBy(widgetName).getText().contains("CANLI OYNANANLAR")) {
@@ -548,32 +553,31 @@ public class MainPage extends MainPage_Constants {
             }
         } else if (getElementBy(widgetName).getText().contains("YAKIN ZAMANDA BAŞLAYACAKLAR")) {
 
-            checkStatus(NEAR_FUTURE_WİDGET);
+            checkStatus(NEAR_FUTURE_WİDGET, statusNameSoonTime());
+
+        } else if (getElementBy(widgetName).getText().contains("POPÜLER MAÇLAR")) {
+
+            checkStatus(POPULAR_WIDGET, statusNamePopular());
+
 
         }
-        else if (getElementBy(widgetName).getText().contains("POPÜLER MAÇLAR")) {
+    }
 
-            checkStatus(POPULAR_WIDGET);
+    private void checkStatus(By widgetName, String[] statusList) {
 
+        int count = 0;
+        for (int i = count; i < getElementBy(widgetName).findElements(EVENT_ROW).size(); i++) {
 
-          }
-        }
+            for (String status : statusList) {
 
-        private void checkStatus(By widgetName){
+                if (getElementBy(widgetName).findElements(EVENT_TIME).get(i).getText().contains(status)) {
 
-        int count =0;
-            for (int i = count; i < getElementBy(widgetName).findElements(EVENT_ROW).size(); i++) {
+                    contains = true;
 
-                for (String status : statusNamePopular()) {
-
-                    if (getElementBy(widgetName).findElements(EVENT_TIME).get(i).getText().contains(status)) {
-
-                        contains = true;
-
-                    }
                 }
             }
         }
+    }
 
 
     private String[] statusNameFutbol() {

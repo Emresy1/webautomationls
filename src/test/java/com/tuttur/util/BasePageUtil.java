@@ -214,6 +214,14 @@ public class BasePageUtil {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(500);
 	}
+
+	public void scrollToElements (By by,int i) throws InterruptedException {
+
+    	WebElement element = driver.findElements(by).get(i);
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+		Thread.sleep(500);
+	}
+
 	
 	public void waitForElement(WebDriver driver, int seconds, By elementBy) {
 		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
