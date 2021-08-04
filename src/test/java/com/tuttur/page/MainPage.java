@@ -319,10 +319,11 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
-    public MainPage scrollToWidget(By widget) throws InterruptedException {
+    public MainPage scrollToWidget(int index) throws InterruptedException {
 
-        waitForElement(driver, DEFAULT_WAIT_4_ELEMENT, widget);
-        scrollToElement(widget);
+        sleep(1);
+        scrollToElements(By.className("widget-content"),index);
+
         return this;
     }
 
@@ -351,7 +352,6 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkDefaultBranch(By widgetName, String branch) {
 
         Assert.assertEquals(branchListInWidget(widgetName).get(0).getText(), branch);
-
         return this;
     }
 
@@ -360,7 +360,7 @@ public class MainPage extends MainPage_Constants {
         List<By> items = new ArrayList<>();
         items.add(LEAGUE_FLAG);
         items.add(LEAGUE_CODE);
-        items.add(STATUS_PLAYING);
+        items.add(EVENT_TIME);
         items.add(MBC);
         items.add(TEAMS);
         items.add(LIVE_SCORE);
@@ -385,62 +385,89 @@ public class MainPage extends MainPage_Constants {
 
     }
 
-    public MainPage checkEventItemsInBranch(By widgetName, By events, List<By> items, int i) throws InterruptedException {
+    public MainPage checkEventItemsInBranch(By widgetName, By events, List<By> items, int i, String url)
+            throws InterruptedException {
 
 
+        int branchCount = 1;
         int count = 0;
 
-        for (int index = count; index < branchListInWidget(widgetName).size() - 1; ) {
+        if (branchListInWidget(widgetName).size() > branchCount) {
 
-            switch (branchListInWidget(widgetName).get(index).getText().toUpperCase(Locale.ROOT)) {
+            for (int index = count; index < branchListInWidget(widgetName).size() - 1; ) {
 
-                case "FUTBOL":
-                case "HENTBOL":
+                switch (branchListInWidget(widgetName).get(index).getText().toUpperCase(Locale.ROOT)) {
 
-                    checkItemsOnEventRow(widgetName, events, items);
+                    case "FUTBOL":
+                    case "HENTBOL":
 
-                    checkStatusName(widgetName);
+                        checkItemsOnEventRow(widgetName, events, items);
 
-                    break;
-                case "BASKETBOL":
+                        checkStatusName(widgetName);
 
-                    checkItemsOnEventRow(widgetName, events, items);
+                        break;
+                    case "BASKETBOL":
 
-                    checkStatusName(widgetName);
+                        checkItemsOnEventRow(widgetName, events, items);
 
-                    break;
-                case "TENIS":
-                case "VOLEYBOL":
-                case "MASA TENISI":
+                        checkStatusName(widgetName);
 
-                    checkItemsOnEventRow(widgetName, events, items);
+                        break;
+                    case "TENIS":
+                    case "VOLEYBOL":
+                    case "MASA TENISI":
 
-                    checkStatusName(widgetName);
+                        checkItemsOnEventRow(widgetName, events, items);
 
-                    break;
+                        checkStatusName(widgetName);
 
+                        break;
+
+                }
+
+                if (index < branchListInWidget(widgetName).size() - 1) {
+
+                    index++;
+                    waitForElement(branchListInWidget(widgetName).get(index), MIN_WAIT_4_ELEMENT);
+                    branchListInWidget(widgetName).get(index).click();
+                }
             }
-
-            if (index < branchListInWidget(widgetName).size() - 1) {
-
-                index++;
-                waitForElement(branchListInWidget(widgetName).get(index), MIN_WAIT_4_ELEMENT);
-                branchListInWidget(widgetName).get(index).click();
-            }
+            checkRedirectToScreen(i,url);
         }
-        showAllEventsClick(i);
+
+        else {
+
+            checkItemsOnEventRow(widgetName,events,items);
+            checkStatusName(widgetName);
+
+
+            checkRedirectToScreen(i,url);
+        }
+
+
         return this;
     }
 
-    private void showAllEventsClick(int index) throws InterruptedException {
-
+    private void clickButtonShowAll(int index) throws InterruptedException {
         scrollToElements(WIDGET_SHOW_ALL,index);
         clickObjectsBy(WIDGET_SHOW_ALL, index);
-        driver.navigate().back();
-
     }
 
-    public EventDetailPage  clickTotalOdd(By eventRows,By widgetName) {
+
+    private void checkRedirectToScreen(int index, String url) throws InterruptedException {
+
+        clickButtonShowAll(index);
+        assertTrue(driver.getCurrentUrl().contains(url));
+
+    }
+    public MainPage getDashboard() throws IOException {
+
+        driver.get(prop.getObject("dashboard"));
+
+        return this;
+    }
+
+    public EventDetailPage  clickTotalOdd(By eventRows,By widgetName) throws InterruptedException {
 
         List<WebElement> eventRow = driver.findElements(eventRows);
 
@@ -452,6 +479,7 @@ public class MainPage extends MainPage_Constants {
 
                 String eventName = eventRow.get(count).findElement(TEAMS).getText();
 
+                scrollToWidget(1);
                 eventRow.get(count).findElement(EVENT_TOTAL_ODD).click();
 
                 waitForElement(driver, DEFAULT_WAIT_4_ELEMENT, EVENT_DETAIL_TEAMS);
@@ -460,6 +488,7 @@ public class MainPage extends MainPage_Constants {
             }
 
             count++;
+            break;
         }
         if (getElementBy(widgetName).isDisplayed()) {
             int index = 0;
@@ -491,7 +520,7 @@ public class MainPage extends MainPage_Constants {
         }
     }
 
-    public MainPage getFutbolBranch(By widgetName) {
+    public MainPage getFirstBranch(By widgetName) {
 
         branchListInWidget(widgetName).get(0).click();
 
@@ -504,7 +533,6 @@ public class MainPage extends MainPage_Constants {
         List<WebElement> widget = findElements(WIDGET_HEADER);
         WebElement activeTab = findElements(widgetName).get(0).findElement(WIDGET_ACTIVE_TAB);
         List<WebElement> statusName = findElements(EVENT_TIME);
-        // String statusName = getElementBy(eventRowItems().get(2)).getText();
 
 
         if (getElementBy(widgetName).getText().contains("CANLI OYNANANLAR")) {

@@ -1,8 +1,8 @@
 package com.tuttur.test;
 
 import com.tuttur.base.BaseTest;
+import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.MainPage_Constants;
-import com.tuttur.page.EventDetailPage;
 import com.tuttur.page.MainPage;
 import org.junit.Test;
 
@@ -12,6 +12,7 @@ import java.io.IOException;
 public class DashboardTest extends BaseTest {
 
     MainPage_Constants cons = new MainPage_Constants(driver);
+    PropertiesFile prop = new PropertiesFile(driver);
 
 
     /**
@@ -43,31 +44,51 @@ public class DashboardTest extends BaseTest {
                 .isExistBranchInWidget(cons.LIVE_WIDGET)
                 .checkDefaultBranch(cons.LIVE_WIDGET, "FUTBOL")
                 .scrollToElement(cons.LIVE_WIDGET);
-        new MainPage(driver).checkEventItemsInBranch(cons.LIVE_WIDGET, cons.LIVE_EVENT, new MainPage(driver).eventRowLiveItems(),0)
-                .getFutbolBranch(cons.LIVE_WIDGET)
+        new MainPage(driver).checkEventItemsInBranch(cons.LIVE_WIDGET, cons.LIVE_EVENT,
+                new MainPage(driver).eventRowLiveItems(),0, prop.getObject("liveBulletin"))
+                .getDashboard()
                 .clickTotalOdd(cons.LIVE_MATCH_EVENT_ROW, cons.LIVE_WIDGET);
 
     }
 
+    /**
+     * Case 3.0
+     * Yakın Zamanda Başlayacaklar
+     * @throws IOException
+     * @throws InterruptedException
+     */
+
     @Test
-    public void soonStartWidget() throws IOException, InterruptedException {
+    public void newFutureWidgetTest() throws IOException, InterruptedException {
 
 
-        new MainPage(driver).scrollToWidget(cons.NEAR_FUTURE_WİDGET)
+        new MainPage(driver).scrollToWidget(1)
                 .isExistWidget(1, "YAKIN ZAMANDA BAŞLAYACAKLAR")
                 .checkDefaultBranch(cons.NEAR_FUTURE_WİDGET, "FUTBOL")
-                .checkEventItemsInBranch(cons.NEAR_FUTURE_WİDGET, cons.EVENT_ROW, new MainPage(driver).eventRowItems(),1)
+                .checkEventItemsInBranch(cons.NEAR_FUTURE_WİDGET, cons.EVENT_ROW,
+                        new MainPage(driver).eventRowItems(),1, prop.getObject("bulletin"))
+                .getDashboard()
                 .clickTotalOdd(cons.EVENT_ROW, cons.NEAR_FUTURE_WİDGET);
 
     }
 
+    /**
+     * Case 4.0
+     * Popüler
+     * @throws IOException
+     * @throws InterruptedException
+     */
+
     @Test
     public void popularWidgetTest() throws IOException, InterruptedException {
 
-        new MainPage(driver).scrollToWidget(cons.POPULAR_WIDGET)
+        new MainPage(driver).scrollToWidget(2)
                 .isExistWidget(2, "POPÜLER MAÇLAR")
                 .checkDefaultBranch(cons.POPULAR_WIDGET, "FUTBOL")
-                .checkEventItemsInBranch(cons.POPULAR_WIDGET, cons.EVENT_ROW, new MainPage(driver).eventRowItems(),2);
+                .checkEventItemsInBranch(cons.POPULAR_WIDGET, cons.EVENT_ROW,
+                        new MainPage(driver).eventRowItems(),2, prop.getObject("popular"))
+                .getDashboard()
+                .clickTotalOdd(cons.EVENT_ROW, cons.POPULAR_WIDGET);
 
 
     }
