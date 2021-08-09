@@ -1,5 +1,6 @@
 package com.tuttur.constants;
 
+import org.apache.commons.beanutils.PropertyUtilsBean;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -66,6 +67,16 @@ public class MainPage_Constants extends BasePageUtil{
 	public By EVENT_TIME = By.className("eventTime");
 	public By WIDGET_ACTIVE_TAB = By.cssSelector(".tabView-tabButton.tabView-tabButton-active");
 	public By WIDGET_SHOW_ALL = By.className("dashboardWidgetView-showAll");
+	public By CAMPAIGNS_ICON = By.className("icon-campaigns");
+	public By CAMPAIGNS_BADGE = By.className("campaignBadge-countText");
+	public By CAMPAIGNS_CTA = By.className("headerTop-ctaButtons-button");
+	public By CAMPAIGNS_EMPTY_STATE = By.className("emptyState");
+	public By EMPTY_STATE_ICON = By.className("emptyState-icon");
+	public By EMPTY_STATE_TITTLE = By.className("emptyState-title");
+	public By EMPTY_STATE_DESC = By.className("emptyState-description");
+	public By EMPTY_STATE_CTA = By.className("emptyState-primaryButtons");
+	public By EMPTY_STATE_CTA_B = By.cssSelector(".medium.primary");
+
 
 
 

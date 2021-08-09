@@ -4,6 +4,7 @@ import com.tuttur.base.BaseTest;
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.MainPage_Constants;
 import com.tuttur.page.MainPage;
+import com.tuttur.util.BasePageUtil;
 import org.junit.Test;
 
 
@@ -13,6 +14,7 @@ public class DashboardTest extends BaseTest {
 
     MainPage_Constants cons = new MainPage_Constants(driver);
     PropertiesFile prop = new PropertiesFile(driver);
+    BasePageUtil base = new BasePageUtil(driver);
 
 
     /**
@@ -45,7 +47,7 @@ public class DashboardTest extends BaseTest {
                 .checkDefaultBranch(cons.LIVE_WIDGET, "FUTBOL")
                 .scrollToElement(cons.LIVE_WIDGET);
         new MainPage(driver).checkEventItemsInBranch(cons.LIVE_WIDGET, cons.LIVE_EVENT,
-                new MainPage(driver).eventRowLiveItems(),0, prop.getObject("liveBulletin"))
+                new MainPage(driver).eventRowLiveItems(), 0, prop.getObject("liveBulletin"))
                 .getDashboard()
                 .clickTotalOdd(cons.LIVE_MATCH_EVENT_ROW, cons.LIVE_WIDGET);
 
@@ -54,6 +56,7 @@ public class DashboardTest extends BaseTest {
     /**
      * Case 3.0
      * Yakın Zamanda Başlayacaklar
+     *
      * @throws IOException
      * @throws InterruptedException
      */
@@ -66,7 +69,7 @@ public class DashboardTest extends BaseTest {
                 .isExistWidget(1, "YAKIN ZAMANDA BAŞLAYACAKLAR")
                 .checkDefaultBranch(cons.NEAR_FUTURE_WİDGET, "FUTBOL")
                 .checkEventItemsInBranch(cons.NEAR_FUTURE_WİDGET, cons.EVENT_ROW,
-                        new MainPage(driver).eventRowItems(),1, prop.getObject("bulletin"))
+                        new MainPage(driver).eventRowItems(), 1, prop.getObject("bulletin"))
                 .getDashboard()
                 .clickTotalOdd(cons.EVENT_ROW, cons.NEAR_FUTURE_WİDGET);
 
@@ -75,6 +78,7 @@ public class DashboardTest extends BaseTest {
     /**
      * Case 4.0
      * Popüler
+     *
      * @throws IOException
      * @throws InterruptedException
      */
@@ -86,10 +90,28 @@ public class DashboardTest extends BaseTest {
                 .isExistWidget(2, "POPÜLER MAÇLAR")
                 .checkDefaultBranch(cons.POPULAR_WIDGET, "FUTBOL")
                 .checkEventItemsInBranch(cons.POPULAR_WIDGET, cons.EVENT_ROW,
-                        new MainPage(driver).eventRowItems(),2, prop.getObject("popular"))
+                        new MainPage(driver).eventRowItems(), 2, prop.getObject("popular"))
                 .getDashboard()
                 .clickTotalOdd(cons.EVENT_ROW, cons.POPULAR_WIDGET);
 
+
+    }
+
+
+    /**
+     * Case 5.0
+     * Kampanyalar
+     *
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    @Test
+    public void campaignsTest() throws IOException, InterruptedException {
+
+        base.getSheet("LoginData");
+
+        new MainPage(driver).getLoginPage().login(2,"non-contract")
+                .campaigns();
 
     }
 

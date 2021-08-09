@@ -322,7 +322,7 @@ public class MainPage extends MainPage_Constants {
     public MainPage scrollToWidget(int index) throws InterruptedException {
 
         sleep(1);
-        scrollToElements(By.className("widget-content"),index);
+        scrollToElements(By.className("widget-content"), index);
 
         return this;
     }
@@ -432,16 +432,14 @@ public class MainPage extends MainPage_Constants {
                     branchListInWidget(widgetName).get(index).click();
                 }
             }
-            checkRedirectToScreen(i,url);
-        }
+            checkRedirectToScreen(i, url);
+        } else {
 
-        else {
-
-            checkItemsOnEventRow(widgetName,events,items);
+            checkItemsOnEventRow(widgetName, events, items);
             checkStatusName(widgetName);
 
 
-            checkRedirectToScreen(i,url);
+            checkRedirectToScreen(i, url);
         }
 
 
@@ -449,7 +447,7 @@ public class MainPage extends MainPage_Constants {
     }
 
     private void clickButtonShowAll(int index) throws InterruptedException {
-        scrollToElements(WIDGET_SHOW_ALL,index);
+        scrollToElements(WIDGET_SHOW_ALL, index);
         clickObjectsBy(WIDGET_SHOW_ALL, index);
     }
 
@@ -460,6 +458,7 @@ public class MainPage extends MainPage_Constants {
         assertTrue(driver.getCurrentUrl().contains(url));
 
     }
+
     public MainPage getDashboard() throws IOException {
 
         driver.get(prop.getObject("dashboard"));
@@ -467,7 +466,7 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
-    public EventDetailPage  clickTotalOdd(By eventRows,By widgetName) throws InterruptedException {
+    public EventDetailPage clickTotalOdd(By eventRows, By widgetName) throws InterruptedException {
 
         List<WebElement> eventRow = driver.findElements(eventRows);
 
@@ -648,6 +647,35 @@ public class MainPage extends MainPage_Constants {
 
 
         return this;
+    }
+
+    public MainPage campaigns() {
+
+       clickObjectBy(CAMPAIGNS_ICON);
+       checkEmptyStateCampaıgns();
+       checkRedirectCtaButton();
+
+
+
+        return this;
+
+    }
+
+    private void checkEmptyStateCampaıgns () {
+
+        assertTrue(getElementBy(EMPTY_STATE_ICON).isDisplayed());
+        assertTrue(getElementBy(EMPTY_STATE_TITTLE).getText().equals("Güncel Kampanyamız Bulunmuyor"));
+        assertEquals(getElementBy(EMPTY_STATE_DESC).getText(),"tuttur’un sürekli güncellenen kampanyalarını kaçırmamak için cep telefonu numaranı ve eposta adresini güncellemeyi unutma.");
+        assertTrue(getElementBy(EMPTY_STATE_CTA).isDisplayed());
+
+    }
+
+    private void checkRedirectCtaButton () {
+
+        clickObjectsBy(EMPTY_STATE_CTA_B,0);
+        assertTrue(driver.getCurrentUrl().contains("bulten"));
+
+
     }
 
 
