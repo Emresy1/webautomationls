@@ -1,7 +1,7 @@
 package com.tuttur.base;
 
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
+
+import com.tuttur.configs.PropertiesFile;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -9,10 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import com.tuttur.configs.PropertiesFile;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
@@ -20,10 +19,10 @@ public class BaseTest {
 	public static String baseUrl = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com";
 
 	//https://ttest:q26RwfyLotHm@alpha.tuttur.com
-	   public static final String USERNAME = "tech";
-	   public static final String ACCESS_KEY = "d037c678533d3de4bc8fc89693fd6ccf";
+	   public static final String USERNAME = "emresarkaya_DBS1ib";
+	   public static final String ACCESS_KEY = "x1ZVYdxWwVSuDpnsbtRY";
 	   public static final String KEY = USERNAME + ":" + ACCESS_KEY;
-	   public static final String URL = "http://hub.testinium.io/wd/hub";
+	   public static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
 	public WebDriver driver;
 
@@ -61,23 +60,28 @@ public class BaseTest {
 				driver = new FirefoxDriver();
 			}
 
+
+
 		} else {
 
-			capabilities.setCapability("key", System.getProperty("key"));
 
-			driver = new RemoteWebDriver(new URL(URL), capabilities);
 
 		}
 
+
+
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		//driver = new RemoteWebDriver(new URL(URL), capabilities);
 		driver.get(baseUrl);
 
 
 	}
 
+
 	@After
-	public void tearDown() {
+	public void tearDown() throws Exception {
+
 
 		driver.quit();
 

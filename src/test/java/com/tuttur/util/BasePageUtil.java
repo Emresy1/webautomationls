@@ -227,7 +227,11 @@ public class BasePageUtil {
 		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
 		wait.until(ExpectedConditions.presenceOfElementLocated(elementBy));
 	}
+	public void waitForElementClickable(WebDriver driver, int seconds, By elementBy){
 
+		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
+		wait.until(ExpectedConditions.elementToBeClickable(elementBy));
+	}
 
 
 	public void waitForElement(WebElement elm , int seconds) {

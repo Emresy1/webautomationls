@@ -6,12 +6,15 @@ import java.io.IOException;
 
 public class GeneralPage extends BasePage {
 
-
+    DbQueriesPage db = new DbQueriesPage(driver);
 
     public GeneralPage(WebDriver driver) throws IOException {
         super(driver);
 
+
     }
+
+
 
     public String usernameText = "automation" + generateRandomInt(9999);
 
@@ -26,5 +29,16 @@ public class GeneralPage extends BasePage {
     public static String refreshUsername;
 
     public static String staticUsername = "betult787885";
+
+    public int campaignId(int code){
+
+
+
+        String campaign = "UPDATE application.campaign SET status = false WHERE id="+code+";";
+        return db.getValidationCodeInt(campaign,1);
+
+
+
+    }
 
     }

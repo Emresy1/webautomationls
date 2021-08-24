@@ -19,6 +19,7 @@ import org.openqa.selenium.interactions.Actions;
 import java.io.IOException;
 import java.sql.Array;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -59,8 +60,9 @@ public class MainPage extends MainPage_Constants {
         return new LoginPage(driver);
     }
 
-    public MainPage logout() {
+    public MainPage logout() throws InterruptedException {
 
+        scrollToElement(AVATAR);
         clickObjectBy(AVATAR);
         dropdownMenu("Çıkış");
 
@@ -297,24 +299,30 @@ public class MainPage extends MainPage_Constants {
 
             List<WebElement> activeOdds = dynamicBanner.findElements(ODD_OUTCOME_BANNER);
 
-            activeOdds.stream().filter(odd -> !odd.getAttribute("class").contains("eventOdd--locked"));
+            List<WebElement> activeOdd =activeOdds.stream()
+                    .filter(odd -> !odd.getAttribute("class").contains("eventOdd--locked"))
+                    .collect(Collectors.toList());
+            System.out.println(activeOdd.size() +"000");
 
-            if (activeOdds.size() > 0) {
+            if (activeOdd.size() > 0) {
 
                 action.moveByOffset(xOffset, yOffset).perform();
                 activeOdds.get(0).click();
 
+                String oddMarketName = getElementBy(SELECTED_ODD).getText();
+                String betslipMarketName = getElementBy(EVENT_CONTENT_INFO).getText().substring(0, 7).trim();
+
+                boolean isEquals = oddMarketName.substring(0, 7).trim().equals(betslipMarketName) &&
+                        oddMarketName.substring(8, 13).trim().equals(getElementBy(BETSLIP_OUTCOME).getText().trim());
+
+                assertTrue(isEquals);
+
             }
         }
 
-        String oddd = getElementBy(SELECTED_ODD).getText().substring(0, 7).trim();
-        String of = getElementBy(EVENT_CONTENT_INFO).getText().substring(0, 7).trim();
-        String oddMarketName = getElementBy(SELECTED_ODD).getText();
-        String betslipMarketName = getElementBy(EVENT_CONTENT_INFO).getText().substring(0, 7).trim();
+        //String oddd = getElementBy(SELECTED_ODD).getText().substring(0, 7).trim();
+        //String of = getElementBy(EVENT_CONTENT_INFO).getText().substring(0, 7).trim();
 
-
-        Assert.assertEquals(oddMarketName.substring(0, 7).trim(), betslipMarketName);
-        Assert.assertEquals(oddMarketName.substring(8, 13).trim(), getElementBy(BETSLIP_OUTCOME).getText().trim());
 
         return this;
     }
@@ -645,38 +653,20 @@ public class MainPage extends MainPage_Constants {
         isExistWidget(1, "YAKIN ZAMANDA BAŞLAYACAKLAR");
         checkDefaultBranch(NEAR_FUTURE_WİDGET, "YAKIN ZAMANDA BAŞLAYACAKLAR");
 
-
         return this;
     }
 
-    public MainPage campaigns() {
+    public CampaignsPage getCampaignsPage() {
 
-       clickObjectBy(CAMPAIGNS_ICON);
-       checkEmptyStateCampaıgns();
-       checkRedirectCtaButton();
+        int count =0;
+        if (driver.findElements(By.className("modal-container")).size() !=count) {
 
+            waitForElementDisappear(getElementBy(By.className("modal-container")));
+        }
+        clickObjectBy(CAMPAIGNS_ICON);
 
-
-        return this;
-
-    }
-
-    private void checkEmptyStateCampaıgns () {
-
-        assertTrue(getElementBy(EMPTY_STATE_ICON).isDisplayed());
-        assertTrue(getElementBy(EMPTY_STATE_TITTLE).getText().equals("Güncel Kampanyamız Bulunmuyor"));
-        assertEquals(getElementBy(EMPTY_STATE_DESC).getText(),"tuttur’un sürekli güncellenen kampanyalarını kaçırmamak için cep telefonu numaranı ve eposta adresini güncellemeyi unutma.");
-        assertTrue(getElementBy(EMPTY_STATE_CTA).isDisplayed());
+        return new CampaignsPage(driver);
 
     }
-
-    private void checkRedirectCtaButton () {
-
-        clickObjectsBy(EMPTY_STATE_CTA_B,0);
-        assertTrue(driver.getCurrentUrl().contains("bulten"));
-
-
-    }
-
 
 }

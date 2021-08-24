@@ -16,7 +16,7 @@ public class MainPage_Constants extends BasePageUtil{
 	public By BUTTON_LOGIN = By.cssSelector(".headerTop-content-loginLink.px-35.mr-10");
 	public By ACCOUNT_NO = By.id("userId");
 	public By USERNAMETEXT = By.className("headerTop-userMenu-userNameText");
-	public By AVATAR = By.className("headerTop-userMenu-avatar");
+	public By AVATAR = By.className("profileImg");
 	public By DROPDOWN_MENU = By.cssSelector(".userDropMenu.visible li");
 	public By REGISTER_BUTTON = By.cssSelector(".headerTop-content-registerLink.px-35");
 	public By FACEBOOK = By.className("footerContent-socials-facebook");
@@ -68,14 +68,11 @@ public class MainPage_Constants extends BasePageUtil{
 	public By WIDGET_ACTIVE_TAB = By.cssSelector(".tabView-tabButton.tabView-tabButton-active");
 	public By WIDGET_SHOW_ALL = By.className("dashboardWidgetView-showAll");
 	public By CAMPAIGNS_ICON = By.className("icon-campaigns");
+	public By TICKET_ICON = By.className("icon-tickets");
 	public By CAMPAIGNS_BADGE = By.className("campaignBadge-countText");
 	public By CAMPAIGNS_CTA = By.className("headerTop-ctaButtons-button");
 	public By CAMPAIGNS_EMPTY_STATE = By.className("emptyState");
-	public By EMPTY_STATE_ICON = By.className("emptyState-icon");
-	public By EMPTY_STATE_TITTLE = By.className("emptyState-title");
-	public By EMPTY_STATE_DESC = By.className("emptyState-description");
-	public By EMPTY_STATE_CTA = By.className("emptyState-primaryButtons");
-	public By EMPTY_STATE_CTA_B = By.cssSelector(".medium.primary");
+
 
 
 
