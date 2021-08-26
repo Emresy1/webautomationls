@@ -90,6 +90,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/properties/driver" />
       <recent name="$PROJECT_DIR$/src/test" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
@@ -247,14 +248,7 @@
       <workItem from="1629963320509" duration="1504000" />
       <workItem from="1629980310208" duration="2217000" />
       <workItem from="1629984823665" duration="226000" />
-      <workItem from="1629985055364" duration="3071000" />
-    </task>
-    <task id="LOCAL-00021" summary="forgotPassword csv fix">
-      <created>1609328884145</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1609328884145</updated>
+      <workItem from="1629985055364" duration="3361000" />
     </task>
     <task id="LOCAL-00022" summary="buttonClose fix">
       <created>1609337747638</created>
@@ -592,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629991859209</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="pom.xml">
+      <created>1629992264561</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1629992264561</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
