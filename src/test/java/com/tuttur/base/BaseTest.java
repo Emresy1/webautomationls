@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -23,7 +25,7 @@ public class BaseTest {
 	   public static final String ACCESS_KEY = "x1ZVYdxWwVSuDpnsbtRY";
 	   public static final String KEY = USERNAME + ":" + ACCESS_KEY;
 	  // public static final String URL = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com";
-	   URL serverurl = new URL("http://localhost:9515");
+
 
 	public WebDriver driver;
 
@@ -43,6 +45,7 @@ public class BaseTest {
 
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
+		URL serverurl = new URL("http://localhost:9515");
 
 		if (StringUtils.isEmpty(System.getProperty("key"))) {
 
