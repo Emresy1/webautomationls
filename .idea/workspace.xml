@@ -28,11 +28,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="CampaignsTest">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="BaseTest.setUp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +87,10 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.13140607" />
-    <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.capture" />
+    <property name="settings.editor.selected.configurable" value="reactor" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -96,32 +98,14 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.LoginTest.confirmContracts">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CampaignsTest.campaignTypeThreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
-      <option name="METHOD_NAME" value="campaignTypeThreeTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,6 +121,22 @@
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.confirmContracts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+      <option name="METHOD_NAME" value="confirmContracts" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -191,18 +191,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.LoginTest" />
-      <item itemvalue="JUnit.CampaignsTest.campaignTypeThreeTest" />
       <item itemvalue="JUnit.LoginTest.confirmSingleContract" />
       <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
       <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
+      <item itemvalue="JUnit.LoginTest.confirmContracts" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginTest.confirmContracts" />
         <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
         <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
         <item itemvalue="JUnit.LoginTest.confirmSingleContract" />
         <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.CampaignsTest.campaignTypeThreeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -249,13 +249,6 @@
       <workItem from="1629894529542" duration="7040000" />
       <workItem from="1629963221389" duration="89000" />
       <workItem from="1629963320509" duration="1504000" />
-    </task>
-    <task id="LOCAL-00013" summary="login csv update">
-      <created>1608904011280</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1608904011280</updated>
     </task>
     <task id="LOCAL-00014" summary="register csv update and code review">
       <created>1608905713375</created>
@@ -593,7 +586,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629790150995</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="BaseTest.setUp">
+      <created>1629978538945</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1629978538947</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +625,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix list" />
     <MESSAGE value="login fix" />
     <MESSAGE value="login fix and InputMessageControl add" />
     <MESSAGE value="LoginTest refactoring" />
@@ -650,7 +649,8 @@
     <MESSAGE value="MainPage.checkStatusName" />
     <MESSAGE value="DashboardTest.popularWidgetTest" />
     <MESSAGE value="CampaignsTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="CampaignsTest" />
+    <MESSAGE value="BaseTest.setUp" />
+    <option name="LAST_COMMIT_MESSAGE" value="BaseTest.setUp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -660,12 +660,21 @@
           <line>21</line>
           <option name="timeStamp" value="118" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java</url>
+          <line>225</line>
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.AssertionError" package="java.lang" />
           <option name="timeStamp" value="151" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/webautomation$RegisterTest_fieldsRuleCheck.ic" NAME="RegisterTest.fieldsRuleCheck Coverage Results" MODIFIED="1609241016144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

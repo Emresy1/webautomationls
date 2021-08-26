@@ -234,6 +234,7 @@ public class BasePageUtil {
 	}
 
 
+
 	public void waitForElement(WebElement elm , int seconds) {
 		
 		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
