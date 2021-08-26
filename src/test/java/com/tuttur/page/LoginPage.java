@@ -71,6 +71,7 @@ public class LoginPage extends LoginPage_Constants {
         clickObjectBy(BUTTON_LOGIN_ON_POPUP);
 
 
+
         switch (contract)
         {
             case "contracts":
