@@ -38,7 +38,7 @@ public class BaseTest {
 
 
 		 String path = System.getProperty("user.dir");
-		 PropertiesFile.getProperties();
+		 prop.getProperties();
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
