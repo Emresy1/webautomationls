@@ -61,6 +61,7 @@ public class LoginPage extends LoginPage_Constants {
 
     public MainPage login(int rowNumber, String contract) throws IOException, InterruptedException {
 
+
         setUsername(getData(rowNumber, 1));
         setPassword(getData(rowNumber, 2));
 
