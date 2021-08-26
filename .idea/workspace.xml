@@ -28,8 +28,50 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="ForgotPassPage.countdown">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="CampaignsTest">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/CampaignsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/CampaignsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/CampaignsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/CampaignsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Command line suite/Command line test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Command line suite/Command line test.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/Command line suite/testng-failed.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TestSuite.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TestSuite.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/bullet_point.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/collapseall.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/emailable-report.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/failed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/jquery-1.7.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-com.tuttur.test.ForgotPassTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-com.tuttur.test.LoginTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/junitreports/TEST-com.tuttur.test.RegisterTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/navigator-bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/Command line test.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/classes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/groups.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/methods-alphabetical.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/methods-not-run.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/methods.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/reporter-output.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/testng.xml.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/Command line suite/toc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/old/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/passed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/skipped.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-failed.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-reports.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-reports.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng-results.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/testng.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +84,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -83,7 +126,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.49195403" />
+    <property name="project.structure.side.proportion" value="0.13140607" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.capture" />
   </component>
   <component name="RecentsManager">
@@ -92,7 +135,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ForgotPassTest.verifyCodeTest">
+  <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -106,7 +149,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ForgotPassTest.verifyCodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CampaignsTest.campaignTypeThreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
@@ -115,8 +158,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.ForgotPassTest" />
-      <option name="METHOD_NAME" value="verifyCodeTest" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
+      <option name="METHOD_NAME" value="campaignTypeThreeTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CampaignsTest.campaignTypeTwoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
+      <option name="METHOD_NAME" value="campaignTypeTwoTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -137,7 +196,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.successfulllyLoginWithSsn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.confirmSingleContract" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
@@ -147,7 +206,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="successfulllyLoginWithSsn" />
+      <option name="METHOD_NAME" value="confirmSingleContract" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -169,36 +228,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.unsuccessfullyLoginWithPhoneNumber" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="unsuccessfullyLoginWithPhoneNumber" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
+      <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />
       <item itemvalue="JUnit.LoginTest" />
-      <item itemvalue="JUnit.LoginTest.unsuccessfullyLoginWithPhoneNumber" />
+      <item itemvalue="JUnit.CampaignsTest.campaignTypeThreeTest" />
+      <item itemvalue="JUnit.LoginTest.confirmSingleContract" />
       <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
-      <item itemvalue="JUnit.LoginTest.successfulllyLoginWithSsn" />
-      <item itemvalue="JUnit.ForgotPassTest.verifyCodeTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ForgotPassTest.verifyCodeTest" />
-        <item itemvalue="JUnit.LoginTest.successfulllyLoginWithSsn" />
-        <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
-        <item itemvalue="JUnit.LoginTest.unsuccessfullyLoginWithPhoneNumber" />
+        <item itemvalue="JUnit.LoginTest.confirmSingleContract" />
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.CampaignsTest.campaignTypeThreeTest" />
+        <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />
       </list>
     </recent_temporary>
   </component>
@@ -234,91 +277,15 @@
       <workItem from="1624268198987" duration="7757000" />
       <workItem from="1624965691637" duration="12730000" />
       <workItem from="1625132096577" duration="23438000" />
-      <workItem from="1625229954256" duration="13300000" />
-    </task>
-    <task id="LOCAL-00001" summary="readcsvdata">
-      <created>1608708002801</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1608708002802</updated>
-    </task>
-    <task id="LOCAL-00002" summary="readcsvdataFix">
-      <created>1608710060611</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1608710060611</updated>
-    </task>
-    <task id="LOCAL-00003" summary="readcsvdataFix2">
-      <created>1608710872962</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1608710872962</updated>
-    </task>
-    <task id="LOCAL-00004" summary="added excel methods and set data on csv file.">
-      <created>1608760671258</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1608760671258</updated>
-    </task>
-    <task id="LOCAL-00005" summary="csv file and method update">
-      <created>1608814627907</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1608814627907</updated>
-    </task>
-    <task id="LOCAL-00006" summary="csv update">
-      <created>1608814787160</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1608814787160</updated>
-    </task>
-    <task id="LOCAL-00007" summary="commit">
-      <created>1608815064999</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1608815064999</updated>
-    </task>
-    <task id="LOCAL-00008" summary="update csv">
-      <created>1608816216060</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1608816216060</updated>
-    </task>
-    <task id="LOCAL-00009" summary="update csv">
-      <created>1608816812567</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1608816812567</updated>
-    </task>
-    <task id="LOCAL-00010" summary="registerPage transition to csv">
-      <created>1608820173545</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1608820173545</updated>
-    </task>
-    <task id="LOCAL-00011" summary="registerPage transition to csv">
-      <created>1608820246627</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1608820246627</updated>
-    </task>
-    <task id="LOCAL-00012" summary="login csv update">
-      <created>1608903850777</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1608903850777</updated>
+      <workItem from="1625229954256" duration="26513000" />
+      <workItem from="1625742586749" duration="92111000" />
+      <workItem from="1626477280369" duration="21588000" />
+      <workItem from="1627886362985" duration="32968000" />
+      <workItem from="1629215313889" duration="417000" />
+      <workItem from="1629215756627" duration="1815000" />
+      <workItem from="1629217953528" duration="1108000" />
+      <workItem from="1629219787566" duration="43988000" />
+      <workItem from="1629894529542" duration="7040000" />
     </task>
     <task id="LOCAL-00013" summary="login csv update">
       <created>1608904011280</created>
@@ -530,7 +497,140 @@
       <option name="project" value="LOCAL" />
       <updated>1625656740079</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="ForgotPassPage.countdown">
+      <created>1625657048527</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1625657048528</updated>
+    </task>
+    <task id="LOCAL-00044" summary="ForgotPassPage.countdown">
+      <created>1625657083808</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1625657083808</updated>
+    </task>
+    <task id="LOCAL-00045" summary="ForgotPassPage,LogiPage,RegisterPage and csv refactoring">
+      <created>1625739274424</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1625739274425</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Loginpage and ForgotPassPage checkUsername index fixed">
+      <created>1625742921779</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1625742921779</updated>
+    </task>
+    <task id="LOCAL-00047" summary="ForgotPassTest cases fixed">
+      <created>1625748214395</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1625748214395</updated>
+    </task>
+    <task id="LOCAL-00048" summary="MainPage.addOddToBetslip">
+      <created>1626189631091</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1626189631091</updated>
+    </task>
+    <task id="LOCAL-00049" summary="MainPage.addOddToBetslip">
+      <created>1626189763632</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1626189763632</updated>
+    </task>
+    <task id="LOCAL-00050" summary="MainPage.addOddToBetslip">
+      <created>1626254912231</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1626254912237</updated>
+    </task>
+    <task id="LOCAL-00051" summary="MainPage.branchListInWidget">
+      <created>1626431291153</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1626431291154</updated>
+    </task>
+    <task id="LOCAL-00052" summary="MainPage.checkEventItemsInBranch">
+      <created>1626469255783</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1626469255783</updated>
+    </task>
+    <task id="LOCAL-00053" summary="MainPage.clickTotalOdd">
+      <created>1626533695511</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1626533695511</updated>
+    </task>
+    <task id="LOCAL-00054" summary="MainPage.clickTotalOdd">
+      <created>1626561876242</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1626561876242</updated>
+    </task>
+    <task id="LOCAL-00055" summary="MainPage.isExistLiveWidget">
+      <created>1627382521157</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1627382521157</updated>
+    </task>
+    <task id="LOCAL-00056" summary="MainPage.clickTotalOdd">
+      <created>1627390516504</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1627390516504</updated>
+    </task>
+    <task id="LOCAL-00057" summary="MainPage.checkStatusName">
+      <created>1627899408158</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1627899408158</updated>
+    </task>
+    <task id="LOCAL-00058" summary="MainPage.checkStatusName">
+      <created>1627903664993</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1627903664993</updated>
+    </task>
+    <task id="LOCAL-00059" summary="MainPage.checkStatusName">
+      <created>1627908320388</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1627908320389</updated>
+    </task>
+    <task id="LOCAL-00060" summary="DashboardTest.popularWidgetTest">
+      <created>1628085757092</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1628085757092</updated>
+    </task>
+    <task id="LOCAL-00061" summary="CampaignsTest">
+      <created>1629790150994</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1629790150995</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,17 +662,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Unversioned commit" />
-    <MESSAGE value="csvFix" />
-    <MESSAGE value="login on registerPage with current user" />
-    <MESSAGE value="forgotPassword code review" />
-    <MESSAGE value="forgotPassword ivalidSsn and failControl" />
-    <MESSAGE value="register cases" />
-    <MESSAGE value="forgotPassword csv fix" />
-    <MESSAGE value="buttonClose fix" />
-    <MESSAGE value="registerPage input mandatory control" />
-    <MESSAGE value="registerPage form mandatory fields control" />
-    <MESSAGE value="refactoring" />
     <MESSAGE value="fix list" />
     <MESSAGE value="login fix" />
     <MESSAGE value="login fix and InputMessageControl add" />
@@ -587,32 +676,31 @@
     <MESSAGE value="csv update" />
     <MESSAGE value="LoginTest fixed" />
     <MESSAGE value="ForgotPassPage.countdown" />
-    <option name="LAST_COMMIT_MESSAGE" value="ForgotPassPage.countdown" />
+    <MESSAGE value="ForgotPassPage,LogiPage,RegisterPage and csv refactoring" />
+    <MESSAGE value="Loginpage and ForgotPassPage checkUsername index fixed" />
+    <MESSAGE value="ForgotPassTest cases fixed" />
+    <MESSAGE value="MainPage.addOddToBetslip" />
+    <MESSAGE value="MainPage.branchListInWidget" />
+    <MESSAGE value="MainPage.checkEventItemsInBranch" />
+    <MESSAGE value="MainPage.isExistLiveWidget" />
+    <MESSAGE value="MainPage.clickTotalOdd" />
+    <MESSAGE value="MainPage.checkStatusName" />
+    <MESSAGE value="DashboardTest.popularWidgetTest" />
+    <MESSAGE value="CampaignsTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="CampaignsTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-field">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java</url>
-          <line>36</line>
-          <properties field="testDataExcelFileName" class="com.tuttur.base.BaseTest" />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/WelcomePage.java</url>
           <line>21</line>
           <option name="timeStamp" value="118" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/LoginPage.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="140" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java</url>
-          <line>116</line>
-          <option name="timeStamp" value="142" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.AssertionError" package="java.lang" />
+          <option name="timeStamp" value="151" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

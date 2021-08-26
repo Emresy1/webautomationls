@@ -24,13 +24,14 @@ public class CampaignsPage extends CampaignsPage_Constants {
     PropertiesFile prop = new PropertiesFile(driver);
 
 
-    public CampaignsPage checkItemsOnCampaignsPage (String type) throws IOException, InterruptedException {
+    public CampaignsPage checkItemsOnCampaignsPage (String type, String campaignName)
+            throws IOException, InterruptedException {
 
         if (isExist(MIN_WAIT_4_ELEMENT,CAMPAIGN_ITEM)){
 
             List<WebElement> campaignItem = driver.findElements(CAMPAIGN_ITEM);
 
-            clickObjectBy(By.cssSelector(""));
+
 
             switch (type){
 
@@ -38,7 +39,7 @@ public class CampaignsPage extends CampaignsPage_Constants {
 
                     for (WebElement item: campaignItem) {
 
-                        if (item.findElement(CAMPAIGN_TITLE).getText().equals("EMRE LOGIN KAMPANYASI 1")){
+                        if (item.findElement(CAMPAIGN_TITLE).getText().equals(campaignName)){
 
                             boolean isDisplayed = item.findElement(IDDAA_BADGE).isDisplayed() &&
                                                   item.findElement(MP_BADGE).isDisplayed() &&
@@ -59,7 +60,7 @@ public class CampaignsPage extends CampaignsPage_Constants {
                     for (WebElement item: campaignItem) {
 
                         int size = 0;
-                        if (item.findElement(CAMPAIGN_TITLE).getText().equals("EMRE LOGIN KAMPANYASI 2")){
+                        if (item.findElement(CAMPAIGN_TITLE).getText().equals(campaignName)){
 
                             boolean isExist = item.findElements(FOR_YOU_BADGE).size() == size &&
                                               item.findElements(GAME_TYPE_BADGES).size() == size;
@@ -92,6 +93,20 @@ public class CampaignsPage extends CampaignsPage_Constants {
         return this;
     }
 
+    public void isExistCampaignInLogin(String campaignName){
+
+        int size = 0;
+        if (driver.findElements(CAMPAIGN_ITEM).size() != size) {
+            List<WebElement> campaignItem = driver.findElements(CAMPAIGN_ITEM)
+                    .stream()
+                    .filter(campaign -> campaign.findElement(CAMPAIGN_NAME).getText().equals(campaignName))
+                    .collect(Collectors.toList());
+
+           assertTrue(campaignItem.size() == size);
+
+        }
+    }
+
     public CampaignsPage getCampaignDetail(String campaignName){
 
 
@@ -99,7 +114,8 @@ public class CampaignsPage extends CampaignsPage_Constants {
 
         for (WebElement campaign: campaignItems) {
 
-            if (campaign.getText().substring(0,23).equals(campaignName)){
+
+            if (campaign.findElement(CAMPAIGN_NAME).getText().toUpperCase(Locale.ROOT).equals(campaignName)){
 
                 campaign.findElement(CAMPAIGN_ARROW).click();
             }

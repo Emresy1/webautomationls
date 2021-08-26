@@ -53,21 +53,21 @@ public class LoginTest extends BaseTest {
     }
 
 
-    /**
-     * Case 1.2
-     * TCKN  ile başarılı login
-     */
-
-
-    @Test
-    public void successfulllyLoginWithSsn() throws IOException, InterruptedException {
-
-        base.getSheet("LoginData");
-
-        new MainPage(driver).getLoginPage()
-                .login(3,"non-contract")
-                .checkUsernameText(3,4);
-    }
+//    /**
+//     * Case 1.2
+//     * TCKN  ile başarılı login
+//     */
+//
+//
+//    @Test
+//    public void successfulllyLoginWithSsn() throws IOException, InterruptedException {
+//
+//        base.getSheet("LoginData");
+//
+//        new MainPage(driver).getLoginPage()
+//                .login(3,"non-contract")
+//                .checkUsernameText(3,4);
+//    }
 
     /**
      * Case 1.3

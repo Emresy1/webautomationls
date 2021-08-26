@@ -67,7 +67,7 @@ public class MainPage_Constants extends BasePageUtil{
 	public By EVENT_TIME = By.className("eventTime");
 	public By WIDGET_ACTIVE_TAB = By.cssSelector(".tabView-tabButton.tabView-tabButton-active");
 	public By WIDGET_SHOW_ALL = By.className("dashboardWidgetView-showAll");
-	public By CAMPAIGNS_ICON = By.className("icon-campaigns");
+	public By CAMPAIGNS_ICON = By.className("header-icon-campaigns");
 	public By TICKET_ICON = By.className("icon-tickets");
 	public By CAMPAIGNS_BADGE = By.className("campaignBadge-countText");
 	public By CAMPAIGNS_CTA = By.className("headerTop-ctaButtons-button");
