@@ -55,6 +55,7 @@ public class BaseTest {
 
 			else if (browserName.equalsIgnoreCase("firefox")) {
 
+
 				System.setProperty("webdriver.gecko.driver", "properties/driver/geckodriver");
 				FirefoxOptions options = new FirefoxOptions();
 				options.merge(capabilities);
