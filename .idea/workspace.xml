@@ -28,7 +28,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="Project set up jars">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="project jenkins set up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
@@ -243,14 +243,7 @@
       <workItem from="1629215756627" duration="1815000" />
       <workItem from="1629217953528" duration="1108000" />
       <workItem from="1629219787566" duration="43988000" />
-      <workItem from="1629894529542" duration="8430000" />
-    </task>
-    <task id="LOCAL-00014" summary="register csv update and code review">
-      <created>1608905713375</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1608905713375</updated>
+      <workItem from="1629894529542" duration="9446000" />
     </task>
     <task id="LOCAL-00015" summary="Unversioned commit">
       <created>1608906013157</created>
@@ -588,7 +581,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629960769836</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="project jenkins set up">
+      <created>1629966564429</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1629966564429</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,7 +620,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="login fix" />
     <MESSAGE value="login fix and InputMessageControl add" />
     <MESSAGE value="LoginTest refactoring" />
     <MESSAGE value="RegisterTest case 1.0,1.1,1.2,1.3,2.0 OK" />
@@ -645,7 +644,8 @@
     <MESSAGE value="DashboardTest.popularWidgetTest" />
     <MESSAGE value="CampaignsTest" />
     <MESSAGE value="Project set up jars" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project set up jars" />
+    <MESSAGE value="project jenkins set up" />
+    <option name="LAST_COMMIT_MESSAGE" value="project jenkins set up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
