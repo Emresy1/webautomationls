@@ -28,7 +28,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="pom.xml" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="pom.xml">
+      <change afterPath="$PROJECT_DIR$/properties/driver/chromedriver 3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/properties/driver/chromedriver 2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" afterDir="false" />
+    </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,14 +101,16 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest.confirmContracts">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -195,8 +203,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginTest.confirmContracts" />
         <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
+        <item itemvalue="JUnit.LoginTest.confirmContracts" />
         <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
         <item itemvalue="JUnit.LoginTest.confirmSingleContract" />
         <item itemvalue="JUnit.LoginTest" />
@@ -248,14 +256,7 @@
       <workItem from="1629963320509" duration="1504000" />
       <workItem from="1629980310208" duration="2217000" />
       <workItem from="1629984823665" duration="226000" />
-      <workItem from="1629985055364" duration="5022000" />
-    </task>
-    <task id="LOCAL-00032" summary="LoginTest refactoring">
-      <created>1624569036129</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1624569036129</updated>
+      <workItem from="1629985055364" duration="5474000" />
     </task>
     <task id="LOCAL-00033" summary="RegisterTest case 1.0,1.1,1.2,1.3,2.0 OK">
       <created>1624630184225</created>
@@ -593,7 +594,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629994026949</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="pom.xml">
+      <created>1629994179750</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1629994179750</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
