@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -78,7 +79,7 @@ public class BaseTest {
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver = new RemoteWebDriver(new URL(serverurl), capabilities);
+		driver = new RemoteWebDriver(serverurl,capabilities)
 		driver.get(baseUrl);
 
 
