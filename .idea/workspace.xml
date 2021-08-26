@@ -28,10 +28,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="BasePageUtil">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="BasePageUtil" />
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,20 +248,7 @@
       <workItem from="1629963221389" duration="89000" />
       <workItem from="1629963320509" duration="1504000" />
       <workItem from="1629980310208" duration="2217000" />
-    </task>
-    <task id="LOCAL-00016" summary="csvFix">
-      <created>1608978707840</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1608978707840</updated>
-    </task>
-    <task id="LOCAL-00017" summary="login on registerPage with current user">
-      <created>1608982605017</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1608982605017</updated>
+      <workItem from="1629984823665" duration="226000" />
     </task>
     <task id="LOCAL-00018" summary="forgotPassword code review">
       <created>1608987465611</created>
@@ -595,7 +579,21 @@
       <option name="project" value="LOCAL" />
       <updated>1629980845612</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="BasePageUtil">
+      <created>1629984965892</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1629984965892</updated>
+    </task>
+    <task id="LOCAL-00066" summary="BasePageUtil">
+      <created>1629985004743</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1629985004743</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
