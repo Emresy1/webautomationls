@@ -28,11 +28,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="BaseTest.setUp">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" afterDir="false" />
-    </list>
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="BasePageUtil" />
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,13 +245,7 @@
       <workItem from="1629894529542" duration="7040000" />
       <workItem from="1629963221389" duration="89000" />
       <workItem from="1629963320509" duration="1504000" />
-    </task>
-    <task id="LOCAL-00014" summary="register csv update and code review">
-      <created>1608905713375</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1608905713375</updated>
+      <workItem from="1629980310208" duration="274000" />
     </task>
     <task id="LOCAL-00015" summary="Unversioned commit">
       <created>1608906013157</created>
@@ -593,7 +583,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629978538947</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="BasePageUtil">
+      <created>1629980509464</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1629980509464</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +622,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="login fix" />
     <MESSAGE value="login fix and InputMessageControl add" />
     <MESSAGE value="LoginTest refactoring" />
     <MESSAGE value="RegisterTest case 1.0,1.1,1.2,1.3,2.0 OK" />
@@ -650,7 +646,8 @@
     <MESSAGE value="DashboardTest.popularWidgetTest" />
     <MESSAGE value="CampaignsTest" />
     <MESSAGE value="BaseTest.setUp" />
-    <option name="LAST_COMMIT_MESSAGE" value="BaseTest.setUp" />
+    <MESSAGE value="BasePageUtil" />
+    <option name="LAST_COMMIT_MESSAGE" value="BasePageUtil" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
