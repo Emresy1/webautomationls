@@ -22,7 +22,7 @@ public class BaseTest {
 	   public static final String USERNAME = "emresarkaya_DBS1ib";
 	   public static final String ACCESS_KEY = "x1ZVYdxWwVSuDpnsbtRY";
 	   public static final String KEY = USERNAME + ":" + ACCESS_KEY;
-	   public static final String URL = "http://127.0.0.1";
+	   public static final String URL = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com";
 
 	public WebDriver driver;
 
