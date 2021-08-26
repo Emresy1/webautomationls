@@ -22,7 +22,8 @@ public class BaseTest {
 	   public static final String USERNAME = "emresarkaya_DBS1ib";
 	   public static final String ACCESS_KEY = "x1ZVYdxWwVSuDpnsbtRY";
 	   public static final String KEY = USERNAME + ":" + ACCESS_KEY;
-	   public static final String URL = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com";
+	  // public static final String URL = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com";
+	   URL serverurl = new URL("http://localhost:9515");
 
 	public WebDriver driver;
 
@@ -74,7 +75,7 @@ public class BaseTest {
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver = new RemoteWebDriver(new URL(URL), capabilities);
+		driver = new RemoteWebDriver(new URL(serverurl), capabilities);
 		driver.get(baseUrl);
 
 
