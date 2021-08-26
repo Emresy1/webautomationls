@@ -3,13 +3,10 @@ package com.tuttur.page;
 import com.tuttur.constants.Navigation_Constants;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
-import edu.emory.mathcs.backport.java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import org.openqa.selenium.By;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.io.IOException;
