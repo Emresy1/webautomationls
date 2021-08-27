@@ -5,6 +5,7 @@ import com.tuttur.configs.PropertiesFile;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -34,6 +35,7 @@ public class BaseTest {
 
 	public static final String testDataExcelFileName = "TestData.xlsx";
 
+	boolean local = true;
 	public static String browserName = null;
 
 
@@ -48,11 +50,13 @@ public class BaseTest {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		URL serverurl = new URL("http://127.0.0.1:9515");
 
+		if (local){
 		if (StringUtils.isEmpty(System.getProperty("key"))) {
 
 			if (browserName.equalsIgnoreCase("chrome")) {
 
 				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
+				capabilities.setPlatform(Platform.LINUX);
 				ChromeOptions options = new ChromeOptions();
 				options.merge(capabilities);
 				driver = new ChromeDriver(options);
@@ -65,6 +69,7 @@ public class BaseTest {
 				options.merge(capabilities);
 				driver = new FirefoxDriver();
 			}
+		}
 
 		} else {
 
