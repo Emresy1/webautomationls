@@ -28,11 +28,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="pom.xml">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="jenkins set up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/properties/driver/chromedriver3" beforeDir="false" afterPath="$PROJECT_DIR$/properties/driver/chromedriver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/properties/driver/chromedriver" beforeDir="false" afterPath="$PROJECT_DIR$/properties/driver/chromedriver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,13 +100,15 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -257,14 +258,7 @@
       <workItem from="1629994599597" duration="223000" />
       <workItem from="1629994831765" duration="341000" />
       <workItem from="1629995186264" duration="147000" />
-      <workItem from="1629995342777" duration="2275000" />
-    </task>
-    <task id="LOCAL-00034" summary="RegisterTest case 2.1,2.2 OK">
-      <created>1624978810507</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1624978810507</updated>
+      <workItem from="1629995342777" duration="3061000" />
     </task>
     <task id="LOCAL-00035" summary="Assert refactoring">
       <created>1624979462790</created>
@@ -602,7 +596,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629994662628</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="jenkins set up">
+      <created>1630046535893</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1630046535893</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +635,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="RegisterTest case 1.0,1.1,1.2,1.3,2.0 OK" />
     <MESSAGE value="RegisterTest case 2.1,2.2 OK" />
     <MESSAGE value="Assert refactoring" />
     <MESSAGE value="RegisterTest OK" />
@@ -659,7 +659,8 @@
     <MESSAGE value="BasePageUtil" />
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="pom.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="pom.xml" />
+    <MESSAGE value="jenkins set up" />
+    <option name="LAST_COMMIT_MESSAGE" value="jenkins set up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
