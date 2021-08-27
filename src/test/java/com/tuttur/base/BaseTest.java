@@ -46,7 +46,7 @@ public class BaseTest {
 			if (browserName.equalsIgnoreCase("chrome")) {
 
 				ChromeOptions options = new ChromeOptions();
-				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
+				System.setProperty("webdriver.chrome.driver", "properties/driver/linux");
 			//	options.addArguments("--disable-dev-shm-usage");
 			//	options.addArguments("--headless");
 				options.merge(capabilities);
