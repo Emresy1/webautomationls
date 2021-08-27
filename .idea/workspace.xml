@@ -255,14 +255,7 @@
       <workItem from="1629994831765" duration="341000" />
       <workItem from="1629995186264" duration="147000" />
       <workItem from="1629995342777" duration="3061000" />
-      <workItem from="1630047351837" duration="1182000" />
-    </task>
-    <task id="LOCAL-00038" summary="MainPage.checkUsernameText() return fix">
-      <created>1625062951839</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1625062951839</updated>
+      <workItem from="1630047351837" duration="1602000" />
     </task>
     <task id="LOCAL-00039" summary="LoginPage.login method refactoring and contracts cases">
       <created>1625227603289</created>
@@ -600,7 +593,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630048524120</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="jenkins set up">
+      <created>1630048738903</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1630048738903</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
