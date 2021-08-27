@@ -27,7 +27,8 @@ public class BaseTest {
 	   public static final String ACCESS_KEY = "x1ZVYdxWwVSuDpnsbtRY";
 	   public static final String KEY = USERNAME + ":" + ACCESS_KEY;
 	  // public static final String URL = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com";
-	  public static String ortam = System.getProperty("ENV", "TEST");
+	  public static String env = System.getProperty("ENV", "TEST");
+
 
 
 	public WebDriver driver;
@@ -51,9 +52,9 @@ public class BaseTest {
 		URL serverurl = new URL("http://127.0.0.1:9515");
 
 
-		if (StringUtils.isEmpty(System.getProperty("key"))) {
+		if (StringUtils.isEmpty(System.getProperty(path))) {
 
-			if (ortam.equals("TEST")){
+			if (env.equals("TEST")){
 			if (browserName.equalsIgnoreCase("chrome")) {
 
 				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
@@ -69,7 +70,8 @@ public class BaseTest {
 				options.merge(capabilities);
 				driver = new FirefoxDriver();
 			}
-		}}
+		  }
+		}
 
 		 else {
 
@@ -78,10 +80,8 @@ public class BaseTest {
 			options.merge(capabilities);
 			driver = new ChromeDriver(options);
 
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			driver.manage().window().maximize();
+
 			driver = new RemoteWebDriver(serverurl,capabilities);
-			driver.get(baseUrl);
 
 		}
 
