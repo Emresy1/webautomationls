@@ -5,19 +5,13 @@ import com.tuttur.configs.PropertiesFile;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.LocalFileDetector;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.net.InetAddress;
 import java.net.URL;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -31,20 +25,15 @@ public class BaseTest {
 
 
 	public WebDriver driver;
-
-	PropertiesFile prop = new PropertiesFile(driver);
-
 	public static final String testDataExcelFileName = "TestData.xlsx";
-
-
 	public static String browserName = null;
 
 
 	@Before
 	public void setUp() throws Exception {
 
+		PropertiesFile prop = new PropertiesFile(driver);
 
-		 String local = InetAddress.getLocalHost().getHostAddress();
 		 String path = System.getProperty("user.dir");
 		 prop.getProperties();
 
@@ -52,14 +41,14 @@ public class BaseTest {
 		URL serverurl = new URL("http://127.0.0.1:9515");
 
 
-		if (StringUtils.isEmpty(System.getProperty(path))) {
+		if (StringUtils.isEmpty(System.getProperty("key"))) {
 
 			if (browserName.equalsIgnoreCase("chrome")) {
 
 				ChromeOptions options = new ChromeOptions();
 				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
-				options.addArguments("--disable-dev-shm-usage");
-				options.addArguments("--headless");
+			//	options.addArguments("--disable-dev-shm-usage");
+			//	options.addArguments("--headless");
 				options.merge(capabilities);
 				driver = new ChromeDriver(options);
 			}
