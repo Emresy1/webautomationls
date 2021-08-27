@@ -30,7 +30,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="jenkins set up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/properties/driver/chromedriver" beforeDir="false" afterPath="$PROJECT_DIR$/properties/driver/chromedriver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
@@ -259,13 +258,7 @@
       <workItem from="1629994831765" duration="341000" />
       <workItem from="1629995186264" duration="147000" />
       <workItem from="1629995342777" duration="3061000" />
-    </task>
-    <task id="LOCAL-00035" summary="Assert refactoring">
-      <created>1624979462790</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1624979462790</updated>
+      <workItem from="1630047351837" duration="865000" />
     </task>
     <task id="LOCAL-00036" summary="RegisterTest OK">
       <created>1625049712191</created>
@@ -603,7 +596,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630046535893</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="jenkins set up">
+      <created>1630047379948</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1630047379949</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

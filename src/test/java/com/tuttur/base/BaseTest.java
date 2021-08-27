@@ -74,7 +74,7 @@ public class BaseTest {
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		//driver = new RemoteWebDriver(serverurl,capabilities);
+		driver = new RemoteWebDriver(serverurl,capabilities);
 		driver.get(baseUrl);
 
 	}
