@@ -52,7 +52,7 @@ public class BaseTest {
 
 			if (browserName.equalsIgnoreCase("chrome")) {
 
-				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver3");
+				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
 				ChromeOptions options = new ChromeOptions();
 				options.merge(capabilities);
 				driver = new ChromeDriver(options);
@@ -67,19 +67,15 @@ public class BaseTest {
 				driver = new FirefoxDriver();
 			}
 
-
-
 		} else {
 
 
 
 		}
 
-
-
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver = new RemoteWebDriver(serverurl,capabilities);
+		//driver = new RemoteWebDriver(serverurl,capabilities);
 		driver.get(baseUrl);
 
 	}

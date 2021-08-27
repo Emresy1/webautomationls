@@ -29,9 +29,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="pom.xml">
-      <change afterPath="$PROJECT_DIR$/properties/driver/chromedriver 3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/properties/driver/chromedriver 2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/properties/driver/chromedriver3" beforeDir="false" afterPath="$PROJECT_DIR$/properties/driver/chromedriver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" afterDir="false" />
     </list>
@@ -102,15 +101,13 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.LoginTest.successfullyLoginWithAccountNo">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -257,13 +254,10 @@
       <workItem from="1629980310208" duration="2217000" />
       <workItem from="1629984823665" duration="226000" />
       <workItem from="1629985055364" duration="5474000" />
-    </task>
-    <task id="LOCAL-00033" summary="RegisterTest case 1.0,1.1,1.2,1.3,2.0 OK">
-      <created>1624630184225</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1624630184225</updated>
+      <workItem from="1629994599597" duration="223000" />
+      <workItem from="1629994831765" duration="341000" />
+      <workItem from="1629995186264" duration="147000" />
+      <workItem from="1629995342777" duration="2275000" />
     </task>
     <task id="LOCAL-00034" summary="RegisterTest case 2.1,2.2 OK">
       <created>1624978810507</created>
@@ -601,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629994179750</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="pom.xml">
+      <created>1629994662625</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1629994662628</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -672,6 +673,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java</url>
           <line>225</line>
           <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="153" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.AssertionError" package="java.lang" />
