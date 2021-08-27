@@ -16,6 +16,7 @@ import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.URL;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
@@ -37,6 +38,7 @@ public class BaseTest {
 	PropertiesFile prop = new PropertiesFile(driver);
 
 	public static final String testDataExcelFileName = "TestData.xlsx";
+
 
 	public static String browserName = null;
 
@@ -71,22 +73,26 @@ public class BaseTest {
 				options.merge(capabilities);
 				driver = new FirefoxDriver();
 			}
+			else if (browserName.equalsIgnoreCase("chromedriverremote")){
+
+				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriverremote");
+				ChromeOptions options = new ChromeOptions();
+				options.merge(capabilities);
+				driver = new ChromeDriver(options);
+
+
+				driver = new RemoteWebDriver(serverurl,capabilities);
+
+			}
 		  }
 
 		 else {
 
-			System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriverremote");
-			ChromeOptions options = new ChromeOptions();
-			options.merge(capabilities);
-			driver = new ChromeDriver(options);
 
-
-			driver = new RemoteWebDriver(serverurl,capabilities);
 
 
 		}
 
-		((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
