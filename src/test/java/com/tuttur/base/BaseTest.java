@@ -52,7 +52,7 @@ public class BaseTest {
 
 			if (browserName.equalsIgnoreCase("chrome")) {
 
-				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriverlinux");
+				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
 				ChromeOptions options = new ChromeOptions();
 				options.merge(capabilities);
 				driver = new ChromeDriver(options);
