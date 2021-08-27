@@ -57,8 +57,9 @@ public class BaseTest {
 			if (browserName.equalsIgnoreCase("chrome")) {
 
 				ChromeOptions options = new ChromeOptions();
-				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriverremote");
+				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
 				options.addArguments("--disable-dev-shm-usage");
+				options.addArguments("--headless");
 				options.merge(capabilities);
 				driver = new ChromeDriver(options);
 			}
@@ -77,8 +78,6 @@ public class BaseTest {
 
 
 		}
-
-
 
 		//driver = new RemoteWebDriver(serverurl,capabilities);
 
