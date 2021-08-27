@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.URL;
@@ -54,7 +55,7 @@ public class BaseTest {
 
 		if (StringUtils.isEmpty(System.getProperty(path))) {
 
-			if (env.equals("TEST")){
+
 			if (browserName.equalsIgnoreCase("chrome")) {
 
 				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
@@ -71,7 +72,6 @@ public class BaseTest {
 				driver = new FirefoxDriver();
 			}
 		  }
-		}
 
 		 else {
 
@@ -83,8 +83,10 @@ public class BaseTest {
 
 			driver = new RemoteWebDriver(serverurl,capabilities);
 
+
 		}
 
+		((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
