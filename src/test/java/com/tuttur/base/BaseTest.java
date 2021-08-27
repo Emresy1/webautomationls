@@ -15,21 +15,18 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.LocalFileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.InetAddress;
 import java.net.URL;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-	public static String path = "C:\\Users\\Deniz Caliskan\\eclipse-workspace\\TutturWeb\\configs\\Configurations.properties";
 	public static String baseUrl = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com";
 
-	//https://ttest:q26RwfyLotHm@alpha.tuttur.com
 	   public static final String USERNAME = "emresarkaya_DBS1ib";
 	   public static final String ACCESS_KEY = "x1ZVYdxWwVSuDpnsbtRY";
 	   public static final String KEY = USERNAME + ":" + ACCESS_KEY;
-	  // public static final String URL = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com";
-	  public static String env = System.getProperty("ENV", "TEST");
 
 
 
@@ -47,9 +44,9 @@ public class BaseTest {
 	public void setUp() throws Exception {
 
 
+		 String local = InetAddress.getLocalHost().getHostAddress();
 		 String path = System.getProperty("user.dir");
 		 prop.getProperties();
-
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		URL serverurl = new URL("http://127.0.0.1:9515");
@@ -57,11 +54,11 @@ public class BaseTest {
 
 		if (StringUtils.isEmpty(System.getProperty(path))) {
 
-
 			if (browserName.equalsIgnoreCase("chrome")) {
 
-				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
 				ChromeOptions options = new ChromeOptions();
+				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriverremote");
+				options.addArguments("--disable-dev-shm-usage");
 				options.merge(capabilities);
 				driver = new ChromeDriver(options);
 			}
@@ -72,26 +69,18 @@ public class BaseTest {
 				FirefoxOptions options = new FirefoxOptions();
 				options.merge(capabilities);
 				driver = new FirefoxDriver();
+
+			 }
 			}
-			else if (browserName.equalsIgnoreCase("chromedriverremote")){
 
-				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriverremote");
-				ChromeOptions options = new ChromeOptions();
-				options.merge(capabilities);
-				driver = new ChromeDriver(options);
-
-
-				driver = new RemoteWebDriver(serverurl,capabilities);
-
-			}
-		  }
-
-		 else {
-
-
+		else{
 
 
 		}
+
+
+
+		driver = new RemoteWebDriver(serverurl,capabilities);
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
