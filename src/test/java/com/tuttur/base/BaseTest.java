@@ -27,6 +27,7 @@ public class BaseTest {
 	   public static final String ACCESS_KEY = "x1ZVYdxWwVSuDpnsbtRY";
 	   public static final String KEY = USERNAME + ":" + ACCESS_KEY;
 	  // public static final String URL = "https://ttest:q26RwfyLotHm@alpha1.tuttur.com";
+	  public static String ortam = System.getProperty("ENV", "TEST");
 
 
 	public WebDriver driver;
@@ -35,7 +36,6 @@ public class BaseTest {
 
 	public static final String testDataExcelFileName = "TestData.xlsx";
 
-	boolean local = true;
 	public static String browserName = null;
 
 
@@ -50,13 +50,13 @@ public class BaseTest {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		URL serverurl = new URL("http://127.0.0.1:9515");
 
-		if (local){
+
 		if (StringUtils.isEmpty(System.getProperty("key"))) {
 
+			if (ortam.equals("TEST")){
 			if (browserName.equalsIgnoreCase("chrome")) {
 
 				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
-				capabilities.setPlatform(Platform.LINUX);
 				ChromeOptions options = new ChromeOptions();
 				options.merge(capabilities);
 				driver = new ChromeDriver(options);
@@ -69,25 +69,31 @@ public class BaseTest {
 				options.merge(capabilities);
 				driver = new FirefoxDriver();
 			}
-		}
+		}}
 
-		} else {
+		 else {
 
+			System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriverremote");
+			ChromeOptions options = new ChromeOptions();
+			options.merge(capabilities);
+			driver = new ChromeDriver(options);
 
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			driver = new RemoteWebDriver(serverurl,capabilities);
+			driver.get(baseUrl);
 
 		}
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver = new RemoteWebDriver(serverurl,capabilities);
 		driver.get(baseUrl);
 
 	}
 
 
 	@After
-	public void tearDown() throws Exception {
-
+	public void tearDown() {
 
 		driver.quit();
 
