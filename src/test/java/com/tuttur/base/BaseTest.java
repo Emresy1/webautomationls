@@ -46,13 +46,13 @@ public class BaseTest {
 
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		URL serverurl = new URL("http://localhost:9515");
+		URL serverurl = new URL("http://127.0.0.1:9515");
 
 		if (StringUtils.isEmpty(System.getProperty("key"))) {
 
 			if (browserName.equalsIgnoreCase("chrome")) {
 
-				System.setProperty("webdriver.chrome.driver", "webautomation/properties/driver/chromedriver");
+				System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
 				ChromeOptions options = new ChromeOptions();
 				options.merge(capabilities);
 				driver = new ChromeDriver(options);
