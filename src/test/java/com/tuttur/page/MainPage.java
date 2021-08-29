@@ -101,10 +101,19 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkUsernameText(int rowNumber, int cellNumber) throws IOException {
 
-        waitForElement(driver, MIN_WAIT_4_ELEMENT, USERNAMETEXT);
+        try{
 
-        assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
-                .equals(getData(rowNumber, cellNumber)));
+            waitForElement(driver, MIN_WAIT_4_ELEMENT, USERNAMETEXT);
+
+            assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
+                    .equals(getData(rowNumber, cellNumber)));
+
+        }
+        catch (Exception exp){
+
+            exp.printStackTrace();
+        }
+
 
         return this;
     }
