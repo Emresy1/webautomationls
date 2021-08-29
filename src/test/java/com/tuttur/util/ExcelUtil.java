@@ -61,6 +61,10 @@ public class ExcelUtil extends BasePage {
         if (Platform.getCurrent().toString().equalsIgnoreCase("MAC")) {
             testDataExcelPath = currentDir + "//src//test//resources//";
         }
+        else if (Platform.getCurrent().toString().equalsIgnoreCase("LINUX")){
+
+            testDataExcelPath = currentDir + "//src//test//resources//";
+        }
 
         try {
 
