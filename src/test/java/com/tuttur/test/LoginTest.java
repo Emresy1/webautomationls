@@ -215,35 +215,35 @@ public class LoginTest extends BaseTest {
 
     }
 
-    /**
-     * Case 2.2
-     * Sözleşmeler
-     */
-    @Test
-    public void confirmContracts() throws IOException, InterruptedException {
+//    /**
+//     * Case 2.2
+//     * Sözleşmeler
+//     */
+//    @Test
+//    public void confirmContracts() throws IOException, InterruptedException {
+//
+//        base.getSheet("LoginData");
+//        db.executeQuery(prop.getObject("deleteContract"));
+//
+//        new MainPage(driver).getLoginPage()
+//                .login(13,"contracts")
+//                .checkUsernameText(13,4);
+//    }
 
-        base.getSheet("LoginData");
-        db.executeQuery(prop.getObject("deleteContract"));
-
-        new MainPage(driver).getLoginPage()
-                .login(13,"contracts")
-                .checkUsernameText(13,4);
-    }
-
-    /**
-     * Case 2.3
-     * Tek sözleşme onaylama
-     */
-    @Test
-    public void confirmSingleContract() throws IOException, InterruptedException {
-
-        base.getSheet("LoginData");
-        db.executeQuery(prop.getObject("deleteMultipleContract"));
-
-        new MainPage(driver).getLoginPage()
-                .login(14,"contract")
-                .checkUsernameText(14,4);
-    }
+//    /**
+//     * Case 2.3
+//     * Tek sözleşme onaylama
+//     */
+//    @Test
+//    public void confirmSingleContract() throws IOException, InterruptedException {
+//
+//        base.getSheet("LoginData");
+//        db.executeQuery(prop.getObject("deleteMultipleContract"));
+//
+//        new MainPage(driver).getLoginPage()
+//                .login(14,"contract")
+//                .checkUsernameText(14,4);
+//    }
 
 }
 
