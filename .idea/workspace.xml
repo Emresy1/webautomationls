@@ -28,7 +28,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="jenkins set up" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="jenkins set up">
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
+    </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,14 +259,7 @@
       <workItem from="1630053565315" duration="13000" />
       <workItem from="1630053602993" duration="2141000" />
       <workItem from="1630056003815" duration="6690000" />
-      <workItem from="1630068757796" duration="6857000" />
-    </task>
-    <task id="LOCAL-00054" summary="MainPage.clickTotalOdd">
-      <created>1626561876242</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1626561876242</updated>
+      <workItem from="1630068757796" duration="7237000" />
     </task>
     <task id="LOCAL-00055" summary="MainPage.isExistLiveWidget">
       <created>1627382521157</created>
@@ -602,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630267541619</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="jenkins set up">
+      <created>1630267958387</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1630267958387</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -668,11 +670,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/WelcomePage.java</url>
           <line>21</line>
           <option name="timeStamp" value="118" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java</url>
-          <line>225</line>
-          <option name="timeStamp" value="152" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/base/BaseTest.java</url>
