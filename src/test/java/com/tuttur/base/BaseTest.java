@@ -64,26 +64,27 @@ public class BaseTest {
 
 				}
 			}
+			else{
+
+				String downloadFilepath = System.getProperty("user.dir");
+				HashMap<String, Object> chromePrefs = new HashMap<>();
+				chromePrefs.put("profile.default_content_settings.popups", 0);
+				chromePrefs.put("download.default_directory", downloadFilepath);
+
+				ChromeOptions options = new ChromeOptions();
+				System.setProperty("webdriver.chrome.driver", "properties/driver/linux");
+				options.addArguments("--no-sandbox");
+				options.addArguments("--headless");
+				options.addArguments("disable-gpu");
+				options.addArguments("--disable-dev-shm-usage");
+				options.addArguments("--window-size=1920x1080");
+				options.merge(capabilities);
+				driver = new ChromeDriver(options);
+				Point point = new Point(-1000, 0);
+
+			}
 		}
-		else{
 
-			String downloadFilepath = System.getProperty("user.dir");
-			HashMap<String, Object> chromePrefs = new HashMap<>();
-			chromePrefs.put("profile.default_content_settings.popups", 0);
-			chromePrefs.put("download.default_directory", downloadFilepath);
-
-			ChromeOptions options = new ChromeOptions();
-			System.setProperty("webdriver.chrome.driver", "properties/driver/linux");
-			options.addArguments("--no-sandbox");
-			options.addArguments("--headless");
-			options.addArguments("disable-gpu");
-			options.addArguments("--disable-dev-shm-usage");
-			options.addArguments("--window-size=1920x1080");
-			options.merge(capabilities);
-			driver = new ChromeDriver(options);
-			Point point = new Point(-1000, 0);
-
-		}
 
 		//driver = new RemoteWebDriver(serverurl,capabilities);
 
