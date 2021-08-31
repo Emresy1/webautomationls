@@ -229,7 +229,7 @@ public class LoginTest extends BaseTest {
 
         new MainPage(driver).getLoginPage()
                 .login(13,"contracts")
-                .checkUsernameText(13,4);
+                .checkUsernameText(13,1);
     }
 
 //    /**
@@ -244,7 +244,7 @@ public class LoginTest extends BaseTest {
 //
 //        new MainPage(driver).getLoginPage()
 //                .login(14,"contract")
-//                .checkUsernameText(14,4);
+//                .checkUsernameText(14,1);
 //    }
 
 }
