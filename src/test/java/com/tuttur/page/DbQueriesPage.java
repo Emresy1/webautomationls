@@ -39,7 +39,7 @@ public class DbQueriesPage extends BasePageUtil{
 		catch (Exception e) {
 			
 			e.printStackTrace();
-		}		
+		}
 	  }	
 	public String getValidationCode(String dbQuery) {
 		

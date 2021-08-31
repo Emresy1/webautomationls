@@ -30,6 +30,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="project runner.sh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/DashboardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/ForgotPassTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/NavigationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/NavigationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +102,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CampaignsTest.campaignTypeSixTest">
+  <component name="RunManager" selected="JUnit.CampaignsTest.campaignTypeThreeTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -157,7 +162,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.confirmContracts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CampaignsTest.campaignTypeThreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
@@ -166,14 +171,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="confirmContracts" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
+      <option name="METHOD_NAME" value="campaignTypeThreeTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.confirmSingleContract" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="com.tuttur.test in webautomation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
@@ -182,27 +187,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="confirmSingleContract" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.LoginTest.confirmSingleContract" />
-      <item itemvalue="JUnit.LoginTest.confirmContracts" />
       <item itemvalue="JUnit.CampaignsTest.campaignTypeFourTest" />
       <item itemvalue="JUnit.CampaignsTest.campaignTypeFiveTest" />
       <item itemvalue="JUnit.CampaignsTest.campaignTypeSixTest" />
+      <item itemvalue="JUnit.com.tuttur.test in webautomation" />
+      <item itemvalue="JUnit.CampaignsTest.campaignTypeThreeTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CampaignsTest.campaignTypeThreeTest" />
+        <item itemvalue="JUnit.com.tuttur.test in webautomation" />
         <item itemvalue="JUnit.CampaignsTest.campaignTypeSixTest" />
         <item itemvalue="JUnit.CampaignsTest.campaignTypeFiveTest" />
         <item itemvalue="JUnit.CampaignsTest.campaignTypeFourTest" />
-        <item itemvalue="JUnit.LoginTest.confirmSingleContract" />
-        <item itemvalue="JUnit.LoginTest.confirmContracts" />
       </list>
     </recent_temporary>
   </component>
@@ -262,14 +265,7 @@
       <workItem from="1630056003815" duration="6690000" />
       <workItem from="1630068757796" duration="11323000" />
       <workItem from="1630339283772" duration="2913000" />
-      <workItem from="1630392653055" duration="7383000" />
-    </task>
-    <task id="LOCAL-00063" summary="BasePageUtil">
-      <created>1629980509464</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1629980509464</updated>
+      <workItem from="1630392653055" duration="9030000" />
     </task>
     <task id="LOCAL-00064" summary="BasePageUtil">
       <created>1629980845612</created>
@@ -607,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630427618756</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="project runner.sh">
+      <created>1630428733341</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1630428733341</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
