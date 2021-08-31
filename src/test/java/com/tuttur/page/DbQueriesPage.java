@@ -15,6 +15,7 @@ public class DbQueriesPage extends BasePageUtil{
 		super(driver);
 		
 	}
+
 	Properties props = new Properties();	
 	
     String dbUrl = "jdbc:postgresql://10.49.4.153:5432/tuttur";						

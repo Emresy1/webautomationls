@@ -212,7 +212,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     public ForgotPassPage checkButtonDisabledControl() {
 
-        getElementBy(RESET_PASS).isEnabled();
+        isEnabled(RESET_PASS);
         return this;
     }
 

@@ -8,6 +8,7 @@ import com.tuttur.page.MainPage;
 import com.tuttur.util.BasePageUtil;
 import org.junit.Test;
 
+
 import java.io.IOException;
 
 public class CampaignsTest extends BaseTest {
@@ -16,10 +17,10 @@ public class CampaignsTest extends BaseTest {
     DbQueriesPage db = new DbQueriesPage(driver);
     PropertiesFile prop = new PropertiesFile(driver);
 
+
     String deleteCampaignQuery = "UPDATE application.campaign SET status = false WHERE id=";
     String loginCampaign = "EMRE LOGIN KAMPANYASI";
     String logoutCampaign = "EMRE LOGOUT KAMPANYASI";
-
 
 
     /**

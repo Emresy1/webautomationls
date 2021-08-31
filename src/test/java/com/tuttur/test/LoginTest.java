@@ -18,6 +18,8 @@ public class LoginTest extends BaseTest {
     DbQueriesPage db = new DbQueriesPage(driver);
 
 
+
+
     /**
      * Case 1.0
      * Üye numarasıyla başarılı login
@@ -30,7 +32,7 @@ public class LoginTest extends BaseTest {
 
         base.getSheet("LoginData");
 
-        new MainPage(driver).getLoginPage()
+                new MainPage(driver).getLoginPage()
                 .login(1,"non-contract")
                 .checkAccountNo(1);
     }
@@ -215,20 +217,20 @@ public class LoginTest extends BaseTest {
 
     }
 
-//    /**
-//     * Case 2.2
-//     * Sözleşmeler
-//     */
-//    @Test
-//    public void confirmContracts() throws IOException, InterruptedException {
-//
-//        base.getSheet("LoginData");
-//        db.executeQuery(prop.getObject("deleteContract"));
-//
-//        new MainPage(driver).getLoginPage()
-//                .login(13,"contracts")
-//                .checkUsernameText(13,4);
-//    }
+    /**
+     * Case 2.2
+     * Sözleşmeler
+     */
+    @Test
+    public void confirmContracts() throws IOException, InterruptedException {
+
+        base.getSheet("LoginData");
+        db.executeQuery(prop.getObject("deleteContract"));
+
+        new MainPage(driver).getLoginPage()
+                .login(13,"contracts")
+                .checkUsernameText(13,4);
+    }
 
 //    /**
 //     * Case 2.3
