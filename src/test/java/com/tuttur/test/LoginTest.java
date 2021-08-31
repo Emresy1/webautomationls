@@ -232,20 +232,20 @@ public class LoginTest extends BaseTest {
                 .checkUsernameText(13,1);
     }
 
-//    /**
-//     * Case 2.3
-//     * Tek sözleşme onaylama
-//     */
-//    @Test
-//    public void confirmSingleContract() throws IOException, InterruptedException {
-//
-//        base.getSheet("LoginData");
-//        db.executeQuery(prop.getObject("deleteMultipleContract"));
-//
-//        new MainPage(driver).getLoginPage()
-//                .login(14,"contract")
-//                .checkUsernameText(14,1);
-//    }
+    /**
+     * Case 2.3
+     * Tek sözleşme onaylama
+     */
+    @Test
+    public void confirmSingleContract() throws IOException, InterruptedException {
+
+        base.getSheet("LoginData");
+        db.executeQuery(prop.getObject("deleteMultipleContract"));
+
+        new MainPage(driver).getLoginPage()
+                .login(14,"contract")
+                .checkUsernameText(14,1);
+    }
 
 }
 

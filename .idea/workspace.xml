@@ -28,13 +28,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="jenkins db set up">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="jenkins set up">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/base/BaseTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/DbQueriesPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/DbQueriesPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/ForgotPassPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/test/LoginTest.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -267,14 +262,7 @@
       <workItem from="1630056003815" duration="6690000" />
       <workItem from="1630068757796" duration="11323000" />
       <workItem from="1630339283772" duration="2913000" />
-      <workItem from="1630392653055" duration="1384000" />
-    </task>
-    <task id="LOCAL-00060" summary="DashboardTest.popularWidgetTest">
-      <created>1628085757092</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1628085757092</updated>
+      <workItem from="1630392653055" duration="1796000" />
     </task>
     <task id="LOCAL-00061" summary="CampaignsTest">
       <created>1629790150994</created>
@@ -612,7 +600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630394095718</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="jenkins set up">
+      <created>1630394872354</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1630394872355</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,9 +662,9 @@
     <MESSAGE value="BasePageUtil" />
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="pom.xml" />
-    <MESSAGE value="jenkins set up" />
     <MESSAGE value="jenkins db set up" />
-    <option name="LAST_COMMIT_MESSAGE" value="jenkins db set up" />
+    <MESSAGE value="jenkins set up" />
+    <option name="LAST_COMMIT_MESSAGE" value="jenkins set up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
