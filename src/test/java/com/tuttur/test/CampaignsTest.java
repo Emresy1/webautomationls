@@ -6,10 +6,12 @@ import com.tuttur.page.CampaignsPage;
 import com.tuttur.page.DbQueriesPage;
 import com.tuttur.page.MainPage;
 import com.tuttur.util.BasePageUtil;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 
 import java.io.IOException;
+
 
 public class CampaignsTest extends BaseTest {
 
@@ -17,10 +19,10 @@ public class CampaignsTest extends BaseTest {
     DbQueriesPage db = new DbQueriesPage(driver);
     PropertiesFile prop = new PropertiesFile(driver);
 
-
     String deleteCampaignQuery = "UPDATE application.campaign SET status = false WHERE id=";
     String loginCampaign = "EMRE LOGIN KAMPANYASI";
     String logoutCampaign = "EMRE LOGOUT KAMPANYASI";
+    String forEveryoneCampaign = "EMRE HERKESE KAMPANYASI";
 
 
     /**
@@ -95,7 +97,7 @@ public class CampaignsTest extends BaseTest {
     }
 
     /**
-     * Case 3.0
+     * Case 2.2
      * Oyun tipi : Tüm oyun tipleri ve sana özel badge
      * C2a : Kampanyaya katıl
      * Countdown : Göster
@@ -120,7 +122,7 @@ public class CampaignsTest extends BaseTest {
     }
 
     /**
-     * Case 3.1
+     * Case 2.3
      * Oyun tipi : Yok
      * C2a : Göster
      * Countdown : Gösterme
@@ -128,7 +130,66 @@ public class CampaignsTest extends BaseTest {
      */
 
     @Test
-    public void campaignTypeFourTest(){
+    public void campaignTypeFourTest() throws IOException, InterruptedException {
+        MainPage main = new MainPage(driver);
+        base.getSheet("LoginData");
+
+        int campaignId = db.getValidationCodeInt(prop.getObject("addCampaignTypeFour"),1);
+
+        main.getCampaignsPage()
+                .checkItemsOnCampaignsPage("Type2", logoutCampaign + "2");
+        main.getLoginPage()
+                .login(2,"non-contract");
+        new CampaignsPage(driver).isExistCampaignInLogin(logoutCampaign +"2");
+
+        db.executeQuery(deleteCampaignQuery + campaignId+";");
+
+    }
+    /**
+     * Case 2.4
+     *  Oyun tipi : Tüm oyun tipleri ve sana özel badge
+     *  C2a : Göster
+     *  Countdown : Göster
+     *  Gösterilecek kitle : Herkes
+     */
+
+    @Test
+    public void campaignTypeFiveTest() throws IOException, InterruptedException {
+
+        MainPage main = new MainPage(driver);
+        base.getSheet("LoginData");
+        int campaignId = db.getValidationCodeInt(prop.getObject("addCampaignTypeFive"),1);
+
+        main.getCampaignsPage()
+                .checkItemsOnCampaignsPage("Type1", forEveryoneCampaign + "1");
+        main.getLoginPage()
+                .login(2,"non-contract");
+        new CampaignsPage(driver).isExistCampaignInLogin(forEveryoneCampaign + "1");
+
+        db.executeQuery(deleteCampaignQuery + campaignId+";");
+    }
+
+    /**
+     * Case 2.5
+     *  Oyun tipi : Yok
+     *  C2a : Göster
+     *  Countdown : Gösterme
+     *  Gösterilecek kitle : Herkese
+     */
+    @Test
+    public void campaignTypeSixTest() throws IOException, InterruptedException {
+
+        MainPage main = new MainPage(driver);
+        base.getSheet("LoginData");
+        int campaignId = db.getValidationCodeInt(prop.getObject("addCampaignTypeFive"),1);
+
+        main.getCampaignsPage()
+                .checkItemsOnCampaignsPage("Type1", forEveryoneCampaign + "2");
+        main.getLoginPage()
+                .login(2,"non-contract");
+        new CampaignsPage(driver).isExistCampaignInLogin(forEveryoneCampaign + "2");
+
+        db.executeQuery(deleteCampaignQuery + campaignId+";");
 
     }
 }

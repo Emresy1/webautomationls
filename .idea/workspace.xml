@@ -28,8 +28,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="jenkins set up">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="LoginTest.confirmSingleContract&#10;update db query (contract version)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/CampaignsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/CampaignsTest.java" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +99,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest.confirmSingleContract">
+  <component name="RunManager" selected="JUnit.CampaignsTest.campaignTypeSixTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -109,7 +111,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CampaignsTest.campaignTypeThreeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CampaignsTest.campaignTypeFiveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
@@ -119,7 +121,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
-      <option name="METHOD_NAME" value="campaignTypeThreeTest" />
+      <option name="METHOD_NAME" value="campaignTypeFiveTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CampaignsTest.campaignTypeFourTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
+      <option name="METHOD_NAME" value="campaignTypeFourTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CampaignsTest.campaignTypeSixTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
+      <option name="METHOD_NAME" value="campaignTypeSixTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,52 +191,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.successfullyLoginWithAccountNo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="successfullyLoginWithAccountNo" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.successfullyLoginWithUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="tuttur.web.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
-      <option name="METHOD_NAME" value="successfullyLoginWithUsername" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="JUnit.LoginTest.confirmSingleContract" />
-      <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
-      <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
       <item itemvalue="JUnit.LoginTest.confirmContracts" />
-      <item itemvalue="JUnit.CampaignsTest.campaignTypeThreeTest" />
+      <item itemvalue="JUnit.CampaignsTest.campaignTypeFourTest" />
+      <item itemvalue="JUnit.CampaignsTest.campaignTypeFiveTest" />
+      <item itemvalue="JUnit.CampaignsTest.campaignTypeSixTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CampaignsTest.campaignTypeSixTest" />
+        <item itemvalue="JUnit.CampaignsTest.campaignTypeFiveTest" />
+        <item itemvalue="JUnit.CampaignsTest.campaignTypeFourTest" />
         <item itemvalue="JUnit.LoginTest.confirmSingleContract" />
         <item itemvalue="JUnit.LoginTest.confirmContracts" />
-        <item itemvalue="JUnit.LoginTest.successfullyLoginWithAccountNo" />
-        <item itemvalue="JUnit.CampaignsTest.campaignTypeThreeTest" />
-        <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
       </list>
     </recent_temporary>
   </component>
@@ -262,14 +264,7 @@
       <workItem from="1630056003815" duration="6690000" />
       <workItem from="1630068757796" duration="11323000" />
       <workItem from="1630339283772" duration="2913000" />
-      <workItem from="1630392653055" duration="1796000" />
-    </task>
-    <task id="LOCAL-00061" summary="CampaignsTest">
-      <created>1629790150994</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1629790150995</updated>
+      <workItem from="1630392653055" duration="7097000" />
     </task>
     <task id="LOCAL-00062" summary="BaseTest.setUp">
       <created>1629978538945</created>
@@ -607,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630394872355</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="LoginTest.confirmSingleContract&#10;update db query (contract version)">
+      <created>1630404632454</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1630404632454</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +641,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Assert refactoring" />
     <MESSAGE value="RegisterTest OK" />
     <MESSAGE value="LoginPage refactoring" />
     <MESSAGE value="MainPage.checkUsernameText() return fix" />
@@ -664,7 +665,8 @@
     <MESSAGE value="pom.xml" />
     <MESSAGE value="jenkins db set up" />
     <MESSAGE value="jenkins set up" />
-    <option name="LAST_COMMIT_MESSAGE" value="jenkins set up" />
+    <MESSAGE value="LoginTest.confirmSingleContract&#10;update db query (contract version)" />
+    <option name="LAST_COMMIT_MESSAGE" value="LoginTest.confirmSingleContract&#10;update db query (contract version)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
