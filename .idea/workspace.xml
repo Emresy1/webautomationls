@@ -28,10 +28,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="LoginTest.confirmSingleContract&#10;update db query (contract version)">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="project runner.sh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/CampaignsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/CampaignsTest.java" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -264,14 +262,7 @@
       <workItem from="1630056003815" duration="6690000" />
       <workItem from="1630068757796" duration="11323000" />
       <workItem from="1630339283772" duration="2913000" />
-      <workItem from="1630392653055" duration="7097000" />
-    </task>
-    <task id="LOCAL-00062" summary="BaseTest.setUp">
-      <created>1629978538945</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1629978538947</updated>
+      <workItem from="1630392653055" duration="7383000" />
     </task>
     <task id="LOCAL-00063" summary="BasePageUtil">
       <created>1629980509464</created>
@@ -609,7 +600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630404632454</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="project runner.sh">
+      <created>1630427618756</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1630427618756</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +639,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="RegisterTest OK" />
     <MESSAGE value="LoginPage refactoring" />
     <MESSAGE value="MainPage.checkUsernameText() return fix" />
     <MESSAGE value="LoginPage.login method refactoring and contracts cases" />
@@ -666,7 +663,8 @@
     <MESSAGE value="jenkins db set up" />
     <MESSAGE value="jenkins set up" />
     <MESSAGE value="LoginTest.confirmSingleContract&#10;update db query (contract version)" />
-    <option name="LAST_COMMIT_MESSAGE" value="LoginTest.confirmSingleContract&#10;update db query (contract version)" />
+    <MESSAGE value="project runner.sh" />
+    <option name="LAST_COMMIT_MESSAGE" value="project runner.sh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
