@@ -29,8 +29,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="selenium html report plugin">
-      <change beforePath="$PROJECT_DIR$/runner.sh" beforeDir="false" afterPath="$PROJECT_DIR$/runner.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/testResult.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +44,7 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="package.json" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -72,6 +73,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -99,13 +101,15 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.CampaignsTest.campaignTypeThreeTest">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -261,14 +265,8 @@
       <workItem from="1630056003815" duration="6690000" />
       <workItem from="1630068757796" duration="11323000" />
       <workItem from="1630339283772" duration="2913000" />
-      <workItem from="1630392653055" duration="9354000" />
-    </task>
-    <task id="LOCAL-00065" summary="BasePageUtil">
-      <created>1629984965892</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1629984965892</updated>
+      <workItem from="1630392653055" duration="9746000" />
+      <workItem from="1630432611481" duration="717000" />
     </task>
     <task id="LOCAL-00066" summary="BasePageUtil">
       <created>1629985004743</created>
@@ -606,7 +604,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630431894408</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="selenium html report plugin">
+      <created>1630432087327</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1630432087327</updated>
+    </task>
+    <option name="localTasksCounter" value="115" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
