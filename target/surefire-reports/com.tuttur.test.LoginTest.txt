@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.tuttur.test.LoginTest
 -------------------------------------------------------------------------------
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 109.197 s - in com.tuttur.test.LoginTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 78.619 s - in com.tuttur.test.LoginTest
