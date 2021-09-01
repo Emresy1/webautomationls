@@ -28,11 +28,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="runner.sh">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="maven site plugin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.tuttur.test.LoginTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.tuttur.test.LoginTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.tuttur.test.LoginTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.tuttur.test.LoginTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testResult.html" beforeDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,16 +85,19 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.13140607" />
     <property name="settings.editor.selected.configurable" value="reactor" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/target" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/properties/driver" />
       <recent name="$PROJECT_DIR$/src/test" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -264,14 +265,7 @@
       <workItem from="1630479998762" duration="1044000" />
       <workItem from="1630481287811" duration="3209000" />
       <workItem from="1630487559304" duration="120000" />
-      <workItem from="1630487767704" duration="278000" />
-    </task>
-    <task id="LOCAL-00073" summary="pom.xml">
-      <created>1629992873431</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1629992873431</updated>
+      <workItem from="1630487767704" duration="3185000" />
     </task>
     <task id="LOCAL-00074" summary="pom.xml">
       <created>1629992949746</created>
@@ -609,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630487158533</updated>
     </task>
-    <option name="localTasksCounter" value="122" />
+    <task id="LOCAL-00122" summary="maven site plugin">
+      <created>1630488325393</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1630488325393</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +642,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="LoginTest fixed" />
     <MESSAGE value="ForgotPassPage.countdown" />
     <MESSAGE value="ForgotPassPage,LogiPage,RegisterPage and csv refactoring" />
     <MESSAGE value="Loginpage and ForgotPassPage checkUsername index fixed" />
@@ -666,7 +666,8 @@
     <MESSAGE value="pom.xml maven-surefire-report-plugin" />
     <MESSAGE value="pom.xml maven-site-plugin" />
     <MESSAGE value="runner.sh" />
-    <option name="LAST_COMMIT_MESSAGE" value="runner.sh" />
+    <MESSAGE value="maven site plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="maven site plugin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
