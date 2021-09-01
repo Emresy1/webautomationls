@@ -28,7 +28,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="pom.xml maven-site-plugin" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="runner.sh">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.tuttur.test.LoginTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.tuttur.test.LoginTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/com.tuttur.test.LoginTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/com.tuttur.test.LoginTest.txt" afterDir="false" />
+    </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,14 +262,9 @@
       <workItem from="1630478956533" duration="616000" />
       <workItem from="1630479579698" duration="410000" />
       <workItem from="1630479998762" duration="1044000" />
-      <workItem from="1630481287811" duration="2853000" />
-    </task>
-    <task id="LOCAL-00072" summary="pom.xml">
-      <created>1629992855299</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1629992855299</updated>
+      <workItem from="1630481287811" duration="3209000" />
+      <workItem from="1630487559304" duration="120000" />
+      <workItem from="1630487767704" duration="278000" />
     </task>
     <task id="LOCAL-00073" summary="pom.xml">
       <created>1629992873431</created>
@@ -602,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630486805162</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="runner.sh">
+      <created>1630487158533</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1630487158533</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +641,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="csv update" />
     <MESSAGE value="LoginTest fixed" />
     <MESSAGE value="ForgotPassPage.countdown" />
     <MESSAGE value="ForgotPassPage,LogiPage,RegisterPage and csv refactoring" />
@@ -659,7 +665,8 @@
     <MESSAGE value="selenium html report plugin" />
     <MESSAGE value="pom.xml maven-surefire-report-plugin" />
     <MESSAGE value="pom.xml maven-site-plugin" />
-    <option name="LAST_COMMIT_MESSAGE" value="pom.xml maven-site-plugin" />
+    <MESSAGE value="runner.sh" />
+    <option name="LAST_COMMIT_MESSAGE" value="runner.sh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
