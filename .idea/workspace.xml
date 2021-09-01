@@ -264,14 +264,7 @@
       <workItem from="1630479998762" duration="1044000" />
       <workItem from="1630481287811" duration="3209000" />
       <workItem from="1630487559304" duration="120000" />
-      <workItem from="1630487767704" duration="3610000" />
-    </task>
-    <task id="LOCAL-00075" summary="pom.xml">
-      <created>1629993261339</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1629993261339</updated>
+      <workItem from="1630487767704" duration="6682000" />
     </task>
     <task id="LOCAL-00076" summary="pom.xml">
       <created>1629993323907</created>
@@ -609,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630491960980</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="maven site plugin">
+      <created>1630492577156</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1630492577157</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
