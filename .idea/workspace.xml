@@ -28,7 +28,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="pom.xml maven-surefire-report-plugin" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="pom.xml maven-surefire-report-plugin">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runner.sh" beforeDir="false" afterPath="$PROJECT_DIR$/runner.sh" afterDir="false" />
+    </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,14 +257,7 @@
       <workItem from="1630478956533" duration="616000" />
       <workItem from="1630479579698" duration="410000" />
       <workItem from="1630479998762" duration="1044000" />
-      <workItem from="1630481287811" duration="1114000" />
-    </task>
-    <task id="LOCAL-00069" summary="pom.xml">
-      <created>1629991859209</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1629991859209</updated>
+      <workItem from="1630481287811" duration="1437000" />
     </task>
     <task id="LOCAL-00070" summary="pom.xml">
       <created>1629992264561</created>
@@ -599,7 +595,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630482490322</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="pom.xml maven-surefire-report-plugin">
+      <created>1630482629085</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1630482629085</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
