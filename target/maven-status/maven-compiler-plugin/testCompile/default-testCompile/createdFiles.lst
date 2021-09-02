@@ -1,6 +1,5 @@
 com/tuttur/constants/EventDetailPage_Constants.class
 com/tuttur/page/MainPage.class
-com/tuttur/test/CampaignsTest.class
 com/tuttur/constants/MainPage_Constants.class
 com/tuttur/page/RegisterPage.class
 com/tuttur/page/ForgotPassPage.class
@@ -12,18 +11,14 @@ com/tuttur/page/EventDetailPage.class
 com/tuttur/page/NavigationPage.class
 com/tuttur/constants/CampaignsPage_Constants.class
 com/tuttur/constants/Navigation_Constants.class
-com/tuttur/test/RegisterTest.class
 com/tuttur/base/BasePage.class
 com/tuttur/util/BasePageUtil.class
 com/tuttur/page/WelcomePage.class
-com/tuttur/test/NavigationTest.class
 com/tuttur/util/ExcelUtil.class
-com/tuttur/test/DashboardTest.class
 com/tuttur/page/LoginPage.class
 com/tuttur/constants/RegisterPage_Constants.class
 com/tuttur/base/BaseTest.class
 com/tuttur/test/LoginTest.class
-com/tuttur/test/ForgotPassTest.class
 com/tuttur/configs/PropertiesFile.class
 com/tuttur/page/CampaignsPage.class
 com/tuttur/constants/WelcomePage_Constants.class
