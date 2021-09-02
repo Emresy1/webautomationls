@@ -30,6 +30,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="maven site plugin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/dependencies.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/dependencies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/dependency-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/dependency-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/plugin-management.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/plugin-management.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/plugins.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/plugins.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/project-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/project-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/project-reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/project-reports.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/surefire-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/surefire-report.html" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +111,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in webautomation">
+  <component name="RunManager" selected="JUnit.LoginTest.loginInputMessageControl">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -118,22 +127,6 @@
       <module name="webautomation" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CampaignsTest.campaignTypeFiveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
-      <option name="METHOD_NAME" value="campaignTypeFiveTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,6 +163,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginTest.loginInputMessageControl" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+      <option name="METHOD_NAME" value="loginInputMessageControl" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="com.tuttur.test in webautomation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
@@ -185,19 +194,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.CampaignsTest.campaignTypeFiveTest" />
       <item itemvalue="JUnit.CampaignsTest.campaignTypeSixTest" />
       <item itemvalue="JUnit.com.tuttur.test in webautomation" />
       <item itemvalue="JUnit.CampaignsTest.campaignTypeThreeTest" />
       <item itemvalue="JUnit.All in webautomation" />
+      <item itemvalue="JUnit.LoginTest.loginInputMessageControl" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginTest.loginInputMessageControl" />
         <item itemvalue="JUnit.All in webautomation" />
         <item itemvalue="JUnit.CampaignsTest.campaignTypeThreeTest" />
         <item itemvalue="JUnit.com.tuttur.test in webautomation" />
         <item itemvalue="JUnit.CampaignsTest.campaignTypeSixTest" />
-        <item itemvalue="JUnit.CampaignsTest.campaignTypeFiveTest" />
       </list>
     </recent_temporary>
   </component>
@@ -265,6 +274,9 @@
       <workItem from="1630481287811" duration="3209000" />
       <workItem from="1630487559304" duration="120000" />
       <workItem from="1630487767704" duration="6682000" />
+      <workItem from="1630502328278" duration="86000" />
+      <workItem from="1630502537790" duration="48000" />
+      <workItem from="1630502609238" duration="2917000" />
     </task>
     <task id="LOCAL-00076" summary="pom.xml">
       <created>1629993323907</created>
