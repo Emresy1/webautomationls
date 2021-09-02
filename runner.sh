@@ -3,4 +3,4 @@
 /usr/bin/mvn test -Dtest=test.NavigationTest -e
 #/usr/bin/mvn test -Dtest=test.ForgotPassTest -e
 #/usr/bin/mvn test -Dtest=test.DashboardTest -e
-#/usr/bin/mvn test -Dtest=test.CampaignsTest -e
+/usr/bin/mvn test -Dtest=test.CampaignsTest -e

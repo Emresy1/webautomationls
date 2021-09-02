@@ -28,16 +28,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="maven site plugin">
-      <change beforePath="$PROJECT_DIR$/target/site/dependency-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/dependency-info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/plugin-management.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/plugin-management.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/plugins.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/plugins.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/project-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/project-info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/project-reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/project-reports.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/surefire-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/surefire-report.html" afterDir="false" />
-    </list>
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="html report url" />
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,14 +265,7 @@
       <workItem from="1630487767704" duration="6682000" />
       <workItem from="1630502328278" duration="86000" />
       <workItem from="1630502537790" duration="48000" />
-      <workItem from="1630502609238" duration="3218000" />
-    </task>
-    <task id="LOCAL-00077" summary="pom.xml">
-      <created>1629993746283</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1629993746284</updated>
+      <workItem from="1630502609238" duration="3401000" />
     </task>
     <task id="LOCAL-00078" summary="pom.xml">
       <created>1629993837994</created>
@@ -619,7 +603,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630567012442</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="html report url">
+      <created>1630567271786</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1630567271786</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -651,7 +642,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ForgotPassPage.countdown" />
     <MESSAGE value="ForgotPassPage,LogiPage,RegisterPage and csv refactoring" />
     <MESSAGE value="Loginpage and ForgotPassPage checkUsername index fixed" />
     <MESSAGE value="ForgotPassTest cases fixed" />
@@ -676,7 +666,8 @@
     <MESSAGE value="pom.xml maven-site-plugin" />
     <MESSAGE value="runner.sh" />
     <MESSAGE value="maven site plugin" />
-    <option name="LAST_COMMIT_MESSAGE" value="maven site plugin" />
+    <MESSAGE value="html report url" />
+    <option name="LAST_COMMIT_MESSAGE" value="html report url" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
