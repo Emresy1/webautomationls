@@ -37,39 +37,39 @@ public class LoginTest extends BaseTest {
                 .checkAccountNo(1);
     }
 
-//    /**
-//     * Case 1.1
-//     * Kullanıcı adı ile başarılı login
-//     *
-//     * @throws IOException
-//     */
-//
-//    @Test
-//    public void successfullyLoginWithUsername() throws IOException, InterruptedException {
-//
-//        base.getSheet("LoginData");
-//
-//        new MainPage(driver).getLoginPage()
-//                .login(2,"non-contract")
-//                .checkUsernameText(2,4);
-//    }
+    /**
+     * Case 1.1
+     * Kullanıcı adı ile başarılı login
+     *
+     * @throws IOException
+     */
+
+    @Test
+    public void successfullyLoginWithUsername() throws IOException, InterruptedException {
+
+        base.getSheet("LoginData");
+
+        new MainPage(driver).getLoginPage()
+                .login(2,"non-contract")
+                .checkUsernameText(2,4);
+    }
 
 
-//    /**
-//     * Case 1.2
-//     * TCKN  ile başarılı login
-//     */
-//
-//
-//    @Test
-//    public void successfulllyLoginWithSsn() throws IOException, InterruptedException {
-//
-//        base.getSheet("LoginData");
-//
-//        new MainPage(driver).getLoginPage()
-//                .login(3,"non-contract")
-//                .checkUsernameText(3,4);
-//    }
+    /**
+     * Case 1.2
+     * TCKN  ile başarılı login
+     */
+
+
+    @Test
+    public void successfulllyLoginWithSsn() throws IOException, InterruptedException {
+
+        base.getSheet("LoginData");
+
+        new MainPage(driver).getLoginPage()
+                .login(3,"non-contract")
+                .checkUsernameText(3,4);
+    }
 
     /**
      * Case 1.3
