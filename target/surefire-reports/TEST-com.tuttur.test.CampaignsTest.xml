@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.tuttur.test.LoginTest" time="97.112" tests="12" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.tuttur.test.CampaignsTest" time="321.489" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -7,6 +7,7 @@
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Istanbul"/>
     <property name="os.name" value="Mac OS X"/>
     <property name="java.vm.specification.version" value="15"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -42,6 +43,7 @@
     <property name="java.version" value="15.0.1"/>
     <property name="user.dir" value="/Users/emresarikaya/webautomationls"/>
     <property name="os.arch" value="x86_64"/>
+    <property name="webdriver.gecko.driver" value="properties/driver/chromedriver"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.library.path" value="/Users/emresarikaya/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
@@ -50,80 +52,17 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="unsuccessfullyLoginWithEmail" classname="com.tuttur.test.LoginTest" time="8.198">
+  <testcase name="campaignTypeFourTest" classname="com.tuttur.test.CampaignsTest" time="45.789">
     <system-out><![CDATA[chrome
 ]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 25179
+    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 5071
 Only local connections are allowed.
-Eyl 02, 2021 11:20:48 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
-  <testcase name="loginInputMessageControl" classname="com.tuttur.test.LoginTest" time="7.461">
-    <system-out><![CDATA[chrome
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 34088
-Only local connections are allowed.
-Eyl 02, 2021 11:20:56 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
-  <testcase name="unsuccessfullyLoginWithPassword" classname="com.tuttur.test.LoginTest" time="7.626">
-    <system-out><![CDATA[chrome
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 29109
-Only local connections are allowed.
-Eyl 02, 2021 11:21:03 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
-  <testcase name="loginInputMaxValueControl" classname="com.tuttur.test.LoginTest" time="7.247">
-    <system-out><![CDATA[chrome
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 11648
-Only local connections are allowed.
-Eyl 02, 2021 11:21:10 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
-  <testcase name="unsuccessfullyLoginWithPhoneNumber" classname="com.tuttur.test.LoginTest" time="7.203">
-    <system-out><![CDATA[chrome
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 37991
-Only local connections are allowed.
-Eyl 02, 2021 11:21:18 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
-  <testcase name="successfullyLoginWithAccountNo" classname="com.tuttur.test.LoginTest" time="8.782">
-    <system-out><![CDATA[chrome
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 13418
-Only local connections are allowed.
-Eyl 02, 2021 11:21:25 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
-  <testcase name="loginWithMissingInfo" classname="com.tuttur.test.LoginTest" time="6.017">
-    <system-out><![CDATA[chrome
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 28159
-Only local connections are allowed.
-Eyl 02, 2021 11:21:34 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
-  <testcase name="confirmContracts" classname="com.tuttur.test.LoginTest" time="20.185">
-    <system-out><![CDATA[chrome
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 20454
-Only local connections are allowed.
-Eyl 02, 2021 11:21:40 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
+Eyl 02, 2021 11:23:19 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: OSS
 org.postgresql.util.PSQLException: Sorgudan hiç bir sonuç dönmedi.
 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:287)
 	at com.tuttur.page.DbQueriesPage.executeQuery(DbQueriesPage.java:33)
-	at com.tuttur.test.LoginTest.confirmContracts(LoginTest.java:228)
+	at com.tuttur.test.CampaignsTest.campaignTypeFourTest(CampaignsTest.java:145)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -153,44 +92,218 @@ org.postgresql.util.PSQLException: Sorgudan hiç bir sonuç dönmedi.
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
 ]]></system-err>
   </testcase>
-  <testcase name="unsuccessfullyLoginWithSsn" classname="com.tuttur.test.LoginTest" time="4.985">
+  <testcase name="campaignTypeThreeTest" classname="com.tuttur.test.CampaignsTest" time="46.764">
     <system-out><![CDATA[chrome
 ]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 30789
+    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 23464
 Only local connections are allowed.
-Eyl 02, 2021 11:22:00 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
-  <testcase name="unsuccessfullyLoginWithAccountNo" classname="com.tuttur.test.LoginTest" time="4.471">
-    <system-out><![CDATA[chrome
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 21506
-Only local connections are allowed.
-Eyl 02, 2021 11:22:05 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
-  <testcase name="unsuccessfullyLoginWithUsername" classname="com.tuttur.test.LoginTest" time="6.239">
-    <system-out><![CDATA[chrome
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 6985
-Only local connections are allowed.
-Eyl 02, 2021 11:22:09 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
-  <testcase name="confirmSingleContract" classname="com.tuttur.test.LoginTest" time="8.655">
-    <system-out><![CDATA[chrome
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 36590
-Only local connections are allowed.
-Eyl 02, 2021 11:22:15 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
+Eyl 02, 2021 11:24:05 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: OSS
 org.postgresql.util.PSQLException: Sorgudan hiç bir sonuç dönmedi.
 	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:287)
 	at com.tuttur.page.DbQueriesPage.executeQuery(DbQueriesPage.java:33)
-	at com.tuttur.test.LoginTest.confirmSingleContract(LoginTest.java:243)
+	at com.tuttur.test.CampaignsTest.campaignTypeThreeTest(CampaignsTest.java:121)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+]]></system-err>
+  </testcase>
+  <testcase name="campaignTypeSixTest" classname="com.tuttur.test.CampaignsTest" time="47.711">
+    <system-out><![CDATA[chrome
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 2297
+Only local connections are allowed.
+Eyl 02, 2021 11:24:52 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+org.postgresql.util.PSQLException: Sorgudan hiç bir sonuç dönmedi.
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:287)
+	at com.tuttur.page.DbQueriesPage.executeQuery(DbQueriesPage.java:33)
+	at com.tuttur.test.CampaignsTest.campaignTypeSixTest(CampaignsTest.java:192)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+]]></system-err>
+  </testcase>
+  <testcase name="campaignTypeOneTest" classname="com.tuttur.test.CampaignsTest" time="78.611">
+    <system-out><![CDATA[chrome
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 42698
+Only local connections are allowed.
+Eyl 02, 2021 11:25:40 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+org.postgresql.util.PSQLException: Sorgudan hiç bir sonuç dönmedi.
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:287)
+	at com.tuttur.page.DbQueriesPage.executeQuery(DbQueriesPage.java:33)
+	at com.tuttur.test.CampaignsTest.campaignTypeOneTest(CampaignsTest.java:72)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+]]></system-err>
+  </testcase>
+  <testcase name="campaignTypeTwoTest" classname="com.tuttur.test.CampaignsTest" time="17.457">
+    <system-out><![CDATA[chrome
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 27971
+Only local connections are allowed.
+Eyl 02, 2021 11:26:58 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+org.postgresql.util.PSQLException: Sorgudan hiç bir sonuç dönmedi.
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:287)
+	at com.tuttur.page.DbQueriesPage.executeQuery(DbQueriesPage.java:33)
+	at com.tuttur.test.CampaignsTest.campaignTypeTwoTest(CampaignsTest.java:95)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+]]></system-err>
+  </testcase>
+  <testcase name="campaignTypeFiveTest" classname="com.tuttur.test.CampaignsTest" time="46.067">
+    <system-out><![CDATA[chrome
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 37441
+Only local connections are allowed.
+Eyl 02, 2021 11:27:15 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+org.postgresql.util.PSQLException: Sorgudan hiç bir sonuç dönmedi.
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:287)
+	at com.tuttur.page.DbQueriesPage.executeQuery(DbQueriesPage.java:33)
+	at com.tuttur.test.CampaignsTest.campaignTypeFiveTest(CampaignsTest.java:169)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:364)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:272)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:237)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:158)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:428)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:562)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:548)
+]]></system-err>
+  </testcase>
+  <testcase name="campaignsEmptyStateTest" classname="com.tuttur.test.CampaignsTest" time="39.089">
+    <system-out><![CDATA[chrome
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.className: campaignItem (tried for 2 second(s) with 1000 milliseconds interval)
+]]></system-out>
+    <system-err><![CDATA[Starting ChromeDriver 72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb) on port 45614
+Only local connections are allowed.
+Eyl 02, 2021 11:28:02 ÖÖ org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: OSS
+org.postgresql.util.PSQLException: Sorgudan hiç bir sonuç dönmedi.
+	at org.postgresql.jdbc2.AbstractJdbc2Statement.executeQuery(AbstractJdbc2Statement.java:287)
+	at com.tuttur.page.DbQueriesPage.executeQuery(DbQueriesPage.java:33)
+	at com.tuttur.test.CampaignsTest.campaignsEmptyStateTest(CampaignsTest.java:40)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

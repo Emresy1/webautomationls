@@ -1,20 +1,16 @@
 -------------------------------------------------------------------------------
 Test set: com.tuttur.test.NavigationTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 3, Errors: 1, Skipped: 0, Time elapsed: 57.463 s <<< FAILURE! - in com.tuttur.test.NavigationTest
-com.tuttur.test.NavigationTest.checkRedirectSocialMedia  Time elapsed: 7.436 s  <<< FAILURE!
+Tests run: 4, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 54.876 s <<< FAILURE! - in com.tuttur.test.NavigationTest
+com.tuttur.test.NavigationTest.checkRedirectSocialMedia  Time elapsed: 7.979 s  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[https://www.facebook.com/wwwtutturcom/]> but was:<[/populer-kuponlar]>
 	at com.tuttur.test.NavigationTest.checkRedirectSocialMedia(NavigationTest.java:31)
 
-com.tuttur.test.NavigationTest.headerSubmenuRedirect  Time elapsed: 9.583 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<...sosyal-kuponlar/tumu[#3=sort-leaguePriority-1]> but was:<...sosyal-kuponlar/tumu[]>
+com.tuttur.test.NavigationTest.headerSubmenuRedirect  Time elapsed: 7.411 s  <<< FAILURE!
+java.lang.AssertionError
 	at com.tuttur.test.NavigationTest.headerSubmenuRedirect(NavigationTest.java:56)
 
-com.tuttur.test.NavigationTest.checkShortcutMenuRedirect  Time elapsed: 6.581 s  <<< FAILURE!
-org.junit.ComparisonFailure: Url hatalı expected:</bulten/masa-tenisi[#3=sort-date-1]> but was:</bulten/masa-tenisi[]>
-	at com.tuttur.test.NavigationTest.checkShortcutMenuRedirect(NavigationTest.java:68)
-
-com.tuttur.test.NavigationTest.checkRedirectStore  Time elapsed: 33.862 s  <<< ERROR!
+com.tuttur.test.NavigationTest.checkRedirectStore  Time elapsed: 33.462 s  <<< ERROR!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"class name","selector":"footerContentDownloads-androidImg"}
   (Session info: chrome=92.0.4515.159)
@@ -24,8 +20,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'Emre-MacBook-Pro.local', ip: 'fe80:0:0:0:1cda:8f29:7505:f9ba%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.6', java.version: '15.0.1'
 Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, acceptSslCerts: true, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 72.0.3626.7 (efcef9a3ecda02..., userDataDir: /var/folders/1x/8x61f40j2n7...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:49224}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 92.0.4515.159, webStorageEnabled: true}
-Session ID: feb19fe7aa1a6d459e2852700d380059
+Capabilities {acceptInsecureCerts: true, acceptSslCerts: true, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 72.0.3626.7 (efcef9a3ecda02..., userDataDir: /var/folders/1x/8x61f40j2n7...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:50050}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 92.0.4515.159, webStorageEnabled: true}
+Session ID: b860cde3b21944d4e9ae6660df484767
 *** Element info: {Using=class name, value=footerContentDownloads-androidImg}
 	at com.tuttur.test.NavigationTest.checkRedirectStore(NavigationTest.java:43)
 
