@@ -97,10 +97,10 @@ div.clear hr{
   font-size: smaller;
 }
 #navcolumn li.expanded {
-  background-image: url(Desktop/webautomation/target/site/images/expanded.gif);
+  background-image: url(../images/expanded.gif);
 }
 #navcolumn li.collapsed {
-  background-image: url(Desktop/webautomation/target/site/images/collapsed.gif);
+  background-image: url(../images/collapsed.gif);
 }
 #navcolumn li.none {
   text-indent: -1em;

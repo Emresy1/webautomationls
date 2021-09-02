@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.tuttur.test.CampaignsTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 321.489 s - in com.tuttur.test.CampaignsTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1,564.685 s - in com.tuttur.test.CampaignsTest
