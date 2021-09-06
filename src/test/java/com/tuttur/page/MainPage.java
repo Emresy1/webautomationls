@@ -383,6 +383,7 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkDefaultBranch(By widgetName, String branch) {
 
+        waitForElement(driver,OPT_WAIT_4_ELEMENT,widgetName);
         Assert.assertEquals(branchListInWidget(widgetName).get(0).getText(), branch);
         return this;
     }
