@@ -28,9 +28,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="Test cases fix">
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/NavigationPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/NavigationPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/WelcomePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/WelcomePage.class" afterDir="false" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="runner.sh">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +106,7 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterTest.successfullyRegisterTest">
+  <component name="RunManager" selected="JUnit.LoginTest.successfulllyLoginWithSsn">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -117,7 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DashboardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CampaignsTest.campaignTypeFourTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
@@ -126,29 +129,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.DashboardTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DashboardTest.liveWidgetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.DashboardTest" />
-      <option name="METHOD_NAME" value="liveWidgetTest" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
+      <option name="METHOD_NAME" value="campaignTypeFourTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ForgotPassTest.successForgotPasswordWithSms" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CampaignsTest.campaignTypeTwoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
@@ -157,14 +145,46 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.ForgotPassTest" />
-      <option name="METHOD_NAME" value="successForgotPasswordWithSms" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
+      <option name="METHOD_NAME" value="campaignTypeTwoTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.successfulllyLoginWithSsn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+      <option name="METHOD_NAME" value="successfulllyLoginWithSsn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.successfullyLoginWithUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.LoginTest" />
+      <option name="METHOD_NAME" value="successfullyLoginWithUsername" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterTest.fieldsRuleCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
@@ -174,41 +194,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegisterTest.successfullyRegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
-      <option name="METHOD_NAME" value="successfullyRegisterTest" />
+      <option name="METHOD_NAME" value="fieldsRuleCheck" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.DashboardTest" />
-      <item itemvalue="JUnit.DashboardTest.liveWidgetTest" />
-      <item itemvalue="JUnit.ForgotPassTest.successForgotPasswordWithSms" />
-      <item itemvalue="JUnit.RegisterTest" />
-      <item itemvalue="JUnit.RegisterTest.successfullyRegisterTest" />
+      <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />
+      <item itemvalue="JUnit.CampaignsTest.campaignTypeFourTest" />
+      <item itemvalue="JUnit.RegisterTest.fieldsRuleCheck" />
+      <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
+      <item itemvalue="JUnit.LoginTest.successfulllyLoginWithSsn" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisterTest.successfullyRegisterTest" />
-        <item itemvalue="JUnit.RegisterTest" />
-        <item itemvalue="JUnit.ForgotPassTest.successForgotPasswordWithSms" />
-        <item itemvalue="JUnit.DashboardTest.liveWidgetTest" />
-        <item itemvalue="JUnit.DashboardTest" />
+        <item itemvalue="JUnit.LoginTest.successfulllyLoginWithSsn" />
+        <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
+        <item itemvalue="JUnit.RegisterTest.fieldsRuleCheck" />
+        <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />
+        <item itemvalue="JUnit.CampaignsTest.campaignTypeFourTest" />
       </list>
     </recent_temporary>
   </component>
@@ -285,14 +290,7 @@
       <workItem from="1630596083671" duration="12549000" />
       <workItem from="1630783208422" duration="522000" />
       <workItem from="1630783979834" duration="627000" />
-      <workItem from="1630784613781" duration="18347000" />
-    </task>
-    <task id="LOCAL-00093" summary="jenkins set up">
-      <created>1630056050771</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1630056050771</updated>
+      <workItem from="1630784613781" duration="20920000" />
     </task>
     <task id="LOCAL-00094" summary="jenkins set up">
       <created>1630056671385</created>
@@ -630,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630936264499</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="runner.sh">
+      <created>1630936818221</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1630936818221</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,7 +684,6 @@
     <MESSAGE value="selenium html report plugin" />
     <MESSAGE value="pom.xml maven-surefire-report-plugin" />
     <MESSAGE value="pom.xml maven-site-plugin" />
-    <MESSAGE value="runner.sh" />
     <MESSAGE value="maven site plugin" />
     <MESSAGE value="html report url" />
     <MESSAGE value="html report urll" />
@@ -687,7 +691,8 @@
     <MESSAGE value="HTML Report" />
     <MESSAGE value="HTML Report &amp; runner.sh" />
     <MESSAGE value="Test cases fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test cases fix" />
+    <MESSAGE value="runner.sh" />
+    <option name="LAST_COMMIT_MESSAGE" value="runner.sh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -731,6 +736,21 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java</url>
           <line>41</line>
           <option name="timeStamp" value="184" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/CampaignsTest.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java</url>
+          <line>141</line>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="188" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.AssertionError" package="java.lang" />

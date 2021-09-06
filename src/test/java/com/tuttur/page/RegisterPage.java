@@ -369,7 +369,7 @@ public class RegisterPage extends RegisterPage_Constants {
     private void reopenModal() throws IOException {
 
         driver.navigate().refresh();
-        new MainPage(driver).getRegisterPage();
+       // new MainPage(driver).getRegisterPage();
     }
 
     private List<String> propertiesPasswordTexts() throws IOException {
