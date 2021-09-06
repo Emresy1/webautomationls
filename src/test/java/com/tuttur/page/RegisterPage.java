@@ -48,6 +48,7 @@ public class RegisterPage extends RegisterPage_Constants {
     }
 
     private void setDay(String day, int elementIndex) {
+        waitForElement(driver,OPT_WAIT_4_ELEMENT,DATE);
         setObjectsBy(DATE, elementIndex, day);
 
     }

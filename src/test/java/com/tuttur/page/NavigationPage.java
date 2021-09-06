@@ -44,7 +44,9 @@ public class NavigationPage extends Navigation_Constants {
 
                     if (headerMenuActive.equals("İDDAA")) {
 
+
                         subMenus.get(i).click();
+
                         assertTrue(subUrl().contains(betSubmenus().get(i)));
 
                     } else if (headerMenuActive.equals("SOSYAL BAHİS")) {

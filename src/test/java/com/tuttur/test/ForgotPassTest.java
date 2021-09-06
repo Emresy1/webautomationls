@@ -5,14 +5,17 @@ import com.tuttur.configs.PropertiesFile;
 import com.tuttur.page.*;
 import com.tuttur.util.BasePageUtil;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 
 
 import java.io.IOException;
 
 public class ForgotPassTest extends BaseTest {
 
+
     PropertiesFile prop = new PropertiesFile(driver);
     BasePageUtil base = new BasePageUtil(driver);
+    //MainPage main = new MainPage(driver);
 
 
     /**
@@ -24,16 +27,17 @@ public class ForgotPassTest extends BaseTest {
     @Test
     public void successForgotPasswordWithSms() throws IOException, InterruptedException {
 
+        ForgotPassPage fp = new ForgotPassPage(driver);
         base.getSheet("ForgotPassData");
 
-        new MainPage(driver).getLoginPage()
+                new MainPage(driver).getLoginPage()
                 .getForgotPassModal()
                 .setUserInfo(1)
                 .clickResetPassword()
                 .checkboxClick(0)
                 .clickButtonSend()
-                .setVerifyCode(prop.getObject("verifyCodeGsm"))
-                .changePassword();
+                .setVerifyCode(fp.verifyCode(prop.getData(1,8)))
+                .changePassword(1,2);
         new LoginPage(driver).login(1, "non-contract")
                 .checkUsernameText(1 ,6);
     }
@@ -49,6 +53,7 @@ public class ForgotPassTest extends BaseTest {
 
     public void successForgotPasswordWithEmail() throws IOException, InterruptedException {
 
+        ForgotPassPage fp = new ForgotPassPage(driver);
         base.getSheet("ForgotPassData");
 
         new MainPage(driver).getLoginPage()
@@ -58,8 +63,8 @@ public class ForgotPassTest extends BaseTest {
                 .checkboxClick(1)
                 .clickButtonSend()
                 .setVerifyCode(prop.getObject("verifyCodeEmail"))
-                .changePassword();
-        new LoginPage(driver).login(1, "non-contract")
+                .changePassword(2,2);
+        new LoginPage(driver).login(2, "non-contract")
                 .checkUsernameText(2,6);
     }
 
@@ -88,6 +93,7 @@ public class ForgotPassTest extends BaseTest {
     @Test
     public void unmatchPasswordControl() throws IOException {
 
+        ForgotPassPage fp = new ForgotPassPage(driver);
         base.getSheet("ForgotPassData");
 
         new MainPage(driver).getLoginPage()
@@ -96,27 +102,27 @@ public class ForgotPassTest extends BaseTest {
                 .clickResetPassword()
                 .checkboxClick(0)
                 .clickButtonSend()
-                .setVerifyCode(prop.getObject("verifyCodeGsm"))
+                .setVerifyCode(fp.verifyCode(prop.getData(4,8)))
                 .checkUnmatchPassword();
     }
 
-    /**
-     * Case 1.3
-     * Verify code
-     */
-    @Test
-    public void verifyCodeTest() throws IOException {
-
-        base.getSheet("ForgotPassData");
-
-        new MainPage(driver).getLoginPage()
-                .getForgotPassModal()
-                .setUserInfo(5)
-                .clickResetPassword()
-                .checkboxClick(0)
-                .clickButtonSend()
-                .countdown();
-    }
+//    /**
+//     * Case 1.3
+//     * Verify code
+//     */
+//    @Test
+//    public void verifyCodeTest() throws IOException {
+//
+//        base.getSheet("ForgotPassData");
+//
+//        new MainPage(driver).getLoginPage()
+//                .getForgotPassModal()
+//                .setUserInfo(5)
+//                .clickResetPassword()
+//                .checkboxClick(0)
+//                .clickButtonSend()
+//                .countdown();
+//    }
 
 
 }

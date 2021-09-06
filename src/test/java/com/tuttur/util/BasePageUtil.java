@@ -3,6 +3,7 @@ package com.tuttur.util;
 
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,7 +15,7 @@ import java.util.Set;
 
 public class BasePageUtil {
 
-	protected WebDriver driver;
+	public WebDriver driver;
 
 	
 	public BasePageUtil(WebDriver driver) {
@@ -232,6 +233,18 @@ public class BasePageUtil {
 		wait.until(ExpectedConditions.elementToBeClickable(elementBy));
 	}
 
+	public void waitForPageLoad(){
+
+		ExpectedCondition<Boolean> pageLoadCondition = new
+				ExpectedCondition<Boolean>() {
+					public Boolean apply(WebDriver driver) {
+						return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+					}
+				};
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(pageLoadCondition);
+
+	}
 
 
 	public void waitForElement(WebElement elm , int seconds) {

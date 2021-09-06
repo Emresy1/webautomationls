@@ -3,6 +3,8 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 
+import com.tuttur.constants.RegisterPage_Constants;
+import com.tuttur.constants.WelcomePage_Constants;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
 
@@ -11,11 +13,13 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Array;
 import java.util.*;
@@ -34,6 +38,7 @@ public class MainPage extends MainPage_Constants {
     BasePageUtil base = new BasePageUtil(driver);
     ExcelUtil util = new ExcelUtil(driver);
     Actions action = new Actions(driver);
+    JavascriptExecutor js = (JavascriptExecutor) driver;
 
 
     boolean contains = false;
@@ -164,9 +169,16 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkRedirectSocialMediaUrl() throws InterruptedException, IOException {
 
 
-        scrollToElement(FACEBOOK);
+
+        waitForPageLoad();
+        js.executeScript("window.scrollBy(0,2000)");
+
+        clickObjectBy(new RegisterPage_Constants(driver).BUTTON_CLOSE_COOKİE_BAR);
+
+
 
         for (int i = 0; i < socialMediaElements().size(); i++) {
+
 
             socialMediaElements().get(i).click();
 
@@ -187,13 +199,21 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkRedirectStoreUrl() throws IOException {
 
-        WebElement[] market = {getElementBy(APPLE_MARKET), getElementBy(ANDROID_MARKET)};
+        waitForPageLoad();
+        js.executeScript("window.scrollBy(0,2000)");
+
+        clickObjectBy(new RegisterPage_Constants(driver).BUTTON_CLOSE_COOKİE_BAR);
+
+        WebElement[] market = {getElementBy(APPLE_MARKET),
+                               getElementBy(HUAWEI_MARKET),
+                               getElementBy(GALAXY_STORE)};
         List<WebElement> markets = Arrays.asList(market);
 
         base.getSheet("NavigationUrl");
-        List<String> marketsUrl = util.getRowDataAll(49, 51);
+        List<String> marketsUrl = util.getRowDataAll(55, 58);
 
         for (int i = 0; i < markets.size(); i++) {
+
 
             markets.get(i).click();
             switchToWindows();
@@ -211,15 +231,17 @@ public class MainPage extends MainPage_Constants {
     private List<String> socialMediaUrl() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> socialMedia = util.getRowDataAll(42, 46);
+        List<String> socialMedia = util.getRowDataAll(48, 52);
 
         return socialMedia;
     }
 
     private List<WebElement> socialMediaElements() {
 
-        WebElement[] socialMedia = {getElementBy(FACEBOOK), getElementBy(TWITTER), getElementBy(INSTAGRAM),
-                getElementBy(YOUTUBE)};
+        WebElement[] socialMedia = {getElementBy(FACEBOOK),
+                                    getElementBy(TWITTER),
+                                    getElementBy(INSTAGRAM),
+                                    getElementBy(YOUTUBE)};
         List<WebElement> social = Arrays.asList(socialMedia);
 
         return social;

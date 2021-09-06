@@ -24,7 +24,8 @@ public class MainPage_Constants extends BasePageUtil{
 	public By INSTAGRAM = By.className("footerContent-socials-instagram");
 	public By YOUTUBE =By.className("footerContent-socials-youtube");
 	public By APPLE_MARKET = By.className("footerContentDownloads-appStore");
-	public By ANDROID_MARKET = By.className("footerContentDownloads-androidImg");
+	public By ANDROID_MARKET = By.className("footerContentDownloads-playStore");
+	public By HUAWEI_MARKET = By.className("footerContentDownloads-huaweiStore");
 	public By GALAXY_STORE = By.className("footerContentDownloads-samsungStore");
 	public By HUAWEI_STORE = By.className("footerContentDownloads-huaweiStore");
 	public By HEADER_IDDAA_BUTTON = By.cssSelector(".headerMenu-item");

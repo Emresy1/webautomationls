@@ -3,6 +3,7 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.ForgotPass_Constants;
+import com.tuttur.test.ForgotPassTest;
 import com.tuttur.util.ExcelUtil;
 import static org.junit.Assert.assertTrue;
 
@@ -64,6 +65,7 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     public ForgotPassPage setUserInfo(int rowNumber) throws IOException {
 
+        waitForElement(driver,OPT_WAIT_4_ELEMENT,SSN);
         setSSN(rowNumber);
         register.setBirthDate(rowNumber, 1, 2);
 
@@ -109,11 +111,12 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
 
         waitForElement(driver,OPT_WAIT_4_ELEMENT, TIMER);
+
+        sleep(1);
         int loopCount = 180;
 
             while (0 < loopCount) {
 
-                sleep(1);
                 String timer = getElementBy(TIMER).getText().trim();
                 int intTimer = Integer.parseInt(timer);
 
@@ -127,11 +130,19 @@ public class ForgotPassPage extends ForgotPass_Constants {
         return this;
 
     }
+    public String verifyCode(String number){
+
+        String verifyQuery = "SELECT activationcode FROM playermobileactivation WHERE mobile='" + number + "'ORDER by requesttime DESC OFFSET 0 LIMIT 1;";
+
+        return verifyQuery;
+    }
 
     public ForgotPassPage setVerifyCode(String verifyCode) throws IOException {
 
-        String smsCodePass = db.getValidationCode(verifyCode);
-        setObjectBy(VERIFY_CODE_FIELD, smsCodePass);
+        int smsCodePass = db.getValidationCodeInt(verifyCode,1);
+        System.out.println(smsCodePass + "*******");
+
+        setObjectBy(VERIFY_CODE_FIELD, " '"+smsCodePass+"'");
         clickObjectBy(VERIFY_BUTTON);
 
         return this;
@@ -144,12 +155,12 @@ public class ForgotPassPage extends ForgotPass_Constants {
     }
 
 
-    public LoginPage changePassword() throws IOException, InterruptedException {
+    public LoginPage changePassword(int rowNumber, int cellNumber) throws IOException, InterruptedException {
 
         fillPasswordInput();
         clickObjectBy(CHANGE_BUTTON);
         checkPasswordChange();
-        setData(general.newPasswordChange, 1, 2);
+        setData(general.newPasswordChange, rowNumber, cellNumber);
         clickObjectBy(LOGIN_BUTTON);
 
         return new LoginPage(driver);
