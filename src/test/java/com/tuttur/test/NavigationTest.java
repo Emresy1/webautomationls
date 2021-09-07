@@ -39,17 +39,17 @@ public class NavigationTest extends BaseTest {
 
     }
 
-    /**
-     * Case 1.2
-     * Header alt menü yönlendirmeleri
-     * @throws IOException
-     */
-
-    @Test
-    public void headerSubmenuRedirect () throws IOException {
-
-        new NavigationPage(driver).checkSubmenuUrl();
-    }
+//    /**
+//     * Case 1.2
+//     * Header alt menü yönlendirmeleri
+//     * @throws IOException
+//     */
+//
+//    @Test
+//    public void headerSubmenuRedirect () throws IOException {
+//
+//        new NavigationPage(driver).checkSubmenuUrl();
+//    }
 
     /**
      * Case 1.3

@@ -184,7 +184,8 @@ public class MainPage extends MainPage_Constants {
 
             switchToWindows();
 
-            Assert.assertEquals(driver.getCurrentUrl(), socialMediaUrl().get(i));
+            driver.getCurrentUrl().contains(socialMediaUrl().get(i));
+
 
             driver.close();
 
@@ -210,7 +211,7 @@ public class MainPage extends MainPage_Constants {
         List<WebElement> markets = Arrays.asList(market);
 
         base.getSheet("NavigationUrl");
-        List<String> marketsUrl = util.getRowDataAll(55, 58);
+        List<String> marketsUrl = util.getRowDataAll(56, 59);
 
         for (int i = 0; i < markets.size(); i++) {
 

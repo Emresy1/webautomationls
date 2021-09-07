@@ -25,7 +25,7 @@ public class NavigationPage extends Navigation_Constants {
 
         List<WebElement> headerMenus = findElements(HEADER_MAIN_MENU);
 
-        int subCount = 0;
+        int subMenuIndex = 0;
         int headerCount = 0;
         for (int headerIndex = headerCount; headerIndex < headerMenus.size(); headerIndex++) {
 
@@ -34,20 +34,19 @@ public class NavigationPage extends Navigation_Constants {
 
             List<WebElement> subMenus = findElements(HEADER_SUBMENU);
 
-
             if (subMenus.size() != 0) {
 
-                //  WebElement headerMenuActive = driver.findElement(HEADER_MENU_ACTIVE);
                 String headerMenuActive = driver.findElement(HEADER_MENU_ACTIVE).getText();
 
-                for (int i = subCount; i < subMenus.size(); i++) {
+                for (int i = subMenuIndex; i < subMenus.size(); i++) {
 
                     if (headerMenuActive.equals("İDDAA")) {
 
-
                         subMenus.get(i).click();
 
-                        assertTrue(subUrl().contains(betSubmenus().get(i)));
+                        assertTrue(subUrl().contains(betSubmenus().get(i)) ||
+                                subUrl().contains(betSubmenus().get(i + 1))         ||
+                                subUrl().contains(betSubmenus().get(i+2)));
 
                     } else if (headerMenuActive.equals("SOSYAL BAHİS")) {
 
@@ -82,7 +81,9 @@ public class NavigationPage extends Navigation_Constants {
 
     }
 
-    public NavigationPage checkShortcutMenuUrl() throws IOException {
+    public boolean checkShortcutMenuUrl() throws IOException {
+
+        boolean isEquals = false;
 
         int count = 0;
         List<WebElement> shortcutList = findElements(SHORTCUT_MENU);
@@ -90,9 +91,10 @@ public class NavigationPage extends Navigation_Constants {
         for (int i = count; i < shortcutList.size(); i++) {
             shortcutList.get(i).click();
 
-            assertEquals("Url hatalı", subUrl(), shortcutMenus().get(i));
+            isEquals = subUrl().contains(shortcutMenus().get(i));
+            
         }
-        return this;
+        return isEquals;
 
     }
 
@@ -107,7 +109,7 @@ public class NavigationPage extends Navigation_Constants {
     private List<String> betSubmenus() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> betUrlData = util.getRowDataAll(8, 19);
+        List<String> betUrlData = util.getRowDataAll(8, 20);
 
         return betUrlData;
 
@@ -116,7 +118,7 @@ public class NavigationPage extends Navigation_Constants {
     private List<String> socialSubMenus() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> socialUrlData = util.getRowDataAll(22, 28);
+        List<String> socialUrlData = util.getRowDataAll(23, 30);
 
         return socialUrlData;
 
@@ -143,7 +145,7 @@ public class NavigationPage extends Navigation_Constants {
     private List<String> shortcutMenus() throws IOException {
 
         base.getSheet("NavigationUrl");
-        List<String> shortcutUrlData = util.getRowDataAll(37, 44);
+        List<String> shortcutUrlData = util.getRowDataAll(38, 47);
 
         return shortcutUrlData;
 
