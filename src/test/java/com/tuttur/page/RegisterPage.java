@@ -159,6 +159,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     public RegisterPage clickMembershipApprove(int index) throws InterruptedException, IOException {
 
+
         List<WebElement> checkbox = findElements(CHECKBOX);
         scrollToElement(LASTNAME);
 
@@ -169,7 +170,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
                 for (int loopCount = count; loopCount < checkbox.size(); loopCount++) {
 
-                    waitForElement(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
+                    waitForElementClickable(driver, OPT_WAIT_4_ELEMENT, CHECKBOX);
                     checkbox.get(loopCount).click();
 
             }
