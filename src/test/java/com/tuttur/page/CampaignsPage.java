@@ -96,6 +96,8 @@ public class CampaignsPage extends CampaignsPage_Constants {
     public void isExistCampaignInLogin(String campaignName){
 
         int size = 0;
+        waitForElement(driver,MAX_WAIT_4_ELEMENT,CAMPAIGN_ITEM);
+
         if (driver.findElements(CAMPAIGN_ITEM).size() != size) {
             List<WebElement> campaignItem = driver.findElements(CAMPAIGN_ITEM)
                     .stream()

@@ -271,7 +271,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
     public WelcomePage smsActivation() throws IOException {
 
-        driver.navigate().refresh();
+        waitForElement(driver,MAX_WAIT_4_ELEMENT,ACTIVATION_FIELD);
         WebElement activationModal = getElementBy(ACTIVATION_FIELD);
 
         String smsCode = db.getValidationCode(prop.getObject("verifyCode"));

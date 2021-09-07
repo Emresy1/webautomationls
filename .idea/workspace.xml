@@ -28,12 +28,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="Jenkins test cases fix">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="RegisterPage.checkFormErrorMessage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -290,14 +287,7 @@
       <workItem from="1630596083671" duration="12549000" />
       <workItem from="1630783208422" duration="522000" />
       <workItem from="1630783979834" duration="627000" />
-      <workItem from="1630784613781" duration="23960000" />
-    </task>
-    <task id="LOCAL-00097" summary="jenkins set up">
-      <created>1630067808541</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1630067808541</updated>
+      <workItem from="1630784613781" duration="24722000" />
     </task>
     <task id="LOCAL-00098" summary="jenkins set up">
       <created>1630068973675</created>
@@ -635,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630998598952</updated>
     </task>
-    <option name="localTasksCounter" value="146" />
+    <task id="LOCAL-00146" summary="RegisterPage.checkFormErrorMessage">
+      <created>1631004375629</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1631004375629</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +664,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="MainPage.checkStatusName" />
     <MESSAGE value="DashboardTest.popularWidgetTest" />
     <MESSAGE value="CampaignsTest" />
     <MESSAGE value="BaseTest.setUp" />
@@ -692,7 +688,8 @@
     <MESSAGE value="LoginTest" />
     <MESSAGE value="DashboardTest" />
     <MESSAGE value="Jenkins test cases fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Jenkins test cases fix" />
+    <MESSAGE value="RegisterPage.checkFormErrorMessage" />
+    <option name="LAST_COMMIT_MESSAGE" value="RegisterPage.checkFormErrorMessage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
