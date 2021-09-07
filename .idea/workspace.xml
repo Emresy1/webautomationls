@@ -28,7 +28,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="LoginTest" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="DashboardTest">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
+    </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +104,7 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest.successfulllyLoginWithSsn">
+  <component name="RunManager" selected="JUnit.RegisterTest.registerWithInvalidData">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -110,38 +114,6 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CampaignsTest.campaignTypeFourTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
-      <option name="METHOD_NAME" value="campaignTypeFourTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CampaignsTest.campaignTypeTwoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
-      <option name="METHOD_NAME" value="campaignTypeTwoTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -178,6 +150,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegisterTest.checkCredentialsDoNotMatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
+      <option name="METHOD_NAME" value="checkCredentialsDoNotMatch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RegisterTest.fieldsRuleCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
@@ -194,20 +182,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegisterTest.registerWithInvalidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
+      <option name="METHOD_NAME" value="registerWithInvalidData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />
-      <item itemvalue="JUnit.CampaignsTest.campaignTypeFourTest" />
       <item itemvalue="JUnit.RegisterTest.fieldsRuleCheck" />
       <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
       <item itemvalue="JUnit.LoginTest.successfulllyLoginWithSsn" />
+      <item itemvalue="JUnit.RegisterTest.checkCredentialsDoNotMatch" />
+      <item itemvalue="JUnit.RegisterTest.registerWithInvalidData" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterTest.registerWithInvalidData" />
+        <item itemvalue="JUnit.RegisterTest.checkCredentialsDoNotMatch" />
         <item itemvalue="JUnit.LoginTest.successfulllyLoginWithSsn" />
         <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
         <item itemvalue="JUnit.RegisterTest.fieldsRuleCheck" />
-        <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />
-        <item itemvalue="JUnit.CampaignsTest.campaignTypeFourTest" />
       </list>
     </recent_temporary>
   </component>
@@ -284,14 +288,7 @@
       <workItem from="1630596083671" duration="12549000" />
       <workItem from="1630783208422" duration="522000" />
       <workItem from="1630783979834" duration="627000" />
-      <workItem from="1630784613781" duration="21132000" />
-    </task>
-    <task id="LOCAL-00095" summary="jenkins set up">
-      <created>1630060249067</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1630060249070</updated>
+      <workItem from="1630784613781" duration="22383000" />
     </task>
     <task id="LOCAL-00096" summary="jenkins set up">
       <created>1630067345647</created>
@@ -629,7 +626,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630950645988</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="DashboardTest">
+      <created>1630952258056</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1630952258056</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -661,7 +665,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="MainPage.isExistLiveWidget" />
     <MESSAGE value="MainPage.clickTotalOdd" />
     <MESSAGE value="MainPage.checkStatusName" />
     <MESSAGE value="DashboardTest.popularWidgetTest" />
@@ -686,7 +689,8 @@
     <MESSAGE value="Test cases fix" />
     <MESSAGE value="runner.sh" />
     <MESSAGE value="LoginTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="LoginTest" />
+    <MESSAGE value="DashboardTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="DashboardTest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
