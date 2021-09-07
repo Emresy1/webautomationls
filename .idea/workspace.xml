@@ -28,12 +28,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="NavigationPage.checkShortcutMenuUrl">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="RegisterPage.waitForElementClickable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/NavigationPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/NavigationPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +104,7 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterTest.successfullyRegisterTest">
+  <component name="RunManager" selected="JUnit.RegisterTest.mandatoryFieldCheck">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -131,22 +129,6 @@
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.NavigationTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NavigationTest.checkRedirectStore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.NavigationTest" />
-      <option name="METHOD_NAME" value="checkRedirectStore" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -183,6 +165,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RegisterTest.mandatoryFieldCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
+      <option name="METHOD_NAME" value="mandatoryFieldCheck" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RegisterTest.successfullyRegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
@@ -201,18 +199,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.NavigationTest" />
-      <item itemvalue="JUnit.NavigationTest.checkRedirectStore" />
       <item itemvalue="JUnit.NavigationTest.headerSubmenuRedirect" />
       <item itemvalue="JUnit.NavigationTest.checkShortcutMenuRedirect" />
       <item itemvalue="JUnit.RegisterTest.successfullyRegisterTest" />
+      <item itemvalue="JUnit.RegisterTest.mandatoryFieldCheck" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterTest.mandatoryFieldCheck" />
         <item itemvalue="JUnit.RegisterTest.successfullyRegisterTest" />
         <item itemvalue="JUnit.NavigationTest" />
         <item itemvalue="JUnit.NavigationTest.checkShortcutMenuRedirect" />
         <item itemvalue="JUnit.NavigationTest.headerSubmenuRedirect" />
-        <item itemvalue="JUnit.NavigationTest.checkRedirectStore" />
       </list>
     </recent_temporary>
   </component>
@@ -289,14 +287,7 @@
       <workItem from="1630596083671" duration="12549000" />
       <workItem from="1630783208422" duration="522000" />
       <workItem from="1630783979834" duration="627000" />
-      <workItem from="1630784613781" duration="32566000" />
-    </task>
-    <task id="LOCAL-00100" summary="jenkins set up">
-      <created>1630070692871</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1630070692873</updated>
+      <workItem from="1630784613781" duration="34092000" />
     </task>
     <task id="LOCAL-00101" summary="jenkins set up">
       <created>1630266532625</created>
@@ -634,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631014791420</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="RegisterPage.waitForElementClickable">
+      <created>1631018346926</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1631018346928</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,7 +664,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="BaseTest.setUp" />
     <MESSAGE value="BasePageUtil" />
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="pom.xml" />
@@ -691,7 +688,8 @@
     <MESSAGE value="RegisterPage.checkFormErrorMessage" />
     <MESSAGE value="CampaignsPage.isExistCampaignInLogin" />
     <MESSAGE value="NavigationPage.checkShortcutMenuUrl" />
-    <option name="LAST_COMMIT_MESSAGE" value="NavigationPage.checkShortcutMenuUrl" />
+    <MESSAGE value="RegisterPage.waitForElementClickable" />
+    <option name="LAST_COMMIT_MESSAGE" value="RegisterPage.waitForElementClickable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

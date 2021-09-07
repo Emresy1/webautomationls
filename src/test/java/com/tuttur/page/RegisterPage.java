@@ -186,6 +186,7 @@ public class RegisterPage extends RegisterPage_Constants {
                 assertTrue("", getElementBy(WARNING_TEXT_ON_MODAL)
                         .getText().equals(prop.getObject("mandatoryFieldMessage")));
 
+                waitForElementClickable(driver,MAX_WAIT_4_ELEMENT,CHECKBOX);
                 checkbox.get(loopCount).click();
             }
            }
