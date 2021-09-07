@@ -205,7 +205,8 @@ public class RegisterPage extends RegisterPage_Constants {
 
     public void checkFormErrorMessage(String text){
 
-        waitForElement(driver,DEFAULT_WAIT_4_ELEMENT,WARNING_TEXT_ON_MODAL);
+
+        waitForElement(driver,MAX_WAIT_4_ELEMENT,WARNING_TEXT_ON_MODAL);
 
         assertTrue("Uyarı mesajı yanlış", getElementBy(WARNING_TEXT_ON_MODAL).getText()
                 .replace(")","").equals(text));

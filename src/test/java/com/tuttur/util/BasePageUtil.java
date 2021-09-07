@@ -28,6 +28,7 @@ public class BasePageUtil {
     public static final int DEFAULT_WAIT_4_ELEMENT = 10;
     public static final int OPT_WAIT_4_ELEMENT = 5;
     public static final int MIN_WAIT_4_ELEMENT = 2;
+    public static final int MAX_WAIT_4_ELEMENT = 20;
     public static final int RESEND_CODE_WAIT = 181;
 
 

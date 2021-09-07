@@ -28,10 +28,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="DashboardTest">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" afterDir="false" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="Jenkins test cases fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestData.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +106,7 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterTest.registerWithInvalidData">
+  <component name="RunManager" selected="JUnit.RegisterTest.registerWithBlockedUser">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -166,7 +168,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest.fieldsRuleCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterTest.registerWithBlockedUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
@@ -176,7 +178,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.RegisterTest" />
-      <option name="METHOD_NAME" value="fieldsRuleCheck" />
+      <option name="METHOD_NAME" value="registerWithBlockedUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -199,19 +201,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.RegisterTest.fieldsRuleCheck" />
       <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
       <item itemvalue="JUnit.LoginTest.successfulllyLoginWithSsn" />
       <item itemvalue="JUnit.RegisterTest.checkCredentialsDoNotMatch" />
       <item itemvalue="JUnit.RegisterTest.registerWithInvalidData" />
+      <item itemvalue="JUnit.RegisterTest.registerWithBlockedUser" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterTest.registerWithBlockedUser" />
         <item itemvalue="JUnit.RegisterTest.registerWithInvalidData" />
         <item itemvalue="JUnit.RegisterTest.checkCredentialsDoNotMatch" />
         <item itemvalue="JUnit.LoginTest.successfulllyLoginWithSsn" />
         <item itemvalue="JUnit.LoginTest.successfullyLoginWithUsername" />
-        <item itemvalue="JUnit.RegisterTest.fieldsRuleCheck" />
       </list>
     </recent_temporary>
   </component>
@@ -288,14 +290,7 @@
       <workItem from="1630596083671" duration="12549000" />
       <workItem from="1630783208422" duration="522000" />
       <workItem from="1630783979834" duration="627000" />
-      <workItem from="1630784613781" duration="22383000" />
-    </task>
-    <task id="LOCAL-00096" summary="jenkins set up">
-      <created>1630067345647</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1630067345648</updated>
+      <workItem from="1630784613781" duration="23960000" />
     </task>
     <task id="LOCAL-00097" summary="jenkins set up">
       <created>1630067808541</created>
@@ -633,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630952258056</updated>
     </task>
-    <option name="localTasksCounter" value="145" />
+    <task id="LOCAL-00145" summary="Jenkins test cases fix">
+      <created>1630998598951</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1630998598952</updated>
+    </task>
+    <option name="localTasksCounter" value="146" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,7 +667,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="MainPage.clickTotalOdd" />
     <MESSAGE value="MainPage.checkStatusName" />
     <MESSAGE value="DashboardTest.popularWidgetTest" />
     <MESSAGE value="CampaignsTest" />
@@ -690,7 +691,8 @@
     <MESSAGE value="runner.sh" />
     <MESSAGE value="LoginTest" />
     <MESSAGE value="DashboardTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="DashboardTest" />
+    <MESSAGE value="Jenkins test cases fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jenkins test cases fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -749,6 +751,21 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/LoginTest.java</url>
           <line>53</line>
           <option name="timeStamp" value="188" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java</url>
+          <line>201</line>
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/RegisterTest.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="192" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.AssertionError" package="java.lang" />
