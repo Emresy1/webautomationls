@@ -704,14 +704,21 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
-    public CampaignsPage getCampaignsPage() {
+    public CampaignsPage getCampaignsPage() throws IOException {
 
-        int count =0;
-        if (driver.findElements(By.className("modal-container")).size() !=count) {
+        try {
 
-            waitForElementDisappear(getElementBy(By.className("modal-container")));
+            waitForElementDisappear(getElementBy(MODAL_CONTAINER));
         }
-        clickObjectBy(CAMPAIGNS_ICON);
+        catch (Exception exp){
+
+           System.out.println(prop.getObject("contractMessage"));
+        }
+        finally {
+
+            clickObjectBy(CAMPAIGNS_ICON);
+        }
+
 
         return new CampaignsPage(driver);
 
