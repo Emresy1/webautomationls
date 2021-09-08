@@ -389,7 +389,6 @@ public class MainPage extends MainPage_Constants {
                               "MOTOR SPORLARI",
                               "UZUN VADELİ"};
 
-        System.out.println(getElementBy(By.className("tabView-tabLabels")).getText());
         String activeTab = getElementBy(WIDGET_ACTIVE_TAB).getText();
 
         if (getElementBy(TAB_VIEW_LABELS).getText().contains(branches[0])){
