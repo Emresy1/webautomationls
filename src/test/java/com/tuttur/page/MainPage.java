@@ -389,10 +389,26 @@ public class MainPage extends MainPage_Constants {
                               "MOTOR SPORLARI",
                               "UZUN VADELİ"};
 
-        for (int i=0; i < branchListInWidget(widgetName).size(); i++){
+        System.out.println(getElementBy(By.className("tabView-tabLabels")).getText());
+        String activeTab = getElementBy(WIDGET_ACTIVE_TAB).getText();
 
+        if (getElementBy(TAB_VIEW_LABELS).getText().contains(branches[0])){
 
+            assertTrue(activeTab.equals(branches[0]));
         }
+        else if (!getElementBy(TAB_VIEW_LABELS).getText().contains(branches[0])){
+
+            assertTrue(activeTab.equals(branches[1]));
+        }
+        else if (!getElementBy(TAB_VIEW_LABELS).getText().contains(branches[1])){
+
+            assertTrue(activeTab.equals(branches[2]));
+        }
+        else if (!getElementBy(TAB_VIEW_LABELS).getText().contains(branches[2])){
+
+            assertTrue(activeTab.equals(branches[3]));
+        }
+
         return this;
     }
 
