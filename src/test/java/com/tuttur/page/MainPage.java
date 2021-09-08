@@ -2,15 +2,11 @@ package com.tuttur.page;
 
 
 import com.tuttur.configs.PropertiesFile;
-
 import com.tuttur.constants.RegisterPage_Constants;
-import com.tuttur.constants.WelcomePage_Constants;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -18,13 +14,9 @@ import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
-import java.io.File;
 import java.io.IOException;
-import java.sql.Array;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 public class MainPage extends MainPage_Constants {
@@ -382,10 +374,25 @@ public class MainPage extends MainPage_Constants {
     }
 
 
-    public MainPage checkDefaultBranch(By widgetName, String branch) {
+    public MainPage checkDefaultBranch(By widgetName) {
 
-        waitForElement(driver,OPT_WAIT_4_ELEMENT,widgetName);
-        Assert.assertEquals(branchListInWidget(widgetName).get(0).getText(), branch);
+        waitForElement(driver,MAX_WAIT_4_ELEMENT,widgetName);
+
+        String [] branches = {"FUTBOL",
+                              "BASKETBOL",
+                              "TENİS",
+                              "MASA TENİSİ",
+                              "VOLEYBOL",
+                              "BUZ HOKEYİ",
+                              "HENTBOL",
+                              "SNOOKER",
+                              "MOTOR SPORLARI",
+                              "UZUN VADELİ"};
+
+        for (int i=0; i < branchListInWidget(widgetName).size(); i++){
+
+
+        }
         return this;
     }
 
@@ -620,7 +627,6 @@ public class MainPage extends MainPage_Constants {
 
             checkStatus(POPULAR_WIDGET, statusNamePopular());
 
-
         }
     }
 
@@ -677,7 +683,7 @@ public class MainPage extends MainPage_Constants {
 
         scrollToElement(WIDGET_TEXT);
         isExistWidget(1, "YAKIN ZAMANDA BAŞLAYACAKLAR");
-        checkDefaultBranch(NEAR_FUTURE_WİDGET, "YAKIN ZAMANDA BAŞLAYACAKLAR");
+     //   checkDefaultBranch(NEAR_FUTURE_WİDGET, "YAKIN ZAMANDA BAŞLAYACAKLAR");
 
         return this;
     }

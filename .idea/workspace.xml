@@ -28,10 +28,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="RegisterPage.waitForElementClickable">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="RegisterPage waitForElementClickable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/CampaignsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/CampaignsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/DashboardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/RegisterPage.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +107,7 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RegisterTest.mandatoryFieldCheck">
+  <component name="RunManager" selected="JUnit.CampaignsTest.campaignTypeFourTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -114,6 +117,38 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CampaignsTest.campaignTypeFourTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
+      <option name="METHOD_NAME" value="campaignTypeFourTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DashboardTest.popularWidgetTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.DashboardTest" />
+      <option name="METHOD_NAME" value="popularWidgetTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -129,38 +164,6 @@
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
       <option name="MAIN_CLASS_NAME" value="com.tuttur.test.NavigationTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NavigationTest.checkShortcutMenuRedirect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.NavigationTest" />
-      <option name="METHOD_NAME" value="checkShortcutMenuRedirect" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NavigationTest.headerSubmenuRedirect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.NavigationTest" />
-      <option name="METHOD_NAME" value="headerSubmenuRedirect" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -199,18 +202,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.NavigationTest" />
-      <item itemvalue="JUnit.NavigationTest.headerSubmenuRedirect" />
-      <item itemvalue="JUnit.NavigationTest.checkShortcutMenuRedirect" />
       <item itemvalue="JUnit.RegisterTest.successfullyRegisterTest" />
       <item itemvalue="JUnit.RegisterTest.mandatoryFieldCheck" />
+      <item itemvalue="JUnit.DashboardTest.popularWidgetTest" />
+      <item itemvalue="JUnit.CampaignsTest.campaignTypeFourTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CampaignsTest.campaignTypeFourTest" />
+        <item itemvalue="JUnit.DashboardTest.popularWidgetTest" />
         <item itemvalue="JUnit.RegisterTest.mandatoryFieldCheck" />
         <item itemvalue="JUnit.RegisterTest.successfullyRegisterTest" />
         <item itemvalue="JUnit.NavigationTest" />
-        <item itemvalue="JUnit.NavigationTest.checkShortcutMenuRedirect" />
-        <item itemvalue="JUnit.NavigationTest.headerSubmenuRedirect" />
       </list>
     </recent_temporary>
   </component>
@@ -287,14 +290,7 @@
       <workItem from="1630596083671" duration="12549000" />
       <workItem from="1630783208422" duration="522000" />
       <workItem from="1630783979834" duration="627000" />
-      <workItem from="1630784613781" duration="34092000" />
-    </task>
-    <task id="LOCAL-00101" summary="jenkins set up">
-      <created>1630266532625</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1630266532627</updated>
+      <workItem from="1630784613781" duration="39075000" />
     </task>
     <task id="LOCAL-00102" summary="jenkins set up">
       <created>1630267541618</created>
@@ -632,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631018346928</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="RegisterPage waitForElementClickable">
+      <created>1631024220970</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1631024220972</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +667,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="BasePageUtil" />
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="pom.xml" />
     <MESSAGE value="jenkins db set up" />
@@ -689,7 +691,8 @@
     <MESSAGE value="CampaignsPage.isExistCampaignInLogin" />
     <MESSAGE value="NavigationPage.checkShortcutMenuUrl" />
     <MESSAGE value="RegisterPage.waitForElementClickable" />
-    <option name="LAST_COMMIT_MESSAGE" value="RegisterPage.waitForElementClickable" />
+    <MESSAGE value="RegisterPage waitForElementClickable" />
+    <option name="LAST_COMMIT_MESSAGE" value="RegisterPage waitForElementClickable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -753,6 +756,16 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/NavigationPage.java</url>
           <line>52</line>
           <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/DashboardTest.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="200" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/CampaignsTest.java</url>
+          <line>142</line>
+          <option name="timeStamp" value="201" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.AssertionError" package="java.lang" />

@@ -45,7 +45,7 @@ public class DashboardTest extends BaseTest {
 
                 main.isExistWidget(0, "CANLI OYNANANLAR")
                 .isExistBranchInWidget(cons.LIVE_WIDGET)
-                .checkDefaultBranch(cons.LIVE_WIDGET, "FUTBOL")
+                .checkDefaultBranch(cons.LIVE_WIDGET)
                 .scrollToElement(cons.LIVE_WIDGET);
                 main.checkEventItemsInBranch(cons.LIVE_WIDGET, cons.LIVE_EVENT,
                 main.eventRowLiveItems(),0, prop.getObject("liveBulletin"))
@@ -68,7 +68,7 @@ public class DashboardTest extends BaseTest {
 
                 main.scrollToWidget(1)
                 .isExistWidget(1, "YAKIN ZAMANDA BAŞLAYACAKLAR")
-                .checkDefaultBranch(cons.NEAR_FUTURE_WİDGET, "FUTBOL")
+                .checkDefaultBranch(cons.NEAR_FUTURE_WİDGET)
                 .checkEventItemsInBranch(cons.NEAR_FUTURE_WİDGET, cons.EVENT_ROW,
                         main.eventRowItems(),1, prop.getObject("bulletin"))
                 .getDashboard()
@@ -89,7 +89,7 @@ public class DashboardTest extends BaseTest {
 
                 main.scrollToWidget(2)
                 .isExistWidget(2, "POPÜLER MAÇLAR")
-                .checkDefaultBranch(cons.POPULAR_WIDGET, "FUTBOL")
+                .checkDefaultBranch(cons.POPULAR_WIDGET)
                 .checkEventItemsInBranch(cons.POPULAR_WIDGET, cons.EVENT_ROW,
                         main.eventRowItems(),2, prop.getObject("popular"))
                 .getDashboard()

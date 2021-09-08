@@ -99,10 +99,12 @@ public class CampaignsPage extends CampaignsPage_Constants {
         waitForElement(driver,MAX_WAIT_4_ELEMENT,CAMPAIGN_ITEM);
 
         if (driver.findElements(CAMPAIGN_ITEM).size() != size) {
-            List<WebElement> campaignItem = driver.findElements(CAMPAIGN_ITEM)
-                    .stream()
-                    .filter(campaign -> campaign.findElement(CAMPAIGN_NAME).getText().equals(campaignName))
-                    .collect(Collectors.toList());
+            List<WebElement> campaignItem = driver.findElements(CAMPAIGN_ITEM);
+
+            for (WebElement item: campaignItem) {
+
+                Assert.assertFalse(item.getText().equals(campaignName));
+            }
 
            assertTrue(campaignItem.size() == size);
 
