@@ -105,9 +105,6 @@ public class CampaignsPage extends CampaignsPage_Constants {
 
                 Assert.assertFalse(item.getText().equals(campaignName));
             }
-
-           assertTrue(campaignItem.size() == size);
-
         }
     }
 

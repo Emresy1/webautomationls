@@ -28,12 +28,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="RegisterPage waitForElementClickable">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="MainPage.checkDefaultBranch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/CampaignsPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/CampaignsPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -290,14 +286,7 @@
       <workItem from="1630596083671" duration="12549000" />
       <workItem from="1630783208422" duration="522000" />
       <workItem from="1630783979834" duration="627000" />
-      <workItem from="1630784613781" duration="40092000" />
-    </task>
-    <task id="LOCAL-00103" summary="jenkins set up">
-      <created>1630267958387</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1630267958387</updated>
+      <workItem from="1630784613781" duration="41652000" />
     </task>
     <task id="LOCAL-00104" summary="jenkins set up">
       <created>1630268190073</created>
@@ -635,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631084886158</updated>
     </task>
-    <option name="localTasksCounter" value="152" />
+    <task id="LOCAL-00152" summary="MainPage.checkDefaultBranch">
+      <created>1631086137724</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1631086137725</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -667,7 +663,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="workspace.xml" />
     <MESSAGE value="pom.xml" />
     <MESSAGE value="jenkins db set up" />
     <MESSAGE value="jenkins set up" />
@@ -692,7 +687,8 @@
     <MESSAGE value="NavigationPage.checkShortcutMenuUrl" />
     <MESSAGE value="RegisterPage.waitForElementClickable" />
     <MESSAGE value="RegisterPage waitForElementClickable" />
-    <option name="LAST_COMMIT_MESSAGE" value="RegisterPage waitForElementClickable" />
+    <MESSAGE value="MainPage.checkDefaultBranch" />
+    <option name="LAST_COMMIT_MESSAGE" value="MainPage.checkDefaultBranch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -753,19 +749,14 @@
           <option name="timeStamp" value="198" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/DashboardTest.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="200" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/CampaignsTest.java</url>
           <line>142</line>
           <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/DashboardTest.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="202" />
+          <line>91</line>
+          <option name="timeStamp" value="203" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.AssertionError" package="java.lang" />
