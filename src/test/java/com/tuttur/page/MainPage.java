@@ -723,4 +723,38 @@ public class MainPage extends MainPage_Constants {
 
     }
 
+    public MainPage betSlipEmptyStateControl () throws IOException, InterruptedException {
+
+        assertEquals(getElementBy(MYCOUPON_BETSLIP).getText(),prop.getObject("myCouponTab"));
+        assertEquals(getElementBy(BETSLIP_EMPTY_STATE_TITLE).getText(),prop.getObject("emptyStateTitle"));
+        assertEquals(getElementBy(BETSLIP_EMPTY_STATE_DESC).getText(),prop.getObject("emptyStateDesc"));
+        liveMatchesRedirectControl();
+        assertTrue(!getElementBy(CONTINUI_BETSLIP).isEnabled());
+
+        return this;
+
+    }
+
+    private void liveMatchesRedirectControl () throws InterruptedException {
+
+      int  liveBetCount = Integer.parseInt(getElementBy(LIVEBET_SHORTCUT).getText());
+
+      if (liveBetCount>0) {
+         scrollToElement(LIVEBET_BTN_BETSLIP);
+         clickObjectBy(LIVEBET_BTN_BETSLIP);
+         waitForElement(driver,MIN_WAIT_4_ELEMENT,BULLETIN_FAV_TAB);
+         assertTrue(driver.getCurrentUrl().contains("canli"));
+
+      } else {
+
+          clickObjectBy(LIVEBET_BTN_BETSLIP);
+          assertTrue(driver.getCurrentUrl().contains("bulten"));
+
+      }
+
+
+    }
+
+
+
 }

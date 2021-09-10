@@ -75,6 +75,15 @@ public class MainPage_Constants extends BasePageUtil{
 	public By CAMPAIGNS_BADGE = By.className("campaignBadge-countText");
 	public By CAMPAIGNS_CTA = By.className("headerTop-ctaButtons-button");
 	public By CAMPAIGNS_EMPTY_STATE = By.className("emptyState");
+	public By MYCOUPON_BETSLIP = By.id("tabButtonActive");
+    public By BETSLIP_EMPTY_STATE_TITLE = By.className("betslipState-title");
+    public By BETSLIP_EMPTY_STATE_DESC = By.className("betslipState-description");
+    public By LIVEBET_SHORTCUT = By.className("branches-img");
+    public By LIVEBET_BTN_BETSLIP = By.cssSelector(".medium.primary.button.undefined");
+    public By BULLETIN_FAV_TAB = By.className("sportsbookInPlayFiltersRow-filterButtons");
+    public By CONTINUI_BETSLIP = By.id("tabButton");
+
+
 
 
 
