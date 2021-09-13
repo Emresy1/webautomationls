@@ -17,6 +17,7 @@ import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -220,6 +221,44 @@ public class MainPage extends MainPage_Constants {
         }
 
         return this;
+    }
+
+    public void downloadApk(){
+
+        List<WebElement> store =driver.findElements(ANDROID_MARKET);
+
+        WebElement storeElement = store.get(store.size()-1);
+
+        storeElement.click();
+        sleep(5);
+    }
+    public void checkDownloadedApk(){
+
+        File folder = new File(System.getProperty("user.home") + "/Downloads/");
+
+        File[] listOfFiles = folder.listFiles();
+
+        boolean found = false;
+        File file = null;
+
+        for (File listOfFile : listOfFiles) {
+
+            if (listOfFile.isFile()) {
+
+                String fileName = listOfFile.getName();
+                System.out.println("File " + listOfFile.getName());
+
+                if (fileName.matches("tutturcom-v3-00.apk")) {
+
+                    file = new File(fileName);
+                    found = true;
+
+                    break;
+                }
+            }
+        }
+        Assert.assertTrue("Apk bulunamadı", found);
+        file.deleteOnExit();
     }
 
     private List<String> socialMediaUrl() throws IOException {
