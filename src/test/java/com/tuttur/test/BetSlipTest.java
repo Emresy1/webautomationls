@@ -12,7 +12,8 @@ public class BetSlipTest extends BaseTest {
     @Test
     public void emptyStateControl () throws IOException, InterruptedException {
 
-        new MainPage(driver).betSlipEmptyStateControl();
+        new MainPage(driver).betSlipEmptyStateItemsControl()
+                .liveMatchesRedirectControl();
 
     }
 }

@@ -4,3 +4,4 @@
 /usr/bin/mvn site test -Dtest=test.ForgotPassTest -e
 /usr/bin/mvn site test -Dtest=test.DashboardTest -e
 /usr/bin/mvn site test -Dtest=test.CampaignsTest -e
+/usr/bin/mvn site test -Dtest=test.BetSlipTest -e

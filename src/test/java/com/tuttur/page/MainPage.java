@@ -5,8 +5,10 @@ import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.RegisterPage_Constants;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -14,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -99,10 +102,10 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkUsernameText(int rowNumber, int cellNumber) throws IOException {
 
 
-            waitForElement(driver, MIN_WAIT_4_ELEMENT, USERNAMETEXT);
+        waitForElement(driver, MIN_WAIT_4_ELEMENT, USERNAMETEXT);
 
-            assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
-                    .equals(getData(rowNumber, cellNumber)));
+        assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
+                .equals(getData(rowNumber, cellNumber)));
 
 
         return this;
@@ -161,12 +164,10 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkRedirectSocialMediaUrl() throws InterruptedException, IOException {
 
 
-
         waitForPageLoad();
         js.executeScript("window.scrollBy(0,2000)");
 
         clickObjectBy(new RegisterPage_Constants(driver).BUTTON_CLOSE_COOKİE_BAR);
-
 
 
         for (int i = 0; i < socialMediaElements().size(); i++) {
@@ -198,8 +199,8 @@ public class MainPage extends MainPage_Constants {
         clickObjectBy(new RegisterPage_Constants(driver).BUTTON_CLOSE_COOKİE_BAR);
 
         WebElement[] market = {getElementBy(APPLE_MARKET),
-                               getElementBy(HUAWEI_MARKET),
-                               getElementBy(GALAXY_STORE)};
+                getElementBy(HUAWEI_MARKET),
+                getElementBy(GALAXY_STORE)};
         List<WebElement> markets = Arrays.asList(market);
 
         base.getSheet("NavigationUrl");
@@ -232,9 +233,9 @@ public class MainPage extends MainPage_Constants {
     private List<WebElement> socialMediaElements() {
 
         WebElement[] socialMedia = {getElementBy(FACEBOOK),
-                                    getElementBy(TWITTER),
-                                    getElementBy(INSTAGRAM),
-                                    getElementBy(YOUTUBE)};
+                getElementBy(TWITTER),
+                getElementBy(INSTAGRAM),
+                getElementBy(YOUTUBE)};
         List<WebElement> social = Arrays.asList(socialMedia);
 
         return social;
@@ -316,10 +317,10 @@ public class MainPage extends MainPage_Constants {
 
             List<WebElement> activeOdds = dynamicBanner.findElements(ODD_OUTCOME_BANNER);
 
-            List<WebElement> activeOdd =activeOdds.stream()
+            List<WebElement> activeOdd = activeOdds.stream()
                     .filter(odd -> !odd.getAttribute("class").contains("eventOdd--locked"))
                     .collect(Collectors.toList());
-            System.out.println(activeOdd.size() +"000");
+            System.out.println(activeOdd.size() + "000");
 
             if (activeOdd.size() > 0) {
 
@@ -376,34 +377,31 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkDefaultBranch(By widgetName) {
 
-        waitForElement(driver,MAX_WAIT_4_ELEMENT,widgetName);
+        waitForElement(driver, MAX_WAIT_4_ELEMENT, widgetName);
 
-        String [] branches = {"FUTBOL",
-                              "BASKETBOL",
-                              "TENİS",
-                              "MASA TENİSİ",
-                              "VOLEYBOL",
-                              "BUZ HOKEYİ",
-                              "HENTBOL",
-                              "SNOOKER",
-                              "MOTOR SPORLARI",
-                              "UZUN VADELİ"};
+        String[] branches = {"FUTBOL",
+                "BASKETBOL",
+                "TENİS",
+                "MASA TENİSİ",
+                "VOLEYBOL",
+                "BUZ HOKEYİ",
+                "HENTBOL",
+                "SNOOKER",
+                "MOTOR SPORLARI",
+                "UZUN VADELİ"};
 
         String activeTab = getElementBy(WIDGET_ACTIVE_TAB).getText();
 
-        if (getElementBy(TAB_VIEW_LABELS).getText().contains(branches[0])){
+        if (getElementBy(TAB_VIEW_LABELS).getText().contains(branches[0])) {
 
             assertTrue(activeTab.equals(branches[0]));
-        }
-        else if (!getElementBy(TAB_VIEW_LABELS).getText().contains(branches[0])){
+        } else if (!getElementBy(TAB_VIEW_LABELS).getText().contains(branches[0])) {
 
             assertTrue(activeTab.equals(branches[1]));
-        }
-        else if (!getElementBy(TAB_VIEW_LABELS).getText().contains(branches[1])){
+        } else if (!getElementBy(TAB_VIEW_LABELS).getText().contains(branches[1])) {
 
             assertTrue(activeTab.equals(branches[2]));
-        }
-        else if (!getElementBy(TAB_VIEW_LABELS).getText().contains(branches[2])){
+        } else if (!getElementBy(TAB_VIEW_LABELS).getText().contains(branches[2])) {
 
             assertTrue(activeTab.equals(branches[3]));
         }
@@ -698,7 +696,7 @@ public class MainPage extends MainPage_Constants {
 
         scrollToElement(WIDGET_TEXT);
         isExistWidget(1, "YAKIN ZAMANDA BAŞLAYACAKLAR");
-     //   checkDefaultBranch(NEAR_FUTURE_WİDGET, "YAKIN ZAMANDA BAŞLAYACAKLAR");
+        //   checkDefaultBranch(NEAR_FUTURE_WİDGET, "YAKIN ZAMANDA BAŞLAYACAKLAR");
 
         return this;
     }
@@ -708,12 +706,10 @@ public class MainPage extends MainPage_Constants {
         try {
 
             waitForElementDisappear(getElementBy(MODAL_CONTAINER));
-        }
-        catch (Exception exp){
+        } catch (Exception exp) {
 
-           System.out.println(prop.getObject("contractMessage"));
-        }
-        finally {
+            System.out.println(prop.getObject("contractMessage"));
+        } finally {
 
             clickObjectBy(CAMPAIGNS_ICON);
         }
@@ -723,38 +719,39 @@ public class MainPage extends MainPage_Constants {
 
     }
 
-    public MainPage betSlipEmptyStateControl () throws IOException, InterruptedException {
+    public MainPage betSlipEmptyStateItemsControl() throws IOException, InterruptedException {
 
-        assertEquals(getElementBy(MYCOUPON_BETSLIP).getText(),prop.getObject("myCouponTab"));
-        assertEquals(getElementBy(BETSLIP_EMPTY_STATE_TITLE).getText(),prop.getObject("emptyStateTitle"));
-        assertEquals(getElementBy(BETSLIP_EMPTY_STATE_DESC).getText(),prop.getObject("emptyStateDesc"));
-        liveMatchesRedirectControl();
+
+        boolean isTrue = getElementBy(MYCOUPON_BETSLIP).getText().equals("Kuponum") &&
+                getElementBy(BETSLIP_EMPTY_ICON).isDisplayed() &&
+                getElementBy(BETSLIP_EMPTY_STATE_TITLE).getText().equals(prop.getObject("emptyStateTitle")) &&
+                getElementBy(BETSLIP_EMPTY_STATE_DESC).getText().equals(prop.getObject("emptyStateDesc"));
+
+        assertTrue(isTrue);
         assertTrue(!getElementBy(CONTINUI_BETSLIP).isEnabled());
 
         return this;
 
     }
 
-    private void liveMatchesRedirectControl () throws InterruptedException {
+    public void liveMatchesRedirectControl() throws InterruptedException {
 
-      int  liveBetCount = Integer.parseInt(getElementBy(LIVEBET_SHORTCUT).getText());
+        int liveBetCount = Integer.parseInt(getElementBy(LIVEBET_SHORTCUT).getText());
 
-      if (liveBetCount>0) {
-         scrollToElement(LIVEBET_BTN_BETSLIP);
-         clickObjectBy(LIVEBET_BTN_BETSLIP);
-         waitForElement(driver,MIN_WAIT_4_ELEMENT,BULLETIN_FAV_TAB);
-         assertTrue(driver.getCurrentUrl().contains("canli"));
+        if (liveBetCount > 0) {
+            scrollToElement(LIVEBET_BTN_BETSLIP);
+            clickObjectBy(LIVEBET_BTN_BETSLIP);
+            waitForElement(driver, MIN_WAIT_4_ELEMENT, BULLETIN_FAV_TAB);
+            assertTrue(driver.getCurrentUrl().contains("canli"));
 
-      } else {
+        } else {
 
-          clickObjectBy(LIVEBET_BTN_BETSLIP);
-          assertTrue(driver.getCurrentUrl().contains("bulten"));
+            clickObjectBy(LIVEBET_BTN_BETSLIP);
+            assertTrue(driver.getCurrentUrl().contains("bulten"));
 
-      }
-
+        }
 
     }
-
 
 
 }

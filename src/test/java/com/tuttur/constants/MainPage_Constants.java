@@ -82,6 +82,7 @@ public class MainPage_Constants extends BasePageUtil{
     public By LIVEBET_BTN_BETSLIP = By.cssSelector(".medium.primary.button.undefined");
     public By BULLETIN_FAV_TAB = By.className("sportsbookInPlayFiltersRow-filterButtons");
     public By CONTINUI_BETSLIP = By.id("tabButton");
+    public By BETSLIP_EMPTY_ICON = By.cssSelector(".betslipState-icon.empty");
 
 
 
