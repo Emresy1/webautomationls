@@ -49,10 +49,15 @@ public class BaseTest {
 
 				if (browserName.equalsIgnoreCase("chrome")) {
 
-					System.setProperty("webdriver.gecko.driver", "properties/driver/chromedriver");
-					FirefoxOptions options = new FirefoxOptions();
+					HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+
+					System.setProperty("webdriver.chrome.driver", "properties/driver/chromedriver");
+					ChromeOptions options = new ChromeOptions();
+					chromePrefs.put("profile.default_content_settings.popups", 0);
+					chromePrefs.put("download.default_directory", System.getProperty("user.home"));
 					options.merge(capabilities);
-					driver = new FirefoxDriver();
+					options.setExperimentalOption("prefs",chromePrefs);
+					driver = new ChromeDriver();
 
 
 				} else if (browserName.equalsIgnoreCase("firefox")) {

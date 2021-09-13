@@ -35,7 +35,9 @@ public class NavigationTest extends BaseTest {
     @Test
     public void checkRedirectStore() throws IOException {
 
-        new MainPage(driver).checkRedirectStoreUrl();
+        new MainPage(driver).checkRedirectStoreUrl()
+                .downloadApk();
+        new MainPage(driver).checkDownloadedApk();
 
     }
 

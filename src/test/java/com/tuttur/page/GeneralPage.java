@@ -30,14 +30,11 @@ public class GeneralPage extends BasePage {
 
     public static String staticUsername = "betult787885";
 
+
     public int campaignId(int code){
-
-
 
         String campaign = "UPDATE application.campaign SET status = false WHERE id="+code+";";
         return db.getValidationCodeInt(campaign,1);
-
-
 
     }
 
