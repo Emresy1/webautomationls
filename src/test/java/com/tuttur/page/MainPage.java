@@ -767,7 +767,7 @@ public class MainPage extends MainPage_Constants {
                 getElementBy(BETSLIP_EMPTY_STATE_DESC).getText().equals(prop.getObject("emptyStateDesc"));
 
         assertTrue(isTrue);
-        assertTrue(!getElementBy(CONTINUI_BETSLIP).isEnabled());
+        isDisabledContinuingTab();
 
         return this;
 
@@ -791,6 +791,39 @@ public class MainPage extends MainPage_Constants {
         }
 
     }
+
+    public boolean isDisabledContinuingTab () {
+
+        return !getElementBy(CONTINUI_BETSLIP).isEnabled();
+
+    }
+
+    public MainPage addEventToBetSlip () {
+
+        List<WebElement> eventRows = driver.findElement(POPULAR_WIDGET).findElements(EVENT_ROW);
+
+        List<WebElement> mbs1 = eventRows.stream()
+                .filter(eventRow -> eventRow.findElement(By.className("sportsbookEventRow-header"))
+                        .findElement(By.className("sportsbookEventRow-header-info"))
+                        .findElement(By.className("mbc-value"))
+                        .getText().contains("1"))
+                .collect(Collectors.toList());
+
+        int randomIndex = generateRandomInt(mbs1.size());
+        int mbsSize = 0;
+        if (mbs1.size() > mbsSize) {
+
+
+
+            mbs1.get(randomIndex).findElements(By.className("eventOdd-outcome")).get(0).click();
+
+
+        }
+
+        return this;
+
+    }
+
 
 
 }
