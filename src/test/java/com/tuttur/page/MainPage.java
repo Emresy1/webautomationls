@@ -35,6 +35,7 @@ public class MainPage extends MainPage_Constants {
     ExcelUtil util = new ExcelUtil(driver);
     Actions action = new Actions(driver);
     JavascriptExecutor js = (JavascriptExecutor) driver;
+    GeneralPage general = new GeneralPage(driver);
 
 
     boolean contains = false;
@@ -608,6 +609,7 @@ public class MainPage extends MainPage_Constants {
 
                 //     eventRow.findElement(items.get(i)).isDisplayed();
                 waitForElement(eventRow.findElement(items.get(i)), 3);
+
             }
         }
     }
@@ -778,6 +780,7 @@ public class MainPage extends MainPage_Constants {
         int liveBetCount = Integer.parseInt(getElementBy(LIVEBET_SHORTCUT).getText());
 
         if (liveBetCount > 0) {
+
             scrollToElement(LIVEBET_BTN_BETSLIP);
             clickObjectBy(LIVEBET_BTN_BETSLIP);
             waitForElement(driver, MIN_WAIT_4_ELEMENT, BULLETIN_FAV_TAB);
@@ -798,24 +801,46 @@ public class MainPage extends MainPage_Constants {
 
     }
 
-    public MainPage addEventToBetSlip () {
+    public MainPage addEventToBetSlip (String mbsInfo) throws InterruptedException {
+
+        scrollToWidget(2);
+        clickObjectBy(new RegisterPage_Constants(driver).BUTTON_CLOSE_COOKİE_BAR);
 
         List<WebElement> eventRows = driver.findElement(POPULAR_WIDGET).findElements(EVENT_ROW);
 
-        List<WebElement> mbs1 = eventRows.stream()
-                .filter(eventRow -> eventRow.findElement(By.className("sportsbookEventRow-header"))
-                        .findElement(By.className("sportsbookEventRow-header-info"))
-                        .findElement(By.className("mbc-value"))
-                        .getText().contains("1"))
+        List<WebElement> mbs = eventRows.stream()
+                .filter(eventRow -> eventRow.findElement(SPORTSBOOK_EVENT_ROW_HEADER)
+                        .findElement(SPORTSBOOK_EVENT_ROW_INFO)
+                        .findElement(MBC_VALUE)
+                        .getText().contains(mbsInfo))
                 .collect(Collectors.toList());
 
-        int randomIndex = generateRandomInt(mbs1.size());
-        int mbsSize = 0;
-        if (mbs1.size() > mbsSize) {
+        int randomIndex = generateRandomInt(mbs.size());
+
+
+        List<WebElement> actives = mbs.get(randomIndex).findElements(By.className("eventOdd"));
+
+
+       List<WebElement> outcome = actives.stream()
+               .filter(activeOdd -> !activeOdd.getAttribute("class").contains("eventOdd--locked"))
+               .collect(Collectors.toList());
 
 
 
-            mbs1.get(randomIndex).findElements(By.className("eventOdd-outcome")).get(0).click();
+        int size = 0;
+        if (mbs.size() > size && mbsInfo.equals("1")) {
+
+            outcome.get(0).click();
+
+            String eventCount = getElementBy(EVENT_COUNT_ON_BETSLIP).getText();
+            assertEquals(eventCount,"1");
+
+            String eventDate = mbs.get(randomIndex).findElement(EVENT_TIME).getText();
+
+            System.out.println("Date :" + eventDate);
+
+            general.eventCount = eventCount;
+            general.outcome = mbs.get(randomIndex).findElements(OUTCOME).get(size).getText();
 
 
         }

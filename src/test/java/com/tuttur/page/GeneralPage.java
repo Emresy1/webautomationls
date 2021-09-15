@@ -30,6 +30,10 @@ public class GeneralPage extends BasePage {
 
     public static String staticUsername = "betult787885";
 
+    public static String outcome;
+
+    public static String eventCount;
+
 
     public int campaignId(int code){
 

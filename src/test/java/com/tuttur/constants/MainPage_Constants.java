@@ -37,7 +37,7 @@ public class MainPage_Constants extends BasePageUtil{
 	public By ARROWS = By.cssSelector(".medium.slider-control.slider-control");
 	public By SLIDER_BULLET = By.className("slider-bullet");
 	public By TOTAL_ODDS = By.className("eventTotalOdds");
-	public By BLOCKED_ODD_ON_BANNER = By.className("eventOdd--locked");
+	public By BLOCKED_ODD = By.className("eventOdd--locked");
 	public By ACTIVE_ODD_ON_BANNER = By.cssSelector(".eventOdd.eventOdd--ratio-up.eventOdd--oddNumber");
 	public By ODD_OUTCOME_BANNER = By.className("eventOdd");
 	public By BETSLIP_EVENT_ROW = By.className("betslipEventRow-contentInfo");
@@ -49,11 +49,16 @@ public class MainPage_Constants extends BasePageUtil{
 	public By LIVE_WIDGET = By.cssSelector(".widget.mostPlayedWidget");
 	public By WIDGET_BRANCH = By.className("tabView-tabButton");
 	public By FUTBOL_EVENT_ROW = By.cssSelector(".sportsbookEventRow.futbol");
+	public By SPORTSBOOK_EVENT_ROW_HEADER = By.className("sportsbookEventRow-header");
+	public By SPORTSBOOK_EVENT_ROW_INFO = By.className("sportsbookEventRow-header-info");
 	public By LIVE_EVENT = By.className("sportsbookEventRow--liveMatch");
 	public By LEAGUE_FLAG = By.className("sportsbookEventRow-league-flag");
 	public By LEAGUE_CODE = By.className("sportsbookEventRow-league-code");
 	public By STATUS_PLAYING = By.cssSelector(".status.playing");
 	public By MBC = By.className("eventMbc");
+	public By MBC_VALUE = By.className("mbc-value");
+	public By OUTCOME = By.className("eventOdd-outcome");
+	public By EVENT_COUNT_ON_BETSLIP = By.className("betslip-header-eventCount");
 	public By TEAMS = By.className("sportsbookEventRow-header-teams");
 	public By WIDGET_TEXT = By.className("widgetHeader-text");
 	public By LIVE_SCORE = By.cssSelector(".eventScore.live");
