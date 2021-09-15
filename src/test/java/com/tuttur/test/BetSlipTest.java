@@ -44,7 +44,7 @@ public class BetSlipTest extends BaseTest {
                 .isDisabledContinuingTab();
         new MainPage(driver).logout()
                 .getLoginPage().login(2,"noncontract")
-                .addEventToBetSlip("1");
+                .addEventToBetSlip("1").checkEventItemsOnBetslip();
 
     }
 }

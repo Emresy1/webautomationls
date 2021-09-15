@@ -224,16 +224,17 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
-    public void downloadApk(){
+    public void downloadApk() {
 
-        List<WebElement> store =driver.findElements(ANDROID_MARKET);
+        List<WebElement> store = driver.findElements(ANDROID_MARKET);
 
-        WebElement storeElement = store.get(store.size()-1);
+        WebElement storeElement = store.get(store.size() - 1);
 
         storeElement.click();
         sleep(5);
     }
-    public void checkDownloadedApk(){
+
+    public void checkDownloadedApk() {
 
         File folder = new File(System.getProperty("user.home") + "/Downloads/");
 
@@ -795,13 +796,13 @@ public class MainPage extends MainPage_Constants {
 
     }
 
-    public boolean isDisabledContinuingTab () {
+    public boolean isDisabledContinuingTab() {
 
         return !getElementBy(CONTINUI_BETSLIP).isEnabled();
 
     }
 
-    public MainPage addEventToBetSlip (String mbsInfo) throws InterruptedException {
+    public MainPage addEventToBetSlip(String mbsInfo) throws InterruptedException {
 
         scrollToWidget(2);
         clickObjectBy(new RegisterPage_Constants(driver).BUTTON_CLOSE_COOKİE_BAR);
@@ -821,10 +822,9 @@ public class MainPage extends MainPage_Constants {
         List<WebElement> actives = mbs.get(randomIndex).findElements(By.className("eventOdd"));
 
 
-       List<WebElement> outcome = actives.stream()
-               .filter(activeOdd -> !activeOdd.getAttribute("class").contains("eventOdd--locked"))
-               .collect(Collectors.toList());
-
+        List<WebElement> outcome = actives.stream()
+                .filter(activeOdd -> !activeOdd.getAttribute("class").contains("eventOdd--locked"))
+                .collect(Collectors.toList());
 
 
         int size = 0;
@@ -832,15 +832,17 @@ public class MainPage extends MainPage_Constants {
 
             outcome.get(0).click();
 
-            String eventCount = getElementBy(EVENT_COUNT_ON_BETSLIP).getText();
-            assertEquals(eventCount,"1");
 
-            String eventDate = mbs.get(randomIndex).findElement(EVENT_TIME).getText();
+            WebElement selectedEvent = mbs.get(randomIndex);
 
-            System.out.println("Date :" + eventDate);
+            general.eventDate = selectedEvent.findElement(EVENT_TIME).getText().replace("\n", ",");
+            general.outcome = selectedEvent.findElements(OUTCOME).get(size).getText();
 
-            general.eventCount = eventCount;
-            general.outcome = mbs.get(randomIndex).findElements(OUTCOME).get(size).getText();
+            String homeTeam = selectedEvent.findElements(EVENT_TEAMS_NAME).get(0).getText();
+            String awayTeam = selectedEvent.findElements(EVENT_TEAMS_NAME).get(1).getText();
+
+            general.eventName = homeTeam + " " + awayTeam;
+            general.eventMarketName = selectedEvent.findElement(By.className("eventOdd-name")).getText();
 
 
         }
@@ -849,6 +851,48 @@ public class MainPage extends MainPage_Constants {
 
     }
 
+    public MainPage checkEventItemsOnBetslip() {
+
+
+        String eventCount = getElementBy(EVENT_COUNT_ON_BETSLIP).getText();
+
+        boolean isEquals = eventCount.equals("1")
+                && eventDate().equals(general.eventDate)
+                && outCome().equals(general.outcome)
+                && eventName().equals(general.eventName)
+                && eventMarketName().equals(general.eventMarketName);
+
+       assertTrue(isEquals);
+
+
+
+        return this;
+    }
+
+    private String outCome () {
+
+        return elementText(BETSLIP_EVENT_ROW, BETSLIP_EVENT_OUTCOME);
+    }
+
+    private String eventDate () {
+
+        return elementText(BETSLIP_EVENT_ROW, BETSLIP_EVENT_DATE).replace(" ", "");
+
+    }
+
+    private String eventMarketName() {
+
+        return elementText(BETSLIP_EVENT_ROW, BETSLIP_MARKET_TEXT) + " " +
+                elementText(BETSLIP_EVENT_ROW, BETSLIP_ODD_TEXT);
+
+    }
+
+    private String eventName() {
+
+        return elementText(BETSLIP_EVENT_ROW, BETSLIP_HOME_TEAM) + " " +
+                elementText(BETSLIP_EVENT_ROW, BETSLIP_AWAY_TEAM);
+
+    }
 
 
 }

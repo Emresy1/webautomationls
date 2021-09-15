@@ -40,7 +40,6 @@ public class MainPage_Constants extends BasePageUtil{
 	public By BLOCKED_ODD = By.className("eventOdd--locked");
 	public By ACTIVE_ODD_ON_BANNER = By.cssSelector(".eventOdd.eventOdd--ratio-up.eventOdd--oddNumber");
 	public By ODD_OUTCOME_BANNER = By.className("eventOdd");
-	public By BETSLIP_EVENT_ROW = By.className("betslipEventRow-contentInfo");
 	public By BANNER_OUTCOME = By.className("eventOdd-outcome");
 	public By SELECTED_ODD = By.className("eventOdd--selected");
 	public By EVENT_CONTENT_INFO = By.className("betslipEventRow-contentInfo");
@@ -88,6 +87,15 @@ public class MainPage_Constants extends BasePageUtil{
     public By BULLETIN_FAV_TAB = By.className("sportsbookInPlayFiltersRow-filterButtons");
     public By CONTINUI_BETSLIP = By.id("tabButton");
     public By BETSLIP_EMPTY_ICON = By.cssSelector(".betslipState-icon.empty");
+    public By EVENT_TEAMS_NAME = By.className("sportsbookEventRow-header-team");
+    public By BETSLIP_EVENT_ROW = By.className("betslipEventRow");
+    public By BETSLIP_EVENT_DATE = By.className("betslipEventRow-timeText");
+    public By BETSLIP_EVENT_OUTCOME = By.className("betslipEventRow-oddItem");
+    public By BETSLIP_TEAMS_NAME = By.className("betslipEventRow-teamText");
+    public By BETSLIP_MARKET_TEXT = By.className("betslipEventRow-marketText");
+    public By BETSLIP_ODD_TEXT = By.className("betslipEventRow-oddText");
+    public By BETSLIP_HOME_TEAM = By.cssSelector(".betslipEventRow-teamText-team.home");
+    public By BETSLIP_AWAY_TEAM = By.cssSelector(".betslipEventRow-teamText-team.away");
 
 
 

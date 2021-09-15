@@ -34,6 +34,12 @@ public class GeneralPage extends BasePage {
 
     public static String eventCount;
 
+    public static String eventDate;
+
+    public static String eventName;
+
+    public static String eventMarketName;
+
 
     public int campaignId(int code){
 

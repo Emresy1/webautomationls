@@ -353,4 +353,10 @@ public class BasePageUtil {
 		jse.executeScript("arguments[0].value="+ssnNo+";", ssn);
 	}
 
+	public String elementText (By by, By by2) {
+
+    	return driver.findElement(by).findElement(by2).getText();
+
+	}
+
     }
