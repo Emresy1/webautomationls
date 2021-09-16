@@ -19,26 +19,20 @@ public class GeneralPage extends BasePage {
     public String usernameText = "automation" + generateRandomInt(9999);
 
     public static String username;
-
     public static String generateUsernameText;
-
     public static String newPasswordChange = "TestPass" + generateRandomInt(9999);
-
     public static String usernamePlaceholder;
-
     public static String refreshUsername;
-
     public static String staticUsername = "betult787885";
-
     public static String outcome;
-
     public static String eventCount;
-
     public static String eventDate;
-
+    public static String eventTime;
     public static String eventName;
-
     public static String eventMarketName;
+    public static double totalRatio;
+    public static int totalAmount;
+    public static double maxGain;
 
 
     public int campaignId(int code){

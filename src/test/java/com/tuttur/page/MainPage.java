@@ -19,6 +19,8 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -37,10 +39,16 @@ public class MainPage extends MainPage_Constants {
     JavascriptExecutor js = (JavascriptExecutor) driver;
     GeneralPage general = new GeneralPage(driver);
 
+    Date date = new Date();
+    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+
+
+
 
     boolean contains = false;
 
     public void dropdownMenu(String menu) {
+
 
         List<WebElement> dropdown = driver.findElements(DROPDOWN_MENU);
 
@@ -835,14 +843,15 @@ public class MainPage extends MainPage_Constants {
 
             WebElement selectedEvent = mbs.get(randomIndex);
 
-            general.eventDate = selectedEvent.findElement(EVENT_TIME).getText().replace("\n", ",");
+            general.eventDate = selectedEvent.findElement(WIDGET_DATE).getText();
+            general.eventTime = selectedEvent.findElement(WIDGET_TIME).getText();
             general.outcome = selectedEvent.findElements(OUTCOME).get(size).getText();
 
             String homeTeam = selectedEvent.findElements(EVENT_TEAMS_NAME).get(0).getText();
             String awayTeam = selectedEvent.findElements(EVENT_TEAMS_NAME).get(1).getText();
 
             general.eventName = homeTeam + " " + awayTeam;
-            general.eventMarketName = selectedEvent.findElement(By.className("eventOdd-name")).getText();
+            general.eventMarketName = selectedEvent.findElement(EVENT_ODD_NAME).getText();
 
 
         }
@@ -854,10 +863,16 @@ public class MainPage extends MainPage_Constants {
     public MainPage checkEventItemsOnBetslip() {
 
 
-        String eventCount = getElementBy(EVENT_COUNT_ON_BETSLIP).getText();
+        general.eventCount = getElementBy(EVENT_COUNT_ON_BETSLIP).getText();
+        general.totalRatio = totalRatio();
+        general.totalAmount = totalAmount();
+        general.maxGain = maxGain();
 
-        boolean isEquals = eventCount.equals("1")
-                && eventDate().equals(general.eventDate)
+
+
+        boolean isEquals = general.eventCount.equals("1")
+                && eventDate()[0].contains(general.eventDate)
+                && eventDate()[1].contains(general.eventTime)
                 && outCome().equals(general.outcome)
                 && eventName().equals(general.eventName)
                 && eventMarketName().equals(general.eventMarketName);
@@ -869,14 +884,128 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
+    public MainPage playCoupon(){
+
+        clickObjectBy(BUTTON_PLAY);
+
+        assertTrue(getElementBy(PLAY_COUPON_INFO).getText().equals("KUPON OYNANIYOR..."));
+
+        waitForElement(driver,MAX_WAIT_4_ELEMENT,BETSLIP_STATE_TITLE);
+
+        String betslipTitle = getElementBy(BETSLIP_STATE).findElement(BETSLIP_STATE_TITLE).getText();
+
+        if (betslipTitle.equals("Kuponun KRALLAR gibi oynandı!")){
+
+            clickObjectBy(BUTTON_CLOSE_MODAL);
+        }
+        else if (betslipTitle.equals("oran değişikliği gelecek")){
+
+        }
+        else{
+            // error gelecek
+        }
+
+        return this;
+    }
+    public MainPage continuingTabControl(){
+
+        driver.navigate().refresh();
+
+        getContinuingTab();
+
+        // ddevam eden tabında maç count, kupon tarihi, toplam oran, toplam tutar kontrol edildi
+
+
+        boolean isEquals = eventCountOnCouponCard().trim().equals(general.eventCount.trim())
+                && currentDate().equals(dateOnCouponCard())
+                && getTotalRatioOnCouponCard() == (general.totalRatio)
+                && getTotalAmountOnCouponCard() == (general.totalAmount);
+
+        assertTrue(isEquals);
+
+        return this;
+    }
+
+
+    private void getContinuingTab(){
+
+        clickObjectsBy(BETSLIP_TAB,1);
+    }
+
+    private String getInfoOnCouponCard(int index){
+
+        return driver.findElements(COUPON_CARD).get(0).findElements(COUPON_CARD_INFO).get(index).getText();
+    }
+
+    private int getTotalAmountOnCouponCard(){
+
+        String totalAmount[] = getInfoOnCouponCard(2).split(",");
+
+        int amount = Integer.parseInt(totalAmount[0]);
+
+        return amount;
+    }
+
+    private double getTotalRatioOnCouponCard(){
+
+        String totalRatio = getInfoOnCouponCard(1).replace(",",".");
+        double ratio = Double.parseDouble(totalRatio);
+
+        return ratio;
+    }
+
+    private Double maxGain(){
+
+        String gainText = getElementBy(MAX_GAIN).getText()
+                .replace(",",".")
+                .replace("TL","");
+        double totalGain = Double.parseDouble(gainText);
+
+        return totalGain;
+    }
+
+    private int totalAmount(){
+
+        String amountText[] = getElemenstBy(BETSLIP_VALUE,1).getText()
+                .split(",");
+
+        return Integer.parseInt(amountText[0]);
+    }
+
+    private double totalRatio(){
+
+        String ratioText = getElemenstBy(BETSLIP_VALUE,0).getText().replace(",",".");
+
+        return Double.parseDouble(ratioText);
+
+    }
+
+    private String dateOnCouponCard(){
+
+      return driver.findElements(COUPON_CARD).get(0).findElements(COUPON_CARD_INFO).get(0).getText();
+
+    }
+    private String eventCountOnCouponCard(){
+
+        return getElementBy(EVENT_COUNT_ON_CARD).getText().replace("Maç","");
+    }
+
+    private String currentDate(){
+
+        return formatter.format(date).replace("-",".");
+    }
+
     private String outCome () {
 
         return elementText(BETSLIP_EVENT_ROW, BETSLIP_EVENT_OUTCOME);
     }
 
-    private String eventDate () {
+    private String[] eventDate () {
 
-        return elementText(BETSLIP_EVENT_ROW, BETSLIP_EVENT_DATE).replace(" ", "");
+        String date = elementText(BETSLIP_EVENT_ROW,BETSLIP_EVENT_DATE);
+
+        String dateArray[] = date.split(",");
+        return  dateArray;
 
     }
 

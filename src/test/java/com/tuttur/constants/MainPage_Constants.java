@@ -96,6 +96,20 @@ public class MainPage_Constants extends BasePageUtil{
     public By BETSLIP_ODD_TEXT = By.className("betslipEventRow-oddText");
     public By BETSLIP_HOME_TEAM = By.cssSelector(".betslipEventRow-teamText-team.home");
     public By BETSLIP_AWAY_TEAM = By.cssSelector(".betslipEventRow-teamText-team.away");
+    public By BUTTON_PLAY = By.cssSelector(".medium.primary.betslipButtonsContainer-play");
+    public By PLAY_COUPON_INFO = By.className("betslip-loadingWrapper-container");
+    public By BETSLIP_STATE = By.className("betslipState");
+    public By BETSLIP_STATE_TITLE = By.className("betslipState-title");
+    public By BUTTON_CLOSE_MODAL = By.cssSelector(".medium.betslipState-close");
+    public By BETSLIP_TAB = By.className("betslipMyBetsContainer-tabTexts");
+    public By COUPON_CARD = By.className("iddaaCouponItem-card");
+    public By COUPON_CARD_INFO = By.className("iddaaCouponSummary-summaryColumnText");
+    public By EVENT_COUNT_ON_CARD = By.className("iddaaCouponHeader-eventCount");
+    public By EVENT_ODD_NAME = By.className("eventOdd-name");
+    public By MAX_GAIN = By.className("betslipInfoContainer-infoBox-top-totalOutcome");
+    public By BETSLIP_VALUE = By.className("betslipInfoContainer-infoBox-top");
+    public By WIDGET_DATE = By.className("date");
+    public By WIDGET_TIME = By.className("time");
 
 
 

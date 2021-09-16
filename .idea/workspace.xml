@@ -29,17 +29,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="MainPage.downloadApk">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/.~lock.TestData.xlsx#" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/GeneralPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/GeneralPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/BetSlipTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/BetSlipTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,16 +109,14 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BetSlipTest.ContinuingTabTest">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BetSlipTest.ContinuingTabTest (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -215,8 +210,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest" />
         <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest (1)" />
+        <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest" />
         <item itemvalue="JUnit.NavigationTest.checkRedirectStore" />
         <item itemvalue="JUnit.NavigationTest.checkRedirectSocialMedia" />
         <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />
@@ -299,13 +294,6 @@
       <workItem from="1630784613781" duration="46564000" />
       <workItem from="1631524811383" duration="10443000" />
       <workItem from="1631633613543" duration="370000" />
-    </task>
-    <task id="LOCAL-00109" summary="jenkins set up">
-      <created>1630394872354</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1630394872355</updated>
     </task>
     <task id="LOCAL-00110" summary="LoginTest.confirmSingleContract&#10;update db query (contract version)">
       <created>1630404632454</created>
@@ -643,7 +631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631537138456</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="MainPage.addEventToBetSlip random select event">
+      <created>1631698637689</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1631698637689</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -675,7 +670,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="jenkins set up" />
     <MESSAGE value="LoginTest.confirmSingleContract&#10;update db query (contract version)" />
     <MESSAGE value="project runner.sh" />
     <MESSAGE value="selenium html report plugin" />
@@ -700,7 +694,8 @@
     <MESSAGE value="MainPage.getCampaignsPage" />
     <MESSAGE value="MainPage.checkDefaultBranch" />
     <MESSAGE value="MainPage.downloadApk" />
-    <option name="LAST_COMMIT_MESSAGE" value="MainPage.downloadApk" />
+    <MESSAGE value="MainPage.addEventToBetSlip random select event" />
+    <option name="LAST_COMMIT_MESSAGE" value="MainPage.addEventToBetSlip random select event" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -767,7 +762,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java</url>
-          <line>254</line>
+          <line>262</line>
           <option name="timeStamp" value="216" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
