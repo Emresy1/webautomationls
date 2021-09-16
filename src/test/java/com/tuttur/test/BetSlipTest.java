@@ -49,7 +49,8 @@ public class BetSlipTest extends BaseTest {
                 .addEventToBetSlip("1")
                 .checkEventItemsOnBetslip()
                 .playCoupon()
-                .continuingTabControl();
+                .continuingTabControl()
+                .continuingTabCouponDetails();
 
     }
 }

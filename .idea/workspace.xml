@@ -109,14 +109,16 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BetSlipTest.ContinuingTabTest (1)">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BetSlipTest.ContinuingTabTest">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -210,8 +212,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest (1)" />
         <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest" />
+        <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest (1)" />
         <item itemvalue="JUnit.NavigationTest.checkRedirectStore" />
         <item itemvalue="JUnit.NavigationTest.checkRedirectSocialMedia" />
         <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />
@@ -762,8 +764,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java</url>
-          <line>262</line>
+          <line>260</line>
           <option name="timeStamp" value="216" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java</url>
+          <line>932</line>
+          <option name="timeStamp" value="239" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.AssertionError" package="java.lang" />

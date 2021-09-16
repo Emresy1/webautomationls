@@ -106,10 +106,17 @@ public class MainPage_Constants extends BasePageUtil{
     public By COUPON_CARD_INFO = By.className("iddaaCouponSummary-summaryColumnText");
     public By EVENT_COUNT_ON_CARD = By.className("iddaaCouponHeader-eventCount");
     public By EVENT_ODD_NAME = By.className("eventOdd-name");
-    public By MAX_GAIN = By.className("betslipInfoContainer-infoBox-top-totalOutcome");
+    public By MAX_WIN_AMOUNT = By.className("betslipInfoContainer-infoBox-top-totalOutcome");
     public By BETSLIP_VALUE = By.className("betslipInfoContainer-infoBox-top");
     public By WIDGET_DATE = By.className("date");
     public By WIDGET_TIME = By.className("time");
+    public By BETSLIP_COUPON_DETAIL_BTN = By.className("iddaaCouponSummary-accordionButton");
+    public By COUPON_MAX_AMOUNT = By.className("iddaaCouponItemDetail-maxWinAmount");
+    public By COUPON_MARKET_TEXT = By.className("iddaaCouponEventRow-marketName");
+    public By COUPON_ODD_TEXT = By.className("iddaaCouponEventRow-oddName");
+    public By COUPON_TEAMS_NAME = By.className("iddaaCouponEventRow-eventName");
+    public By COUPON_OUTCOME = By.cssSelector(".eventOdd.eventOdd--ratio-up");
+    public By COUPON_DETAIL_SUMMARY = By.className("iddaaCouponItemDetail");
 
 
 

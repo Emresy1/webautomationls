@@ -43,8 +43,6 @@ public class MainPage extends MainPage_Constants {
     SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 
 
-
-
     boolean contains = false;
 
     public void dropdownMenu(String menu) {
@@ -866,8 +864,7 @@ public class MainPage extends MainPage_Constants {
         general.eventCount = getElementBy(EVENT_COUNT_ON_BETSLIP).getText();
         general.totalRatio = totalRatio();
         general.totalAmount = totalAmount();
-        general.maxGain = maxGain();
-
+        general.maxWinAmount = maxWinAmount();
 
 
         boolean isEquals = general.eventCount.equals("1")
@@ -877,37 +874,35 @@ public class MainPage extends MainPage_Constants {
                 && eventName().equals(general.eventName)
                 && eventMarketName().equals(general.eventMarketName);
 
-       assertTrue(isEquals);
-
+        assertTrue(isEquals);
 
 
         return this;
     }
 
-    public MainPage playCoupon(){
+    public MainPage playCoupon() {
 
         clickObjectBy(BUTTON_PLAY);
 
         assertTrue(getElementBy(PLAY_COUPON_INFO).getText().equals("KUPON OYNANIYOR..."));
 
-        waitForElement(driver,MAX_WAIT_4_ELEMENT,BETSLIP_STATE_TITLE);
+        waitForElement(driver, MAX_WAIT_4_ELEMENT, BETSLIP_STATE_TITLE);
 
         String betslipTitle = getElementBy(BETSLIP_STATE).findElement(BETSLIP_STATE_TITLE).getText();
 
-        if (betslipTitle.equals("Kuponun KRALLAR gibi oynandı!")){
+        if (betslipTitle.equals("Kuponun KRALLAR gibi oynandı!")) {
 
             clickObjectBy(BUTTON_CLOSE_MODAL);
-        }
-        else if (betslipTitle.equals("oran değişikliği gelecek")){
+        } else if (betslipTitle.equals("oran değişikliği gelecek")) {
 
-        }
-        else{
+        } else {
             // error gelecek
         }
 
         return this;
     }
-    public MainPage continuingTabControl(){
+
+    public MainPage continuingTabControl() {
 
         driver.navigate().refresh();
 
@@ -926,18 +921,71 @@ public class MainPage extends MainPage_Constants {
         return this;
     }
 
+    public MainPage continuingTabCouponDetails() {
 
-    private void getContinuingTab(){
+        getCouponDetail();
+        getMaxWinAmountInCouponDetail();
 
-        clickObjectsBy(BETSLIP_TAB,1);
+        assertTrue(getMaxWinAmountInCouponDetail() == general.maxWinAmount);
+
+        String[] couponTeamName = getElementBy(COUPON_TEAMS_NAME).getText().split("-");
+
+        assertTrue(general.eventName.contains(couponTeamName[1]));
+
+        String couponOutcome = getElemenstBy(By.className("iddaaCouponItem"), 0)
+                .findElements(By.className("iddaaCouponItemDetail")).get(0)
+                .findElements(By.className("iddaaCouponEventRow")).get(0)
+                .findElements(By.className("iddaaCouponEventRow-selectedOddRow")).get(0)
+                .findElements(By.className("iddaaCouponEventRow-selectedOutcome")).get(0)
+                .findElements(By.cssSelector(".eventOdd.eventOdd--ratio-up")).get(0)
+                .findElement(By.className("eventOdd-outcome")).getText();
+
+        assertEquals(couponOutcome, general.outcome);
+
+
+        return this;
+
+
     }
 
-    private String getInfoOnCouponCard(int index){
+    private String couponMarketName() {
 
-        return driver.findElements(COUPON_CARD).get(0).findElements(COUPON_CARD_INFO).get(index).getText();
+        return getElementBy(COUPON_MARKET_TEXT).getText() + " " + getElementBy(COUPON_ODD_TEXT).getText();
     }
 
-    private int getTotalAmountOnCouponCard(){
+    private double getMaxWinAmountInCouponDetail() {
+
+        String[] maxAmountText = getElementBy(COUPON_MAX_AMOUNT).getText()
+                .replace("\n", " ")
+                .replace(",", ".")
+                .split(" ");
+        double maxAmount = Double.parseDouble(maxAmountText[2]);
+        return maxAmount;
+    }
+
+    private void getCouponDetail() {
+
+        couponCards().get(0).findElement(BETSLIP_COUPON_DETAIL_BTN).click();
+
+    }
+
+
+    private void getContinuingTab() {
+
+        clickObjectsBy(BETSLIP_TAB, 1);
+    }
+
+    private String getInfoOnCouponCard(int index) {
+
+        return couponCards().get(0).findElements(COUPON_CARD_INFO).get(index).getText();
+    }
+
+    private List<WebElement> couponCards() {
+
+        return driver.findElements(COUPON_CARD);
+    }
+
+    private int getTotalAmountOnCouponCard() {
 
         String totalAmount[] = getInfoOnCouponCard(2).split(",");
 
@@ -946,66 +994,67 @@ public class MainPage extends MainPage_Constants {
         return amount;
     }
 
-    private double getTotalRatioOnCouponCard(){
+    private double getTotalRatioOnCouponCard() {
 
-        String totalRatio = getInfoOnCouponCard(1).replace(",",".");
+        String totalRatio = getInfoOnCouponCard(1).replace(",", ".");
         double ratio = Double.parseDouble(totalRatio);
 
         return ratio;
     }
 
-    private Double maxGain(){
+    private Double maxWinAmount() {
 
-        String gainText = getElementBy(MAX_GAIN).getText()
-                .replace(",",".")
-                .replace("TL","");
+        String gainText = getElementBy(MAX_WIN_AMOUNT).getText()
+                .replace(",", ".")
+                .replace("TL", "");
         double totalGain = Double.parseDouble(gainText);
 
         return totalGain;
     }
 
-    private int totalAmount(){
+    private int totalAmount() {
 
-        String amountText[] = getElemenstBy(BETSLIP_VALUE,1).getText()
+        String amountText[] = getElemenstBy(BETSLIP_VALUE, 1).getText()
                 .split(",");
 
         return Integer.parseInt(amountText[0]);
     }
 
-    private double totalRatio(){
+    private double totalRatio() {
 
-        String ratioText = getElemenstBy(BETSLIP_VALUE,0).getText().replace(",",".");
+        String ratioText = getElemenstBy(BETSLIP_VALUE, 0).getText().replace(",", ".");
 
         return Double.parseDouble(ratioText);
 
     }
 
-    private String dateOnCouponCard(){
+    private String dateOnCouponCard() {
 
-      return driver.findElements(COUPON_CARD).get(0).findElements(COUPON_CARD_INFO).get(0).getText();
+        return couponCards().get(0).findElements(COUPON_CARD_INFO).get(0).getText();
 
     }
-    private String eventCountOnCouponCard(){
 
-        return getElementBy(EVENT_COUNT_ON_CARD).getText().replace("Maç","");
+    private String eventCountOnCouponCard() {
+
+        return getElementBy(EVENT_COUNT_ON_CARD).getText().replace("Maç", "");
     }
 
-    private String currentDate(){
+    private String currentDate() {
 
-        return formatter.format(date).replace("-",".");
+        return formatter.format(date).replace("-", ".");
     }
 
-    private String outCome () {
+    private String outCome() {
 
         return elementText(BETSLIP_EVENT_ROW, BETSLIP_EVENT_OUTCOME);
     }
 
-    private String[] eventDate () {
+    private String[] eventDate() {
 
-        String date = elementText(BETSLIP_EVENT_ROW,BETSLIP_EVENT_DATE);
+        String date = elementText(BETSLIP_EVENT_ROW, BETSLIP_EVENT_DATE);
 
         String dateArray[] = date.split(",");
-        return  dateArray;
+        return dateArray;
 
     }
 

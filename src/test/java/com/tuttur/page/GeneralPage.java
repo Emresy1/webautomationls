@@ -32,7 +32,7 @@ public class GeneralPage extends BasePage {
     public static String eventMarketName;
     public static double totalRatio;
     public static int totalAmount;
-    public static double maxGain;
+    public static double maxWinAmount;
 
 
     public int campaignId(int code){
