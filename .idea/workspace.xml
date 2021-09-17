@@ -31,10 +31,8 @@
     <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="MainPage.continuingTabControl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/MainPage_Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/GeneralPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/GeneralPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/GeneralPage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
@@ -108,14 +106,16 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BetSlipTest.ContinuingTabTest (1)">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BetSlipTest.ContinuingTabTest">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -209,8 +209,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest (1)" />
         <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest" />
+        <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest (1)" />
         <item itemvalue="JUnit.NavigationTest.checkRedirectStore" />
         <item itemvalue="JUnit.NavigationTest.checkRedirectSocialMedia" />
         <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />

@@ -1,13 +1,11 @@
 package com.tuttur.page;
 
 
+import com.sun.org.apache.bcel.internal.generic.PUSH;
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.RegisterPage_Constants;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -23,6 +21,8 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static org.junit.Assert.*;
 
 
 public class MainPage extends MainPage_Constants {
@@ -865,7 +865,7 @@ public class MainPage extends MainPage_Constants {
         general.totalRatio = totalRatio();
         general.totalAmount = totalAmount();
         general.maxWinAmount = maxWinAmount();
-        general.betslipDate = eventDate()[0] + ","+ eventDate()[1];
+        general.betslipDate = eventDate()[0] + "," + eventDate()[1];
 
 
         boolean isEquals = general.eventCount.equals("1")
@@ -893,8 +893,20 @@ public class MainPage extends MainPage_Constants {
 
         if (betslipTitle.equals("Kuponun KRALLAR gibi oynandı!")) {
 
+            boolean isEquals = keepMyChoicesButton().getText().equals("SEÇİMLERİMİ SAKLA") &&
+                    returnToBulletinButton().getText().equals("BÜLTENE DÖN") &&
+                    myCouponButton().getText().equals("KUPONLARIM");
+
+            assertTrue(isEquals);
+
             clickObjectBy(BUTTON_CLOSE_MODAL);
-        } else if (betslipTitle.equals("oran değişikliği gelecek")) {
+
+        } else if (betslipTitle.equals("Oran değişikliği mevcut")) {
+
+              assertFalse(getElementBy(CHANGE_OUTCOME_TEXT).getText().isEmpty());
+              assertEquals(acceptAndPlayButton().getText(),"KABUL ET VE OYNA");
+              assertEquals(returnToCouponButton().getText(),"KUPONA DÖN");
+
 
         } else {
             // error gelecek
@@ -906,7 +918,7 @@ public class MainPage extends MainPage_Constants {
     public MainPage continuingTabControl() {
 
         driver.navigate().refresh();
-        waitForElementClickable(driver,OPT_WAIT_4_ELEMENT,BTN_LIVE_MATCH_BETSLIP);
+        waitForElementClickable(driver, OPT_WAIT_4_ELEMENT, BTN_LIVE_MATCH_BETSLIP);
 
         getContinuingTab();
 
@@ -923,30 +935,56 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage continuingTabCouponDetails() {
 
+
         getCouponDetail();
 
-        waitForElement(driver,OPT_WAIT_4_ELEMENT,By.cssSelector(".medium.primary.iddaaCouponDetailBottom-playAgainButton"));
-        getMaxWinAmountInCouponDetail();
-
-        assertTrue(getMaxWinAmountInCouponDetail() == general.maxWinAmount);
+        waitForElement(driver, OPT_WAIT_4_ELEMENT, PLAY_AGAIN_BTN);
 
         String[] couponTeamName = getElementBy(COUPON_TEAMS_NAME).getText().split("-");
 
-        assertTrue(general.eventName.contains(couponTeamName[1]));
-
         double outcome = Double.parseDouble(general.outcome);
 
-        assertTrue(getOutcomeInCoupon() == outcome);
-        assertEquals(couponMarketName(),general.eventMarketName);
-        assertEquals(getElementBy(COUPON_DETAIL_DATE).getText(),general.betslipDate);
+        boolean isTrue = getMaxWinAmountInCouponDetail() == general.maxWinAmount &&
+                general.eventName.contains(couponTeamName[1]) &&
+                getOutcomeInCoupon() == outcome &&
+                couponMarketName().equals(general.eventMarketName) &&
+                getElementBy(COUPON_DETAIL_DATE).getText().equals(general.betslipDate);
 
+        assertTrue(isTrue);
 
         return this;
 
 
     }
 
-    private double getOutcomeInCoupon(){
+    public WebElement acceptAndPlayButton () {
+
+        return getElementBy(ACCEPT_AND_PLAY_BTN);
+
+    }
+
+    public WebElement returnToCouponButton () {
+
+        return getElementBy(RETURN_TO_COUPON_BTN);
+
+    }
+
+    public WebElement keepMyChoicesButton() {
+
+        return getElementBy(KEEP_MY_CHOICES);
+    }
+
+    public WebElement returnToBulletinButton() {
+
+        return getElemenstBy(RETURN_TO_BULLETIN, 0);
+    }
+
+    public WebElement myCouponButton() {
+
+        return getElemenstBy(MY_COUPON_BTN, 1);
+    }
+
+    private double getOutcomeInCoupon() {
 
         String couponOutcomeText = getElementBy(By.className("iddaaCouponEventRow-selectedOutcome")).getText();
         double couponOutcome = Double.parseDouble(couponOutcomeText);
@@ -978,7 +1016,7 @@ public class MainPage extends MainPage_Constants {
 
     private void getContinuingTab() {
 
-        WebElement ct = getElemenstBy(BETSLIP_TAB,1);
+        WebElement ct = getElemenstBy(BETSLIP_TAB, 1);
 
         action.click(ct).build().perform();
     }
