@@ -117,6 +117,8 @@ public class MainPage_Constants extends BasePageUtil{
     public By COUPON_TEAMS_NAME = By.className("iddaaCouponEventRow-eventName");
     public By COUPON_OUTCOME = By.cssSelector(".eventOdd.eventOdd--ratio-up");
     public By COUPON_DETAIL_SUMMARY = By.className("iddaaCouponItemDetail");
+    public By BTN_LIVE_MATCH_BETSLIP = By.cssSelector(".medium.primary.button.undefined");
+    public By COUPON_DETAIL_DATE = By.className("iddaaCouponEventRow-eventDateText");
 
 
 

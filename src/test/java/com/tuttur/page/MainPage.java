@@ -865,6 +865,7 @@ public class MainPage extends MainPage_Constants {
         general.totalRatio = totalRatio();
         general.totalAmount = totalAmount();
         general.maxWinAmount = maxWinAmount();
+        general.betslipDate = eventDate()[0] + ","+ eventDate()[1];
 
 
         boolean isEquals = general.eventCount.equals("1")
@@ -905,10 +906,9 @@ public class MainPage extends MainPage_Constants {
     public MainPage continuingTabControl() {
 
         driver.navigate().refresh();
+        waitForElementClickable(driver,OPT_WAIT_4_ELEMENT,BTN_LIVE_MATCH_BETSLIP);
 
         getContinuingTab();
-
-        // ddevam eden tabında maç count, kupon tarihi, toplam oran, toplam tutar kontrol edildi
 
 
         boolean isEquals = eventCountOnCouponCard().trim().equals(general.eventCount.trim())
@@ -924,6 +924,8 @@ public class MainPage extends MainPage_Constants {
     public MainPage continuingTabCouponDetails() {
 
         getCouponDetail();
+
+        waitForElement(driver,OPT_WAIT_4_ELEMENT,By.cssSelector(".medium.primary.iddaaCouponDetailBottom-playAgainButton"));
         getMaxWinAmountInCouponDetail();
 
         assertTrue(getMaxWinAmountInCouponDetail() == general.maxWinAmount);
@@ -932,20 +934,24 @@ public class MainPage extends MainPage_Constants {
 
         assertTrue(general.eventName.contains(couponTeamName[1]));
 
-        String couponOutcome = getElemenstBy(By.className("iddaaCouponItem"), 0)
-                .findElements(By.className("iddaaCouponItemDetail")).get(0)
-                .findElements(By.className("iddaaCouponEventRow")).get(0)
-                .findElements(By.className("iddaaCouponEventRow-selectedOddRow")).get(0)
-                .findElements(By.className("iddaaCouponEventRow-selectedOutcome")).get(0)
-                .findElements(By.cssSelector(".eventOdd.eventOdd--ratio-up")).get(0)
-                .findElement(By.className("eventOdd-outcome")).getText();
+        double outcome = Double.parseDouble(general.outcome);
 
-        assertEquals(couponOutcome, general.outcome);
+        assertTrue(getOutcomeInCoupon() == outcome);
+        assertEquals(couponMarketName(),general.eventMarketName);
+        assertEquals(getElementBy(COUPON_DETAIL_DATE).getText(),general.betslipDate);
 
 
         return this;
 
 
+    }
+
+    private double getOutcomeInCoupon(){
+
+        String couponOutcomeText = getElementBy(By.className("iddaaCouponEventRow-selectedOutcome")).getText();
+        double couponOutcome = Double.parseDouble(couponOutcomeText);
+
+        return couponOutcome;
     }
 
     private String couponMarketName() {
@@ -972,7 +978,9 @@ public class MainPage extends MainPage_Constants {
 
     private void getContinuingTab() {
 
-        clickObjectsBy(BETSLIP_TAB, 1);
+        WebElement ct = getElemenstBy(BETSLIP_TAB,1);
+
+        action.click(ct).build().perform();
     }
 
     private String getInfoOnCouponCard(int index) {

@@ -27,6 +27,7 @@ public class GeneralPage extends BasePage {
     public static String outcome;
     public static String eventCount;
     public static String eventDate;
+    public static String betslipDate;
     public static String eventTime;
     public static String eventName;
     public static String eventMarketName;
