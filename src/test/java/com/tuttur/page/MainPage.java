@@ -7,13 +7,15 @@ import com.tuttur.constants.RegisterPage_Constants;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
+
+import static org.testng.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +24,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.*;
 
 
 public class MainPage extends MainPage_Constants {
@@ -101,8 +102,8 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkAccountNo(int rowNumber) throws IOException {
 
-        assertTrue(prop.getObject("accountNumberCheck"), getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(rowNumber, 3)));
+        assertTrue(getElementBy(ACCOUNT_NO).getText()
+                        .equals(getData(rowNumber, 3)), prop.getObject("accountNumberCheck"));
 
         return this;
     }
@@ -112,8 +113,8 @@ public class MainPage extends MainPage_Constants {
 
         waitForElement(driver, MIN_WAIT_4_ELEMENT, USERNAMETEXT);
 
-        assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
-                .equals(getData(rowNumber, cellNumber)));
+        assertTrue(getElementBy(USERNAMETEXT).getText()
+                .equals(getData(rowNumber, cellNumber)),prop.getObject("usernameCheck"));
 
 
         return this;
@@ -124,8 +125,8 @@ public class MainPage extends MainPage_Constants {
         String headerUser = username;
         waitForElement(driver, OPT_WAIT_4_ELEMENT, USERNAMETEXT);
 
-        assertTrue("x", getElementBy(USERNAMETEXT).getText()
-                .equals(headerUser));
+        assertTrue(getElementBy(USERNAMETEXT).getText()
+                        .equals(headerUser), "x");
 
         return this;
     }
@@ -137,8 +138,9 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkRegisterLogin() throws InterruptedException, IOException {
 
-        assertTrue(prop.getObject("unsuccessfullyLoginAfterRegister"), getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(5, 10)));
+        assertTrue(getElementBy(ACCOUNT_NO).getText()
+                        .equals(getData(5, 10)),
+                prop.getObject("unsuccessfullyLoginAfterRegister"));
         return this;
     }
 
@@ -265,7 +267,8 @@ public class MainPage extends MainPage_Constants {
                 }
             }
         }
-        Assert.assertTrue("Apk bulunamadı", found);
+
+        Assert.assertTrue(found, "Apk bulunamadı");
         file.deleteOnExit();
     }
 
@@ -903,9 +906,9 @@ public class MainPage extends MainPage_Constants {
 
         } else if (betslipTitle.equals("Oran değişikliği mevcut")) {
 
-              assertFalse(getElementBy(CHANGE_OUTCOME_TEXT).getText().isEmpty());
-              assertEquals(acceptAndPlayButton().getText(),"KABUL ET VE OYNA");
-              assertEquals(returnToCouponButton().getText(),"KUPONA DÖN");
+              Assert.assertFalse(getElementBy(CHANGE_OUTCOME_TEXT).getText().isEmpty());
+              Assert.assertEquals(acceptAndPlayButton().getText(),"KABUL ET VE OYNA");
+              Assert.assertEquals(returnToCouponButton().getText(),"KUPONA DÖN");
 
 
         } else {

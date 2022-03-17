@@ -29,7 +29,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="TestNG">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -287,13 +288,6 @@
       <workItem from="1630784613781" duration="46564000" />
       <workItem from="1631524811383" duration="10443000" />
       <workItem from="1631633613543" duration="370000" />
-    </task>
-    <task id="LOCAL-00112" summary="project runner.sh">
-      <created>1630428733341</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1630428733341</updated>
     </task>
     <task id="LOCAL-00113" summary="selenium html report plugin">
       <created>1630431894408</created>
@@ -631,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647513949277</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="TestNG">
+      <created>1647514641742</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1647514641742</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -752,11 +753,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/CampaignsTest.java</url>
           <line>91</line>
           <option name="timeStamp" value="204" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java</url>
-          <line>260</line>
-          <option name="timeStamp" value="216" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.AssertionError" package="java.lang" />
