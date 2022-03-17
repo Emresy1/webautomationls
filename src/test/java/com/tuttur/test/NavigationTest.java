@@ -54,6 +54,7 @@ public class NavigationTest extends BaseTest {
 //        new NavigationPage(driver).checkSubmenuUrl();
 //    }
 
+
     /**
      * Case 1.3
      * Banner üstü kısayol yönlendirmeleri
