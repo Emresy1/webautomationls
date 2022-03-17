@@ -28,7 +28,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="MainPage.continuingTabControl" />
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="TestNG">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +103,17 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.BetSlipTest.ContinuingTabTest">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BetSlipTest.ContinuingTabTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
@@ -274,13 +287,6 @@
       <workItem from="1630784613781" duration="46564000" />
       <workItem from="1631524811383" duration="10443000" />
       <workItem from="1631633613543" duration="370000" />
-    </task>
-    <task id="LOCAL-00111" summary="project runner.sh">
-      <created>1630427618756</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1630427618756</updated>
     </task>
     <task id="LOCAL-00112" summary="project runner.sh">
       <created>1630428733341</created>
@@ -618,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631790241422</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="TestNG">
+      <created>1647513949277</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1647513949277</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -650,7 +663,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="project runner.sh" />
     <MESSAGE value="selenium html report plugin" />
     <MESSAGE value="pom.xml maven-surefire-report-plugin" />
     <MESSAGE value="pom.xml maven-site-plugin" />
@@ -675,7 +687,8 @@
     <MESSAGE value="MainPage.downloadApk" />
     <MESSAGE value="MainPage.addEventToBetSlip random select event" />
     <MESSAGE value="MainPage.continuingTabControl" />
-    <option name="LAST_COMMIT_MESSAGE" value="MainPage.continuingTabControl" />
+    <MESSAGE value="TestNG" />
+    <option name="LAST_COMMIT_MESSAGE" value="TestNG" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
