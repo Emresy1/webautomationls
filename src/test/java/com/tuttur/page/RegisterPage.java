@@ -3,8 +3,8 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.RegisterPage_Constants;
-import static org.junit.Assert.assertTrue;
-import org.junit.Assert;
+import static org.testng.Assert.assertTrue;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -183,7 +183,7 @@ public class RegisterPage extends RegisterPage_Constants {
                 clickSubmit();
                 waitForElement(driver, OPT_WAIT_4_ELEMENT, WARNING_TEXT_ON_MODAL);
 
-                assertTrue("", getElementBy(WARNING_TEXT_ON_MODAL)
+                assertTrue(getElementBy(WARNING_TEXT_ON_MODAL)
                         .getText().equals(prop.getObject("mandatoryFieldMessage")));
 
                 waitForElementClickable(driver,MAX_WAIT_4_ELEMENT,CHECKBOX);
@@ -210,8 +210,8 @@ public class RegisterPage extends RegisterPage_Constants {
 
         waitForElement(driver,MAX_WAIT_4_ELEMENT,WARNING_TEXT_ON_MODAL);
 
-        assertTrue("Uyarı mesajı yanlış", getElementBy(WARNING_TEXT_ON_MODAL).getText()
-                .replace(")","").equals(text));
+        assertTrue(getElementBy(WARNING_TEXT_ON_MODAL).getText()
+                .replace(")","").equals(text), "Uyarı mesajı yanlış");
     }
 
     private WebElement modalTitle() {
@@ -226,8 +226,8 @@ public class RegisterPage extends RegisterPage_Constants {
         gsm.sendKeys(getData(4, 7));
         clickObjectBy(REGISTER_DESC);
 
-        assertTrue("Gsm uyarı texti görülmedi", getElemenstBy(INPUT_ERROR_TEXT, 1).getText()
-                .equals(prop.getObject("gsmPatternMessage")));
+        assertTrue(getElemenstBy(INPUT_ERROR_TEXT, 1).getText()
+                .equals(prop.getObject("gsmPatternMessage")),"Gsm uyarı texti görülmedi");
 
     }
 
@@ -238,8 +238,8 @@ public class RegisterPage extends RegisterPage_Constants {
         email.sendKeys(getData(4, 8));
         clickObjectBy(REGISTER_DESC);
 
-        assertTrue("Email uyarı texti görülmedi", getElemenstBy(INPUT_ERROR_TEXT, 2).getText()
-                .equals(prop.getObject("emailPatternMessage")));
+        assertTrue(getElemenstBy(INPUT_ERROR_TEXT, 2).getText()
+                .equals(prop.getObject("emailPatternMessage")), "Email uyarı texti görülmedi");
 
     }
 
@@ -250,8 +250,8 @@ public class RegisterPage extends RegisterPage_Constants {
         ssn.sendKeys(getData(4, 6));
         clickObjectBy(REGISTER_DESC);
 
-        assertTrue("Tckn uyarı texti görülmedi", getElementBy(INPUT_ERROR_TEXT).getText()
-                .equals(prop.getObject("ssnPatternMessage")));
+        assertTrue(getElementBy(INPUT_ERROR_TEXT).getText()
+                .equals(prop.getObject("ssnPatternMessage")), "Tckn uyarı texti görülmedi");
 
     }
 
@@ -316,15 +316,17 @@ public class RegisterPage extends RegisterPage_Constants {
 
     public RegisterPage checkWarningTextOnModal() throws IOException {
 
-        assertTrue("Uyarı texti hatalı", getElementBy(WARNING_TEXT_ON_MODAL).getText()
-                .replace(")","").equals(prop.getObject("warningTextInvalidInfo")));
+        assertTrue(getElementBy(WARNING_TEXT_ON_MODAL).getText()
+                .replace(")","")
+                .equals(prop.getObject("warningTextInvalidInfo")), "Uyarı texti hatalı");
 
         return this;
     }
 
     private void checkFieldRule(By by, int index) {
         WebElement field = findElements(by).get(index);
-        assertTrue("Alan değer kuralı hatalı", field.getText().isEmpty());
+
+        assertTrue(field.getText().isEmpty(), "Alan değer kuralı hatalı");
 
     }
 
@@ -408,8 +410,8 @@ public class RegisterPage extends RegisterPage_Constants {
 
         for (int i=count; i< inputWarningText.size(); i++){
 
-            assertTrue("Uyarı mesajı görülmedi", inputWarningText.get(i).getText()
-            .equals(propertiesUsernameText().get(i)));
+            assertTrue(inputWarningText.get(i).getText()
+            .equals(propertiesUsernameText().get(i)), "Uyarı mesajı görülmedi");
         }
 
         return this;
@@ -505,8 +507,8 @@ public class RegisterPage extends RegisterPage_Constants {
 
     private void check18YearsMessage () throws IOException {
 
-     assertTrue("18 yaş kontrolü başarısız",getElementBy(INPUT_ERROR_TEXT).getText()
-             .equals((prop.getObject("18yearsMessage"))));
+     assertTrue(getElementBy(INPUT_ERROR_TEXT).getText()
+             .equals((prop.getObject("18yearsMessage"))), "18 yaş kontrolü başarısız");
     }
 
     private boolean isSelectboxMonth() {
@@ -552,7 +554,7 @@ public class RegisterPage extends RegisterPage_Constants {
 
             waitForElement(driver,OPT_WAIT_4_ELEMENT,WARNING_TEXT_ON_MODAL);
 
-            assertTrue("", getElementBy(WARNING_TEXT_ON_MODAL)
+            assertTrue(getElementBy(WARNING_TEXT_ON_MODAL)
                     .getText().equals(prop.getObject("mandatoryFieldMessage")));
 
 
@@ -591,14 +593,14 @@ public class RegisterPage extends RegisterPage_Constants {
 
         waitForElement(driver,OPT_WAIT_4_ELEMENT,SUBMIT);
 
-        assertTrue("Üye ol butonu aktif değil",isEnabled(SUBMIT));
-        assertTrue("Zaten üyeyim butonu mevcut değil",isDisplayed(ALREADY_MEMBER));
+        assertTrue(isEnabled(SUBMIT), "Üye ol butonu aktif değil");
+        assertTrue(isDisplayed(ALREADY_MEMBER), "Zaten üyeyim butonu mevcut değil");
 
         List<WebElement> infoText = findElements(INFO_TEXT);
 
         for (int i=0; i < infoText.size(); i++){
 
-            assertTrue("Checkbox alanları görülmedi", infoText.get(i).isDisplayed());
+            assertTrue(infoText.get(i).isDisplayed(), "Checkbox alanları görülmedi");
         }
 
         return this;

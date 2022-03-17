@@ -1,13 +1,14 @@
 package com.tuttur.util;
 
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -16,11 +17,19 @@ import java.util.Set;
 public class BasePageUtil {
 
 	public WebDriver driver;
+	public String account;
+	public int amount;
 
 	
 	public BasePageUtil(WebDriver driver) {
 
 		this.driver = driver;
+
+	}
+	public BasePageUtil(String account, int amount){
+
+		this.account = account;
+		this.amount = amount;
 	}
 	Random random = new Random();
 	
@@ -62,8 +71,9 @@ public class BasePageUtil {
 
 	public void waitForElementDisappear(WebElement element){
 
-		WebDriverWait wait = new WebDriverWait(driver,DEFAULT_WAIT_4_ELEMENT);
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.invisibilityOf(element));
+
 	}
 
 
@@ -113,7 +123,7 @@ public class BasePageUtil {
 		int loopCount = 3;
 		for (int i=0; i<loopCount; i++){
 
-			Assert.assertTrue("Element görülmedi.", elements.get(i).isDisplayed());
+			Assert.assertTrue(elements.get(i).isDisplayed(), "Element görülmedi.");
 		}
 
 	}
@@ -143,7 +153,7 @@ public class BasePageUtil {
 		for (int i=0; i<elements.size(); i++){
 			System.out.println("elements : "+ elements.get(i).getText());
 
-			Assert.assertTrue("Element görülmedi.", !elements.get(i).getText().isEmpty());
+			Assert.assertTrue(!elements.get(i).getText().isEmpty(), "Element görülmedi.");
 		}
 	}
 	public void assertElementIsEmpty(By element1, By element2, By element3){
@@ -163,7 +173,7 @@ public class BasePageUtil {
 		int loopCount = 3;
 		for (int i=0; i<elements.size(); i++){
 
-			Assert.assertTrue("Element görülmedi.", !elements.get(i).getText().isEmpty());
+			Assert.assertTrue(!elements.get(i).getText().isEmpty(), "Element görülmedi.");
 		}
 	}
 
@@ -225,12 +235,12 @@ public class BasePageUtil {
 
 	
 	public void waitForElement(WebDriver driver, int seconds, By elementBy) {
-		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
 		wait.until(ExpectedConditions.presenceOfElementLocated(elementBy));
 	}
 	public void waitForElementClickable(WebDriver driver, int seconds, By elementBy){
 
-		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
 		wait.until(ExpectedConditions.elementToBeClickable(elementBy));
 	}
 
@@ -242,7 +252,7 @@ public class BasePageUtil {
 						return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
 					}
 				};
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(pageLoadCondition);
 
 	}
@@ -250,13 +260,13 @@ public class BasePageUtil {
 
 	public void waitForElement(WebElement elm , int seconds) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(seconds));
 		wait.until(ExpectedConditions.elementToBeClickable(elm));
 	}
 	
 	public void waitForTextOnElement(WebDriver driver, int seconds, By by, String value) {
 
-		WebDriverWait wait = new WebDriverWait(driver, seconds, 1000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
 		wait.until(ExpectedConditions.textToBePresentInElementLocated(by, value));
 	}
 	
@@ -269,7 +279,6 @@ public class BasePageUtil {
 		}
 	}
 
-	
 	public void selectRandomBirthdayElements(By by, int i) {
 		
 		WebElement dropdownDates = getElemenstBy(by, i);

@@ -4,11 +4,13 @@ import com.tuttur.constants.Navigation_Constants;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -30,7 +32,8 @@ public class NavigationPage extends Navigation_Constants {
         for (int headerIndex = headerCount; headerIndex < headerMenus.size(); headerIndex++) {
 
             headerMenus.get(headerIndex).click();
-            assertEquals(subUrl(), headerMenu().get(headerIndex));
+            Assert.assertEquals(subUrl(), headerMenu().get(headerIndex));
+           // assertEquals(subUrl(), headerMenu().get(headerIndex));
 
             List<WebElement> subMenus = findElements(HEADER_SUBMENU);
 

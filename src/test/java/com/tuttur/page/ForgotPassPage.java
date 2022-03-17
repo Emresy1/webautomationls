@@ -5,9 +5,9 @@ import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.ForgotPass_Constants;
 import com.tuttur.test.ForgotPassTest;
 import com.tuttur.util.ExcelUtil;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -184,16 +184,17 @@ public class ForgotPassPage extends ForgotPass_Constants {
     private void checkPasswordChange() throws IOException {
 
 
-        assertTrue(prop.getObject("failPasswordChange"), getElementBy(SUCCESS_MESSAGE)
-                .getText().substring(0, 26).equals(prop.getObject("passwordChanged")));
+        assertTrue(getElementBy(SUCCESS_MESSAGE)
+                .getText().substring(0, 26)
+                .equals(prop.getObject("passwordChanged")),prop.getObject("failPasswordChange"));
 
     }
 
     public ForgotPassPage checkFailMessage(int index, String message) throws IOException {
         waitForElement(driver, MIN_WAIT_4_ELEMENT, INPUT_ERROR_MESSAGE);
 
-        Assert.assertTrue(prop.getObject("warningTextIncorret"), getElemenstBy(INPUT_ERROR_MESSAGE, index)
-                .getText().equals(message));
+        Assert.assertTrue(getElemenstBy(INPUT_ERROR_MESSAGE, index)
+                .getText().equals(message),prop.getObject("warningTextIncorret"));
         return this;
 
     }
@@ -202,8 +203,9 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
         waitForElement(driver,MIN_WAIT_4_ELEMENT,ERROR_FIELD);
 
-        assertTrue(prop.getObject("warningTextIncorret"), getElementBy(ERROR_FIELD)
-                .getText().equals(prop.getObject("canNotEmptySsnMessage")));
+        assertTrue(getElementBy(ERROR_FIELD)
+                .getText()
+                .equals(prop.getObject("canNotEmptySsnMessage")),prop.getObject("warningTextIncorret"));
         return this;
     }
 
@@ -229,8 +231,9 @@ public class ForgotPassPage extends ForgotPass_Constants {
 
     public ForgotPassPage checkFailChangePassword() throws IOException {
 
-        Assert.assertTrue(prop.getObject("warningTextIncorret"), getElementBy(CHANGE_INPUT_MESSAGE)
-                .getText().equals(prop.getObject("unMatchingPassword")));
+        Assert.assertTrue(getElementBy(CHANGE_INPUT_MESSAGE)
+                .getText()
+                .equals(prop.getObject("unMatchingPassword")),prop.getObject("warningTextIncorret"));
         return this;
 
     }

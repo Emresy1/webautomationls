@@ -5,7 +5,7 @@ import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.MainPage_Constants;
 import com.tuttur.page.MainPage;
 import com.tuttur.util.BasePageUtil;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 
 import java.io.IOException;

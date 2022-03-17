@@ -3,8 +3,7 @@ package com.tuttur.base;
 
 import com.tuttur.configs.PropertiesFile;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.After;
-import org.junit.Before;
+
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +12,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.*;
+
 import java.net.URL;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
@@ -25,13 +27,11 @@ public class BaseTest {
 	   public static final String ACCESS_KEY = "x1ZVYdxWwVSuDpnsbtRY";
 	   public static final String KEY = USERNAME + ":" + ACCESS_KEY;
 
-
 	public WebDriver driver;
 	public static final String testDataExcelFileName = "TestData.xlsx";
 	public static String browserName = null;
 
-
-	@Before
+	@BeforeTest
 	public void setUp() throws Exception {
 
 		PropertiesFile prop = new PropertiesFile(driver);
@@ -93,14 +93,13 @@ public class BaseTest {
 
 		//driver = new RemoteWebDriver(serverurl,capabilities);
 
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get(baseUrl);
 
 	}
 
-
-	@After
+	@AfterTest
 	public void tearDown() {
 
 		driver.quit();

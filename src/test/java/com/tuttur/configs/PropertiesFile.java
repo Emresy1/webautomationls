@@ -34,7 +34,7 @@ public class PropertiesFile extends BasePageUtil{
 
 		try {
 			InputStream input = new FileInputStream(path+"/src/test/java/com/tuttur/configs/config.properties");
-			properties.load(input);	
+			properties.load(input);
 			String browser = properties.getProperty("browser");
 			System.out.println(browser);
 			BaseTest.browserName=browser;

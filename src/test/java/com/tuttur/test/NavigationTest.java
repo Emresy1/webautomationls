@@ -4,7 +4,9 @@ import com.tuttur.base.BaseTest;
 import com.tuttur.page.MainPage;
 import com.tuttur.page.NavigationPage;
 import com.tuttur.util.BasePageUtil;
-import org.junit.Test;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
 import java.io.IOException;
 
 
@@ -19,9 +21,8 @@ public class NavigationTest extends BaseTest {
      * Sosyal medya yönlendirmeleri
      */
 
-    @Test
+    @Test(dependsOnMethods = {"checkRedirectStore"})
     public void checkRedirectSocialMedia () throws IOException, InterruptedException {
-
 
         new MainPage(driver).checkRedirectSocialMediaUrl();
 
@@ -59,7 +60,7 @@ public class NavigationTest extends BaseTest {
      * @throws IOException
      */
 
-    @Test
+    @Test(priority = 2)
     public void checkShortcutMenuRedirect () throws IOException {
 
         new NavigationPage(driver).checkShortcutMenuUrl();

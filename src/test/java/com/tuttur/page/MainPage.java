@@ -6,16 +6,17 @@ import com.tuttur.constants.RegisterPage_Constants;
 import com.tuttur.util.BasePageUtil;
 import com.tuttur.util.ExcelUtil;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import com.tuttur.constants.MainPage_Constants;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Reporter;
 
 import java.io.File;
 import java.io.IOException;
@@ -101,8 +102,8 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkAccountNo(int rowNumber) throws IOException {
 
-        assertTrue(prop.getObject("accountNumberCheck"), getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(rowNumber, 3)));
+        assertTrue(getElementBy(ACCOUNT_NO).getText()
+                .equals(getData(rowNumber, 3)),prop.getObject("accountNumberCheck"));
 
         return this;
     }
@@ -112,8 +113,8 @@ public class MainPage extends MainPage_Constants {
 
         waitForElement(driver, MIN_WAIT_4_ELEMENT, USERNAMETEXT);
 
-        assertTrue(prop.getObject("usernameCheck"), getElementBy(USERNAMETEXT).getText()
-                .equals(getData(rowNumber, cellNumber)));
+        assertTrue(getElementBy(USERNAMETEXT).getText()
+                .equals(getData(rowNumber, cellNumber)),prop.getObject("usernameCheck"));
 
 
         return this;
@@ -124,8 +125,8 @@ public class MainPage extends MainPage_Constants {
         String headerUser = username;
         waitForElement(driver, OPT_WAIT_4_ELEMENT, USERNAMETEXT);
 
-        assertTrue("x", getElementBy(USERNAMETEXT).getText()
-                .equals(headerUser));
+        assertTrue(getElementBy(USERNAMETEXT).getText()
+                .equals(headerUser),"x");
 
         return this;
     }
@@ -137,8 +138,8 @@ public class MainPage extends MainPage_Constants {
 
     public MainPage checkRegisterLogin() throws InterruptedException, IOException {
 
-        assertTrue(prop.getObject("unsuccessfullyLoginAfterRegister"), getElementBy(ACCOUNT_NO).getText()
-                .equals(getData(5, 10)));
+        assertTrue(getElementBy(ACCOUNT_NO).getText()
+                .equals(getData(5, 10)),prop.getObject("unsuccessfullyLoginAfterRegister"));
         return this;
     }
 
@@ -191,6 +192,7 @@ public class MainPage extends MainPage_Constants {
             driver.close();
 
             switchToWindows();
+
 
         }
 
@@ -265,8 +267,10 @@ public class MainPage extends MainPage_Constants {
                 }
             }
         }
-        Assert.assertTrue("Apk bulunamadı", found);
+        Assert.assertTrue(found, "Apk bulunamadı");
         file.deleteOnExit();
+
+
     }
 
     private List<String> socialMediaUrl() throws IOException {
@@ -387,7 +391,6 @@ public class MainPage extends MainPage_Constants {
 
         //String oddd = getElementBy(SELECTED_ODD).getText().substring(0, 7).trim();
         //String of = getElementBy(EVENT_CONTENT_INFO).getText().substring(0, 7).trim();
-
 
         return this;
     }

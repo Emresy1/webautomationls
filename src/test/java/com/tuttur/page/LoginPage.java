@@ -2,18 +2,22 @@ package com.tuttur.page;
 
 import com.tuttur.configs.PropertiesFile;
 import com.tuttur.constants.LoginPage_Constants;
-import static org.junit.Assert.assertTrue;
+import static org.testng.Assert.assertTrue;
 
+import com.tuttur.test.DashboardTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.io.IOException;
 
 
+
+
 public class LoginPage extends LoginPage_Constants {
 
     public LoginPage(WebDriver driver) {
         super(driver);
+
     }
 
     PropertiesFile prop = new PropertiesFile(driver);
@@ -59,11 +63,15 @@ public class LoginPage extends LoginPage_Constants {
             }
         }
 
-    public MainPage login(int rowNumber, String contract) throws IOException, InterruptedException {
+    public MainPage login(String name, String contract) throws IOException, InterruptedException {
 
+        setUsername(name);
+        setPassword(contract);
 
-        setUsername(getData(rowNumber, 1));
-        setPassword(getData(rowNumber, 2));
+       // setUsername("Sarginen7");
+
+        //setUsername(getData(rowNumber, 1));
+        //setPassword(getData(rowNumber, 2));
 
         WebElement buttonLogin = getElementBy(BUTTON_LOGIN_ON_POPUP);
 
@@ -104,14 +112,14 @@ public class LoginPage extends LoginPage_Constants {
 
     public void checkWarningMessageOnModal(String message) throws IOException {
 
-        assertTrue(prop.getObject("failLoginCheck"), getElementBy(MODAL_ERROR_TEXT)
-           .getText().equals(message));
+        assertTrue(getElementBy(MODAL_ERROR_TEXT)
+           .getText().equals(message), prop.getObject("failLoginCheck"));
     }
 
     public LoginPage checkInputErrorMessages(int index, String message) throws IOException {
 
-        assertTrue(prop.getObject("errorMessageCheck"), getElemenstBy(INPUT_ERROR_TEXT, index).getText()
-                .equals(message));
+        assertTrue(getElemenstBy(INPUT_ERROR_TEXT, index).getText()
+                .equals(message), prop.getObject("errorMessageCheck"));
         return this;
     }
 
