@@ -28,9 +28,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="TestNG">
+    <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="import testng assert">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/test/NavigationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/NavigationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/constants/MainPage_Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/page/MainPage.class" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +88,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.13140607" />
     <property name="settings.editor.selected.configurable" value="reactor" />
@@ -103,7 +106,7 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BetSlipTest.ContinuingTabTest">
+  <component name="RunManager" selected="TestNG.NavigationTest.checkRedirectStore">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -147,22 +150,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CampaignsTest.campaignTypeTwoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.CampaignsTest" />
-      <option name="METHOD_NAME" value="campaignTypeTwoTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NavigationTest.checkRedirectSocialMedia" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
@@ -195,20 +182,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NavigationTest.checkRedirectStore" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.NavigationTest" />
+      <option name="METHOD_NAME" value="checkRedirectStore" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />
       <item itemvalue="JUnit.NavigationTest.checkRedirectSocialMedia" />
       <item itemvalue="JUnit.NavigationTest.checkRedirectStore" />
       <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest" />
       <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest (1)" />
+      <item itemvalue="TestNG.NavigationTest.checkRedirectStore" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.NavigationTest.checkRedirectStore" />
         <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest" />
         <item itemvalue="JUnit.BetSlipTest.ContinuingTabTest (1)" />
         <item itemvalue="JUnit.NavigationTest.checkRedirectStore" />
         <item itemvalue="JUnit.NavigationTest.checkRedirectSocialMedia" />
-        <item itemvalue="JUnit.CampaignsTest.campaignTypeTwoTest" />
       </list>
     </recent_temporary>
   </component>
@@ -288,13 +293,6 @@
       <workItem from="1630784613781" duration="46564000" />
       <workItem from="1631524811383" duration="10443000" />
       <workItem from="1631633613543" duration="370000" />
-    </task>
-    <task id="LOCAL-00113" summary="selenium html report plugin">
-      <created>1630431894408</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1630431894408</updated>
     </task>
     <task id="LOCAL-00114" summary="selenium html report plugin">
       <created>1630432087327</created>
@@ -632,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647514641742</updated>
     </task>
-    <option name="localTasksCounter" value="162" />
+    <task id="LOCAL-00162" summary="import testng assert">
+      <created>1647515178448</created>
+      <option name="number" value="00162" />
+      <option name="presentableId" value="LOCAL-00162" />
+      <option name="project" value="LOCAL" />
+      <updated>1647515178448</updated>
+    </task>
+    <option name="localTasksCounter" value="163" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +669,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="selenium html report plugin" />
     <MESSAGE value="pom.xml maven-surefire-report-plugin" />
     <MESSAGE value="pom.xml maven-site-plugin" />
     <MESSAGE value="maven site plugin" />
@@ -689,7 +693,8 @@
     <MESSAGE value="MainPage.addEventToBetSlip random select event" />
     <MESSAGE value="MainPage.continuingTabControl" />
     <MESSAGE value="TestNG" />
-    <option name="LAST_COMMIT_MESSAGE" value="TestNG" />
+    <MESSAGE value="import testng assert" />
+    <option name="LAST_COMMIT_MESSAGE" value="import testng assert" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

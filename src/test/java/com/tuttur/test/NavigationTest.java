@@ -21,7 +21,7 @@ public class NavigationTest extends BaseTest {
      * Sosyal medya yönlendirmeleri
      */
 
-    @Test(dependsOnMethods = {"checkRedirectStore"})
+    @Test(priority = 0)
     public void checkRedirectSocialMedia () throws IOException, InterruptedException {
 
         new MainPage(driver).checkRedirectSocialMediaUrl();
@@ -33,7 +33,7 @@ public class NavigationTest extends BaseTest {
      * Market yönlendirmeleri
      */
 
-    @Test
+    @Test(priority = 1)
     public void checkRedirectStore() throws IOException {
 
         new MainPage(driver).checkRedirectStoreUrl()
