@@ -1,0 +1,29 @@
+-------------------------------------------------------------------------------
+Test set: com.tuttur.test.LoginTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 154.941 s <<< FAILURE! - in com.tuttur.test.LoginTest
+com.tuttur.test.LoginTest.successfullyLoginWithUsername  Time elapsed: 11.392 s  <<< FAILURE!
+java.lang.AssertionError: Kullanıcı adı doğru değil
+	at com.tuttur.test.LoginTest.successfullyLoginWithUsername(LoginTest.java:54)
+
+com.tuttur.test.LoginTest.successfullyLoginWithAccountNo  Time elapsed: 8.185 s  <<< FAILURE!
+java.lang.AssertionError: Account numarası doğru değil
+	at com.tuttur.test.LoginTest.successfullyLoginWithAccountNo(LoginTest.java:37)
+
+com.tuttur.test.LoginTest.successfulllyLoginWithSsn  Time elapsed: 37.521 s  <<< ERROR!
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.className: headerTop-userMenu-userNameText (tried for 2 second(s) with 1000 milliseconds interval)
+	at com.tuttur.test.LoginTest.successfulllyLoginWithSsn(LoginTest.java:71)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"class name","selector":"headerTop-userMenu-userNameText"}
+  (Session info: chrome=92.0.4515.159)
+  (Driver info: chromedriver=72.0.3626.7 (efcef9a3ecda02b2132af215116a03852d08b9cb),platform=Mac OS X 10.15.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Emre-MacBook-Pro.local', ip: 'fe80:0:0:0:1cda:8f29:7505:f9ba%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.15.6', java.version: '15.0.1'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, acceptSslCerts: true, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 72.0.3626.7 (efcef9a3ecda02..., userDataDir: /var/folders/1x/8x61f40j2n7...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:52023}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 92.0.4515.159, webStorageEnabled: true}
+Session ID: c3ebd65b4a16f104c9055b9e11318265
+*** Element info: {Using=class name, value=headerTop-userMenu-userNameText}
+	at com.tuttur.test.LoginTest.successfulllyLoginWithSsn(LoginTest.java:71)
+
