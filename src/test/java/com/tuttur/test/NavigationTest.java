@@ -55,6 +55,7 @@ public class NavigationTest extends BaseTest {
 //    }
 
 
+
     /**
      * Case 1.3
      * Banner üstü kısayol yönlendirmeleri
