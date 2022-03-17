@@ -119,6 +119,13 @@ public class MainPage_Constants extends BasePageUtil{
     public By COUPON_DETAIL_SUMMARY = By.className("iddaaCouponItemDetail");
     public By BTN_LIVE_MATCH_BETSLIP = By.cssSelector(".medium.primary.button.undefined");
     public By COUPON_DETAIL_DATE = By.className("iddaaCouponEventRow-eventDateText");
+    public By PLAY_AGAIN_BTN = By.cssSelector(".medium.primary.iddaaCouponDetailBottom-playAgainButton");
+    public By KEEP_MY_CHOICES = By.cssSelector(".medium.primary.button.undefined");
+    public By RETURN_TO_BULLETIN= By.cssSelector(".basicButtonProps.undefined");
+    public By MY_COUPON_BTN = By.cssSelector(".basicButtonProps.undefined");
+    public By CHANGE_OUTCOME_TEXT = By.className("changedOutComeListItem");
+    public By ACCEPT_AND_PLAY_BTN = By.cssSelector(".medium.primary.button.undefined");
+    public By RETURN_TO_COUPON_BTN = By.cssSelector(".basicButtonProps.undefined");
 
 
 
