@@ -1,15 +1,14 @@
 package com.tuttur.util;
 
 
-import org.testng.Assert;
+
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -17,23 +16,21 @@ import java.util.Set;
 public class BasePageUtil {
 
 	public WebDriver driver;
-	public String account;
+	public AndroidDriver androidDriver;
 	public int amount;
 
-	
+
 	public BasePageUtil(WebDriver driver) {
 
 		this.driver = driver;
 
 	}
-	public BasePageUtil(String account, int amount){
-
-		this.account = account;
-		this.amount = amount;
+	public BasePageUtil(AndroidDriver androidDriver){
+		this.androidDriver = androidDriver;
 	}
+
 	Random random = new Random();
-	
-	
+
     public static final int DEFAULT_WAIT_4_ELEMENT = 10;
     public static final int OPT_WAIT_4_ELEMENT = 5;
     public static final int MIN_WAIT_4_ELEMENT = 2;
@@ -75,6 +72,10 @@ public class BasePageUtil {
 		wait.until(ExpectedConditions.invisibilityOf(element));
 
 	}
+	public int elementSize(By by){
+
+    	return driver.findElements(by).size();
+	}
 
 
 	public void waitForInvisibility(WebElement webElement, int maxSeconds) {
@@ -110,71 +111,11 @@ public class BasePageUtil {
 		element.sendKeys(value);
 	}
 
-	public void assertDisplayed(By element1, By element2, By element3){
-
-		WebElement elm1 = getElementBy(element1);
-		WebElement elm2 = getElementBy(element2);
-		WebElement elm3 = getElementBy(element3);
-		ArrayList<WebElement> elements = new ArrayList<WebElement>();
-		elements.add(elm1);
-		elements.add(elm2);
-		elements.add(elm3);
-
-		int loopCount = 3;
-		for (int i=0; i<loopCount; i++){
-
-			Assert.assertTrue(elements.get(i).isDisplayed(), "Element görülmedi.");
-		}
-
-	}
-
 	public void setObjectsBy(By by, int index ,String value ) {
 
 		WebElement element = getElemenstBy(by,index);
 		element.sendKeys(value);
 
-	}
-	public void assertElementsIsEmpty(By element1, By element2, By element3){
-
-		ArrayList<WebElement> elements = new ArrayList<WebElement>();
-		int size = 4;
-
-		for (int i=0; i < size; i++){
-
-			List<WebElement> elm1 = driver.findElements(element1);
-			List<WebElement> elm2 = driver.findElements(element2);
-			List<WebElement> elm3 = driver.findElements(element3);
-			elements.add(elm1.get(i));
-			elements.add(elm2.get(i));
-			elements.add(elm3.get(i));
-		}
-
-		int loopCount = 3;
-		for (int i=0; i<elements.size(); i++){
-			System.out.println("elements : "+ elements.get(i).getText());
-
-			Assert.assertTrue(!elements.get(i).getText().isEmpty(), "Element görülmedi.");
-		}
-	}
-	public void assertElementIsEmpty(By element1, By element2, By element3){
-
-		ArrayList<WebElement> elements = new ArrayList<WebElement>();
-		int size = 4;
-		for (int i=0; i < size; i++){
-			WebElement elm1 = getElementBy(element1);
-			WebElement elm2 = getElementBy(element2);
-			WebElement elm3 = getElementBy(element3);
-			elements.add(elm1);
-			elements.add(elm2);
-			elements.add(elm3);
-		}
-
-
-		int loopCount = 3;
-		for (int i=0; i<elements.size(); i++){
-
-			Assert.assertTrue(!elements.get(i).getText().isEmpty(), "Element görülmedi.");
-		}
 	}
 
 	

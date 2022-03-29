@@ -11,7 +11,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 
-import com.tuttur.base.BaseTest;
+import com.tuttur.tutturWeb.base.BaseTest;
 import com.tuttur.util.BasePageUtil;
 
 public class PropertiesFile extends BasePageUtil{
@@ -19,6 +19,8 @@ public class PropertiesFile extends BasePageUtil{
 		super(driver);
 		// TODO Auto-generated constructor stub
 	}
+
+
 	static Properties properties = new Properties();
 	static String path = System.getProperty("user.dir");
 	

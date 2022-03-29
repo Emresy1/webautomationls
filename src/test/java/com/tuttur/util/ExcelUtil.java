@@ -1,7 +1,6 @@
 package com.tuttur.util;
 
-import com.tuttur.base.BasePage;
-import org.apache.commons.compress.utils.IOUtils;
+import com.tuttur.tutturWeb.base.BasePage;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-import static com.tuttur.base.BaseTest.testDataExcelFileName;
+import static com.tuttur.tutturWeb.base.BaseTest.testDataExcelFileName;
 
 public class ExcelUtil extends BasePage {
 

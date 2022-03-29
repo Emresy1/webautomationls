@@ -2,15 +2,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Web Test-Suite" >
     <test name="Navigasyon Test" >
+        <groups>
+            <run>
+
+            </run>
+        </groups>
         <classes>
-            <class name="com.tuttur.test.NavigationTest"></class>
-        </classes>
-    </test>
-    <test name="Login Test">
-        <parameter name="username" value="emresy11"/>
-        <parameter name="password" value="emre12345"/>
-        <classes>
-            <class name="com.tuttur.test.LoginTest"></class>
+            <class name="com.tuttur.tutturWeb.test.NavigationTest"></class>
+            <class name="com.tuttur.tutturWeb.test.LoginTest"></class>
+            <class name="com.tuttur.tutturWeb.test.RegisterTest"></class>
+            <class name="com.tuttur.tutturWeb.test.ForgotPassTest"></class>
+            <class name="com.tuttur.tutturWeb.test.DashboardTest"></class>
+            <class name="com.tuttur.tutturWeb.test.CampaignsTest"></class>
+            <class name="com.tuttur.tutturWeb.test.BetSlipTest"></class>
         </classes>
     </test>
 </suite>
