@@ -1,6 +1,5 @@
 package com.tuttur.util;
 
-import com.tuttur.tutturWeb.base.BasePage;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -16,9 +15,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-import static com.tuttur.tutturWeb.base.BaseTest.testDataExcelFileName;
+import static com.tuttur.base.web.BaseTest.testDataExcelFileName;
 
-public class ExcelUtil extends BasePage {
+public class ExcelUtil extends BasePageUtil {
 
 
     public static final String currentDir = System.getProperty("user.dir");

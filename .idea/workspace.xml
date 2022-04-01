@@ -29,7 +29,93 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9f01898-7a91-401d-8e95-2f7e34d132fa" name="Default Changelist" comment="android app set up">
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturApp/android/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturApp/android/LoginTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/app/DashboardPage_Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/constants/web/DashboardPage_Constants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/interfaces/IMainPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/android/DashboardPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/android/ProfilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/PropertiesFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/PropertiesFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/configs/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturApp/android/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/android/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturApp/android/page/DashboardPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturApp/android/page/LoginModal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturApp/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/app/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/base/BasePage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/base/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/base/web/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/mweb/constants/M_LoginPage_Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/mweb/constants/M_MainPage_Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/mweb/page/M_LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/mweb/M_LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/mweb/page/M_MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/mweb/M_DashboardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/mweb/test/M_LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/mweb/M_LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/BetSlipTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/CampaignsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/DashboardTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/ForgotPassTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/test/web/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/NavigationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/RegisterTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/constants/CampaignsPage_Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/constants/EventDetailPage_Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/constants/ForgotPass_Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/constants/LoginPage_Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/constants/MainPage_Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/constants/Navigation_Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/constants/RegisterPage_Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/constants/WelcomePage_Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/CampaignsPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/DbQueriesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/database/DatabasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/EventDetailPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/ForgotPassPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/GeneralPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/LoginPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/page/web/DashboardPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/NavigationPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/RegisterPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/WelcomePage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/util/BasePageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/tuttur/util/ExcelUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tuttur/util/ExcelUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/configs/PropertiesFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/configs/PropertiesFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturApp/android/LoginTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturApp/android/page/DashboardPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturApp/android/page/LoginModal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturApp/base/BaseTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/base/BasePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/base/BaseTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/mweb/constants/M_LoginPage_Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/mweb/constants/M_MainPage_Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/mweb/page/M_LoginPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/mweb/page/M_MainPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/mweb/test/M_LoginTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/test/BetSlipTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/test/CampaignsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/test/DashboardTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/test/ForgotPassTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/test/LoginTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/test/NavigationTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/test/RegisterTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/constants/CampaignsPage_Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/constants/EventDetailPage_Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/constants/ForgotPass_Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/constants/LoginPage_Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/constants/MainPage_Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/constants/Navigation_Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/constants/RegisterPage_Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/constants/WelcomePage_Constants.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/page/CampaignsPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/page/DbQueriesPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/page/EventDetailPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/page/ForgotPassPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/page/GeneralPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/page/LoginPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/page/MainPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/page/NavigationPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/page/RegisterPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/tutturWeb/web/page/WelcomePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/BasePageUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/ExcelUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tuttur/util/ExcelUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
     </list>
     <list id="627ad0b4-5e86-4b98-80e9-53946f9f2b85" name="registerPage transition to csv" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,9 +126,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="package.json" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -123,31 +209,48 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.LoginTest.test">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.M_LoginTest.successfullLogin">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DashboardTest.liveWidgetTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="webautomation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tuttur.test.web.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.tuttur.tutturWeb.test" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.web.DashboardTest" />
+      <option name="METHOD_NAME" value="liveWidgetTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.successfullLogin" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tuttur.tutturApp.android.*" />
+          <option name="PATTERN" value="com.tuttur.test.android.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.app.android" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.tutturApp.android.LoginTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="PACKAGE_NAME" value="com.tuttur.test.android" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.android.LoginTest" />
+      <option name="METHOD_NAME" value="successfullLogin" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -158,31 +261,14 @@
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tuttur.tutturApp.android.*" />
+          <option name="PATTERN" value="com.tuttur.test.android.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.app.android" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.tutturApp.android.LoginTest" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.android.LoginTest" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="M_LoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="webautomation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.tuttur.tutturWeb.mweb.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.mweb.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.tutturWeb.mweb.test.M_LoginTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -193,12 +279,12 @@
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tuttur.tutturWeb.mweb.test.*" />
+          <option name="PATTERN" value="com.tuttur.test.mweb.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.tuttur.mweb.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.tutturWeb.mweb.test.M_LoginTest" />
+      <option name="PACKAGE_NAME" value="com.tuttur.test.mweb" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.mweb.M_LoginTest" />
       <option name="METHOD_NAME" value="successfullLogin" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
@@ -211,12 +297,12 @@
       <module name="webautomation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tuttur.tutturWeb.test.*" />
+          <option name="PATTERN" value="com.tuttur.test.web.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.tuttur.test" />
-      <option name="MAIN_CLASS_NAME" value="com.tuttur.tutturWeb.test.NavigationTest" />
+      <option name="MAIN_CLASS_NAME" value="com.tuttur.test.web.NavigationTest" />
       <option name="METHOD_NAME" value="checkRedirectSocialMedia" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
@@ -227,18 +313,18 @@
     </configuration>
     <list>
       <item itemvalue="TestNG.NavigationTest.checkRedirectSocialMedia" />
-      <item itemvalue="TestNG.M_LoginTest.successfullLogin" />
-      <item itemvalue="TestNG.M_LoginTest" />
       <item itemvalue="TestNG.LoginTest.test" />
-      <item itemvalue="TestNG.LoginTest" />
+      <item itemvalue="TestNG.DashboardTest.liveWidgetTest" />
+      <item itemvalue="TestNG.LoginTest.successfullLogin" />
+      <item itemvalue="TestNG.M_LoginTest.successfullLogin" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.LoginTest.test" />
-        <item itemvalue="TestNG.NavigationTest.checkRedirectSocialMedia" />
-        <item itemvalue="TestNG.LoginTest" />
-        <item itemvalue="TestNG.M_LoginTest" />
         <item itemvalue="TestNG.M_LoginTest.successfullLogin" />
+        <item itemvalue="TestNG.LoginTest.successfullLogin" />
+        <item itemvalue="TestNG.LoginTest.test" />
+        <item itemvalue="TestNG.DashboardTest.liveWidgetTest" />
+        <item itemvalue="TestNG.NavigationTest.checkRedirectSocialMedia" />
       </list>
     </recent_temporary>
   </component>
@@ -330,14 +416,8 @@
       <workItem from="1647854728871" duration="5549000" />
       <workItem from="1647952988284" duration="13603000" />
       <workItem from="1648146724716" duration="4834000" />
-      <workItem from="1648236286528" duration="11388000" />
-    </task>
-    <task id="LOCAL-00118" summary="pom.xml maven-surefire-report-plugin">
-      <created>1630482629085</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1630482629085</updated>
+      <workItem from="1648236286528" duration="12062000" />
+      <workItem from="1648587551055" duration="13881000" />
     </task>
     <task id="LOCAL-00119" summary="pom.xml maven-surefire-report-plugin">
       <created>1630484903025</created>
@@ -675,7 +755,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648552420145</updated>
     </task>
-    <option name="localTasksCounter" value="167" />
+    <task id="LOCAL-00167" summary="android app set up">
+      <created>1648552530466</created>
+      <option name="number" value="00167" />
+      <option name="presentableId" value="LOCAL-00167" />
+      <option name="project" value="LOCAL" />
+      <updated>1648552530466</updated>
+    </task>
+    <option name="localTasksCounter" value="168" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -738,87 +825,24 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/ForgotPassTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/web/ForgotPassTest.java</url>
           <line>28</line>
           <option name="timeStamp" value="164" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/ForgotPassPage.java</url>
-          <line>136</line>
-          <option name="timeStamp" value="178" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/ForgotPassTest.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="180" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/RegisterTest.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="184" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/RegisterTest.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="187" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/RegisterTest.java</url>
-          <line>201</line>
-          <option name="timeStamp" value="189" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/RegisterTest.java</url>
-          <line>122</line>
-          <option name="timeStamp" value="190" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/RegisterTest.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="192" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/web/page/NavigationPage.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="198" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/CampaignsTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/web/CampaignsTest.java</url>
           <line>134</line>
           <option name="timeStamp" value="201" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/DashboardTest.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="203" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/CampaignsTest.java</url>
+          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/test/web/CampaignsTest.java</url>
           <line>83</line>
           <option name="timeStamp" value="204" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/test/DashboardTest.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="217" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturWeb/mweb/test/M_LoginTest.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="228" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.AssertionError" package="java.lang" />
           <option name="timeStamp" value="151" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/com/tuttur/tutturApp/base/BaseTest.java</url>
-          <line>20</line>
-          <properties class="com.tuttur.tutturApp.base.BaseTest" method="setUp">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="229" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

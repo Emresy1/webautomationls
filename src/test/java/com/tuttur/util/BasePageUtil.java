@@ -1,13 +1,16 @@
 package com.tuttur.util;
 
 
+import io.appium.java_client.AppiumDriver;
 
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.AppiumFluentWait;
+import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.Random;
@@ -16,7 +19,10 @@ import java.util.Set;
 public class BasePageUtil {
 
 	public WebDriver driver;
-	public AndroidDriver androidDriver;
+	public AppiumDriver appiumDriver;
+
+
+
 	public int amount;
 
 
@@ -25,9 +31,11 @@ public class BasePageUtil {
 		this.driver = driver;
 
 	}
-	public BasePageUtil(AndroidDriver androidDriver){
-		this.androidDriver = androidDriver;
+
+	public BasePageUtil(AppiumDriver appiumDriver){
+		this.appiumDriver = appiumDriver;
 	}
+
 
 	Random random = new Random();
 
@@ -75,6 +83,13 @@ public class BasePageUtil {
 	public int elementSize(By by){
 
     	return driver.findElements(by).size();
+	}
+
+	// Uygulamalarda belirlenen element ekranda görülene dek bekler.
+	public void waitForPresenceOfBy(AppiumDriver appiumDriver, By by){
+
+		WebDriverWait wait = new WebDriverWait(appiumDriver, Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.presenceOfElementLocated(by));
 	}
 
 

@@ -9,16 +9,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
-import org.openqa.selenium.WebDriver;
+import com.tuttur.base.web.BaseTest;
 
-import com.tuttur.tutturWeb.base.BaseTest;
-import com.tuttur.util.BasePageUtil;
-
-public class PropertiesFile extends BasePageUtil{
-	public PropertiesFile(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}
+public class PropertiesFile {
 
 
 	static Properties properties = new Properties();

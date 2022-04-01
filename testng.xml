@@ -8,13 +8,13 @@
             </run>
         </groups>
         <classes>
-            <class name="com.tuttur.tutturWeb.test.NavigationTest"></class>
-            <class name="com.tuttur.tutturWeb.test.LoginTest"></class>
-            <class name="com.tuttur.tutturWeb.test.RegisterTest"></class>
-            <class name="com.tuttur.tutturWeb.test.ForgotPassTest"></class>
-            <class name="com.tuttur.tutturWeb.test.DashboardTest"></class>
-            <class name="com.tuttur.tutturWeb.test.CampaignsTest"></class>
-            <class name="com.tuttur.tutturWeb.test.BetSlipTest"></class>
+            <class name="com.tuttur.test.web.NavigationTest"></class>
+            <class name="com.tuttur.test.web.LoginTest"></class>
+            <class name="com.tuttur.test.web.RegisterTest"></class>
+            <class name="com.tuttur.test.web.ForgotPassTest"></class>
+            <class name="com.tuttur.test.web.DashboardTest"></class>
+            <class name="com.tuttur.test.web.CampaignsTest"></class>
+            <class name="com.tuttur.test.web.BetSlipTest"></class>
         </classes>
     </test>
 </suite>
