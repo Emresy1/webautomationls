@@ -1,20 +1,25 @@
 package com.tuttur.page.android;
 
 
-import com.tuttur.constants.app.DashboardPage_Constants;
+import com.tuttur.constants.app.A_DashboardPage_Constants;
 import com.tuttur.interfaces.IMainPage;
+import com.tuttur.page.mweb.M_LoginPage;
+
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.By;
 
-public class DashboardPage  extends DashboardPage_Constants implements IMainPage {
+
+public class DashboardPage extends A_DashboardPage_Constants implements IMainPage {
+
 
     public DashboardPage(AppiumDriver appiumDriver) {
         super(appiumDriver);
     }
 
-    @Override
-    public void getLoginPage() {
+    public LoginModal getLoginPage() {
 
-        appiumDriver.findElement(By.id("com.tuttur.tuttur_mobile_android:id/Login")).click();
+        driver.findElement(By.id("com.tuttur.tuttur_mobile_android:id/Login")).click();
+
+        return new LoginModal(appiumDriver);
     }
 }

@@ -12,7 +12,9 @@ public class LoginTest extends BaseTest {
     @Test
     public void successfullLogin(){
 
-        new DashboardPage(appiumDriver).getLoginPage();
+        new DashboardPage(appiumDriver)
+                .getLoginPage()
+                .login("gokhansangar", "Sangar123");
     }
 
 
