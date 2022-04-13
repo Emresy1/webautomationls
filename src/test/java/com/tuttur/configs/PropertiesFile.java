@@ -9,7 +9,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Properties;
 
-import com.tuttur.base.web.BaseTest;
+import com.tuttur.base.web.BasePage;
 
 public class PropertiesFile {
 
@@ -30,9 +30,8 @@ public class PropertiesFile {
 		try {
 			InputStream input = new FileInputStream(path+"/src/test/java/com/tuttur/configs/config.properties");
 			properties.load(input);
-			String browser = properties.getProperty("browser");
-			System.out.println(browser);
-			BaseTest.browserName=browser;
+			String runPlatform = properties.getProperty("platform");
+			BasePage.runPlatform=runPlatform;
 				
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

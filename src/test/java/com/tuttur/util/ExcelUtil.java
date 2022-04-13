@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 
-import static com.tuttur.base.web.BaseTest.testDataExcelFileName;
+import static com.tuttur.base.web.BasePage.testDataExcelFileName;
 
 public class ExcelUtil extends BasePageUtil {
 

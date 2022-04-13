@@ -10,6 +10,7 @@
 hs_err_pid*
 /bin1/
 java/build/**
+properties/
 
 ##############################
 ## Maven
@@ -88,3 +89,4 @@ nb-configuration.xml
 
 # Inclusions
 !lib/**
+

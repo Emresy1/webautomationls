@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeTest;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class BaseTest  {
+public class BasePage  {
 
     public AppiumDriver appiumDriver;
     String path = System.getProperty("user.dir");
