@@ -47,6 +47,6 @@ public class BasePage  {
         appiumDriver = new AppiumDriver(serverUrl,desiredCapabilities);
         //new BasePageUtil(appiumDriver).waitForPresenceOfBy(appiumDriver,By.id("com.tuttur.tuttur_mobile_android:id/Login"));
 
-       // appiumDriver = new AndroidDriver(url, desiredCapabilities);
+       // appiumDriver = new AndroidDriver(url, desiredCapabilities); //
     }
 }
