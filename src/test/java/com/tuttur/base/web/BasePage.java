@@ -48,7 +48,7 @@ public class BasePage {
 
 		//DesiredCapabilities capabilities = new DesiredCapabilities();
 		
-		System.out.print("pplaatformmmmmmmmmmmmm: "+runPlatform);
+		//System.out.print("pplaatformmmmmmmmmmmmm: "+runPlatform);
 		if (runPlatform.equalsIgnoreCase("web")) {
 
 			HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
